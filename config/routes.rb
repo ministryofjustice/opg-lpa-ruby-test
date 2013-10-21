@@ -1,5 +1,10 @@
 OpgLpa::Application.routes.draw do
-  resources :lpas
+  root "lpas#index"
+  resources :lpas do
+    collection do
+      get :find
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
