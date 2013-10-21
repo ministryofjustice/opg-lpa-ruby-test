@@ -14,5 +14,13 @@ describe Lpa do
   		stub_request(:put, Lpa::Host).to_return(:status => 400)
   		@lpa.update({}).should be_false
   	end
+
+  	it "should save the errors on validation failure" do
+  		errors = {"errors" => {'donor' => {'title' => 'is missing'}}}
+  		stub_request(:put, Lpa::Host).to_return(:status => 400, :body => errors.to_json)
+  		@lpa.errors.should be_blank
+  	  @lpa.update({})
+			@lpa.errors.should == errors['errors']
+  	end
   end
 end

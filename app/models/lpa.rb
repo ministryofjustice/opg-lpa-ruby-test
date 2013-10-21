@@ -1,20 +1,24 @@
 class Lpa
   include ActiveModel::Model
-  attr_accessor :id, :title, :first_name
+  attr_accessor :id, :title, :first_name, :errors
 
-  Host = "http://blargh"
+  Host = "http://127.0.0.1"
 
   def persisted?
-  	true
+    true
   end
 
   def id
-  	3
+    3
   end
 
   def update(params)
-  	RestClient.put Host, params, :content_type => :json, :accept => :json
-  rescue RestClient::BadRequest
-  	false
+    response = Typhoeus.put Host, body: params
+    if response.success?
+      true
+    else
+      self.errors = JSON.parse(response.body)["errors"] if response.body.present?
+      false
+    end
   end
 end
