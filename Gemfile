@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-gem 'mongoid'
+gem 'mongoid', '~> 4.0.0', github: 'mongoid/mongoid'
+gem "devise"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -33,6 +34,12 @@ end
 
 group :development, :test do
 	gem 'rspec-rails'
+	gem "capybara"
+	gem "database_cleaner"
+	gem "mongoid-rspec"
+	gem "cucumber-rails"
+	gem "launchy"
+	gem "factory_girl_rails"
 end
 
 # Use ActiveModel has_secure_password
