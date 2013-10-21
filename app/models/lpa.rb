@@ -1,5 +1,7 @@
 class Lpa
-  include ActiveModel::Model
+  extend  ActiveModel::Naming
+  extend  ActiveModel::Translation
+  include ActiveModel::Conversion
   attr_accessor :id, :title, :first_name, :errors
 
   Host = "http://127.0.0.1"
