@@ -1,0 +1,7 @@
+<%= form_for @lpa do |f| %>
+	<%= f.label :title %>
+	<%= f.select :title, ["Mr", "Ms"] %>
+	<%= f.label :first_name %>
+	<%= f.text_field :first_name %>
+	<%= f.submit "Save and continue" %>
+<% end %>
