@@ -1,7 +1,13 @@
 <%= form_for @lpa do |f| %>
-	<%= f.label :title %>
-	<%= f.select :title, ["Mr", "Ms"] %>
-	<%= f.label :first_name %>
-	<%= f.text_field :first_name %>
-	<%= f.submit "Save and continue" %>
+LPA:
+  <%= f.label :type %>
+  <%= f.select :type, ["Financial", "Welfare"] %>
+Donor:
+  <%= f.fields_for @lpa.donor do |donor_form| %> 
+    <%= donor_form.label "title" %>
+    <%= donor_form.select "title", ["Mr", "Ms"] %>
+    <%= donor_form.label "first_name" %>
+    <%= donor_form.text_field "first_name" %>
+    <%= donor_form.submit "Save and continue" %>
+  <% end %>
 <% end %>

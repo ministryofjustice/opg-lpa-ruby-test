@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 
 
 gem "typhoeus"
+gem "activeresource", '4.0.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -33,9 +34,13 @@ group :doc do
 end
 
 group :development, :test do
-	gem 'rspec-rails'
-	gem "factory_girl_rails"
-	gem 'webmock'
+  gem 'rspec-rails'
+  gem "factory_girl_rails"
+  gem 'byebug'
+end
+
+group :test do
+  gem 'webmock'
 end
 
 # Use ActiveModel has_secure_password
