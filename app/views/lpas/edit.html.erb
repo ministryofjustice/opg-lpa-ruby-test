@@ -1,13 +1,34 @@
-<%= form_for @lpa do |f| %>
+<%= form_for @lpa do |lpa_form| %>
 LPA:
-  <%= f.label :type %>
-  <%= f.select :type, ["Financial", "Welfare"] %>
+  <%= lpa_form.label :type %>
+  <%= lpa_form.select :type, ["Financial", "Welfare"] %>
 Donor:
-  <%= f.fields_for @lpa.donor do |donor_form| %> 
+  <%= lpa_form.fields_for @lpa.donor do |donor_form| %> 
     <%= donor_form.label "title" %>
     <%= donor_form.select "title", ["Mr", "Ms"] %>
     <%= donor_form.label "first_name" %>
     <%= donor_form.text_field "first_name" %>
-    <%= donor_form.submit "Save and continue" %>
+    <%= donor_form.label "middle_names" %>
+    <%= donor_form.text_field "middle_names" %>
+    <%= donor_form.label "last_name" %>
+    <%= donor_form.text_field "last_name" %>
+    <%= donor_form.fields_for donor_form.object.address do |donor_address_form| %> 
+      <%= donor_address_form.label "post_code" %>
+      <%= donor_address_form.text_field "post_code" %>
+      <%= donor_address_form.label "address_line1" %>
+      <%= donor_address_form.text_field "address_line1" %>
+      <%= donor_address_form.label "address_line2" %>
+      <%= donor_address_form.text_field "address_line2" %>
+      <%= donor_address_form.label "address_line3" %>
+      <%= donor_address_form.text_field "address_line3" %>
+      <%= donor_address_form.label "town" %>
+      <%= donor_address_form.text_field "town" %>
+      <%= donor_address_form.label "county" %>
+      <%= donor_address_form.text_field "county" %>
+      <%= donor_address_form.label "country" %>
+      <%= donor_address_form.text_field "country" %>
+    <% end %>
   <% end %>
+
+  <%= lpa_form.submit "Save and continue" %>
 <% end %>

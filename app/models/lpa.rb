@@ -8,24 +8,13 @@ class Lpa < ActiveResource::Base
     string  'type'
   end
 
-  def initialize(hash={})
+  def initialize(*args)
     # Make sure we always have associations assigned, so that activeresource doesn't request them
-    defaults = {
+    args[0] ||= {}
+    args[0] = {
       :donor => Donor.new,
       :attorneys => []
-    }
-    super(defaults.merge(hash))
+    }.merge(args[0])
+    super(*args)
   end
-
-  # def attorneys_attributes=(attributes)
-  #   # Process the attributes hash
-  # end
-
-  # def donor
-  #   if @donor.blank?
-  #     Donor.new
-  #   else
-  #     super
-  #   end
-  # end
 end

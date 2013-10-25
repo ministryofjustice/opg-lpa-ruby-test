@@ -7,7 +7,7 @@ describe Lpa do
 			:attorneys => [
 				{:title => "Mrs"}
 			],
-			:donor => {}
+			:donor => {:address => {:post_code => "E2 6BH"}}
 		}
 		@lpa = Lpa.new(@json)
 	end
@@ -25,9 +25,7 @@ describe Lpa do
 		it "should set attributes on the child attorneys" do
 			@lpa.attorneys.first.title.should == "Mrs"
 		end
-	end
 
-	describe "attributes" do
 		it "should be able to assign a donor" do
 			@lpa.donor.title = "Mr"
 			@lpa.donor.title.should == "Mr"
@@ -38,7 +36,7 @@ describe Lpa do
   	it "should post the full json" do
   		stub_request(:post, "http://localhost:9292/api/lpas.json")
   		@lpa.save
-			a_request(:post, "http://localhost:9292/api/lpas.json").with(:body => "{\"donor\":{},\"attorneys\":[{\"title\":\"Mrs\"}],\"title\":\"Mr\"}").should have_been_made
+			a_request(:post, "http://localhost:9292/api/lpas.json").with(:body => '{"donor":{"address":{"post_code":"E2 6BH"}},"attorneys":[{"address":{},"title":"Mrs"}],"title":"Mr"}').should have_been_made
   	end
   end
 
