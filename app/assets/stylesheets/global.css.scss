@@ -1,0 +1,218 @@
+// GOV.UK Toolkit
+@import "_conditionals";
+@import "_colours";
+@import "_typography";
+@import "_css3";
+@import "design-patterns/_buttons.scss";
+
+// from Government Service Design Manual
+@import "_forms";
+@import "_panels";
+
+/*
+ * Core global styles
+ */
+#wrapper {
+  background-color: $white;//$grey-9;
+  border-bottom: 10px solid $mainstream-brand;
+
+  @include ie-lte(7) {
+    zoom: 1;
+  }
+}
+
+.inner {
+  margin: 0 auto;
+//  padding: 1em;
+  padding: 30px;
+  position: relative;
+}
+
+main#content,
+section#content {
+  margin: 0 auto;
+  max-width: 960px;
+  position: relative;
+  display:block;
+
+  @include ie-lte(7) {
+    width: 960px;
+  }
+
+  @include media(mobile) {
+    max-width: auto;
+  }
+}
+
+p {
+  @include core-19;
+}
+
+h2, h3, h4 {
+  font-weight: 400;
+}
+
+h2 {
+  @include core-24;
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+}
+
+h3 {
+  @include core-19;
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+}
+
+h4 {
+  @include core-19;
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+}
+
+
+/*
+ * Page headers
+ */
+
+header.page-header {
+    .skip-to-related {
+      position: absolute;
+      left: -9999em;
+
+      &:focus {
+        position: relative;
+        @include inline-block;
+        left: 32px;
+        top: -2em;
+      }
+
+      @include media(mobile) {
+        position: relative;
+        @include inline-block;
+        left: 1em;
+        top: -1em;
+      }
+    }
+
+    div {
+      background-color: #fff;
+      display: block;
+      margin: 0 24em 0 0;
+      padding: 1em 2em 2em 2em;
+
+      @include media(tablet) {
+        margin: 0;
+        padding-bottom: 0;
+      }
+
+      h1 {
+        @include heading-48;
+        background-repeat: no-repeat;
+        color: $text-colour;
+        font-weight: 600;
+
+        span {
+          @include core-27($line-height: 1);
+          display: block;
+          margin-bottom: 0.25em;
+          text-shadow: none;
+          color: $secondary-text-colour ;
+
+        @include ie-lte(8) {
+          height: 1%;
+        }
+      }
+    }
+  }
+}
+
+body.full-width {
+  header.page-header div,
+  .article-container,
+  article {
+    margin-right: 0;
+  }
+
+  header.page-header div {
+    padding-left: 30px;
+    padding-right: 30px;
+
+    @include media(mobile) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}
+
+#wrapper.service header.page-header div,
+#wrapper.licence header.page-header div,
+#wrapper.video header.page-header div,
+#wrapper.answer header.page-header div,
+#wrapper.guide header.page-header div {
+  padding-left: 2em;
+
+  h1 {
+    margin-left: 0;
+
+    @include ie(6) {
+      position: relative;
+      z-index: 1;
+      zoom: 1;
+    }
+
+  }
+
+  @include media(mobile) {
+    padding-left: 1em;
+
+    h1 {
+      min-height: (61em/25);
+    }
+  }
+}
+
+#wrapper.programme header.page-header div,
+#wrapper.service header.page-header div {
+
+
+  @include media(mobile) {
+    padding-left: 1em;
+
+    h1 {
+      min-height: (61em/25);
+    }
+  }
+}
+
+#wrapper.programme header.page-header div,
+#wrapper.service header.page-header div,
+#wrapper.licence header.page-header div,
+#wrapper.video header.page-header div {
+  @include media($min-width: 1182px) {
+    padding-left: 0;
+
+    h1 {
+      padding-left: 32px;
+    }
+  }
+}
+
+#wrapper.answer header.page-header div,
+#wrapper.guide header.page-header div {
+  @include media($min-width: 1132px) {
+    padding-left: 0;
+
+    h1 {
+      padding-left: 32px;
+    }
+  }
+}
+
+
+
+/* Forms */
+.form {
+  @include form(top, 5.5em);
+}
+

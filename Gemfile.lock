@@ -1,5 +1,13 @@
+GIT
+  remote: https://github.com/ministryofjustice/moj_frontend_toolkit_gem.git
+  revision: d61df6019230dad6dcb82d776046a8421964e600
+  tag: v0.0.40
+  specs:
+    moj_frontend_toolkit_gem (0.0.1)
+
 GEM
   remote: https://rubygems.org/
+  remote: https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/
   specs:
     actionmailer (4.0.0)
       actionpack (= 4.0.0)
@@ -59,6 +67,16 @@ GEM
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
     ffi (1.9.0)
+    govuk_frontend_toolkit (0.37.0)
+      rails (>= 3.1.0)
+      sass (>= 3.2.0)
+    haml (4.0.3)
+      tilt
+    haml-rails (0.4)
+      actionpack (>= 3.1, < 4.1)
+      activesupport (>= 3.1, < 4.1)
+      haml (>= 3.1, < 4.1)
+      railties (>= 3.1, < 4.1)
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.2)
@@ -152,8 +170,11 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.0.0)
   factory_girl_rails
+  govuk_frontend_toolkit
+  haml-rails
   jbuilder (~> 1.2)
   jquery-rails
+  moj_frontend_toolkit_gem!
   rails (= 4.0.0)
   rspec-rails
   sass-rails (~> 4.0.0)

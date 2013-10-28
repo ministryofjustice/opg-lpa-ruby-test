@@ -1,9 +1,14 @@
+<header class="page-header group">
+  <h1>
+    Add new donor
+  </h1>
+</header>
 <%= form_for @lpa do |lpa_form| %>
 LPA:
   <%= lpa_form.label :type %>
   <%= lpa_form.select :type, ["Financial", "Welfare"] %>
 Donor:
-  <%= lpa_form.fields_for @lpa.donor do |donor_form| %> 
+  <%= lpa_form.fields_for @lpa.donor do |donor_form| %>
     <%= donor_form.label "title" %>
     <%= donor_form.select "title", ["Mr", "Ms"] %>
     <%= donor_form.label "first_name" %>
@@ -12,7 +17,7 @@ Donor:
     <%= donor_form.text_field "middle_names" %>
     <%= donor_form.label "last_name" %>
     <%= donor_form.text_field "last_name" %>
-    <%= donor_form.fields_for donor_form.object.address do |donor_address_form| %> 
+    <%= donor_form.fields_for donor_form.object.address do |donor_address_form| %>
       <%= donor_address_form.label "post_code" %>
       <%= donor_address_form.text_field "post_code" %>
       <%= donor_address_form.label "address_line1" %>
@@ -40,7 +45,7 @@ Attorney:
     <%= attorney_form.text_field "middle_names" %>
     <%= attorney_form.label "last_name" %>
     <%= attorney_form.text_field "last_name" %>
-    <%= attorney_form.fields_for :address do |attorney_address_form| %> 
+    <%= attorney_form.fields_for :address do |attorney_address_form| %>
       <%= attorney_address_form.label "post_code" %>
       <%= attorney_address_form.text_field "post_code" %>
       <%= attorney_address_form.label "address_line1" %>
