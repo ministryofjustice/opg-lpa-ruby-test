@@ -9,60 +9,81 @@ LPA:
   <%= lpa_form.select :type, ["Financial", "Welfare"] %>
 Donor:
   <%= lpa_form.fields_for @lpa.donor do |donor_form| %>
-    <%= donor_form.label "title" %>
-    <%= donor_form.select "title", ["Mr", "Ms"] %>
-    <%= donor_form.label "first_name" %>
-    <%= donor_form.text_field "first_name" %>
-    <%= donor_form.label "middle_names" %>
-    <%= donor_form.text_field "middle_names" %>
-    <%= donor_form.label "last_name" %>
-    <%= donor_form.text_field "last_name" %>
+    <%= input_for(donor_form, "title") do %>
+      <%= donor_form.select "title", ["Mr", "Ms"] %>
+    <% end %>
+    <%= input_for(donor_form, "first_name") do %>
+      <%= donor_form.text_field "first_name" %>
+    <% end %>
+    <%= input_for(donor_form, "middle_names") do %>
+      <%= donor_form.text_field "middle_names" %>
+    <% end %>
+    <%= input_for(donor_form, "last_name") do %>
+      <%= donor_form.text_field "last_name" %>
+    <% end %>
     <%= donor_form.fields_for donor_form.object.address do |donor_address_form| %>
-      <%= donor_address_form.label "post_code" %>
-      <%= donor_address_form.text_field "post_code" %>
-      <%= donor_address_form.label "address_line1" %>
-      <%= donor_address_form.text_field "address_line1" %>
-      <%= donor_address_form.label "address_line2" %>
-      <%= donor_address_form.text_field "address_line2" %>
-      <%= donor_address_form.label "address_line3" %>
-      <%= donor_address_form.text_field "address_line3" %>
-      <%= donor_address_form.label "town" %>
-      <%= donor_address_form.text_field "town" %>
-      <%= donor_address_form.label "county" %>
-      <%= donor_address_form.text_field "county" %>
-      <%= donor_address_form.label "country" %>
-      <%= donor_address_form.text_field "country" %>
+      <%= input_for(donor_address_form, "post_code") do %>
+        <%= donor_address_form.text_field "post_code" %>
+      <% end %>
+      <%= input_for(donor_address_form, "address_line1") do %>
+        <%= donor_address_form.text_field "address_line1" %>
+      <% end %>
+      <%= input_for(donor_address_form, "address_line2") do %>
+        <%= donor_address_form.text_field "address_line2" %>
+      <% end %>
+      <%= input_for(donor_address_form, "address_line3") do %>
+        <%= donor_address_form.text_field "address_line3" %>
+      <% end %>
+      <%= input_for(donor_address_form, "town") do %>
+        <%= donor_address_form.text_field "town" %>
+      <% end %>
+      <%= input_for(donor_address_form, "county") do %>
+        <%= donor_address_form.text_field "county" %>
+      <% end %>
+      <%= input_for(donor_address_form, "country") do %>
+        <%= donor_address_form.text_field "country" %>
+      <% end %>
     <% end %>
   <% end %>
 Attorney:
   <% @lpa.attorneys.each do |attorney| %>
-  <%= lpa_form.fields_for "attorneys[]", attorney do |attorney_form| %>
-    <%= attorney_form.label "title" %>
-    <%= attorney_form.select "title", ["Mr", "Ms"] %>
-    <%= attorney_form.label "first_name" %>
-    <%= attorney_form.text_field "first_name" %>
-    <%= attorney_form.label "middle_names" %>
-    <%= attorney_form.text_field "middle_names" %>
-    <%= attorney_form.label "last_name" %>
-    <%= attorney_form.text_field "last_name" %>
-    <%= attorney_form.fields_for :address do |attorney_address_form| %>
-      <%= attorney_address_form.label "post_code" %>
-      <%= attorney_address_form.text_field "post_code" %>
-      <%= attorney_address_form.label "address_line1" %>
-      <%= attorney_address_form.text_field "address_line1" %>
-      <%= attorney_address_form.label "address_line2" %>
-      <%= attorney_address_form.text_field "address_line2" %>
-      <%= attorney_address_form.label "address_line3" %>
-      <%= attorney_address_form.text_field "address_line3" %>
-      <%= attorney_address_form.label "town" %>
-      <%= attorney_address_form.text_field "town" %>
-      <%= attorney_address_form.label "county" %>
-      <%= attorney_address_form.text_field "county" %>
-      <%= attorney_address_form.label "country" %>
-      <%= attorney_address_form.text_field "country" %>
+    <%= lpa_form.fields_for "attorneys[]", attorney do |attorney_form| %>
+      <%= input_for(attorney_form, "title") do %>
+        <%= attorney_form.select "title", ["Mr", "Ms"] %>
+      <% end %>
+      <%= input_for(attorney_form, "first_name") do %>
+        <%= attorney_form.text_field "first_name" %>
+      <% end %>
+      <%= input_for(attorney_form, "middle_names") do %>
+        <%= attorney_form.text_field "middle_names" %>
+      <% end %>
+      <%= input_for(attorney_form, "last_name") do %>
+        <%= attorney_form.text_field "last_name" %>
+      <% end %>
+      <%= attorney_form.fields_for :address, attorney.address do |attorney_address_form| %>
+        <%= input_for(attorney_address_form, "post_code") do %>
+          <%= attorney_address_form.text_field "post_code" %>
+        <% end %>
+        <%= input_for(attorney_address_form, "address_line1") do %>
+          <%= attorney_address_form.text_field "address_line1" %>
+        <% end %>
+        <%= input_for(attorney_address_form, "address_line2") do %>
+          <%= attorney_address_form.text_field "address_line2" %>
+        <% end %>
+        <%= input_for(attorney_address_form, "address_line3") do %>
+          <%= attorney_address_form.text_field "address_line3" %>
+        <% end %>
+        <%= input_for(attorney_address_form, "town") do %>
+          <%= attorney_address_form.text_field "town" %>
+        <% end %>
+        <%= input_for(attorney_address_form, "county") do %>
+          <%= attorney_address_form.text_field "county" %>
+        <% end %>
+        <%= input_for(attorney_address_form, "country") do %>
+          <%= attorney_address_form.text_field "country" %>
+        <% end %>
+      <% end %>
     <% end %>
-    <% end %>
-
   <% end %>
 
   <%= lpa_form.submit "Save and continue" %>

@@ -13,7 +13,7 @@ class LpasController < ApplicationController
     if @lpa.save
       render :text => "Success!"
     else
-      render :text => "Fail"
+      render :template => 'lpas/edit'
     end
   end
   def update
