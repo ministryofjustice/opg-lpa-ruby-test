@@ -48,4 +48,12 @@ describe Lpa do
   		Lpa.new.attorneys
   	end
   end
+
+  describe "validation errors" do
+  	it "should set errors on the child objects" do
+  		stub_request(:post, "http://localhost:9292/api/lpas.json").to_return(:status => 422, :body => {"errors"=>{"donor"=> {"last_name"=>["can't be blank", "is too short (minimum is 2 characters)"]}}}.to_json)
+  		@lpa.save
+  		@lpa.errors.raw_hash[:donor][:last_name].should == ["can't be blank", "is too short (minimum is 2 characters)"]
+  	end
+  end
 end
