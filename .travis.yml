@@ -1,0 +1,8 @@
+language: ruby
+rvm:
+- 2.0.0
+script: bundle exec rspec spec
+notifications:
+  hipchat:
+    rooms:
+      secure: VvOqjw4G+f9j8yE8HbVbG+O8ebYaDHcknKifPtIwhEnYE9PnlyhpmTsnFv+qAIeCidB/VfjALrX9Mk/oYPTTMengR/q7JtgcmEFnRD2Qy/WFbESLN4XtL8AMIEJoAfRSvK3iZvquV0DdrawL27ymr2N9iN6EGWuqlMG+2MON9mY=
