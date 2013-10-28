@@ -50,10 +50,31 @@ describe Lpa do
   end
 
   describe "validation errors" do
-  	it "should set errors on the child objects" do
+  	it "should set errors on the child donor" do
   		stub_request(:post, "http://localhost:9292/api/lpas.json").to_return(:status => 422, :body => {"errors"=>{"donor"=> {"last_name"=>["can't be blank", "is too short (minimum is 2 characters)"]}}}.to_json)
   		@lpa.save
-  		@lpa.errors.raw_hash[:donor][:last_name].should == ["can't be blank", "is too short (minimum is 2 characters)"]
+  		@lpa.donor.errors["last_name"].should == ["can't be blank", "is too short (minimum is 2 characters)"]
   	end
+
+  	it "should set errors on the address of the child donor" do
+  		stub_request(:post, "http://localhost:9292/api/lpas.json").to_return(:status => 422, :body => {"errors"=>{"donor"=> {"address" => {"county"=>["can't be blank", "is too short (minimum is 2 characters)"]}}}}.to_json)
+  		@lpa.save
+  		@lpa.donor.address.errors["county"].should == ["can't be blank", "is too short (minimum is 2 characters)"]
+  	end
+
+  	it "should set errors on the first child donor" do
+  		stub_request(:post, "http://localhost:9292/api/lpas.json").to_return(:status => 422, :body => {"errors"=>{"attorneys"=> [{"last_name"=>["can't be blank", "is too short (minimum is 2 characters)"]}]}}.to_json)
+  		@lpa.save
+  		@lpa.attorneys[0].errors["last_name"].should == ["can't be blank", "is too short (minimum is 2 characters)"]
+  	end
+
+  	it "should set errors on the nth child donor" do
+  		stub_request(:post, "http://localhost:9292/api/lpas.json").to_return(:status => 422, :body => {"errors"=>{"attorneys"=> [{}, {"last_name"=>["can't be blank", "is too short (minimum is 2 characters)"]}]}}.to_json)
+  		@lpa.attorneys << Attorney.new
+  		@lpa.save
+  		@lpa.attorneys[0].errors.should be_blank
+  		@lpa.attorneys[1].errors["last_name"].should == ["can't be blank", "is too short (minimum is 2 characters)"]
+  	end
+
   end
 end
