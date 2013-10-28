@@ -1,8 +1,8 @@
 class Attorney < ActiveResource::Base
   self.site = "http://localhost:9292/api"
-	schema do
-	  string  'title', 'first_name'
-	end
+  schema do
+    string  'title', 'first_name', 'middle_names', 'last_name', 'date_of_birth', 'email', 'phone', 'occupation', 'relationship_to_donor'
+  end
 
   has_one :address
 
