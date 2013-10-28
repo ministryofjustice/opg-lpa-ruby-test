@@ -5,7 +5,7 @@ require File.expand_path('../boot', __FILE__)
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "sprockets/railtie"
-require 'active_resource'  
+require 'active_resource'
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -25,5 +25,19 @@ module OpgLpa
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    # app title appears in the header bar
+    config.app_title = 'Lasting Power of Attorney'
+    # phase governs text indicators and highlight colours
+    # presumed values: alpha, beta, live
+    config.phase = 'alpha'
+    # product type may also govern highlight colours
+    # known values: information, service
+    config.product_type = 'service'
+    # govbranding switches on or off the crown logo, full footer and NTA font
+    config.govbranding = true
+    # feedback_email is the address linked in the alpha/beta bar asking for feedback
+    config.feedback_email = 'test@example.com'
+
   end
 end
