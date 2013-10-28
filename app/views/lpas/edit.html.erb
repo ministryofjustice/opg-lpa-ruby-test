@@ -29,6 +29,36 @@ Donor:
       <%= donor_address_form.text_field "country" %>
     <% end %>
   <% end %>
+Attorney:
+  <% @lpa.attorneys.each do |attorney| %>
+  <%= lpa_form.fields_for "attorneys[]", attorney do |attorney_form| %>
+    <%= attorney_form.label "title" %>
+    <%= attorney_form.select "title", ["Mr", "Ms"] %>
+    <%= attorney_form.label "first_name" %>
+    <%= attorney_form.text_field "first_name" %>
+    <%= attorney_form.label "middle_names" %>
+    <%= attorney_form.text_field "middle_names" %>
+    <%= attorney_form.label "last_name" %>
+    <%= attorney_form.text_field "last_name" %>
+    <%= attorney_form.fields_for :address do |attorney_address_form| %> 
+      <%= attorney_address_form.label "post_code" %>
+      <%= attorney_address_form.text_field "post_code" %>
+      <%= attorney_address_form.label "address_line1" %>
+      <%= attorney_address_form.text_field "address_line1" %>
+      <%= attorney_address_form.label "address_line2" %>
+      <%= attorney_address_form.text_field "address_line2" %>
+      <%= attorney_address_form.label "address_line3" %>
+      <%= attorney_address_form.text_field "address_line3" %>
+      <%= attorney_address_form.label "town" %>
+      <%= attorney_address_form.text_field "town" %>
+      <%= attorney_address_form.label "county" %>
+      <%= attorney_address_form.text_field "county" %>
+      <%= attorney_address_form.label "country" %>
+      <%= attorney_address_form.text_field "country" %>
+    <% end %>
+    <% end %>
+
+  <% end %>
 
   <%= lpa_form.submit "Save and continue" %>
 <% end %>
