@@ -1,3 +1,4 @@
+<%= lpa_overview(@lpa) %>
 <%= form_for @lpa, :url => wizard_path do |lpa_form| %>
   <%= lpa_form.label :type %>
   <%= lpa_form.select :type, ["Financial", "Welfare"] %>

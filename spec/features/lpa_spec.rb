@@ -19,8 +19,12 @@ feature 'Filling in an LPA' do
     click_button "Save details"
 
     click_button "Create a new LPA"
+
     expect(page).to have_content('Type')
+    
     click_button "Save and continue"
+
+    expect(page).to have_content('This LPA covers Financial')
 
     fill_in 'First name', with: "John"
     fill_in 'Last name', with: "Smith"
