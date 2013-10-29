@@ -10,7 +10,7 @@ class LpasController < ApplicationController
     @lpa = Lpa.new
   end
   def create
-    @lpa = Lpa.new(params[:lpa])
+    @lpa = Lpa.new(params[:lpa].merge(:applicant_id => session[:applicant_id]))
     if @lpa.save
       render :text => "Success!"
     else
