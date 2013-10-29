@@ -11,6 +11,8 @@
 
     #wrapper
       %main#content.inner(role="main")
+        Logged in as
+        = session[:applicant_id]
         = yield
 
     = render'shared/footer'

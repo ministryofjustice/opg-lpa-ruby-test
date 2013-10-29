@@ -1,4 +1,5 @@
 class LpasController < ApplicationController
+  before_filter :check_applicant
   def index
     
   end
@@ -22,6 +23,12 @@ class LpasController < ApplicationController
       render :text => "Success!"
     else
       render :text => "Fail"
+    end
+  end
+  private
+  def check_applicant
+    unless session[:applicant_id].present?
+      redirect_to new_applicant_path
     end
   end
 end
