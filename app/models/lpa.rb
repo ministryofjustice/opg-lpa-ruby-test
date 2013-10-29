@@ -13,7 +13,7 @@ class Lpa < ActiveResource::Base
     args[0] ||= {}
     args[0] = {
       :donor => Donor.new,
-      :attorneys => [Attorney.new]
+      :attorneys => [Attorney.new, Attorney.new]
     }.merge(args[0])
     super(*args)
   end
