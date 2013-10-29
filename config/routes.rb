@@ -1,6 +1,7 @@
 OpgLpa::Application.routes.draw do
   root "lpas#index"
   resources :lpas do
+    resources :build, controller: 'lpas/build'
     collection do
       get :find
     end

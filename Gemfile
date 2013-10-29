@@ -7,6 +7,7 @@ gem 'rails', '4.0.0'
 
 gem "typhoeus"
 gem "activeresource", '4.0.0'
+gem 'wicked'
 
 gem 'haml-rails'
 gem 'sass-rails', '~> 4.0.0'
