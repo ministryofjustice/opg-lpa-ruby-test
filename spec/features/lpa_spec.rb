@@ -8,7 +8,7 @@ feature 'Filling in an LPA' do
     WebMock.enable!
   end
   scenario 'with all valid details' do
-    visit new_applicant_path
+    visit "/"
     fill_in 'First name', with: "Johnny"
     fill_in 'Last name', with: "Smithson"
     fill_in 'Post code', with: "SW1H 9AJ"
