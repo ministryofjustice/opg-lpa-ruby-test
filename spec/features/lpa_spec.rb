@@ -22,13 +22,19 @@ feature 'Filling in an LPA' do
     fill_in_valid_person
     click_button "Save and continue"
 
-    expect(page).to have_content('This LPA covers Property and financial affairs')
     expect(page).to have_content('The donor is Mr Johnny Smithson')
     expect(page).to have_content('When to use')
     expect(page).to_not have_content('life sustaining treatment')
 
     click_button "Save and continue"
-    expect(page).to have_content("These are all the LPAs that you've created")
+
+    expect(page).to have_content("The LPA can be used as soon as it's registered")
+    expect(page).to have_content("Who are your attorneys?")
+    fill_in_valid_person(:first_name => "Dave", :last_name => "Jameson")
+    click_button "Save and continue"
+
+    expect(page).to have_content("The attorney is Mr Dave Jameson")
+    expect(page).to have_content("LPA created")
   end
 
   scenario 'healthcare with all valid details' do
@@ -38,13 +44,19 @@ feature 'Filling in an LPA' do
     fill_in_valid_person
     click_button "Save and continue"
 
-    expect(page).to have_content('This LPA covers Health and welfare')
     expect(page).to have_content('The donor is Mr Johnny Smithson')
     expect(page).to_not have_content('When to use')
     expect(page).to have_content('Life sustaining treatment')
 
     click_button "Save and continue"
-    expect(page).to have_content("These are all the LPAs that you've created")
+
+    expect(page).to have_content("The attorneys can't make decisions about life-sustaining treatment on the donor's behalf")
+    expect(page).to have_content("Who are your attorneys?")
+    fill_in_valid_person(:first_name => "Dave", :last_name => "Jameson")
+    click_button "Save and continue"
+
+    expect(page).to have_content("The attorney is Mr Dave Jameson")
+    expect(page).to have_content("LPA created")
   end
 
 

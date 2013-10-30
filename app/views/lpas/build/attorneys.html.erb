@@ -1,0 +1,10 @@
+Who are your attorneys?
+<%= lpa_overview(@lpa) %>
+<%= form_for @lpa, :url => wizard_path do |lpa_form| %>
+  <% @lpa.attorneys.each do |attorney| %>
+    <%= lpa_form.fields_for "attorneys[]", attorney do |attorney_form| %>
+      <%= render :partial => '/shared/person_form', :locals => {:person_form => attorney_form} %>
+    <% end %>
+  <% end %>
+  <%= lpa_form.submit "Save and continue" %>
+<% end %>

@@ -35,9 +35,25 @@ module LpasHelper
 
   def when_to_use_overview(lpa)
     if lpa.type == "Property and financial affairs"
-      nil
+      "The LPA can be used as soon as it's registered"
     else
-      "TODO"
+      nil
+    end
+  end
+
+  def life_sustaining_overview(lpa)
+    if lpa.type == "Health and welfare"
+      "The attorneys can't make decisions about life-sustaining treatment on the donor's behalf"
+    else
+      nil
+    end
+  end
+
+  def attorneys_overview(lpa)
+    if lpa.attorneys.size == 1 
+      "The attorney is #{lpa.attorneys.first.full_name}"
+    else 
+      "The attorneys are #{lpa.attorneys.collect {|a| a.full_name}.to_sentence(:last_word_connector => ' and ')}"
     end
   end
 

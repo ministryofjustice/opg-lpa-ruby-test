@@ -15,4 +15,8 @@ class Attorney < ActiveResource::Base
     super(*args)
   end
 
+  def full_name 
+    "#{title} #{first_name} #{last_name}"
+  end
+
 end
