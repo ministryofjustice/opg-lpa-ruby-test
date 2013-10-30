@@ -57,18 +57,6 @@ feature 'Filling in an LPA' do
     click_button "Save and continue"
 
     expect(page).to have_content("The attorneys can't make decisions about life-sustaining treatment on the donor's behalf")
-    expect(page).to have_content("Who are your attorneys?")
-
-    click_link 'Add an attorney'
-
-    fill_in_valid_person(:first_name => "Dave", :last_name => "Jameson")
-
-    click_button "Save and continue"
-    expect(page).to have_content("Dave Jameson")
-    click_link "Save and continue"
-
-    expect(page).to have_content("The attorney is Mr Dave Jameson")
-    expect(page).to have_content("LPA created")
   end
 
 
