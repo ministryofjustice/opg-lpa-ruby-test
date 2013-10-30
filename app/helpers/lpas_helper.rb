@@ -12,4 +12,29 @@ module LpasHelper
     s << '</div>'
     raw s
   end
+
+  def lpa_overview(lpa)
+    overview = @wizard_steps.collect {|s| self.send("#{s}_overview", lpa) if step_completed?(s)}.compact
+    if overview.present?
+      r = "<ul><li>"
+      r << overview.join("</li><li>")
+      r << "</li></ul>"
+      raw r
+    else
+      ""
+    end
+  end
+
+  def type_overview(lpa)
+    "This LPA covers #{lpa.type}"
+  end
+
+  def donor_overview(lpa)
+    "The donor is #{lpa.donor.title} #{lpa.donor.first_name} #{lpa.donor.last_name}"
+  end
+
+  private
+  def step_completed?(step_in_question)
+    @wizard_steps.find_index(step_in_question) < @wizard_steps.find_index(step)
+  end
 end

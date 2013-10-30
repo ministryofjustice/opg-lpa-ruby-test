@@ -1,0 +1,7 @@
+<%= lpa_overview(@lpa) %>
+<%= form_for @lpa, :url => wizard_path do |lpa_form| %>
+  <%= lpa_form.fields_for @lpa.donor do |donor_form| %>
+    <%= render :partial => '/shared/person_form', :locals => {:person_form => donor_form} %>
+  <% end %>
+  <%= lpa_form.submit "Save and continue" %>
+<% end %>

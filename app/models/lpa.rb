@@ -12,8 +12,8 @@ class Lpa < ActiveResource::Base
     # Make sure we always have associations assigned, so that activeresource doesn't request them
     args[0] ||= {}
     args[0] = {
-      :donor => Donor.new,
-      :attorneys => [Attorney.new, Attorney.new]
+      :donor => nil,
+      :attorneys => []
     }.merge(args[0])
     super(*args)
   end
