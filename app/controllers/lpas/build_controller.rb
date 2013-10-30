@@ -13,8 +13,6 @@ class Lpas::BuildController < ApplicationController
       skip_step if @lpa.type == "Property and financial affairs"
     when :donor
       @lpa.donor = @lpa.donor || Donor.new
-    when :attorneys
-      @lpa.attorneys = [Attorney.new] if @lpa.attorneys.blank?
     end
     render_wizard
   end
