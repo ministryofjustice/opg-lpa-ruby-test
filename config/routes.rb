@@ -5,6 +5,7 @@ OpgLpa::Application.routes.draw do
     collection do
       get :find
     end
+    resources :attorneys
   end
   resources :applicants
   # The priority is based upon order of creation: first created -> highest priority.
