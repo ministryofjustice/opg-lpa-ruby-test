@@ -1,0 +1,6 @@
+<%= lpa_overview(@lpa) %>
+<%= form_for @lpa, :url => wizard_path do |lpa_form| %>
+  <%= lpa_form.label :when_to_use %>
+  <%= lpa_form.select :when_to_use, ["as soon as it's registered (with my consent)", "only if I don't have mental capacity"] %>
+  <%= lpa_form.submit "Save and continue" %>
+<% end %>

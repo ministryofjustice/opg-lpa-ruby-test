@@ -22,6 +22,11 @@ feature 'Filling in an LPA' do
 
     fill_in_valid_person
     click_button "Save and continue"
+
+    expect(page).to have_content('This LPA covers Property and financial affairs')
+    expect(page).to have_content('The donor is Mr Johnny Smithson')
+
+    click_button "Save and continue"
     expect(page).to have_content("These are all the LPAs that you've created")
   end
 

@@ -6,6 +6,7 @@ class Lpa < ActiveResource::Base
 
   schema do
     string  'type'
+    string  'when_to_use'
   end
 
   def initialize(*args)
