@@ -25,7 +25,14 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("These are all the LPAs that you've created")
   end
 
-  scenario 'with all invalid donor' do
+  scenario 'with invalid applicant' do
+    visit "/"
+    fill_in_valid_person(:first_name => "")
+    click_button "Save details"
+    expect(page).to have_content('is too short')
+  end
+
+  scenario 'with invalid donor' do
     visit "/"
     fill_in_valid_person
     click_button "Save details"
