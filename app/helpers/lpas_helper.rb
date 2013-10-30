@@ -15,10 +15,14 @@ module LpasHelper
 
   def lpa_overview(lpa)
     overview = @wizard_steps.collect {|s| self.send("#{s}_overview", lpa) if step_completed?(s)}.compact
-    r = "<ul><li>"
-    r << overview.join("</li><li>")
-    r << "</li></ul>"
-    raw r
+    if overview.present?
+      r = "<ul><li>"
+      r << overview.join("</li><li>")
+      r << "</li></ul>"
+      raw r
+    else
+      ""
+    end
   end
 
   def type_overview(lpa)
