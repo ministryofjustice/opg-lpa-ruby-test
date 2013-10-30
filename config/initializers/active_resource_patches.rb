@@ -1,6 +1,7 @@
 require 'active_resource/validations'
 module ActiveResource
 class Errors
+  # This is a monkey patch to activeresource so it supports adding errors to embedded objects
   alias_method :from_hash_without_nesting, :from_hash
   def from_hash(messages, save_cache = false)
     messages.each do |key, errors|
@@ -17,6 +18,8 @@ class Errors
     from_hash_without_nesting(messages, save_cache)
   end
 
+  # This is another monkey patch to fix a bug in ActiveResource.
+  # Pull request is at https://github.com/rails/activeresource/pull/108
   def from_hash_without_nesting(messages, save_cache = false)
     clear unless save_cache
 
