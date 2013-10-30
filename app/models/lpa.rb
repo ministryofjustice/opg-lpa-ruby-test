@@ -2,6 +2,7 @@ class Lpa < ActiveResource::Base
   self.site = "http://localhost:9292/api"
   
   has_many :attorneys
+  has_many :replacement_attorneys, :class_name => :attorney
   has_one :donor
 
   schema do
@@ -15,7 +16,8 @@ class Lpa < ActiveResource::Base
     args[0] ||= {}
     args[0] = {
       :donor => nil,
-      :attorneys => []
+      :attorneys => [],
+      :replacement_attorneys => []
     }.merge(args[0])
     super(*args)
   end
