@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+if ENV["INTEGRATION"]
 feature 'Filling in an LPA' do
   before(:each) do
     WebMock.disable!
@@ -54,4 +54,5 @@ feature 'Filling in an LPA' do
     fill_in 'Country', with: overides[:country] || "Great Britain"
   end
 
+end
 end
