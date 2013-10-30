@@ -2,7 +2,7 @@ class Lpas::BuildController < ApplicationController
   before_filter :check_applicant
   include Wicked::Wizard
 
-  steps :type, :donor
+  steps :type, :donor, :when_to_use
 
   def show
     @lpa = Lpa.find(params[:lpa_id])

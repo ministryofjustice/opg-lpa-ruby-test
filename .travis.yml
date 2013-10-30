@@ -5,4 +5,8 @@ script: bundle exec rspec spec
 notifications:
   hipchat:
     rooms:
-      secure: VvOqjw4G+f9j8yE8HbVbG+O8ebYaDHcknKifPtIwhEnYE9PnlyhpmTsnFv+qAIeCidB/VfjALrX9Mk/oYPTTMengR/q7JtgcmEFnRD2Qy/WFbESLN4XtL8AMIEJoAfRSvK3iZvquV0DdrawL27ymr2N9iN6EGWuqlMG+2MON9mY=
+      secure: nfwnDUHH5/yEjXW28+WQvcmOvAvAEXuu4dk7o+Wmh9c00Irt76tUp7708IZqkUQlU9GR/7Lp3mEH7cuvHfn96Nwslo63NmklntmPxKy6RcjjvsdYAd72KoeYC2eGTMkT5lGbTIxAjon4b6sATporhal0UyovQBlOjonFtNOkyVw=
+    format: html
+    template:
+      - '%{message} (<a href="%{build_url}">details</a>/<a href="%{compare_url}">changes</a>) - build #%{build_number}, branch <a href="https://github.com/%{repository}/tree/%{branch}">%{branch}</a> of %{repository}'
+
