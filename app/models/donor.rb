@@ -14,4 +14,9 @@ class Donor < ActiveResource::Base
   schema do
     string  'title', 'first_name', 'middle_names', 'last_name'
   end
+
+  def full_name
+    "#{title} #{first_name} #{last_name}"
+  end
+
 end
