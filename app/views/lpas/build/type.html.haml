@@ -1,0 +1,31 @@
+%header.page-header.group
+  %hgroup
+    %h1 Create a lasting power of attorney
+    %p We'll use your answers to the questions that follow to create an LPA that you can save and print, sign and then apply to register. We'll save your LPA as you progress so you don't need to do it all in one go.
+
+#accordion.accordion-form
+  %section{:id => "lpa-type", :class => "section current"}
+    %h2.accordion-header 1. What type of LPA do you want to create?
+    .accordion-content
+      .section-intro
+        %p You can make an LPA to cover either your property and financial affairs, or your health and welfare.
+        %p
+          %a{:class => "open-help-system popup-link", :href => "#the-2-types-of-lpa", "data-journey-click" => "stageprompt.lpa:help:the-2-types-of-lpa"} Find out about the 2 types of LPA
+      = lpa_overview(@lpa)
+      = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+        .emphasised.option.group
+          = lpa_form.label :type_property_and_financial_affairs do
+            = lpa_form.radio_button :type, "Property and financial affairs"
+            Property and financial affairs
+          = lpa_form.label :type_health_and_welfare do
+            = lpa_form.radio_button :type, "Health and welfare"
+            Health and welfare
+
+        %details
+          %summary{"data-journey-click" => "stageprompt.lpa:help.inline:create/lpa-type:what-if-i-want-to-make-more-than-one-lpa", :role => "button", "aria-expanded" => "false"} What if I want to make more than one LPA?
+          %p You'll need to go through this form for each LPA you create.
+          %p We'll remember names and addresses you add so you don't have to enter them each time.
+          %p Remember, there’s an application fee for each LPA you register.
+        .accordion-actions
+          %p
+            = lpa_form.submit "Save and continue", :class => "button gotonextpart"
