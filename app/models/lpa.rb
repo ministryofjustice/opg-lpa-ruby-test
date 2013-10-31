@@ -7,6 +7,7 @@ class Lpa < ActiveResource::Base
   schema do
     string  'type'
     string  'when_to_use'
+    string  'life_sustaining_treatment'
   end
 
   def initialize(*args)

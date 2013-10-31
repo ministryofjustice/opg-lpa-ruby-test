@@ -33,6 +33,14 @@ module LpasHelper
     "The donor is #{lpa.donor.title} #{lpa.donor.first_name} #{lpa.donor.last_name}"
   end
 
+  def when_to_use_overview(lpa)
+    if lpa.type == "Property and financial affairs"
+      nil
+    else
+      "TODO"
+    end
+  end
+
   private
   def step_completed?(step_in_question)
     @wizard_steps.find_index(step_in_question) < @wizard_steps.find_index(step)
