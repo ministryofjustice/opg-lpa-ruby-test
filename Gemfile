@@ -40,6 +40,7 @@ group :test do
   gem 'webmock'
   gem 'capybara'
   gem 'guard-rspec'
+  gem 'coveralls', require: false
 end
 
 # Use ActiveModel has_secure_password

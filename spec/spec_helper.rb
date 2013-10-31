@@ -2,6 +2,12 @@
 ENV["RAILS_ENV"] ||= 'test'
 ENV['API_HOST'] ||= 'http://localhost:9292'
 
+unless ENV['HOME'].to_s[/\/Users/]
+  # Coveralls for code coverage on Travis builds
+  require 'coveralls'
+  Coveralls.wear!
+end
+
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'

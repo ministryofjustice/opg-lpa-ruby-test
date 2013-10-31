@@ -38,4 +38,10 @@ bin/sprockets
 bin/thor
 bin/tilt
 bin/tt
-
+bin/cdiff
+bin/colortab
+bin/coveralls
+bin/decolor
+bin/restclient
+bin/term_display
+bin/term_mandel
