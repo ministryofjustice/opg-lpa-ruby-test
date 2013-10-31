@@ -1,11 +1,3 @@
-/*
- * @author Chris Moreton
- * @author Jianzhong Yu
- * @author Tim Paul
- * @author Mat Harden
- */
-
-
 window.lpa = window.lpa || {}
 
 // Select the given value of a select box where present
