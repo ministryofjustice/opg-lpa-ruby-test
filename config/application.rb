@@ -1,5 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
+ENV['API_HOST'] ||= 'http://localhost:9292'
+
 # Pick the frameworks you want:
 # require "active_model"
 require "action_controller/railtie"
@@ -39,5 +41,6 @@ module OpgLpa
     # feedback_email is the address linked in the alpha/beta bar asking for feedback
     config.feedback_email = 'test@example.com'
 
+    config.api_uri = "#{ENV['API_HOST']}/api"
   end
 end

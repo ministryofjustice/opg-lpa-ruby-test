@@ -1,6 +1,6 @@
 class Lpa < ActiveResource::Base
-  self.site = "http://localhost:9292/api"
-  
+  self.site = Rails.configuration.api_uri
+
   has_many :attorneys
   has_many :replacement_attorneys, :class_name => :attorney
   has_one :donor

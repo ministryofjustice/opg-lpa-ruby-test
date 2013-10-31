@@ -1,6 +1,6 @@
 class Applicant < ActiveResource::Base
-  self.site = "http://localhost:9292/api"
-  
+  self.site = Rails.configuration.api_uri
+
   has_many :lpas
   has_one :address
 
