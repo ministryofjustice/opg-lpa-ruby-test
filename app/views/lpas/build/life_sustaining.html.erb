@@ -1,6 +1,0 @@
-<%= lpa_overview(@lpa) %>
-<%= form_for @lpa, :url => wizard_path do |lpa_form| %>
-  <%= lpa_form.label :life_sustaining_treatment %>
-  <%= lpa_form.select :life_sustaining_treatment, ["Option A: Yes. I want to give my attorneys authority to give or refuse consent to life-sustaining treatment on my behalf", "Option B: No. I don’t want to give my attorneys authority to give or refuse consent to life-sustaining treatment on my behalf"] %>
-  <%= lpa_form.submit "Save and continue" %>
-<% end %>
