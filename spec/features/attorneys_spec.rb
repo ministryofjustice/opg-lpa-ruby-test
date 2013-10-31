@@ -31,6 +31,7 @@ if ENV["INTEGRATION"]
       click_button "Save and continue"
       fill_in_valid_person
       click_button "Save and continue"
+      choose("as soon as it's registered (with my consent)")
       click_button "Save and continue"
 
       expect(page).to have_content("Who are your attorneys?")
