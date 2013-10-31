@@ -36,7 +36,7 @@
 
           - if @lpa.attorneys.length > 0
             %p.add-another
-              = link_to("Add another attorney?", new_lpa_attorney_path(@lpa), {:class => "add"})
+              = link_to("Add an attorney?", new_lpa_attorney_path(@lpa), {:class => "add"})
           - else
             %p
               = link_to("Add an attorney", new_lpa_attorney_path(@lpa), {:class => "add button"})
