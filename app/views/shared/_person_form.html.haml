@@ -5,40 +5,38 @@
     %p You'll be able to use these details in any LPAs you make using this tool.
 
 .form
+  .validation-summary.group{:role => "alert", "aria-labbelledby" => "error-heading"}
+    %h1{:id => "error-heading"} There was a problem submitting the form
+    %p Because of the following problems:
+    %ol
+      %li{:href => "#firstname-label"} First name must not be blank
+      %li{:href => "#surname-label"} Last name must not be blank
+
   %fieldset
     %legend Name
-    .group
-      = person_form.label :title
+    = input_for(person_form, "title") do
       = person_form.select "title", ["Mr", "Ms"]
-    .group
-      = person_form.label :first_name
+    = input_for(person_form, "first_name") do
       = person_form.text_field "first_name"
-    .group
-      = person_form.label :middle_names, "Middle names (optional)"
+    = input_for(person_form, "middle_names", :label_override => "Middle names (optional)") do
       = person_form.text_field "middle_names"
-    .group
-      = person_form.label :last_name
+    = input_for(person_form, "last_name") do
       = person_form.text_field "last_name"
 
   %fieldset
     %legend Address
     = person_form.fields_for person_form.object.address do |person_address_form|
-      .group
-        = person_address_form.label :address_line1, "Street"
+      = input_for(person_address_form, "address_line1", :label_override => "Street") do
         = person_address_form.text_field "address_line1"
-      .group
+      = input_for(person_address_form, "address_line2", :label_override => "") do
         = person_address_form.text_field "address_line2"
-      .group
+      = input_for(person_address_form, "address_line3", :label_override => "") do
         = person_address_form.text_field "address_line3"
-      .group
-        = person_address_form.label :town
+      = input_for(person_address_form, "town") do
         = person_address_form.text_field "town"
-      .group
-        = person_address_form.label :county
+      = input_for(person_address_form, "county") do
         = person_address_form.text_field "county"
-      .group
-        = person_address_form.label :post_code
+      = input_for(person_address_form, "post_code") do
         = person_address_form.text_field "post_code"
-      .group
-        = person_address_form.label :country
+      = input_for(person_address_form, "country") do
         = person_address_form.text_field "country"
