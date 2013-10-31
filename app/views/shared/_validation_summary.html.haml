@@ -1,0 +1,8 @@
+- if form_object.object.errors.any?
+  .validation-summary.group{:role => "alert", "aria-labbelledby" => "error-heading"}
+    %h1{:id => "error-heading"} There was a problem submitting the form
+    %p Because of the following problems:
+    %ol
+      - form_object.object.errors.messages.each do |field, error|
+        %li
+          %a{:href => "##{field.to_s}"}= "#{field.to_s.humanize} #{form_object.object.errors[field].join(', ')}"

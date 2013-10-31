@@ -6,7 +6,7 @@ module LpasHelper
   def input_for(form, label, options={}, &block)
     errors_present = form.object.errors.messages[label.to_sym].present?
     s = "<div class=\"group#{" validation" if errors_present}\">"
-    s << form.label(label) do
+    s << form.label(label, :id => label) do
       x = options[:label_override] ? options[:label_override] : label.humanize
       x << error_messages_for(form.object, label) if errors_present
       raw(x)
