@@ -1,0 +1,32 @@
+%header.page-header.group
+  %hgroup
+    %h1 Create a lasting power of attorney
+    %p We'll use your answers to the questions that follow to create an LPA that you can save and print, sign and then apply to register. We'll save your LPA as you progress so you don't need to do it all in one go.
+
+%article
+  #accordion.accordion-form
+    = render "shared/completed_sections"
+
+    %section#donor.section.current
+      %h2.accordion-header 4. Who are your attorneys?
+      .accordion-content
+        .section-intro
+          %p Attorneys are people that you appoint to make decisions on your behalf.
+          %ul
+            %li You can have 1 or more attorneys
+            %li Attorneys must be 18 or over
+            %li Attorneys must have mental capacity – the ability to make decisions
+          %p The most important thing is that your attorneys are people you trust to respect your wishes and act in your best interests.
+          %p There are some other things you must know and consider before you decide.
+          %p
+            %a.open-help-system.popup-link{:href=> "#attorneys", "data-journey-click" => "stageprompt.lpa:help:attorneys"} Find out more about attorneys
+
+
+        = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+          - @lpa.attorneys.each do |attorney|
+            = attorney.full_name
+          %p
+            = link_to("Add an attorney", new_lpa_attorney_path(@lpa), {:class => "add button"})
+          .accordion-actions
+            %p
+              = link_to("Save and continue", next_wizard_path, {:class => "button"})
