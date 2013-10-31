@@ -34,7 +34,7 @@
           padding: 0;
           margin: 0.8em 0 0 0.5em;
         }
-      } 
+      }
     }
   }
 }
@@ -50,7 +50,7 @@
 // Person summary
 .person-summary{
   @if $is-ie == false {
-    background: url("/images/icon/person.png") no-repeat 0px 3px;
+    background: image-url("icon/person.png") no-repeat 0px 3px;
     background-size: Auto 4.2em;
     padding-left: 4em;
   }
@@ -115,7 +115,7 @@
     margin-right:0;
     margin-bottom:0.5em;
     padding-left:0.8125em;
-    
+
     .validation-message {
       padding-bottom:0;
     }
