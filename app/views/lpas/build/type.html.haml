@@ -11,7 +11,7 @@
         %p You can make an LPA to cover either your property and financial affairs, or your health and welfare.
         %p
           %a{:class => "open-help-system popup-link", :href => "#the-2-types-of-lpa", "data-journey-click" => "stageprompt.lpa:help:the-2-types-of-lpa"} Find out about the 2 types of LPA
-      = lpa_overview(@lpa)
+
       = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
         .emphasised.option.group
           = lpa_form.label :type_property_and_financial_affairs do
