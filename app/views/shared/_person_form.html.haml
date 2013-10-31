@@ -5,12 +5,14 @@
     %p You'll be able to use these details in any LPAs you make using this tool.
 
 .form
-  .validation-summary.group{:role => "alert", "aria-labbelledby" => "error-heading"}
-    %h1{:id => "error-heading"} There was a problem submitting the form
-    %p Because of the following problems:
-    %ol
-      %li{:href => "#firstname-label"} First name must not be blank
-      %li{:href => "#surname-label"} Last name must not be blank
+  - if person_form.object.errors.any?
+    .validation-summary.group{:role => "alert", "aria-labbelledby" => "error-heading"}
+      %h1{:id => "error-heading"} There was a problem submitting the form
+      %p Because of the following problems:
+      %ol
+        - person_form.object.errors.full_messages.each do |msg|
+          %li
+            %a{:href => "#"}= msg
 
   %fieldset
     %legend Name
