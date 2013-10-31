@@ -32,7 +32,7 @@ feature 'Filling in an LPA' do
     click_button "Save and continue"
 
     expect(page).to have_content("The LPA can be used as soon as it's registered")
-  
+
     # Attorneys
     expect(page).to have_content("Who are your attorneys?")
 
@@ -49,8 +49,11 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("Who are your replacement attorneys?")
 
     click_link 'Add a replacement attorney'
-    fill_in_valid_person(:first_name => "Bob", :last_name => "Man")
+    fill_in_valid_person(:first_name => "Bob", :last_name => "")
+    click_button "Save and continue"
+    expect(page).to have_content("can't be blank")
 
+    fill_in_valid_person(:first_name => "Bob", :last_name => "Man")
     click_button "Save and continue"
     expect(page).to have_content("Bob Man")
     click_link "Save and continue"

@@ -8,13 +8,17 @@ class AttorneysController < ApplicationController
   def create
     @lpa = Lpa.find(params[:lpa_id])
     @attorney = Attorney.new(params[:attorney])
-    @lpa.attorneys << @attorney
+    @lpa.send(attorney_relation) << @attorney
 
     if @lpa.save
-      redirect_to lpa_build_path(lpa_id: @lpa, id: :attorneys)
+      redirect_to lpa_build_path(lpa_id: @lpa, id: attorney_relation)
     else
-      render template: '/attorneys/new'
+      render template: "/#{attorney_relation}/new"
     end
+  end
+
+  def attorney_relation
+    :attorneys
   end
 
 end
