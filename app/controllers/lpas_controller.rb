@@ -1,11 +1,7 @@
 class LpasController < ApplicationController
   before_filter :check_applicant
   def index
-    
-  end
-
-  def find
-    redirect_to edit_lpa_path(params[:lpa])
+    @lpas = Applicant.find(session[:applicant_id]).lpas
   end
 
   def create
