@@ -26,9 +26,9 @@ feature 'Filling in an LPA' do
     expect(page).to have_content('The donor is Mr Johnny Smithson')
 
     # When it can be used
-    expect(page).to have_content('When to use')
+    expect(page).to have_content('When can your LPA be used?')
     expect(page).to_not have_content('life sustaining treatment')
-
+    choose("as soon as it's registered (with my consent)")
     click_button "Save and continue"
 
     expect(page).to have_content("The LPA can be used as soon as it's registered")
