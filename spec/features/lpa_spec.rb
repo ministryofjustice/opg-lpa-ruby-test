@@ -36,14 +36,23 @@ feature 'Filling in an LPA' do
     # Attorneys
     expect(page).to have_content("Who are your attorneys?")
 
-    click_link 'Add an attorney'
-    fill_in_valid_person(:first_name => "Dave", :last_name => "Jameson")
+    2.times do
+      click_link 'Add an attorney'
+      fill_in_valid_person(:first_name => "Dave", :last_name => "Jameson")
 
-    click_button "Save and continue"
-    expect(page).to have_content("Dave Jameson")
+      click_button "Save and continue"
+      expect(page).to have_content("Dave Jameson")
+    end
     click_link "Save and continue"
 
-    expect(page).to have_content("The attorney is Mr Dave Jameson")
+    expect(page).to have_content("The attorneys are Mr Dave Jameson and Mr Dave Jameson")
+
+    # How attorneys should make decisions
+    expect(page).to have_content("How should your attorneys make decisions?")
+    select('Jointly and Severally', :from => "How attorneys act")
+    click_button "Save and continue"
+
+    expect(page).to have_content("The attorneys will act jointly and severally")
 
     # Replacement attorneys
     expect(page).to have_content("Who are your replacement attorneys?")

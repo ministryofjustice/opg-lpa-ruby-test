@@ -65,6 +65,16 @@ module LpasHelper
     end
   end
 
+  def how_attorneys_act_overview(lpa)
+    if lpa.how_attorneys_act == "Jointly and Severally"
+      "The attorneys will act jointly and severally"
+    elsif lpa.how_attorneys_act == "Jointly"
+      "The attorneys will act jointly"
+    elsif lpa.how_attorneys_act == "Jointly for some decisions, and jointly and severally for other decisions"
+      "The replacement attorneys will act jointly for some decisions, and jointly and severally for other decisions"
+    end
+  end
+
   private
   def step_completed?(step_in_question)
     @wizard_steps.find_index(step_in_question) < @wizard_steps.find_index(step)
