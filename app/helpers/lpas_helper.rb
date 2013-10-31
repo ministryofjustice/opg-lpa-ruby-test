@@ -1,14 +1,19 @@
 module LpasHelper
   def error_messages_for(object, field)
-    object.errors.messages[field.to_sym].join(", ")
+    '<span class="validation-message">' + object.errors.messages[field.to_sym].join(", ") + '</span>'
   end
 
-  def input_for(form, label, &block)
-    s = '<div class="group">'
-    s << form.label(label) do
-      raw label.humanize + capture(&block)
+  def input_for(form, label, options={}, &block)
+    errors_present = form.object.errors.messages[label.to_sym].present?
+    s = "<div class=\"group#{" validation" if errors_present}\">"
+    if options[:label_override] != false
+      s << form.label(label, :id => "#{label}_label") do
+        x = options[:label_override] ? options[:label_override] : label.humanize
+        x << error_messages_for(form.object, label) if errors_present
+        raw(x)
+      end
     end
-    s << error_messages_for(form.object, label)
+    s << raw(capture(&block))
     s << '</div>'
     raw s
   end

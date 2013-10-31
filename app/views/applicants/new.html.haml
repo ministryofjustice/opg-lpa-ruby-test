@@ -1,0 +1,12 @@
+%header
+  %hgroup
+    %h1 About you
+    %p First, please give us some information about you.
+    %p You'll be able to use these details in any LPAs you make using this tool.
+
+= form_for @applicant, :html => { :class => 'form' } do |applicant_form|
+  = render "shared/validation_summary", :form_object => applicant_form
+  = render :partial => '/shared/person_form', :locals => {:person_form => applicant_form}
+
+  .action.group
+    = applicant_form.submit "Save and continue", class: "button aboutyou"
