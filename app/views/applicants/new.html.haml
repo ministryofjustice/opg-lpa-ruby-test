@@ -1,0 +1,3 @@
+= form_for @applicant do |applicant_form|
+  = render :partial => '/shared/person_form', :locals => {:person_form => applicant_form}
+  = applicant_form.submit "Save details"
