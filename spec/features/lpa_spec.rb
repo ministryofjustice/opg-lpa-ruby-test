@@ -11,7 +11,7 @@ feature 'Filling in an LPA' do
   scenario 'with invalid applicant' do
     visit "/"
     fill_in_valid_person(:first_name => "")
-    click_button "Save details"
+    click_button "Save and continue"
     expect(page).to have_content('is too short')
   end
 
@@ -32,7 +32,7 @@ feature 'Filling in an LPA' do
     click_button "Save and continue"
 
     expect(page).to have_content("The LPA can be used as soon as it's registered")
-  
+
     # Attorneys
     expect(page).to have_content("Who are your attorneys?")
 
@@ -93,7 +93,7 @@ feature 'Filling in an LPA' do
   def create_financial_lpa(overides={})
     visit "/"
     fill_in_valid_person(overides)
-    click_button "Save details"
+    click_button "Save and continue"
 
     click_button "Create a new LPA"
 
@@ -106,7 +106,7 @@ feature 'Filling in an LPA' do
   def create_healthcare_lpa(overides={})
     visit "/"
     fill_in_valid_person(overides)
-    click_button "Save details"
+    click_button "Save and continue"
 
     click_button "Create a new LPA"
 

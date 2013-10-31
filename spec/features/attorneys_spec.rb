@@ -25,7 +25,7 @@ if ENV["INTEGRATION"]
     def create_financial_lpa_to_attorneys(overides={})
       visit "/"
       fill_in_valid_person(overides)
-      click_button "Save details"
+      click_button "Save and continue"
       click_button "Create a new LPA"
       expect(page).to have_content('Type')
       select("Property and financial affairs", :from => "Type")
