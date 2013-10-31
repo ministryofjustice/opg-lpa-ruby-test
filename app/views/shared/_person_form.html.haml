@@ -1,35 +1,28 @@
-= form_for @applicant do |person_form|
-  .form
-    = render "shared/validation_summary", :form_object => person_form
+%fieldset
+  %legend Name
+  = input_for(person_form, "title") do
+    = person_form.text_field "title"
+  = input_for(person_form, "first_name") do
+    = person_form.text_field "first_name"
+  = input_for(person_form, "middle_names", :label_override => "Middle names (optional)") do
+    = person_form.text_field "middle_names"
+  = input_for(person_form, "last_name") do
+    = person_form.text_field "last_name"
 
-    %fieldset
-      %legend Name
-      = input_for(person_form, "title") do
-        = person_form.select "title", ["Mr", "Ms"]
-      = input_for(person_form, "first_name") do
-        = person_form.text_field "first_name"
-      = input_for(person_form, "middle_names", :label_override => "Middle names (optional)") do
-        = person_form.text_field "middle_names"
-      = input_for(person_form, "last_name") do
-        = person_form.text_field "last_name"
-
-    %fieldset
-      %legend Address
-      = person_form.fields_for person_form.object.address do |person_address_form|
-        = input_for(person_address_form, "address_line1", :label_override => "Street") do
-          = person_address_form.text_field "address_line1"
-        = input_for(person_address_form, "address_line2", :label_override => "") do
-          = person_address_form.text_field "address_line2"
-        = input_for(person_address_form, "address_line3", :label_override => "") do
-          = person_address_form.text_field "address_line3"
-        = input_for(person_address_form, "town") do
-          = person_address_form.text_field "town"
-        = input_for(person_address_form, "county") do
-          = person_address_form.text_field "county"
-        = input_for(person_address_form, "post_code") do
-          = person_address_form.text_field "post_code"
-        = input_for(person_address_form, "country") do
-          = person_address_form.text_field "country"
-
-    .action.group
-      = person_form.submit "Save and continue", class: "button aboutyou"
+%fieldset
+  %legend Address
+  = person_form.fields_for person_form.object.address do |person_address_form|
+    = input_for(person_address_form, "address_line1", :label_override => "Street") do
+      = person_address_form.text_field "address_line1"
+    = input_for(person_address_form, "address_line2", :label_override => false) do
+      = person_address_form.text_field "address_line2"
+    = input_for(person_address_form, "address_line3", :label_override => false) do
+      = person_address_form.text_field "address_line3"
+    = input_for(person_address_form, "town") do
+      = person_address_form.text_field "town"
+    = input_for(person_address_form, "county") do
+      = person_address_form.text_field "county"
+    = input_for(person_address_form, "post_code") do
+      = person_address_form.text_field "post_code"
+    = input_for(person_address_form, "country") do
+      = person_address_form.text_field "country"
