@@ -1,5 +1,5 @@
 class Attorney < ActiveResource::Base
-  self.site = "http://localhost:9292/api"
+  self.site = Rails.configuration.api_uri
   schema do
     string  'title', 'first_name', 'middle_names', 'last_name', 'date_of_birth', 'email', 'phone', 'occupation', 'relationship_to_donor'
   end
@@ -15,7 +15,7 @@ class Attorney < ActiveResource::Base
     super(*args)
   end
 
-  def full_name 
+  def full_name
     "#{title} #{first_name} #{last_name}"
   end
 

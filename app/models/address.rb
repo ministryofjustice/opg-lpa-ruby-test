@@ -1,5 +1,5 @@
 class Address < ActiveResource::Base
-  self.site = "http://localhost:9292/api"
+  self.site = Rails.configuration.api_uri
   schema do
     string  'address_line1'
     string  'address_line2'
