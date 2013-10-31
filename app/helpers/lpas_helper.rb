@@ -19,15 +19,7 @@ module LpasHelper
   end
 
   def lpa_overview(lpa)
-    overview = @wizard_steps.collect {|s| self.send("#{s}_overview", lpa) if step_completed?(s)}.compact
-    if overview.present?
-      r = "<ul><li>"
-      r << overview.join("</li><li>")
-      r << "</li></ul>"
-      raw r
-    else
-      ""
-    end
+    @wizard_steps.collect {|s| self.send("#{s}_overview", lpa) if step_completed?(s)}.compact
   end
 
   def type_overview(lpa)
@@ -55,17 +47,17 @@ module LpasHelper
   end
 
   def attorneys_overview(lpa)
-    if lpa.attorneys.size == 1 
+    if lpa.attorneys.size == 1
       "The attorney is #{lpa.attorneys.first.full_name}"
-    else 
+    else
       "The attorneys are #{lpa.attorneys.collect {|a| a.full_name}.to_sentence(:last_word_connector => ' and ')}"
     end
   end
 
   def replacement_attorneys_overview(lpa)
-    if lpa.replacement_attorneys.size == 1 
+    if lpa.replacement_attorneys.size == 1
       "The replacement attorney is #{lpa.replacement_attorneys.first.full_name}"
-    else 
+    else
       "The replacement attorneys are #{lpa.replacement_attorneys.collect {|a| a.full_name}.to_sentence(:last_word_connector => ' and ')}"
     end
   end
