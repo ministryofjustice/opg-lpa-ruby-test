@@ -19,20 +19,24 @@ feature 'Filling in an LPA' do
     create_financial_lpa
     expect(page).to have_content('This LPA covers Property and financial affairs')
 
+    # Donor info
     fill_in_valid_person
     click_button "Save and continue"
 
     expect(page).to have_content('The donor is Mr Johnny Smithson')
+
+    # When it can be used
     expect(page).to have_content('When to use')
     expect(page).to_not have_content('life sustaining treatment')
 
     click_button "Save and continue"
 
     expect(page).to have_content("The LPA can be used as soon as it's registered")
+  
+    # Attorneys
     expect(page).to have_content("Who are your attorneys?")
 
     click_link 'Add an attorney'
-
     fill_in_valid_person(:first_name => "Dave", :last_name => "Jameson")
 
     click_button "Save and continue"
@@ -40,6 +44,20 @@ feature 'Filling in an LPA' do
     click_link "Save and continue"
 
     expect(page).to have_content("The attorney is Mr Dave Jameson")
+
+    # Replacement attorneys
+    expect(page).to have_content("Who are your replacement attorneys?")
+
+    click_link 'Add a replacement attorney'
+    fill_in_valid_person(:first_name => "Bob", :last_name => "Man")
+
+    click_button "Save and continue"
+    expect(page).to have_content("Bob Man")
+    click_link "Save and continue"
+
+    expect(page).to have_content("The replacement attorney is Mr Bob Man")
+
+    # Completion
     expect(page).to have_content("LPA created")
   end
 
@@ -47,9 +65,11 @@ feature 'Filling in an LPA' do
     create_healthcare_lpa
     expect(page).to have_content('This LPA covers Health and welfare')
 
+    # Donor info
     fill_in_valid_person
     click_button "Save and continue"
 
+    # Life sustaining treatment decision
     expect(page).to have_content('The donor is Mr Johnny Smithson')
     expect(page).to_not have_content('When to use')
     expect(page).to have_content('Life sustaining treatment')
@@ -57,18 +77,6 @@ feature 'Filling in an LPA' do
     click_button "Save and continue"
 
     expect(page).to have_content("The attorneys can't make decisions about life-sustaining treatment on the donor's behalf")
-    expect(page).to have_content("Who are your attorneys?")
-
-    click_link 'Add an attorney'
-
-    fill_in_valid_person(:first_name => "Dave", :last_name => "Jameson")
-
-    click_button "Save and continue"
-    expect(page).to have_content("Dave Jameson")
-    click_link "Save and continue"
-
-    expect(page).to have_content("The attorney is Mr Dave Jameson")
-    expect(page).to have_content("LPA created")
   end
 
 
@@ -79,18 +87,8 @@ feature 'Filling in an LPA' do
     fill_in_valid_person(:first_name => "")
     click_button "Save and continue"
     expect(page).to have_content('is too short')
- end
-
-
-  def fill_in_valid_person(overides={})
-    fill_in 'First name', with: overides[:first_name] || "Johnny"
-    fill_in 'Last name', with: overides[:last_name] || "Smithson"
-    fill_in 'Post code', with: overides[:post_code] || "SW1H 9AJ"
-    fill_in 'Address line1', with: overides[:address_line1] || "102 Petty France"
-    fill_in 'Town', with: overides[:town] || "Westminster"
-    fill_in 'County', with: overides[:county] || "London"
-    fill_in 'Country', with: overides[:country] || "Great Britain"
   end
+
 
   def create_financial_lpa(overides={})
     visit "/"

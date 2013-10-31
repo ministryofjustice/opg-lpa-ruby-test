@@ -1,4 +1,4 @@
-class AttorneysController < ApplicationController
+class ReplacementAttorneysController < ApplicationController
   def new
     @lpa = Lpa.find(params[:lpa_id])
     @attorney = Attorney.new
@@ -6,8 +6,8 @@ class AttorneysController < ApplicationController
   def create
     @lpa = Lpa.find(params[:lpa_id])
     @attorney = Attorney.new(params[:attorney])
-    @lpa.attorneys << @attorney
+    @lpa.replacement_attorneys << @attorney
     @lpa.save
-    redirect_to lpa_build_path(:lpa_id => @lpa, :id => :attorneys)
+    redirect_to lpa_build_path(:lpa_id => @lpa, :id => :replacement_attorneys)
   end
 end

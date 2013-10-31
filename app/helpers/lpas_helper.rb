@@ -57,6 +57,14 @@ module LpasHelper
     end
   end
 
+  def replacement_attorneys_overview(lpa)
+    if lpa.replacement_attorneys.size == 1 
+      "The replacement attorney is #{lpa.replacement_attorneys.first.full_name}"
+    else 
+      "The replacement attorneys are #{lpa.replacement_attorneys.collect {|a| a.full_name}.to_sentence(:last_word_connector => ' and ')}"
+    end
+  end
+
   private
   def step_completed?(step_in_question)
     @wizard_steps.find_index(step_in_question) < @wizard_steps.find_index(step)

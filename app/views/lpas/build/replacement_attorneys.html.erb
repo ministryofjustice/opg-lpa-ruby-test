@@ -1,0 +1,7 @@
+Who are your replacement attorneys?
+<%= lpa_overview(@lpa) %>
+<% @lpa.replacement_attorneys.each do |attorney| %>
+  <%= attorney.full_name %>
+<% end %>
+<%= link_to("Add a replacement attorney", new_lpa_replacement_attorney_path(@lpa)) %>
+<%= link_to("Save and continue", next_wizard_path) %>
