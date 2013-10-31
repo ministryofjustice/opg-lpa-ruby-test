@@ -58,4 +58,19 @@ describe LpasHelper do
       helper.replacement_attorneys_overview(lpa).should == "The replacement attorneys are Mr John Barbs, Mrs Joanna Barbs and Miss Bob Barbs"
     end
   end
+
+  describe "how_attorneys_act_overview" do
+    it "should display jointly accurately" do
+      lpa = Lpa.new(:how_attorneys_act => "Jointly")
+      helper.how_attorneys_act_overview(lpa).should == "The attorneys will act jointly"
+    end
+    it "should display jointly and seperately accurately" do
+      lpa = Lpa.new(:how_attorneys_act => "Jointly and Severally")
+      helper.how_attorneys_act_overview(lpa).should == "The attorneys will act jointly and severally"
+    end
+    it "should display some jointly, some sepreately accurately" do
+      lpa = Lpa.new(:how_attorneys_act => "Jointly for some decisions, and jointly and severally for other decisions")
+      helper.how_attorneys_act_overview(lpa).should == "The replacement attorneys will act jointly for some decisions, and jointly and severally for other decisions"
+    end
+  end
 end

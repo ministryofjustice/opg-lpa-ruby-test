@@ -6,9 +6,11 @@ class Lpa < ActiveResource::Base
   has_one :donor
 
   schema do
-    string  'type'
-    string  'when_to_use'
-    string  'life_sustaining_treatment'
+    string 'type'
+    string 'when_to_use'
+    string 'life_sustaining_treatment'
+    string 'how_attorneys_act'
+    string 'how_attorneys_act_details'
   end
 
   def initialize(*args)
