@@ -26,8 +26,8 @@ if ENV["INTEGRATION"]
       fill_in_valid_person(overides)
       click_button "Save and continue"
       click_button "Create a new LPA"
-      expect(page).to have_content('Type')
-      select("Property and financial affairs", :from => "Type")
+      expect(page).to have_content('What type of LPA do you want to create?')
+      choose("Property and financial affairs")
       click_button "Save and continue"
       fill_in_valid_person
       click_button "Save and continue"

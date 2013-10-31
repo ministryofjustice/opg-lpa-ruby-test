@@ -6,8 +6,14 @@
 @import "design-patterns/_buttons.scss";
 
 // from Government Service Design Manual
-@import "design-patterns/_forms";
 @import "_panels";
+// from existing app
+@import "design-patterns/_forms";
+@import "design-patterns/_accordion-form";
+@import "design-patterns/_details";
+// pages
+@import "pages/_create-and-register-pages";
+
 
 /*
  * Core global styles
@@ -209,6 +215,16 @@ body.full-width {
   }
 }
 
+/* Fix header style */
+#wrapper header.page-header {
+  margin-bottom: 2em;
+
+  h1 {
+    font-size: 4.8rem;
+    margin: 0.6em 1em 1em 0;
+  }
+}
+
 
 
 /* Forms */
@@ -216,3 +232,9 @@ body.full-width {
   @include form(top, 5.5em);
 }
 
+
+// ===========================================================
+// DETAILS TAG
+// ===========================================================
+
+@include details;

@@ -109,8 +109,8 @@ feature 'Filling in an LPA' do
 
     click_button "Create a new LPA"
 
-    expect(page).to have_content('Type')
-    select("Property and financial affairs", :from => "Type")
+    expect(page).to have_content('What type of LPA do you want to create?')
+    choose("Property and financial affairs")
 
     click_button "Save and continue"
   end
@@ -122,8 +122,8 @@ feature 'Filling in an LPA' do
 
     click_button "Create a new LPA"
 
-    expect(page).to have_content('Type')
-    select("Health and welfare", :from => "Type")
+    expect(page).to have_content('What type of LPA do you want to create?')
+    choose("Health and welfare")
 
     click_button "Save and continue"
   end
