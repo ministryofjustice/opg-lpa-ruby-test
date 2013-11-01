@@ -111,12 +111,9 @@ $(document).ready(function () {
       }).change();
   }
 
-  // toggle-lpa[how_attorneys_act]-lpa_how_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions
-  // toggle-lpa[how_attorneys_act]-lpa_how_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions
-
   $('[name="certificateProviderStatementType"]').hasConditionalContent();
   $('[name="lpa[how_attorneys_act]"]').hasConditionalContent();
-  $('[name="howReplacementAttorneysStepIn"]').hasConditionalContent();
+  $('[name="lpa[how_replacement_attorneys_act]"]').hasConditionalContent();
 
 
   // Who is applying to register?
