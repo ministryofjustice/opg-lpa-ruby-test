@@ -30,8 +30,14 @@ module LpasHelper
     "The donor is #{lpa.donor.title} #{lpa.donor.first_name} #{lpa.donor.last_name}"
   end
 
-  def person_to_be_told_overview(lpa)
-    "#{lpa.person_to_be_told.title} #{lpa.person_to_be_told.first_name} #{lpa.person_to_be_told.last_name} is to be told"
+  def people_to_be_told_overview(lpa)
+    if lpa.people_to_be_told.size == 0
+      "There are no people 'to be told'"
+    elsif lpa.people_to_be_told.size == 1
+      "The person to be told is #{lpa.people_to_be_told.first.full_name}"
+    else
+      "The people to be told are #{lpa.people_to_be_told.collect {|a| a.full_name}.to_sentence(:last_word_connector => ' and ')}"
+    end
   end
 
   def certificate_provider_overview(lpa)

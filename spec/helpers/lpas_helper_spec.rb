@@ -59,6 +59,35 @@ describe LpasHelper do
     end
   end
 
+  describe "people_to_be_told_overview" do
+    it "should return correctly for no people to be told" do
+      lpa = Lpa.new(:people_to_be_told => [])
+      helper.people_to_be_told_overview(lpa).should == "There are no people 'to be told'"
+    end
+
+    it "should return correctly for 1 person to be told" do
+      lpa = Lpa.new(:people_to_be_told => [PersonToBeTold.new({:first_name => "John", :last_name => "Barbs", :title => "Mr"})])
+      helper.people_to_be_told_overview(lpa).should == "The person to be told is Mr John Barbs"
+    end
+
+    it "should return correctly for 2 people to be told" do
+      lpa = Lpa.new(:people_to_be_told => [
+        PersonToBeTold.new({:first_name => "John", :last_name => "Barbs", :title => "Mr"}),
+        PersonToBeTold.new({:first_name => "Joanna", :last_name => "Barbs", :title => "Mrs"})
+      ])
+      helper.people_to_be_told_overview(lpa).should == "The people to be told are Mr John Barbs and Mrs Joanna Barbs"
+    end
+
+    it "should return correctly for 3 to be told" do
+      lpa = Lpa.new(:people_to_be_told => [
+        PersonToBeTold.new({:first_name => "John", :last_name => "Barbs", :title => "Mr"}),
+        PersonToBeTold.new({:first_name => "Joanna", :last_name => "Barbs", :title => "Mrs"}),
+        PersonToBeTold.new({:first_name => "Bob", :last_name => "Barbs", :title => "Miss"})
+      ])
+      helper.people_to_be_told_overview(lpa).should == "The people to be told are Mr John Barbs, Mrs Joanna Barbs and Miss Bob Barbs"
+    end
+  end
+
   describe "how_attorneys_act_overview" do
     it "should display jointly accurately" do
       lpa = Lpa.new(:how_attorneys_act => "Jointly")

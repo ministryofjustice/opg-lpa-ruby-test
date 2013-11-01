@@ -1,0 +1,2 @@
+module PeopleToBeToldHelper
+end

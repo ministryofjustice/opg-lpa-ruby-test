@@ -7,6 +7,7 @@ OpgLpa::Application.routes.draw do
     end
     resources :attorneys
     resources :replacement_attorneys
+    resources :people_to_be_told
   end
   resources :applicants
   # The priority is based upon order of creation: first created -> highest priority.

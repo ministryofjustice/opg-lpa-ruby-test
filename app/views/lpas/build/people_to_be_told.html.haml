@@ -1,0 +1,31 @@
+= render "shared/create_header"
+
+%article
+  #accordion.accordion-form
+    = render "shared/completed_sections"
+
+    %section#donor.section.current
+      %h2.accordion-header #{lpa_overview(@lpa).count+1}. Who should be told before your LPA is registered?
+      .accordion-content
+
+        = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+          - @lpa.people_to_be_told.each do |person_to_be_told|
+            .person-summary.group
+              .person
+                %h3= person_to_be_told.full_name
+                %p= person_to_be_told.address.full_address
+              %ul.actions
+                %li
+                  %a{:href => "#"} View/edit details
+                %li
+                  %a.delete-confirmation{:href => "#"} Delete
+
+          - if @lpa.people_to_be_told.length > 0
+            %p.add-another
+              = link_to("Add a person to be told", new_lpa_person_to_be_told_path(@lpa), {:class => "add"})
+          - else
+            %p
+              = link_to("Add a person to be told", new_lpa_person_to_be_told_path(@lpa), {:class => "add button"})
+          .accordion-actions
+            %p
+              = link_to("Save and continue", next_wizard_path, {:class => "button"})
