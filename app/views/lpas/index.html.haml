@@ -1,0 +1,33 @@
+%header.page-header.group
+  %hgroup
+    %h1 Your LPAs
+    - if @lpas.each.count > 0
+      %p These are all the LPAs that you've created.
+    - else
+      %p You haven't created any LPAs yet.
+
+%article
+  = form_for Lpa.new do |f|
+    %p
+      = f.submit "Create a new LPA", :class => "add button"
+
+  - if @lpas.each.count > 0
+    %table#savedForms.lpa-list
+      %thead
+        %tr
+          %th Donor
+          %th LPA
+          %th Last saved on
+          %th LPA Status
+          %th
+      %tbody
+        - @lpas.each do |lpa|
+          %tr
+            %td= lpa.donor ? lpa.donor.full_name : "No donor yet"
+            %td= lpa.type || "No type yet"
+            %td= lpa.updated_at.to_date.strftime('%d/%m/%Y') || "Never updated"
+            %td= lpa.status || "Started"
+            %td
+              .lpa-actions
+                = link_to "Continue", lpa_build_index_path(lpa), :class => "button"
+                %a.button-warning.delete-lpa{:href => "#"} Delete
