@@ -5,6 +5,7 @@ class Lpa < ActiveResource::Base
   has_many :replacement_attorneys, :class_name => :attorney
   has_one :donor
   has_one :certificate_provider
+  has_one :certificate_provider2, :class_name => :certificate_provider
   has_many :people_to_be_told
 
   schema do
@@ -24,6 +25,7 @@ class Lpa < ActiveResource::Base
     args[0] = {
       :donor => nil,
       :certificate_provider => nil,
+      :certificate_provider2 => nil,
       :people_to_be_told => [],
       :attorneys => [],
       :replacement_attorneys => []

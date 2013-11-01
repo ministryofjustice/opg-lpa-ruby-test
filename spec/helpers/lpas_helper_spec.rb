@@ -62,7 +62,7 @@ describe LpasHelper do
   describe "people_to_be_told_overview" do
     it "should return correctly for no people to be told" do
       lpa = Lpa.new(:people_to_be_told => [])
-      helper.people_to_be_told_overview(lpa).should == "There are no people 'to be told'"
+      helper.people_to_be_told_overview(lpa).should == "There are no 'people to be told'"
     end
 
     it "should return correctly for 1 person to be told" do

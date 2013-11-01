@@ -15,7 +15,7 @@ feature 'Filling in an LPA' do
     expect(page).to have_content('is too short')
   end
 
-  scenario 'financial with all valid details' do
+  scenario 'valid financial with multiple attorneys and replacement attorneys and a person to be told' do
     create_financial_lpa
     expect(page).to have_content('This LPA covers Property and financial affairs')
 
@@ -102,6 +102,72 @@ feature 'Filling in an LPA' do
     click_link "Save and continue"
 
     expect(page).to have_content('The people to be told are Mr Jill Graham and Mr Bob Graham')
+
+    # Completion
+    expect(page).to have_content("LPA created")
+  end
+
+  scenario 'valid financial with 1 attorneys and 1 attorneys and no person to be told' do
+    create_financial_lpa
+    expect(page).to have_content('This LPA covers Property and financial affairs')
+
+    # Donor info
+    fill_in_valid_person
+    click_button "Save and continue"
+
+    expect(page).to have_content('The donor is Mr Johnny Smithson')
+
+    # When it can be used
+    expect(page).to have_content('When can your LPA be used?')
+    expect(page).to_not have_content('life sustaining treatment')
+    choose("as soon as it's registered (with my consent)")
+    click_button "Save and continue"
+
+    expect(page).to have_content("The LPA can be used as soon as it's registered")
+
+    # Attorneys
+    expect(page).to have_content("Who are your attorneys?")
+
+    click_link 'Add an attorney'
+    fill_in_valid_person(:first_name => "Dave", :last_name => "Jameson")
+
+    click_button "Save and continue"
+    expect(page).to have_content("Dave Jameson")
+    click_link "Save and continue"
+
+    expect(page).to have_content("The attorney is Mr Dave Jameson")
+
+    # Replacement attorneys
+    expect(page).to have_content("Who are your replacement attorneys?")
+
+    click_link 'Add a replacement attorney'
+    fill_in_valid_person(:first_name => "Bob", :last_name => "Man")
+    click_button "Save and continue"
+    expect(page).to have_content("Bob Man")
+
+    click_link "Save and continue"
+
+    expect(page).to have_content("The replacement attorney is Mr Bob Man")
+
+    # Certificate provider
+    expect(page).to have_content("Who is the certificate provider?")
+    fill_in_valid_person(:first_name => "Charlie", :last_name => "Prover")
+    click_button "Save and continue"
+
+    expect(page).to have_content('The certificate provider is Mr Charlie Prover')
+
+    # Who to be told
+    expect(page).to have_content("Who should be told before your LPA is registered?")
+    click_link "Save and continue"
+
+    expect(page).to have_content("There are no 'people to be told'")
+
+    # Second Certificate provider
+    expect(page).to have_content("Who is the second certificate provider?")
+    fill_in_valid_person(:first_name => "Gregg", :last_name => "John")
+    click_button "Save and continue"
+
+    expect(page).to have_content('The second certificate provider is Mr Gregg John')
 
     # Completion
     expect(page).to have_content("LPA created")

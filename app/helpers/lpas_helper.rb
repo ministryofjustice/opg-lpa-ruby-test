@@ -32,7 +32,7 @@ module LpasHelper
 
   def people_to_be_told_overview(lpa)
     if lpa.people_to_be_told.size == 0
-      "There are no people 'to be told'"
+      "There are no 'people to be told'"
     elsif lpa.people_to_be_told.size == 1
       "The person to be told is #{lpa.people_to_be_told.first.full_name}"
     else
@@ -42,6 +42,12 @@ module LpasHelper
 
   def certificate_provider_overview(lpa)
     "The certificate provider is #{lpa.certificate_provider.title} #{lpa.certificate_provider.first_name} #{lpa.certificate_provider.last_name}"
+  end
+
+  def certificate_provider2_overview(lpa)
+    if lpa.certificate_provider2.present?
+      "The second certificate provider is #{lpa.certificate_provider2.title} #{lpa.certificate_provider2.first_name} #{lpa.certificate_provider2.last_name}"
+    end
   end
 
   def when_to_use_overview(lpa)
