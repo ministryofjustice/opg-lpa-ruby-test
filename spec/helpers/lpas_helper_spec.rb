@@ -73,4 +73,21 @@ describe LpasHelper do
       helper.how_attorneys_act_overview(lpa).should == "The replacement attorneys will act jointly for some decisions, and jointly and severally for other decisions"
     end
   end
+
+  describe "life_sustaining_overview" do
+    it "should return nil if a healthcare lpa" do
+      lpa = Lpa.new(:type => "Property and financial affairs")
+      helper.life_sustaining_overview(lpa).should == nil
+    end
+    it "should return correctly for option a" do
+      lpa = Lpa.new(:type => "Health and welfare", :life_sustaining_treatment => "Option A")
+      helper.life_sustaining_overview(lpa).should == "The attorneys can make decisions about life-sustaining treatment on the donor's behalf"
+    end
+    it "should return correctly for option b" do
+      lpa = Lpa.new(:type => "Health and welfare", :life_sustaining_treatment => "Option B")
+      helper.life_sustaining_overview(lpa).should == "The attorneys can't make decisions about life-sustaining treatment on the donor's behalf"
+    end
+  end
+
+  describe "when_to_use_overview"
 end

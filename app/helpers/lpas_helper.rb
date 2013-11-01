@@ -40,7 +40,11 @@ module LpasHelper
 
   def life_sustaining_overview(lpa)
     if lpa.type == "Health and welfare"
-      "The attorneys can't make decisions about life-sustaining treatment on the donor's behalf"
+      if lpa.life_sustaining_treatment == "Option A"
+        "The attorneys can make decisions about life-sustaining treatment on the donor's behalf"
+      elsif lpa.life_sustaining_treatment == "Option B"
+        "The attorneys can't make decisions about life-sustaining treatment on the donor's behalf"
+      end
     else
       nil
     end

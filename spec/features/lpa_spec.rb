@@ -85,7 +85,7 @@ feature 'Filling in an LPA' do
     expect(page).to have_content('The donor is Mr Johnny Smithson')
     expect(page).to_not have_content('When to use')
     expect(page).to have_content('Can your attorneys give or refuse consent to life-sustaining treatment?')
-    choose("Option B: No. I don’t want to give my attorneys authority to give or refuse consent to life-sustaining treatment on my behalf")
+    choose("Option B")
     click_button "Save and continue"
 
     expect(page).to have_content("The attorneys can't make decisions about life-sustaining treatment on the donor's behalf")

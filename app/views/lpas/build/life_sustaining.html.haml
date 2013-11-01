@@ -22,13 +22,12 @@
         %h3 Do you want to give your attorneys authority to make decisions about life-sustaining treatment on your behalf?
         = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
           .emphasised.option.group
-            = lpa_form.fields_for @lpa.donor do |donor_form|
-              = lpa_form.label :when_to_use_option_a do
-                = lpa_form.radio_button :when_to_use, "Option A"
-                Option A: Yes. I want to give my attorneys authority to give or refuse consent to life-sustaining treatment on my behalf
-              = lpa_form.label :when_to_use_option_b do
-                = lpa_form.radio_button :when_to_use, "Option B"
-                Option B: No. I don’t want to give my attorneys authority to give or refuse consent to life-sustaining treatment on my behalf
+            = lpa_form.label :life_sustaining_treatment_option_a do
+              = lpa_form.radio_button :life_sustaining_treatment, "Option A"
+              Option A: Yes. I want to give my attorneys authority to give or refuse consent to life-sustaining treatment on my behalf
+            = lpa_form.label :life_sustaining_treatment_option_b do
+              = lpa_form.radio_button :life_sustaining_treatment, "Option B"
+              Option B: No. I don’t want to give my attorneys authority to give or refuse consent to life-sustaining treatment on my behalf
           %p Later on, you'll need to sign and date the option you've chosen on your printed LPA document. Your signature must be witnessed.
           .accordion-actions
             %p
