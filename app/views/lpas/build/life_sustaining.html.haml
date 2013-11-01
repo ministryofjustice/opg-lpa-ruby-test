@@ -5,7 +5,7 @@
     = render "shared/completed_sections"
 
     %section#donor.section.current
-      %h2.accordion-header 3. Can your attorneys give or refuse consent to life-sustaining treatment?
+      %h2.accordion-header #{lpa_overview(@lpa).count+1}. Can your attorneys give or refuse consent to life-sustaining treatment?
       .accordion-content
         .section-intro
           %p This is a very important decision. Read the guidance carefully before you answer.
