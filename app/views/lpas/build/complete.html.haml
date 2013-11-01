@@ -1,0 +1,48 @@
+%header.page-header.group
+  %hgroup
+    %h1 Next Steps
+
+%article
+  .LPA-details.right
+    %h3 LPA for Property and financial affairs
+    %ul
+      %li For #{@lpa.donor.full_name}.
+      %li Created on 01/11/2013.
+    .LPA-actions
+      %a{:href => "#"} View or edit this LPA
+      &nbsp;|&nbsp;
+      %a{:href => "#"} Delete this LPA
+
+  %p That's all we need for the LPA itself. Now it's ready to print and sign.
+  %p After it's signed, you'll need to log back in here to complete a registration form and pay the application fee.
+  %p Everything's been saved, so you can pause here to arrange things and talk to the people involved in your LPA. We've emailed you a link that you can follow whenever you're ready to register, or just sign back in to this account.
+
+  %ol.next.steps
+    %li
+      %h3 Print your LPA
+      .form-download
+        %p
+          %a{:href => "#", :target => "_blank"} Download the LPA document you've created now
+      %p You can print in colour or black-and-white.
+    %li
+      %h3 Sign your LPA
+      %p
+        Everyone involved must sign the LPA. Follow the instructions on the cover sheet of your LPA document.
+        %a.open-help-system{:href => "#signing-the-lpa", "data-journey-click" => "stageprompt.lpa:help:signing-the-lpa"} Find out more about who needs to sign the LPA – and in what order
+    %li
+      %h3 Register the LPA
+      %p After everyone’s signed the LPA, you have to pay an application fee, then send the signed LPA along with a completed registration form to the Office of the Public Guardian. It’s a good idea to apply to register your LPA straight after making it. An unregistered LPA can't be used.
+      %p
+        %a.button{:href => ""} Apply to register your LPA now
+      %p
+        %a.open-help-system{:href => "#registering-the-lpa", "data-journey-click" => "stageprompt.lpa:help:registering-the-lpa"} Find out more about registering your LPA
+
+    %hr
+
+    %h2 Want to create another LPA?
+    %p
+      %strong
+        %a{:href => "#"} Make an LPA based on this one
+        (you'll be able to add people in a single click).
+    %p
+      %a{:href => "#"} Make an LPA from scratch
