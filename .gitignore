@@ -45,3 +45,6 @@ bin/decolor
 bin/restclient
 bin/term_display
 bin/term_mandel
+
+# Ignore Mac files
+.DS_Store
