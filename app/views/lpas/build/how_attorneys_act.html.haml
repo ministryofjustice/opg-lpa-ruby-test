@@ -34,13 +34,11 @@
                 Attorneys must agree unanimously on some decisions, but can make others on their own.
                 %br You'll need to state which decisions need to be agreed unanimously.
 
-          #toggle-how_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions.details-textbox{"data-toggle-by" => "#how_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions"}
+          %div.details-textbox{:id => "toggle-lpa[how_attorneys_act]-lpa_how_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions", "data-toggle-by" => "#lpa_how_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions"}
             %p.hint
               Please give details of the specific decisions that your attorneys must all agree on.
               %a.open-help-system{:href => "#how-attorneys-make-decisions", "data-journey-click" => "stageprompt.lpa:help:how-attorneys-make-decisions"} Not sure what to put?
             = lpa_form.text_area :how_attorneys_act_details, :row => 24, :cols => 80
-
--#<textarea name="attorneyActDecisions" id="attorneyActDecisions" rows="24" cols="80"></textarea>     </p></div>
 
           .accordion-actions
             %p

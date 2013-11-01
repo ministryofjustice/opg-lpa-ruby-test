@@ -103,16 +103,19 @@ $(document).ready(function () {
       var name = $(this).attr('name');
       $("[id^='toggle-"+name+"']").hide();
 
-      $("[name="+name+"]").change(function(){
+      $('[name="'+name+'"]').change(function(){
           if($(this).is(':checked')){
-              $("[id^='toggle-"+name+"']").hide();
-              $("#toggle-"+name+"-"+$(this).val()).show();
+              $('[id^="toggle-'+name+'"]').hide();
+              $('[id="toggle-' + name + '-' + $(this).attr("id") + '"]').show();
           }
       }).change();
   }
 
+  // toggle-lpa[how_attorneys_act]-lpa_how_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions
+  // toggle-lpa[how_attorneys_act]-lpa_how_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions
+
   $('[name="certificateProviderStatementType"]').hasConditionalContent();
-  $('[name="howAttorneysAct"]').hasConditionalContent();
+  $('[name="lpa[how_attorneys_act]"]').hasConditionalContent();
   $('[name="howReplacementAttorneysStepIn"]').hasConditionalContent();
 
 
