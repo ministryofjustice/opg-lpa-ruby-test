@@ -5,7 +5,7 @@
     = render "shared/completed_sections"
 
     %section#donor.section.current
-      %h2.accordion-header #{lpa_overview(@lpa).count+1}. LPA created
+      %h2.accordion-header LPA created
       .accordion-content
         .section-intro
           %p You've entered all the essential information needed for your LPA.
@@ -23,7 +23,7 @@
           %p.hint
             These are things that the attorneys MUST or MUST NOT do.
             %a.open-help-system{:href => "#restrictions-and-guidance", "data-journey-click" => "stageprompt.lpa:help:restrictions-and-guidance"} Not sure what to put?
-          %p
+          -#%p
             <textarea name="restrictions" id="restrictions" rows="10" cols="67"></textarea>
 
           %h3#guidance-label
@@ -31,7 +31,7 @@
           %p.hint
             These are things you would like attorneys to think about when making decisions.
             %a.open-help-system{:href => "#restrictions-and-guidance", "data-journey-click" => "stageprompt.lpa:help:restrictions-and-guidance"} Not sure what to put?
-          %p
+          -#%p
             <textarea name="guidance" id="guidance" rows="10" cols="67"></textarea>
 
           %h3#charges-label
@@ -39,45 +39,9 @@
           %p.hint
             You can set out whether and how much attorneys should be paid here.
             %a.open-help-system{:href => "#restrictions-and-guidance", "data-journey-click" => "stageprompt.lpa:help:restrictions-and-guidance"} Not sure what to put?
-          %p
+          -#%p
             <textarea name="charges" id="charges" rows="10" cols="67"></textarea>
-
-
 
         .accordion-actions
           %p
             = link_to("Save and continue", next_wizard_path, {:class => "button"})
-
--#
-  <details>
-          <summary data-journey-click="stageprompt.lpa:help.inline:create/review:add-extra-instructions-for-the-attorneys" role="button" aria-expanded="false">Add extra instructions for the attorneys?</summary>
-
-          <p>If you'd like to add anything here, please <a class="open-help-system" href="#restrictions-and-guidance" data-journey-click="stageprompt.lpa:help:restrictions-and-guidance">read our help topic on restrictions and guidance</a>. It contains useful examples and can help you avoid mistakes.</p>
-
-
-
-          <h3 id="restrictions-label"><label for="restrictions" class="optional">Conditions and restrictions</label></h3>
-  <p class="hint">These are things that the attorneys MUST or MUST NOT do. <a href="#restrictions-and-guidance" class="open-help-system" data-journey-click="stageprompt.lpa:help:restrictions-and-guidance">Not sure what to put?</a></p>
-
-  <p>
-  <textarea name="restrictions" id="restrictions" rows="10" cols="67"></textarea></p>
-
-
-
-  <h3 id="guidance-label"><label for="guidance" class="optional">Guidance</label></h3>
-  <p class="hint">These are things you would like attorneys to think about when making decisions. <a href="#restrictions-and-guidance" class="open-help-system" data-journey-click="stageprompt.lpa:help:restrictions-and-guidance">Not sure what to put?</a></p>
-  <p>
-  <textarea name="guidance" id="guidance" rows="10" cols="67"></textarea></p>
-
-
-
-  <h3 id="charges-label"><label for="charges" class="optional">Paying attorneys</label></h3>
-  <p class="hint">You can set out whether and how much attorneys should be paid here. <a href="#paying-attorneys" class="open-help-system" data-journey-click="stageprompt.lpa:help:paying-attorneys">Not sure what to put?</a></p>
-  <p>
-  <textarea name="charges" id="charges" rows="10" cols="67"></textarea></p>     </details>
-
-
--#
-  LPA created
-  <%= lpa_overview(@lpa) %>
-  <%= link_to("Save and continue", next_wizard_path, {:class => "button"}) %>
