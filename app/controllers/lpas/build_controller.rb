@@ -2,7 +2,7 @@ class Lpas::BuildController < ApplicationController
   before_filter :check_applicant
   include Wicked::Wizard
 
-  steps :type, :donor, :when_to_use, :life_sustaining, :attorneys, :how_attorneys_act, :replacement_attorneys, :how_replacement_attorneys_act, :review
+  steps :type, :donor, :when_to_use, :life_sustaining, :attorneys, :how_attorneys_act, :replacement_attorneys, :how_replacement_attorneys_act, :certificate_provider, :review
 
   def show
     @lpa = Lpa.find(params[:lpa_id])
@@ -13,6 +13,8 @@ class Lpas::BuildController < ApplicationController
       skip_step if @lpa.type == "Property and financial affairs"
     when :donor
       @lpa.donor = @lpa.donor || Donor.new
+    when :certificate_provider
+      @lpa.certificate_provider = @lpa.certificate_provider || CertificateProvider.new
     when :how_attorneys_act
       skip_step if @lpa.attorneys.size <= 1
     when :how_replacement_attorneys_act

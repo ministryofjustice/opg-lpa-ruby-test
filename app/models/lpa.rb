@@ -4,6 +4,7 @@ class Lpa < ActiveResource::Base
   has_many :attorneys
   has_many :replacement_attorneys, :class_name => :attorney
   has_one :donor
+  has_one :certificate_provider
 
   schema do
     string 'type'
@@ -21,6 +22,7 @@ class Lpa < ActiveResource::Base
     args[0] ||= {}
     args[0] = {
       :donor => nil,
+      :certificate_provider => nil,
       :attorneys => [],
       :replacement_attorneys => []
     }.merge(args[0])

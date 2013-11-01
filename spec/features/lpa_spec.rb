@@ -81,6 +81,13 @@ feature 'Filling in an LPA' do
 
     expect(page).to have_content("The replacement attorneys will act jointly and severally")
 
+    # Certificate provider
+    expect(page).to have_content("Who is the certificate provider?")
+    fill_in_valid_person(:first_name => "Charlie", :last_name => "Prover")
+    click_button "Save and continue"
+
+    expect(page).to have_content('The certificate provider is Mr Charlie Prover')
+
     # Completion
     expect(page).to have_content("LPA created")
   end

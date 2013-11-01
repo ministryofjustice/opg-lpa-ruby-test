@@ -30,6 +30,10 @@ module LpasHelper
     "The donor is #{lpa.donor.title} #{lpa.donor.first_name} #{lpa.donor.last_name}"
   end
 
+  def certificate_provider_overview(lpa)
+    "The certificate provider is #{lpa.certificate_provider.title} #{lpa.certificate_provider.first_name} #{lpa.certificate_provider.last_name}"
+  end
+
   def when_to_use_overview(lpa)
     if lpa.type == "Property and financial affairs"
       "The LPA can be used #{lpa.when_to_use}"
