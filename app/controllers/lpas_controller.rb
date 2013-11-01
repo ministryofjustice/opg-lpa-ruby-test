@@ -8,6 +8,11 @@ class LpasController < ApplicationController
     @lpa = Lpa.create(:applicant_id => session[:applicant_id])
     redirect_to lpa_build_index_path(:lpa_id => @lpa.id)
   end
+
+  def show
+    @lpa = Lpa.find(params[:id])
+    render :json => @lpa
+  end
   
   private
   def check_applicant
