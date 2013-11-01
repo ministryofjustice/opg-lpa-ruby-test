@@ -1,7 +1,4 @@
-%header.page-header.group
-  %hgroup
-    %h1 Create a lasting power of attorney
-    %p We'll use your answers to the questions that follow to create an LPA that you can save and print, sign and then apply to register. We'll save your LPA as you progress so you don't need to do it all in one go.
+= render "shared/create_header"
 
 %article
   #accordion.accordion-form
@@ -27,7 +24,7 @@
             .person-summary.group
               .person
                 %h3= attorney.full_name
-                %p= attorney.address.town
+                %p= attorney.address.full_address
               %ul.actions
                 %li
                   %a{:href => "#"} View/edit details
