@@ -11,7 +11,10 @@
 @import "design-patterns/_forms";
 @import "design-patterns/_accordion-form";
 @import "design-patterns/_details";
+@import "design-patterns/_global-nav";
+@import "design-patterns/_progress-indicator";
 // pages
+@import "pages/_dashboard";
 @import "pages/_create-and-register-pages";
 @import "pages/_start-and-end-pages";
 
@@ -226,9 +229,22 @@ body.full-width {
   }
 }
 
+// ===========================================================
+// GLOBAL NAVIGATION
+// ===========================================================
+
+@include global-nav($black, $grey-2);
+
 
 // ===========================================================
 // DETAILS TAG
 // ===========================================================
 
 @include details;
+
+
+// ===========================================================
+// PROGRESS INDICATOR
+// ===========================================================
+
+@include progress-indicator($turquoise);
