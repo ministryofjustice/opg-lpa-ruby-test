@@ -171,7 +171,9 @@ feature 'Filling in an LPA' do
 
     # Completion
     expect(page).to have_content("LPA created")
-  end
+    click_link "Save and continue"
+    expect(page).to have_content("Next steps")
+ end
 
   scenario 'healthcare with all valid details' do
     create_healthcare_lpa
