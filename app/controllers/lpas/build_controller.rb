@@ -13,6 +13,10 @@ class Lpas::BuildController < ApplicationController
       skip_step if @lpa.type == "Property and financial affairs"
     when :donor
       @lpa.donor = @lpa.donor || Donor.new
+    when :how_attorneys_act
+      skip_step if @lpa.attorneys.size <= 1
+    when :how_replacement_attorneys_act
+      skip_step if @lpa.replacement_attorneys.size <= 1
     end
     render_wizard
   end
