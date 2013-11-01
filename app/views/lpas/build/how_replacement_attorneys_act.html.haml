@@ -44,14 +44,3 @@
           .accordion-actions
             %p
               = lpa_form.submit "Save and continue", :class => "button gotonextpart"
-
-
--#
-  <%= lpa_overview(@lpa) %>
-  How should your replacement attorneys make decisions?
-  <%= form_for @lpa, :url => wizard_path do |lpa_form| %>
-    <%= lpa_form.label :how_replacement_attorneys_act %>
-    <%= lpa_form.select :how_replacement_attorneys_act, ["Jointly and Severally", "Jointly", "Jointly for some decisions, and jointly and severally for other decisions"] %>
-    <%= lpa_form.text_area :how_replacement_attorneys_act_details %>
-    <%= lpa_form.submit "Save and continue" %>
-  <% end %>

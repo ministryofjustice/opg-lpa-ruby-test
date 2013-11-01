@@ -68,7 +68,7 @@ feature 'Filling in an LPA' do
 
     click_link 'Add a replacement attorney'
     fill_in_valid_person(:first_name => "Bob", :last_name => "Man")
-    click_button "Save and continue"
+    click_button "Save details"
 
     click_link "Save and continue"
 
@@ -76,7 +76,7 @@ feature 'Filling in an LPA' do
 
     # How replacement attorneys should make decisions
     expect(page).to have_content("How should your replacement attorneys make decisions?")
-    select('Jointly and Severally', :from => "How replacement attorneys act")
+    choose('Jointly and Severally')
     click_button "Save and continue"
 
     expect(page).to have_content("The replacement attorneys will act jointly and severally")
