@@ -68,7 +68,7 @@ feature 'Filling in an LPA' do
 
     click_link 'Add a replacement attorney'
     fill_in_valid_person(:first_name => "Bob", :last_name => "Man")
-    click_button "Save and continue"
+    click_button "Save details"
 
     click_link "Save and continue"
 
@@ -131,18 +131,18 @@ feature 'Filling in an LPA' do
     click_link 'Add an attorney'
     fill_in_valid_person(:first_name => "Dave", :last_name => "Jameson")
 
-    click_button "Save and continue"
+    click_button "Save details"
     expect(page).to have_content("Dave Jameson")
     click_link "Save and continue"
 
     expect(page).to have_content("The attorney is Mr Dave Jameson")
 
     # Replacement attorneys
-    expect(page).to have_content("Who are your replacement attorneys?")
+    expect(page).to have_content("Do you want any replacement attorneys?")
 
     click_link 'Add a replacement attorney'
     fill_in_valid_person(:first_name => "Bob", :last_name => "Man")
-    click_button "Save and continue"
+    click_button "Save details"
     expect(page).to have_content("Bob Man")
 
     click_link "Save and continue"
