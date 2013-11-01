@@ -5,30 +5,40 @@
     = render "shared/completed_sections"
 
     %section#donor.section.current
-      %h2.accordion-header #{lpa_overview(@lpa).count+1}. How should your replacement attorneys step in?
+      %h2.accordion-header #{lpa_overview(@lpa).count+1}. How should your replacement attorneys make decisions?
       .accordion-content
         .section-intro
-          %p You can choose when your replacement attorneys step in, and in what order.
-          %p Your replacement attorneys will usually all step in together as soon as 1 of your original attorneys can no longer act. They will be able to make any decision jointly and severally along with the other original attorneys.
-          %p If you'd rather they stepped in later, or you want to choose a specific order, then select 1 of the other 2 options.
+          %p Most people want their replacement attorneys to work together in the same way that their original attorneys did.
+          %p But if you want, you can choose to appoint your replacement attorneys differently to your originals.
+          %p
+            %a.open-help-system.popup-link{:href=> "#how-attorneys-make-decisions", "data-journey-click" => "stageprompt.lpa:help:how-attorneys-make-decisions"} Get help with making this decision
 
-        %h3 My replacement attorneys will step in...
-        = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+        %h3 How should the replacement attorneys make decisions?
+        = form_for @lpa, :url => wizard_path, :html => {:id => "decisions-form", :class => "form"} do |lpa_form|
           .emphasised.option.group
-            = lpa_form.label :how_replacement_attorneys_act_as_soon_as_the_first_original_attorney_can_no_longer_act do
-              = lpa_form.radio_button :how_replacement_attorneys_act, "As soon as the first original attorney can no longer act"
-              As soon as the first original attorney can no longer act
-            = lpa_form.label :how_replacement_attorneys_act_as_soon_as_the_last_original_attorney_can_no_longer_act do
-              = lpa_form.radio_button :how_replacement_attorneys_act, "As soon as the last original attorney can no longer act"
-              As soon as the last original attorney can no longer act
-            = lpa_form.label :how_replacement_attorneys_act_in_some_other_way do
-              = lpa_form.radio_button :how_replacement_attorneys_act, "In some other way..."
-              In some other way...
+            = lpa_form.label :how_replacement_attorneys_act_jointly_and_severally do
+              = lpa_form.radio_button :how_replacement_attorneys_act, "Jointly and Severally"
+              Jointly and Severally
+              %span.option-help
+                Attorneys can make decisions on their own or together.
+                %br Most people choose this option because it’s the most practical.
+            = lpa_form.label :how_replacement_attorneys_act_jointly do
+              = lpa_form.radio_button :how_replacement_attorneys_act, "Jointly"
+              Jointly
+              %span.option-help
+                Attorneys must agree unanimously on every decision, however big or small.
+                %br If one of your attorneys can no longer act the others will no longer be able to act.
+            = lpa_form.label :how_replacement_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions do
+              = lpa_form.radio_button :how_replacement_attorneys_act, "Jointly for some decisions, and jointly and severally for other decisions"
+              Jointly for some decisions, and jointly and severally for other decisions
+              %span.option-help
+                Attorneys must agree unanimously on some decisions, but can make others on their own.
+                %br You'll need to state which decisions need to be agreed unanimously.
 
-          %div.details-textbox{:id => "toggle-lpa[how_replacement_attorneys_act]-lpa_how_replacement_attorneys_act_in_some_other_way", "data-toggle-by" => "#how_replacement_attorneys_act_in_some_other_way"}
+          %div.details-textbox{:id => "toggle-lpa[how_replacement_attorneys_act]-lpa_how_replacement_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions", "data-toggle-by" => "#lpa_how_replacement_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions"}
             %p.hint
-              Describe below how you'd like this to happen. Be careful - the more specific your instructions, the greater the chance that they won't be able to be followed. Remember, replacements can't replace other replacements. If in doubt, seek legal advice.
-              %a.open-help-system{:href => "#replacement-attorneys", "data-journey-click" => "stageprompt.lpa:help:replacement-attorneys"} Not sure what to put?
+              Please give details of the specific decisions that your attorneys must all agree on.
+              %a.open-help-system{:href => "#how-attorneys-make-decisions", "data-journey-click" => "stageprompt.lpa:help:how-attorneys-make-decisions"} Not sure what to put?
             = lpa_form.text_area :how_replacement_attorneys_act_details, :row => 24, :cols => 80
 
           .accordion-actions
