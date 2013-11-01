@@ -88,6 +88,13 @@ feature 'Filling in an LPA' do
 
     expect(page).to have_content('The certificate provider is Mr Charlie Prover')
 
+    # Who to be told
+    expect(page).to have_content("Who should be told before your LPA is registered?")
+    fill_in_valid_person(:first_name => "Jill", :last_name => "Graham")
+    click_button "Save and continue"
+
+    expect(page).to have_content('Mr Jill Graham is to be told')
+
     # Completion
     expect(page).to have_content("LPA created")
   end

@@ -1,0 +1,16 @@
+%article
+  #accordion.accordion-form
+    = render "shared/completed_sections"
+
+    %section#donor.section.current
+      %h2.accordion-header 2. Who should be told before your LPA is registered?
+      .accordion-content
+        .section-intro
+
+        = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+          = lpa_form.fields_for @lpa.person_to_be_told do |person_to_be_told_form|
+            = render :partial => '/shared/person_form', :locals => {:person_form => person_to_be_told_form}
+
+          .accordion-actions
+            %p
+              = lpa_form.submit "Save and continue", :class => "button gotonextpart"

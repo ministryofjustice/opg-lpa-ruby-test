@@ -30,6 +30,10 @@ module LpasHelper
     "The donor is #{lpa.donor.title} #{lpa.donor.first_name} #{lpa.donor.last_name}"
   end
 
+  def person_to_be_told_overview(lpa)
+    "#{lpa.person_to_be_told.title} #{lpa.person_to_be_told.first_name} #{lpa.person_to_be_told.last_name} is to be told"
+  end
+
   def certificate_provider_overview(lpa)
     "The certificate provider is #{lpa.certificate_provider.title} #{lpa.certificate_provider.first_name} #{lpa.certificate_provider.last_name}"
   end
