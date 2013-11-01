@@ -70,9 +70,25 @@ describe LpasHelper do
     end
     it "should display some jointly, some sepreately accurately" do
       lpa = Lpa.new(:how_attorneys_act => "Jointly for some decisions, and jointly and severally for other decisions")
-      helper.how_attorneys_act_overview(lpa).should == "The replacement attorneys will act jointly for some decisions, and jointly and severally for other decisions"
+      helper.how_attorneys_act_overview(lpa).should == "The attorneys will act jointly for some decisions, and jointly and severally for other decisions"
     end
   end
+
+  describe "how_replacement_attorneys_act_overview" do
+    it "should display jointly accurately" do
+      lpa = Lpa.new(:how_replacement_attorneys_act => "Jointly")
+      helper.how_replacement_attorneys_act_overview(lpa).should == "The replacement attorneys will act jointly"
+    end
+    it "should display jointly and seperately accurately" do
+      lpa = Lpa.new(:how_replacement_attorneys_act => "Jointly and Severally")
+      helper.how_replacement_attorneys_act_overview(lpa).should == "The replacement attorneys will act jointly and severally"
+    end
+    it "should display some jointly, some sepreately accurately" do
+      lpa = Lpa.new(:how_replacement_attorneys_act => "Jointly for some decisions, and jointly and severally for other decisions")
+      helper.how_replacement_attorneys_act_overview(lpa).should == "The replacement attorneys will act jointly for some decisions, and jointly and severally for other decisions"
+    end
+  end
+
 
   describe "life_sustaining_overview" do
     it "should return nil if a property lpa" do
@@ -103,4 +119,5 @@ describe LpasHelper do
       helper.when_to_use_overview(lpa).should == "The LPA can be used only if I don't have mental capacity"
     end
   end
+
 end

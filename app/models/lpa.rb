@@ -11,6 +11,8 @@ class Lpa < ActiveResource::Base
     string 'life_sustaining_treatment'
     string 'how_attorneys_act'
     string 'how_attorneys_act_details'
+    string 'how_replacement_attorneys_act'
+    string 'how_replacement_attorneys_act_details'
     string 'status'
   end
 

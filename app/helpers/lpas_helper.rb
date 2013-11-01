@@ -72,6 +72,16 @@ module LpasHelper
     elsif lpa.how_attorneys_act == "Jointly"
       "The attorneys will act jointly"
     elsif lpa.how_attorneys_act == "Jointly for some decisions, and jointly and severally for other decisions"
+      "The attorneys will act jointly for some decisions, and jointly and severally for other decisions"
+    end
+  end
+
+  def how_replacement_attorneys_act_overview(lpa)
+    if lpa.how_replacement_attorneys_act == "Jointly and Severally"
+      "The replacement attorneys will act jointly and severally"
+    elsif lpa.how_replacement_attorneys_act == "Jointly"
+      "The replacement attorneys will act jointly"
+    elsif lpa.how_replacement_attorneys_act == "Jointly for some decisions, and jointly and severally for other decisions"
       "The replacement attorneys will act jointly for some decisions, and jointly and severally for other decisions"
     end
   end
