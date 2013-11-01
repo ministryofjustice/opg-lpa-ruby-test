@@ -1,4 +1,0 @@
-<%= form_for @attorney, :url => lpa_replacement_attorneys_path(@lpa) do |attorney_form| %>
-  <%= render :partial => '/shared/person_form', :locals => {:person_form => attorney_form} %>
-  <%= attorney_form.submit "Save and continue" %>
-<% end %>
