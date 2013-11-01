@@ -172,7 +172,7 @@ feature 'Filling in an LPA' do
     # Completion
     expect(page).to have_content("LPA created")
     click_link "Save and continue"
-    expect(page).to have_content("Next steps")
+    expect(page).to have_content("Next Steps")
  end
 
   scenario 'healthcare with all valid details' do
