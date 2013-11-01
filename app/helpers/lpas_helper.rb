@@ -32,7 +32,7 @@ module LpasHelper
 
   def when_to_use_overview(lpa)
     if lpa.type == "Property and financial affairs"
-      "The LPA can be used as soon as it's registered"
+      "The LPA can be used #{lpa.when_to_use}"
     else
       nil
     end

@@ -75,7 +75,7 @@ describe LpasHelper do
   end
 
   describe "life_sustaining_overview" do
-    it "should return nil if a healthcare lpa" do
+    it "should return nil if a property lpa" do
       lpa = Lpa.new(:type => "Property and financial affairs")
       helper.life_sustaining_overview(lpa).should == nil
     end
@@ -89,5 +89,18 @@ describe LpasHelper do
     end
   end
 
-  describe "when_to_use_overview"
+  describe "when_to_use_overview" do
+    it "should return nil if a healthcare lpa" do
+      lpa = Lpa.new(:type => "Health and welfare")
+      helper.when_to_use_overview(lpa).should == nil
+    end
+    it "should return correctly for option a" do
+      lpa = Lpa.new(:type => "Property and financial affairs", :when_to_use => "as soon as it's registered (with my consent)")
+      helper.when_to_use_overview(lpa).should == "The LPA can be used as soon as it's registered (with my consent)"
+    end
+    it "should return correctly for option b" do
+      lpa = Lpa.new(:type => "Property and financial affairs", :when_to_use => "only if I don't have mental capacity")
+      helper.when_to_use_overview(lpa).should == "The LPA can be used only if I don't have mental capacity"
+    end
+  end
 end
