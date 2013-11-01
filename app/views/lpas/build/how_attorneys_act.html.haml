@@ -5,7 +5,7 @@
     = render "shared/completed_sections"
 
     %section#donor.section.current
-      %h2.accordion-header 5. How should your attorneys make decisions?
+      %h2.accordion-header #{lpa_overview(@lpa).count+1}. How should your attorneys make decisions?
       .accordion-content
         .section-intro
           %p Your choice here is very important as it affects how your LPA can be used. Whichever option you choose, your attorneys must always act in your best interests.

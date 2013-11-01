@@ -5,7 +5,7 @@
     = render "shared/completed_sections"
 
     %section#donor.section.current
-      %h2.accordion-header 2. Who is the donor for this LPA?
+      %h2.accordion-header #{lpa_overview(@lpa).count+1}. Who is the donor for this LPA?
       .accordion-content
         .section-intro
           %p The 'donor' is the person making this LPA and appointing other people to make decisions on their behalf. The donor:
