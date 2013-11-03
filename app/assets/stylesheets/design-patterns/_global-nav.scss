@@ -27,6 +27,8 @@ $beta-colour: $orange;
 
     @include media(desktop){
       text-align: right;
+      width: 1020px;
+      margin: 0 auto;
     }
 
     .inner {
