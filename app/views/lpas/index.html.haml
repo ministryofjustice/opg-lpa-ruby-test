@@ -25,7 +25,7 @@
           %tr
             %td= lpa.donor ? lpa.donor.full_name : "No donor yet"
             %td= lpa.type || "No type yet"
-            %td= lpa.updated_at.to_date.strftime('%d/%m/%Y') || "Never updated"
+            %td= lpa.updated_at ? lpa.updated_at.to_date.strftime('%d/%m/%Y') : "Never updated"
             %td= lpa.status || "Started"
             %td
               .lpa-actions
