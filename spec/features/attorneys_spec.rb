@@ -29,7 +29,7 @@ if ENV["INTEGRATION"]
       expect(page).to have_content('What type of LPA do you want to create?')
       choose("Property and financial affairs")
       click_button "Save and continue"
-      fill_in_valid_person
+      fill_in_valid_donor
       click_button "Save and continue"
       choose("as soon as it's registered (with my consent)")
       click_button "Save and continue"

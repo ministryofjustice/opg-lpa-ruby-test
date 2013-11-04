@@ -1,28 +1,22 @@
+- show_dob ||= false
 %fieldset
   %legend Name
-  = input_for(person_form, "title") do
-    = person_form.text_field "title"
-  = input_for(person_form, "first_name") do
-    = person_form.text_field "first_name"
-  = input_for(person_form, "middle_names", :label_override => "Middle names (optional)") do
-    = person_form.text_field "middle_names"
-  = input_for(person_form, "last_name") do
-    = person_form.text_field "last_name"
+  = input_for(person_form, "title")
+  = input_for(person_form, "first_name")
+  = input_for(person_form, "middle_names", :label_override => "Middle names (optional)")
+  = input_for(person_form, "last_name")
+
+- if show_dob
+  = input_for(person_form, "date_of_birth") do
+    = person_form.date_select "date_of_birth", { order: [ :day, :month, :year ], start_year: (Time.now.year - 120) }
 
 %fieldset
   %legend Address
   = person_form.fields_for person_form.object.address do |person_address_form|
-    = input_for(person_address_form, "address_line1", :label_override => "Street") do
-      = person_address_form.text_field "address_line1"
-    = input_for(person_address_form, "address_line2", :label_override => false) do
-      = person_address_form.text_field "address_line2"
-    = input_for(person_address_form, "address_line3", :label_override => false) do
-      = person_address_form.text_field "address_line3"
-    = input_for(person_address_form, "town") do
-      = person_address_form.text_field "town"
-    = input_for(person_address_form, "county") do
-      = person_address_form.text_field "county"
-    = input_for(person_address_form, "post_code") do
-      = person_address_form.text_field "post_code"
-    = input_for(person_address_form, "country") do
-      = person_address_form.text_field "country"
+    = input_for(person_address_form, "address_line1", :label_override => "Street")
+    = input_for(person_address_form, "address_line2", :label_override => false)
+    = input_for(person_address_form, "address_line3", :label_override => false)
+    = input_for(person_address_form, "town")
+    = input_for(person_address_form, "county")
+    = input_for(person_address_form, "post_code")
+    = input_for(person_address_form, "country")

@@ -64,3 +64,10 @@ def fill_in_valid_person(overides={})
   fill_in 'Country', with: overides[:country] || "Great Britain"
 end
 
+def fill_in_valid_donor(overides={})
+  fill_in_valid_person(overides)
+  select 31, from: 'lpa_donor_date_of_birth_3i'
+  select 'January', from: 'lpa_donor_date_of_birth_2i'
+  select 1970, from: 'lpa_donor_date_of_birth_1i'
+end
+
