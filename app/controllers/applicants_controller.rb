@@ -11,4 +11,9 @@ class ApplicantsController < ApplicationController
       render :template => '/applicants/new'
     end
   end
+
+  def delete
+    session[:applicant_id] = nil
+    redirect_to "/"
+  end
 end

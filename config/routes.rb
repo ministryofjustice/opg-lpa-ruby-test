@@ -9,7 +9,11 @@ OpgLpa::Application.routes.draw do
     resources :replacement_attorneys
     resources :people_to_be_told
   end
-  resources :applicants
+  resources :applicants do
+      collection do
+        get :delete
+      end
+    end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
