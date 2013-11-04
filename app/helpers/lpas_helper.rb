@@ -19,7 +19,11 @@ module LpasHelper
   end
 
   def lpa_overview(lpa)
-    @wizard_steps.collect {|s| self.send("#{s}_overview", lpa) if step_completed?(s)}.compact
+    @wizard_steps.collect { |s| 
+      if step_completed?(s) && text = self.send("#{s}_overview", lpa)
+        [s, text]
+      end
+    }.compact
   end
 
   def type_overview(lpa)
