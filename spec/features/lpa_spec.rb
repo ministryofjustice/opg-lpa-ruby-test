@@ -107,6 +107,15 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("LPA created")
   end
 
+  scenario 'going backwards' do
+    create_financial_lpa
+    expect(page).to have_content('This LPA covers Property and financial affairs')
+
+    expect(page).to have_content('Who is the donor for this LPA?')
+    click_link 'edit'
+    expect(page).to have_content('What type of LPA do you want to create?')
+  end
+
   scenario 'valid financial with 1 attorneys and 1 attorneys and no person to be told' do
     create_financial_lpa
     expect(page).to have_content('This LPA covers Property and financial affairs')
@@ -202,7 +211,6 @@ feature 'Filling in an LPA' do
     click_button "Save and continue"
     expect(page).to have_content('is too short')
   end
-
 
   def create_financial_lpa(overides={})
     visit "/"
