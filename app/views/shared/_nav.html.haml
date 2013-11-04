@@ -1,0 +1,12 @@
+#global-nav.js-toggle-nav
+  %nav.content
+    %ul#navigation
+      %li.user
+        D S:
+        = session[:applicant_id]
+      %li
+        %a{:href => ""} Your details
+      %li
+        %a{:href => ""} Your LPAs
+      %li
+        %a{:href => ""} Sign out

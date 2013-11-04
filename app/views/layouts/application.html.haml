@@ -10,9 +10,8 @@
     = render "shared/phase_indicator"
 
     #wrapper
+      = render 'shared/nav'
       %main#content.inner(role="main")
-        Logged in as
-        = session[:applicant_id]
         = yield
 
     = render'shared/footer'
