@@ -12,7 +12,8 @@ class CertificateProvider < ActiveResource::Base
   end
 
   schema do
-    string  'title', 'first_name', 'middle_names', 'last_name'
+    string 'title', 'first_name', 'middle_names', 'last_name'
+    string 'email'
   end
 
   def full_name

@@ -10,6 +10,8 @@
   = input_for(person_form, "date_of_birth") do
     = person_form.date_select "date_of_birth", { order: [ :day, :month, :year ], start_year: (Time.now.year - 120) }
 
+= input_for(person_form, "email", :label_override => "Email (optional)")
+
 %fieldset
   %legend Address
   = person_form.fields_for person_form.object.address do |person_address_form|

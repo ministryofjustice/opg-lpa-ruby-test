@@ -10,6 +10,7 @@ class Applicant < ActiveResource::Base
     string 'middle_names'
     string 'last_name'
     string 'date_of_birth'
+    string 'email'
   end
 
   def initialize(*args)
