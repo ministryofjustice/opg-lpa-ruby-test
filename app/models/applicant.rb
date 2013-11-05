@@ -11,6 +11,7 @@ class Applicant < ActiveResource::Base
     string 'last_name'
     string 'date_of_birth'
     string 'email'
+    string 'phone'
   end
 
   def initialize(*args)

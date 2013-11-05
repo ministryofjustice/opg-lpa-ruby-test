@@ -14,6 +14,7 @@ class PersonToBeTold < ActiveResource::Base
   schema do
     string 'title', 'first_name', 'middle_names', 'last_name'
     string 'email'
+    string 'phone'
   end
 
   def full_name

@@ -83,7 +83,7 @@ feature 'Filling in an LPA' do
 
     # Certificate provider
     expect(page).to have_content("Who is the certificate provider?")
-    fill_in_valid_person(:first_name => "Charlie", :last_name => "Prover")
+    fill_in_valid_person(:first_name => "Charlie", :last_name => "Prover", no_phone: true)
     click_button "Save and continue"
 
     expect(page).to have_content('The certificate provider is Mr Charlie Prover')
@@ -160,7 +160,7 @@ feature 'Filling in an LPA' do
 
     # Certificate provider
     expect(page).to have_content("Who is the certificate provider?")
-    fill_in_valid_person(:first_name => "Charlie", :last_name => "Prover")
+    fill_in_valid_person(:first_name => "Charlie", :last_name => "Prover", no_phone: true)
     click_button "Save and continue"
 
     expect(page).to have_content('The certificate provider is Mr Charlie Prover')
@@ -173,7 +173,7 @@ feature 'Filling in an LPA' do
 
     # Second Certificate provider
     expect(page).to have_content("Who is the second certificate provider?")
-    fill_in_valid_person(:first_name => "Gregg", :last_name => "John")
+    fill_in_valid_person(:first_name => "Gregg", :last_name => "John", no_phone: true)
     click_button "Save and continue"
 
     expect(page).to have_content('The second certificate provider is Mr Gregg John')

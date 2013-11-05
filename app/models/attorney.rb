@@ -4,7 +4,8 @@ class Attorney < ActiveResource::Base
   schema do
     string 'title', 'first_name', 'middle_names', 'last_name'
     string 'date_of_birth'
-    string 'email', 'phone'
+    string 'email'
+    string 'phone'
     string 'occupation', 'relationship_to_donor'
   end
 
