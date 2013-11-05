@@ -7,7 +7,7 @@ class AttorneysController < ApplicationController
 
   def create
     @lpa = Lpa.find(params[:lpa_id])
-    @attorney = Attorney.new(params[:attorney])
+    @attorney = Attorney.new(attorney_params)
     @lpa.send(attorney_relation) << @attorney
 
     if @lpa.save
@@ -19,6 +19,13 @@ class AttorneysController < ApplicationController
 
   def attorney_relation
     :attorneys
+  end
+
+  private
+
+  def attorney_params
+    create_single_date_field :attorney
+    params[:attorney]
   end
 
 end

@@ -1,6 +1,6 @@
 module LpasHelper
   def error_messages_for(object, field)
-    '<span class="validation-message">' + object.errors.messages[field.to_sym].join(", ") + '</span>'
+    '<span class="validation-message">' + object.errors.messages[field.to_sym].first + '</span>'
   end
 
   def input_for(form, label, options={}, &block)
@@ -13,13 +13,17 @@ module LpasHelper
         raw(x)
       end
     end
-    s << raw(capture(&block))
+    if block_given?
+      s << raw(capture(&block))
+    else
+      s << raw(form.text_field label)
+    end
     s << '</div>'
     raw s
   end
 
   def lpa_overview(lpa)
-    @wizard_steps.collect { |s| 
+    @wizard_steps.collect { |s|
       if step_completed?(s) && text = self.send("#{s}_overview", lpa)
         [s, text]
       end

@@ -26,6 +26,8 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
+gem 'multiparameter_attributes_handler'
+
 group :doc do
   gem 'sdoc', require: false
 end
@@ -34,6 +36,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem "factory_girl_rails"
   gem 'byebug'
+  gem 'launchy'
 end
 
 group :test do

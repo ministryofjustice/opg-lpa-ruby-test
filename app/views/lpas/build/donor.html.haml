@@ -19,7 +19,7 @@
         = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
           = lpa_form.fields_for @lpa.donor do |donor_form|
             = render "shared/validation_summary", :form_object => donor_form
-            = render :partial => '/shared/person_form', :locals => {:person_form => donor_form}
+            = render :partial => '/shared/person_form', :locals => {:person_form => donor_form, :show_dob => true}
 
           .accordion-actions
             %p

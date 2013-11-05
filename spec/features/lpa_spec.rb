@@ -12,7 +12,7 @@ feature 'Filling in an LPA' do
     visit "/"
     fill_in_valid_person(:first_name => "")
     click_button "Save and continue"
-    expect(page).to have_content('is too short')
+    expect(page).to have_content("can't be blank")
   end
 
   scenario 'valid financial with multiple attorneys and replacement attorneys and a person to be told' do
@@ -20,7 +20,7 @@ feature 'Filling in an LPA' do
     expect(page).to have_content('This LPA covers Property and financial affairs')
 
     # Donor info
-    fill_in_valid_person
+    fill_in_valid_donor
     click_button "Save and continue"
 
     expect(page).to have_content('The donor is Mr Johnny Smithson')
@@ -38,7 +38,7 @@ feature 'Filling in an LPA' do
 
     2.times do
       click_link 'Add an attorney'
-      fill_in_valid_person(:first_name => "Dave", :last_name => "Jameson")
+      fill_in_valid_attorney(:first_name => "Dave", :last_name => "Jameson")
 
       click_button "Save details"
       expect(page).to have_content("Dave Jameson")
@@ -58,11 +58,11 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("Do you want any replacement attorneys?")
 
     click_link 'Add a replacement attorney'
-    fill_in_valid_person(:first_name => "Bob", :last_name => "")
+    fill_in_valid_attorney(:first_name => "Bob", :last_name => "")
     click_button "Save details"
     expect(page).to have_content("can't be blank")
 
-    fill_in_valid_person(:first_name => "Bob", :last_name => "Man")
+    fill_in_valid_attorney(:first_name => "Bob", :last_name => "Man")
     click_button "Save details"
     expect(page).to have_content("Bob Man")
 
@@ -121,7 +121,7 @@ feature 'Filling in an LPA' do
     expect(page).to have_content('This LPA covers Property and financial affairs')
 
     # Donor info
-    fill_in_valid_person
+    fill_in_valid_donor
     click_button "Save and continue"
 
     expect(page).to have_content('The donor is Mr Johnny Smithson')
@@ -189,7 +189,7 @@ feature 'Filling in an LPA' do
     expect(page).to have_content('This LPA covers Health and welfare')
 
     # Donor info
-    fill_in_valid_person
+    fill_in_valid_donor
     click_button "Save and continue"
 
     # Life sustaining treatment decision
@@ -209,7 +209,7 @@ feature 'Filling in an LPA' do
 
     fill_in_valid_person(:first_name => "")
     click_button "Save and continue"
-    expect(page).to have_content('is too short')
+    expect(page).to have_content("can't be blank")
   end
 
   def create_financial_lpa(overides={})

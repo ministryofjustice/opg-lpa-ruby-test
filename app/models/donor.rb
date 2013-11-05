@@ -12,7 +12,7 @@ class Donor < ActiveResource::Base
   end
 
   schema do
-    string  'title', 'first_name', 'middle_names', 'last_name'
+    string  'title', 'first_name', 'middle_names', 'last_name', 'date_of_birth'
   end
 
   def full_name
