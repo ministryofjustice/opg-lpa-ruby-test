@@ -71,3 +71,10 @@ def fill_in_valid_donor(overides={})
   select 1970, from: 'lpa_donor_date_of_birth_1i'
 end
 
+def fill_in_valid_attorney(overides={})
+  fill_in_valid_person(overides)
+  select 31, from: 'attorney_date_of_birth_3i'
+  select 'January', from: 'attorney_date_of_birth_2i'
+  select 1970, from: 'attorney_date_of_birth_1i'
+end
+

@@ -7,7 +7,7 @@ class AttorneysController < ApplicationController
 
   def create
     @lpa = Lpa.find(params[:lpa_id])
-    @attorney = Attorney.new(params[:attorney])
+    @attorney = Attorney.new(attorney_params)
     @lpa.send(attorney_relation) << @attorney
 
     if @lpa.save
@@ -21,4 +21,17 @@ class AttorneysController < ApplicationController
     :attorneys
   end
 
+  private
+
+  def attorney_params
+    create_single_date_field :attorney
+    params[:attorney]
+  end
+
+  def create_single_date_field model_name
+    if params[model_name]
+      params[model_name] = MultiparameterAttributesHandler.manipulate_all params[model_name]
+      params[model_name].each {|key, value| params[model_name].delete(key) if key[/\(\di\)/] }
+    end
+  end
 end

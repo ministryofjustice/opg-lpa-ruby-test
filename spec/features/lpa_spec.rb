@@ -38,7 +38,7 @@ feature 'Filling in an LPA' do
 
     2.times do
       click_link 'Add an attorney'
-      fill_in_valid_person(:first_name => "Dave", :last_name => "Jameson")
+      fill_in_valid_attorney(:first_name => "Dave", :last_name => "Jameson")
 
       click_button "Save details"
       expect(page).to have_content("Dave Jameson")
@@ -58,11 +58,11 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("Do you want any replacement attorneys?")
 
     click_link 'Add a replacement attorney'
-    fill_in_valid_person(:first_name => "Bob", :last_name => "")
+    fill_in_valid_attorney(:first_name => "Bob", :last_name => "")
     click_button "Save details"
     expect(page).to have_content("can't be blank")
 
-    fill_in_valid_person(:first_name => "Bob", :last_name => "Man")
+    fill_in_valid_attorney(:first_name => "Bob", :last_name => "Man")
     click_button "Save details"
     expect(page).to have_content("Bob Man")
 

@@ -46,14 +46,14 @@ class Lpas::BuildController < ApplicationController
   end
 
   def lpa_params
-    create_single_date_field
+    create_single_date_field :donor
     params[:lpa]
   end
 
-  def create_single_date_field
-    if params[:lpa][:donor]
-      params[:lpa][:donor] = MultiparameterAttributesHandler.manipulate_all params[:lpa][:donor]
-      params[:lpa][:donor].each {|key, value| params[:lpa][:donor].delete(key) if key[/\(\di\)/] }
+  def create_single_date_field model_name
+    if params[:lpa][model_name]
+      params[:lpa][model_name] = MultiparameterAttributesHandler.manipulate_all params[:lpa][model_name]
+      params[:lpa][model_name].each {|key, value| params[:lpa][model_name].delete(key) if key[/\(\di\)/] }
     end
   end
 end
