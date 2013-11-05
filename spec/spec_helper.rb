@@ -9,12 +9,14 @@ unless ENV['HOME'].to_s[/\/Users/]
 end
 
 require File.expand_path("../../config/environment", __FILE__)
+
 require 'rspec/rails'
 require 'rspec/autorun'
 
 require 'webmock/rspec'
 require 'capybara/rails'
 require 'capybara/rspec'
+
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -76,5 +78,12 @@ def fill_in_valid_attorney(overides={})
   select 31, from: 'attorney_date_of_birth_3i'
   select 'January', from: 'attorney_date_of_birth_2i'
   select 1970, from: 'attorney_date_of_birth_1i'
+end
+
+def fill_in_valid_applicant(overides={})
+  fill_in_valid_person(overides)
+  select 31, from: 'applicant_date_of_birth_3i'
+  select 'January', from: 'applicant_date_of_birth_2i'
+  select 1970, from: 'applicant_date_of_birth_1i'
 end
 

@@ -1,4 +1,5 @@
 require 'spec_helper'
+
 if ENV["INTEGRATION"]
   feature 'Filling in an LPA' do
     before(:each) do
@@ -23,7 +24,7 @@ if ENV["INTEGRATION"]
 
     def create_financial_lpa_to_attorneys(overides={})
       visit "/"
-      fill_in_valid_person(overides)
+      fill_in_valid_applicant(overides)
       click_button "Save and continue"
       click_button "Create a new LPA"
       expect(page).to have_content('What type of LPA do you want to create?')

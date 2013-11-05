@@ -6,7 +6,7 @@
 
 = form_for @applicant, :html => { :class => 'form' } do |applicant_form|
   = render "shared/validation_summary", :form_object => applicant_form
-  = render :partial => '/shared/person_form', :locals => {:person_form => applicant_form}
+  = render :partial => '/shared/person_form', :locals => { :person_form => applicant_form, :show_dob => true }
 
   .action.group
     = applicant_form.submit "Save and continue", class: "button aboutyou"
