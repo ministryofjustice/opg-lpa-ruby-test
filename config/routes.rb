@@ -1,5 +1,7 @@
 OpgLpa::Application.routes.draw do
+
   root "lpas#index"
+
   resources :lpas do
     resources :build, controller: 'lpas/build'
     collection do
@@ -9,11 +11,13 @@ OpgLpa::Application.routes.draw do
     resources :replacement_attorneys
     resources :people_to_be_told
   end
+
   resources :applicants do
-      collection do
-        get :delete
-      end
+    collection do
+      get :delete
     end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -54,7 +58,7 @@ OpgLpa::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

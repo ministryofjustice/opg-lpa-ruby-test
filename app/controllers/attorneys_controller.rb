@@ -17,6 +17,19 @@ class AttorneysController < ApplicationController
     end
   end
 
+  def destroy
+    @lpa = Lpa.find(params[:lpa_id])
+
+    if attorney = @lpa.attorneys.detect {|x| x.id = params[:id]}
+      attorney._destroy = true
+    end
+
+    @lpa.save
+
+    @lpa = Lpa.find(params[:lpa_id])
+    redirect_to lpa_build_path(lpa_id: @lpa, id: attorney_relation)
+  end
+
   def attorney_relation
     :attorneys
   end
