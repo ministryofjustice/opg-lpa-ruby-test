@@ -20,8 +20,11 @@ class AttorneysController < ApplicationController
   def destroy
     @lpa = Lpa.find(params[:lpa_id])
 
-    if attorney = @lpa.attorneys.detect {|x| x.id = params[:id]}
+    if attorney = @lpa.attorneys.detect {|x| x.id == params[:id]}
       attorney._destroy = true
+    end
+    if replacement_attorney = @lpa.replacement_attorneys.detect {|x| x.id == params[:id]}
+      replacement_attorney._destroy = true
     end
 
     @lpa.save
