@@ -77,9 +77,10 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("Egbert Man")
 
     click_link "delete-replacement-attorney-2"
+    expect(page).to_not have_content("Egbert Man")
 
     click_link "Save and continue"
-    save_and_open_page
+
     expect(page).to have_content("The replacement attorneys are Mr Bob Man and Mr Bobby Man")
 
     # How replacement attorneys should make decisions
