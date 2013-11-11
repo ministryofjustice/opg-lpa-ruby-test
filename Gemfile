@@ -28,6 +28,8 @@ gem 'turbolinks'
 
 gem 'multiparameter_attributes_handler'
 
+gem 'foreman'
+
 group :doc do
   gem 'sdoc', require: false
 end

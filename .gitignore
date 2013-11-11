@@ -15,10 +15,14 @@
 /log/*.log
 /tmp
 
+.env
+
 bin/autospec
 bin/byebug
 bin/coderay
+bin/dotenv
 bin/erubis
+bin/foreman
 bin/guard
 bin/haml
 bin/htmldiff
