@@ -20,7 +20,7 @@
 
 
         = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
-          - @lpa.attorneys.each do |attorney|
+          - @lpa.attorneys.each_with_index do |attorney, index|
             .person-summary.group
               .person
                 %h3= attorney.full_name
@@ -29,7 +29,7 @@
                 %li
                   %a{:href => "#"} View/edit details
                 %li
-                  %a.delete-confirmation{:href => "#"} Delete
+                  = link_to "Delete", lpa_attorney_path(@lpa, attorney), method: :delete, id: "delete-attorney-#{index}", data: { confirm: "Do you want to remove this person?" }
 
           - if @lpa.attorneys.length > 0
             %p.add-another

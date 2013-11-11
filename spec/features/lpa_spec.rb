@@ -67,12 +67,21 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("Bob Man")
 
     click_link 'Add a replacement attorney'
-    fill_in_valid_person(:first_name => "Bob", :last_name => "Man")
+    fill_in_valid_person(:first_name => "Bobby", :last_name => "Man")
     click_button "Save details"
+    expect(page).to have_content("Bobby Man")
+
+    click_link 'Add a replacement attorney'
+    fill_in_valid_person(:first_name => "Egbert", :last_name => "Man")
+    click_button "Save details"
+    expect(page).to have_content("Egbert Man")
+
+    click_link "delete-replacement-attorney-2"
+    expect(page).to_not have_content("Egbert Man")
 
     click_link "Save and continue"
 
-    expect(page).to have_content("The replacement attorneys are Mr Bob Man and Mr Bob Man")
+    expect(page).to have_content("The replacement attorneys are Mr Bob Man and Mr Bobby Man")
 
     # How replacement attorneys should make decisions
     expect(page).to have_content("How should your replacement attorneys make decisions?")

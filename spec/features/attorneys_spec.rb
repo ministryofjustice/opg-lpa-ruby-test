@@ -48,6 +48,8 @@ if ENV["INTEGRATION"]
       click_button "Save details"
       expect(page).to have_content("Attorney Tulisa")
 
+      click_link "Delete"
+      expect(page).to_not have_content("Attorney Tulisa")
     end
 
   end
