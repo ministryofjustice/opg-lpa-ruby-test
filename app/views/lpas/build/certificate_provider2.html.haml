@@ -9,7 +9,7 @@
 
         = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
           = lpa_form.fields_for :certificate_provider2, @lpa.certificate_provider2 do |certificate_provider_form|
-            = render :partial => '/shared/person_form', :locals => {:person_form => certificate_provider_form}
+            = render partial: '/shared/person_form', locals: { person_form: certificate_provider_form, hide_phone: true }
 
           .accordion-actions
             %p

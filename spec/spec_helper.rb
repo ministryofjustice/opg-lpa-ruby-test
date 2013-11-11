@@ -64,6 +64,8 @@ def fill_in_valid_person(overides={})
   fill_in 'Town', with: overides[:town] || "Westminster"
   fill_in 'County', with: overides[:county] || "London"
   fill_in 'Country', with: overides[:country] || "Great Britain"
+  fill_in 'Email (optional)', with: overides[:email] || "johnny@example.com"
+  fill_in 'Phone (optional)', with: (overides[:phone] || "123 456") unless overides[:no_phone]
 end
 
 def fill_in_valid_donor(overides={})
