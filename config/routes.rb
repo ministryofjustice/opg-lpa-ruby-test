@@ -18,6 +18,10 @@ OpgLpa::Application.routes.draw do
     end
   end
 
+  namespace 'users' do
+    get  '/sign_up' => 'registrations#new',    as: :new_registration
+    post '/'        => 'registrations#create', as: :registration
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,20 @@
+%header
+  %hgroup
+    %h1 Create an account
+    %p We need an email address and password from you. This is so you can save and retrieve any LPAs you make.
+    %p
+      If you already have an account please
+      = link_to('sign in', '#') + '.'
+
+= form_for @registration, url: users_registration_path, :html => { :class => 'form' } do |registration_form|
+  = render "shared/validation_summary", :form_object => registration_form
+  %fieldset
+    %legend Email address
+    = input_for(registration_form, "username", label_override: 'Enter your email address')
+    %legend Password
+    %p Your password must be at least 8 characters long and must contain at least 1 letter and 1 number. Never share your password with others.
+    = input_for(registration_form, "password", label_override: 'Create a password')
+  %hr
+  = render partial: 'terms_and_conditions'
+  .action.group
+    = registration_form.submit "I understand", class: "button"

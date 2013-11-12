@@ -90,3 +90,7 @@ def fill_in_valid_applicant(overides={})
   select 1970, from: 'applicant_date_of_birth_1i'
 end
 
+def fill_in_sign_up(overrides={})
+  fill_in 'Enter your email address', with: overrides[:email]    || 'joe.bloggs@example.com'
+  fill_in 'Create a password',        with: overrides[:password] || 's3kr!t'
+end
