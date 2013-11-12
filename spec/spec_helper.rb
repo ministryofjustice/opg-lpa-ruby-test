@@ -14,6 +14,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 
 require 'webmock/rspec'
+
 require 'capybara/rails'
 require 'capybara/rspec'
 
