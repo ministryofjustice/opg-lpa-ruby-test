@@ -94,3 +94,8 @@ def fill_in_sign_up(overrides={})
   fill_in 'Enter your email address', with: overrides[:email]    || 'joe.bloggs@example.com'
   fill_in 'Create a password',        with: overrides[:password] || 's3kr!t'
 end
+
+def fill_in_sign_in(overrides={})
+  fill_in 'Email address', with: overrides[:email]    || 'joe.bloggs@example.com'
+  fill_in 'Password',      with: overrides[:password] || 's3kr!t'
+end

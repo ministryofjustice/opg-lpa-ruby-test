@@ -11,6 +11,7 @@
   %fieldset
     %legend Email address
     = input_for(registration_form, "username", label_override: 'Enter your email address')
+  %fieldset
     %legend Password
     %p Your password must be at least 8 characters long and must contain at least 1 letter and 1 number. Never share your password with others.
     = input_for(registration_form, "password", label_override: 'Create a password')

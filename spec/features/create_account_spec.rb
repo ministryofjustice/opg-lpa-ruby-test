@@ -10,6 +10,13 @@ feature 'Filling in an LPA' do
     fill_in_sign_up
     click_button "I understand"
     expect(page).to have_content('Please check your email')
+
+    click_link "sign in now"
+    expect(page).to have_content('Sign in')
+
+    fill_in_sign_in
+    click_button "Sign in"
+    expect(page).to have_content('About you')
   end
 
 end
