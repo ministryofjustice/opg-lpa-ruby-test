@@ -17,6 +17,13 @@ feature 'Filling in an LPA' do
     fill_in_sign_in
     click_button "Sign in"
     expect(page).to have_content('About you')
+
+    fill_in_valid_applicant
+    click_button "Save and continue"
+    expect(page).to have_content('Your LPAs')
+
+    click_button "Create a new LPA"
+
   end
 
 end
