@@ -13,10 +13,11 @@ This is a test rails front end for the OPG LPA application website. It integrate
 Installation
 ------------
 
-* `git clone https://github.com/ministryofjustice/opg-lpa.git`
-* `cd opg-lpa`
-* `bundle install`
-* `rails server`
+    git clone https://github.com/ministryofjustice/opg-lpa-api.git
+    git clone https://github.com/ministryofjustice/opg-lpa.git
+
+    cd opg-lpa
+    bundle install
 
 Tests
 -----
