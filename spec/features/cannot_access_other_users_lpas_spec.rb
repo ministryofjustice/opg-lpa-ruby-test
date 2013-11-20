@@ -1,11 +1,8 @@
 require 'spec_helper'
-if ENV["INTEGRATION"]
+
 feature 'Cannot access another users LPA' do
 
-  before(:all) { WebMock.disable! }
-  after(:all)  { WebMock.enable! }
-
-  scenario 'attempt to access another users LPA results is unauthorised' do
+  scenario 'attempt to access another users LPA results is unauthorised', :vcr do
     sign_up_and_sign_in
     old_email = @email
     create_financial_lpa
@@ -21,5 +18,4 @@ feature 'Cannot access another users LPA' do
     page.status_code.should == 403
   end
 
-end
 end

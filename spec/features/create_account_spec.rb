@@ -1,11 +1,8 @@
 require 'spec_helper'
-if ENV["INTEGRATION"]
-feature 'Filling in an LPA' do
 
-  before(:all) { WebMock.disable! }
-  after(:all)  { WebMock.enable! }
+feature 'Sign up and sign in' do
 
-  scenario 'create an account' do
+  scenario 'create an account', :vcr do
 
     visit "/users/sign_up"
     fill_in_sign_up email: ''
@@ -43,5 +40,4 @@ feature 'Filling in an LPA' do
 
   end
 
-end
 end
