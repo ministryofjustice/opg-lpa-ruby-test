@@ -40,4 +40,4 @@ bower install
 Tests
 -----
 
-Run `rake` to run unit tests. If you have the api server running locally, then run `INTEGRATION=true rake` to run the integration tests.
+Run `rake` to run unit tests. If you want to use the api server running locally, then run `VCR=false rake` to run the integration tests.
