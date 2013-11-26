@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def with_secure_token model_class
-    token_header = 'X-SECURE-TOKEN'
+    token_header = 'SECURE-TOKEN'
 
     begin
       if token = read_secure_token

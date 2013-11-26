@@ -39,9 +39,5 @@ class Lpa < ActiveResource::Base
     super(*args)
   end
 
-  def secure_token= token
-    self.class.headers = self.class.headers.merge('X-SECURE-TOKEN' => token)
-  end
-
 end
 

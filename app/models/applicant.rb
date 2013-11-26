@@ -30,13 +30,5 @@ class Applicant < ActiveResource::Base
     super(*args)
   end
 
-  def secure_token= token
-    # if token
-      self.class.headers = self.class.headers.merge('X-SECURE-TOKEN' => token)
-    # else
-      # self.class.headers = self.class.headers.except('X-SECURE-TOKEN')
-    # end
-  end
-
 end
 
