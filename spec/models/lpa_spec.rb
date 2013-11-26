@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Lpa do
+
+  before(:all) { WebMock.enable! }
+  after(:all)  { WebMock.disable! }
+
 	before :each do
 		@json = {
 			:title => "Mr",

@@ -4,6 +4,12 @@ if ENV["INTEGRATION"]
   feature 'Filling in an LPA' do
     before(:each) do
       WebMock.disable!
+      visit "/users/sign_up"
+      fill_in_sign_up
+      click_button "I understand"
+      click_link "sign in now"
+      fill_in_sign_in
+      click_button "Sign in"
     end
     after(:each) do
       WebMock.enable!
