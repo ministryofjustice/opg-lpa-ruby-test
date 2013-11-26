@@ -14,15 +14,27 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def secure_token_cache_key
+    "secure_token_#{session[:session_id]}" if session[:session_id]
+  end
+
+  def read_secure_token
+    Rails.cache.read(secure_token_cache_key) if secure_token_cache_key
+  end
+
   def with_secure_token model_class
+    token_header = 'X-SECURE-TOKEN'
+
     begin
-      token_header = 'X-SECURE-TOKEN'
-      token = session[:secure_token]
-      model_class.headers = model_class.headers.merge(token_header => token) if token
+      if token = read_secure_token
+        model_class.headers = model_class.headers.merge(token_header => token)
+      end
       yield
     ensure
       # ensure token always removed from headers
-      model_class.headers = model_class.headers.except(token_header) if model_class.headers[token_header]
+      if model_class.headers[token_header]
+        model_class.headers = model_class.headers.except(token_header)
+      end
     end
   end
 

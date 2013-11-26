@@ -15,8 +15,10 @@ class LpasController < ApplicationController
   end
 
   def show
-    @lpa = Lpa.find(params[:id])
-    render :json => @lpa
+    with_secure_token(Lpa) do
+      @lpa = Lpa.find(params[:id])
+      render :json => @lpa
+    end
   end
 
   private
