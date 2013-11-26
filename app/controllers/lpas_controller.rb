@@ -1,7 +1,10 @@
 class LpasController < ApplicationController
   before_filter :check_applicant
+
   def index
-    @lpas = Applicant.find(session[:applicant_id]).lpas
+    with_secure_token(Applicant) do
+      @lpas = Applicant.find(session[:applicant_id]).lpas
+    end
   end
 
   def create

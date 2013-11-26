@@ -15,15 +15,15 @@ class ApplicationController < ActionController::Base
   protected
 
   def with_secure_token model_class
-    token_header = 'X-SECURE-TOKEN'
-
-    if session[:secure_token]
-      model_class.headers = model_class.headers.merge(token_header => session[:secure_token])
+    begin
+      token_header = 'X-SECURE-TOKEN'
+      token = session[:secure_token]
+      model_class.headers = model_class.headers.merge(token_header => token) if token
+      yield
+    ensure
+      # ensure token always removed from headers
+      model_class.headers = model_class.headers.except(token_header) if model_class.headers[token_header]
     end
-
-    yield
-
-    # model_class.headers = model_class.headers.except(token_header)
   end
 
 end
