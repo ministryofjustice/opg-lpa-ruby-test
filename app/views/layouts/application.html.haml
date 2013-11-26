@@ -1,17 +1,20 @@
-!!!
-%html
-  %head
-    = render "shared/head", :title => Rails.configuration.app_title, :noapp => true
-    = stylesheet_link_tag    "application", media: "all"
-    = javascript_include_tag "application"
-    = csrf_meta_tags
-  %body{ class: Rails.configuration.phase }
-    = render 'shared/header', :proposition => 'Make a lasting power of attorney'
-    = render "shared/phase_indicator"
+= render template: "layouts/moj_template"
 
-    #wrapper
-      = render 'shared/nav'
-      %main#content.inner(role="main")
-        = yield
+-#
+  !!!
+  %html
+    %head
+      = render "shared/head", :title => Rails.configuration.app_title, :noapp => true
+      = stylesheet_link_tag    "application", media: "all"
+      = javascript_include_tag "application"
+      = csrf_meta_tags
+    %body{ class: Rails.configuration.phase }
+      = render 'shared/header', :proposition => 'Make a lasting power of attorney'
+      = render "shared/phase_indicator"
 
-    = render'shared/footer'
+      #wrapper
+        = render 'shared/nav'
+        %main#content.inner(role="main")
+          = yield
+
+      = render'shared/footer'
