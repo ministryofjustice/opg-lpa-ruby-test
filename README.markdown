@@ -19,9 +19,9 @@ Installation
     cd opg-lpa
     bundle install
 
-## Frontend Installation
+### Frontend
 
-### Bower
+#### Bower
 
 Bower package manager is used for frontend package dependency management. Install globally using:
 
