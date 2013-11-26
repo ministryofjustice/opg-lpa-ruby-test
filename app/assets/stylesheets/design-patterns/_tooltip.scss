@@ -1,7 +1,7 @@
 // Tooltip
 
 // From the toolkit
-@import "toolkit/stylesheets/colours";
+// @import "toolkit/stylesheets/colours";
 
 .tooltip {
   outline: none;
@@ -33,7 +33,7 @@
     padding: 1em;
     margin-top: -50px;
     margin-left: 22px;
-    width:240px;    
+    width:240px;
     box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.3);
   }
 }

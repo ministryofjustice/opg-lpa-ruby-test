@@ -2,10 +2,6 @@
 // ACCOUNT MANAGEMENT TOOLS
 
 // Standard account management toolbar that runs across the top of your application
-// 
-
-// From the toolkit
-@import "toolkit/stylesheets/colours";
 
 @mixin account-management-tools{
   .account-management-tools{
@@ -18,7 +14,7 @@
       list-style-type: none;
       margin: 0;
       padding: 0;
-      overflow: hidden; 
+      overflow: hidden;
       li{
         float: right;
         margin: 0;

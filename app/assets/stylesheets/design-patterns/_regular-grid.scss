@@ -3,14 +3,6 @@
 //
 
 
-@import "design-patterns/utils";
-
-// From the toolkit
-
-@import "toolkit/stylesheets/conditionals";
-@import "toolkit/stylesheets/shims";
-
-
 @mixin regular-grid($columns: 1, $min-height:"") {
   margin: 0;
   @include ie-lte(7){
@@ -18,7 +10,7 @@
   }
   padding: 0;
   @include clearfix;
-  > * { 
+  > * {
     display: block;
     margin: 0;
     padding: 0;
@@ -31,7 +23,7 @@
     width: percentage($item-share/$columns);
     // IE8- Doesn't understand nth-child, so we're stuck with a margin on the far-right item
     // To accomodate this, all margins are slightly reduced
-    
+
     @include ie-lte(8){
       $margins: $columns;
     }

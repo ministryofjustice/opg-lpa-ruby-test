@@ -1,9 +1,6 @@
 // =======================================================
 // POPUPS
 
-// From the toolkit
-@import "toolkit/stylesheets/colours";
-
 
 @mixin popup($width: 70%, $height: 26em){
   width: $width;
@@ -44,7 +41,7 @@
 html.noscroll {
     position: fixed;
     top: 0;
-    left: 0; 
+    left: 0;
     overflow-y: scroll;
     width: 100%;
 }
