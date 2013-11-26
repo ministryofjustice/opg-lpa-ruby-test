@@ -40,6 +40,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'byebug'
   gem 'launchy'
+  gem 'clogger' # Rack middleware for logging HTTP requests
 end
 
 group :test do
