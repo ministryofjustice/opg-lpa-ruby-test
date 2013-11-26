@@ -10,7 +10,7 @@
   // Add module to LPA namespace
   lpa.Modules.form = {
     init: function () {
-      moj.log("form init");
+      moj.log("modules/lpa.form init");
     }
   };
 }());

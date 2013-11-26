@@ -17,3 +17,10 @@
 //= require moj
 //= require lpa
 //= require_tree ./modules
+
+//= require_tree ./jquery-plugin/jquery-details
+//= require_tree ./jquery-plugin/opg
+//= require form
+//= require date-picker
+//= require help-popup
+//= require pwstrength
