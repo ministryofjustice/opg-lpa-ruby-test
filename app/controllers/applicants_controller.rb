@@ -6,6 +6,7 @@ class ApplicantsController < ApplicationController
 
   def create
     @applicant = Applicant.new(applicant_params)
+    @applicant.secure_token = session[:secure_token] if session[:secure_token]
     if @applicant.save
       session[:applicant_id] = @applicant.id
       redirect_to lpas_path

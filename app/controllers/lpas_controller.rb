@@ -5,7 +5,9 @@ class LpasController < ApplicationController
   end
 
   def create
-    @lpa = Lpa.create(:applicant_id => session[:applicant_id])
+    @lpa = Lpa.new(:applicant_id => session[:applicant_id])
+    @lpa.secure_token = session[:secure_token] if session[:secure_token]
+    @lpa.save
     redirect_to lpa_build_index_path(:lpa_id => @lpa.id)
   end
 
@@ -13,7 +15,7 @@ class LpasController < ApplicationController
     @lpa = Lpa.find(params[:id])
     render :json => @lpa
   end
-  
+
   private
   def check_applicant
     unless session[:applicant_id].present?
