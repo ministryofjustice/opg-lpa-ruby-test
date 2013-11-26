@@ -6,6 +6,7 @@ feature 'Filling in an LPA' do
   after(:all)  { WebMock.enable! }
 
   scenario 'create an account' do
+
     visit "/users/sign_up"
     fill_in_sign_up
     click_button "I understand"

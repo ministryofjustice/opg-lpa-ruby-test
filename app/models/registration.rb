@@ -5,6 +5,6 @@ class Registration
   attr_accessor :username, :password
 
   def credentials
-    { username: username, password: password }
+    { user: { email: username, password: password } }
   end
 end

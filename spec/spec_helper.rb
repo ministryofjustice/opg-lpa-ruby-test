@@ -91,11 +91,12 @@ def fill_in_valid_applicant(overides={})
 end
 
 def fill_in_sign_up(overrides={})
-  fill_in 'Enter your email address', with: overrides[:email]    || 'joe.bloggs@example.com'
-  fill_in 'Create a password',        with: overrides[:password] || 's3kr!t'
+  @email = overrides[:email]    || "joe.bloggs#{Time.now.to_i}@example.com"
+  fill_in 'Enter your email address', with: @email
+  fill_in 'Create a password',        with: overrides[:password] || 's3kr!tpass'
 end
 
 def fill_in_sign_in(overrides={})
-  fill_in 'Email address', with: overrides[:email]    || 'joe.bloggs@example.com'
-  fill_in 'Password',      with: overrides[:password] || 's3kr!t'
+  fill_in 'Email address', with: @email
+  fill_in 'Password',      with: overrides[:password] || 's3kr!tpass'
 end

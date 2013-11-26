@@ -12,8 +12,10 @@ class Users::RegistrationsController < ApplicationController
   def create
     @registration = Registration.new(params[:registration])
 
-    response = ApiClient.post('/register', body: @registration.credentials)
-
+    # binding.pry
+    response = ApiClient.post('/auth/users.json', body: @registration.credentials)
+    # binding.pry
+    # File.open('response.html','w') {|f| f.write response.body}
     if response.code == 201
       # success
     else

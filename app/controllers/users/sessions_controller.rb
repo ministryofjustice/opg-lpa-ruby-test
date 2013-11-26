@@ -12,10 +12,10 @@ class Users::SessionsController < ApplicationController
   def create
     @session = Session.new(params[:session])
 
-    response = ApiClient.post('/login', body: @session.credentials)
-
-    if response.code == 200
-      session[:secure_token] = response['token']
+    response = ApiClient.post('/auth/users/sign_in.json', body: @session.credentials)
+    # binding.pry
+    if response.code == 201
+      session[:secure_token] = response['authentication_token']
       redirect_to new_applicant_path
     else
       @session.password = nil
