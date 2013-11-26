@@ -11,4 +11,19 @@ class ApplicationController < ActionController::Base
       params[model_name].each {|key, value| params[model_name].delete(key) if key[/\(\di\)/] }
     end
   end
+
+  protected
+
+  def with_secure_token model_class
+    token_header = 'X-SECURE-TOKEN'
+
+    if session[:secure_token]
+      model_class.headers = model_class.headers.merge(token_header => session[:secure_token])
+    end
+
+    yield
+
+    # model_class.headers = model_class.headers.except(token_header)
+  end
+
 end

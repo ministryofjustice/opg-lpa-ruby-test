@@ -5,10 +5,10 @@ class LpasController < ApplicationController
   end
 
   def create
-    @lpa = Lpa.new(:applicant_id => session[:applicant_id])
-    @lpa.secure_token = session[:secure_token] if session[:secure_token]
-    @lpa.save
-    redirect_to lpa_build_index_path(:lpa_id => @lpa.id)
+    with_secure_token(Lpa) do
+      @lpa = Lpa.create(:applicant_id => session[:applicant_id])
+      redirect_to lpa_build_index_path(:lpa_id => @lpa.id)
+    end
   end
 
   def show

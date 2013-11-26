@@ -1,17 +1,18 @@
 require 'spec_helper'
 if ENV["INTEGRATION"]
 feature 'Filling in an LPA' do
-  before(:all) do
+  before(:each) do
     WebMock.disable!
     visit "/users/sign_up"
     fill_in_sign_up
     click_button "I understand"
+    expect(page).to have_content('Please check your email')
     click_link "sign in now"
     fill_in_sign_in
     click_button "Sign in"
   end
 
-  after(:all) do
+  after(:each) do
     WebMock.enable!
   end
 
