@@ -1,0 +1,132 @@
+// ===========================================================
+// PERSON FORM POP-UP 
+// ===========================================================
+
+// Person form popup
+#popup.form-popup{
+  @include popup(38em);
+  // Header
+  .header{
+    @if $is-ie == false {
+      background: url("/images/icon/person.png") no-repeat 1em 17px;
+      background-size: 2.5%;
+      padding-left: 2.5em;  
+    }
+    font-weight: bold;
+  }
+  // Action buttons at bottom of popup
+  .action.group{
+    padding-left: 10em;
+    .button-secondary{
+      margin-left: 4.5em;
+    }
+  }
+}
+
+
+// ===========================================================
+// PERSON FORM
+// ===========================================================
+
+// Pre-populate form link (not required for live version)
+#form-populate{
+  float: right;
+  padding: 1em 4em;
+}
+
+// Basic form layout
+.person-form {
+  position: relative;
+  padding-left: 1em;
+  input[type="text"],
+  input[type="email"]{
+    width: 15em;
+  }
+  .form{
+    @include form-horizontal;
+    .option.group{
+      padding-right: 2em;
+    }
+
+    label.checkbox {
+      width:auto;
+    }
+
+    // Large confirmation errors
+    .option.group.confirmation-alert {
+      border: 3px solid #DF3034;
+      box-sizing: border-box;
+      padding: 1em;
+      margin: 1em 1em 0.5em 0em;
+      background-color: #FEF7F7;
+      label{
+        width: auto;
+        display: inline;
+        padding: 0;
+      }
+    }
+  }
+}
+
+// Title dropdown (Mr, Mrs etc.)
+.title select{
+  display: none;
+}
+
+// Select a person for a role
+.form .role-select{
+  overflow: auto;
+  border-bottom: 1px solid $border-colour;
+  margin: 0 0 0 -1.25em;
+  padding: 1em 0 1em 1.25em;
+  background: $highlight-colour;
+  a{
+    @include core-16;
+  }
+  select{
+    min-width: 11.5em;
+  }
+}
+
+// Address and postcode-lookup
+#address-postcode,
+#postcode-lookup,
+#postcode{
+  width: 6.3em;
+}
+.postcode-lookup{
+  vertical-align: top;
+}
+.address-list{
+  width: 16em;
+}
+#popup .address-fields-link {
+  margin-left: 10.3em;
+  overflow: hidden;
+  list-style-type: none;
+  list-style-image: none;
+  li{
+    float: left;
+    line-height: 1em;
+    padding: 0;
+    &:nth-child(2){
+      padding-left: 0.5em;
+      border-left: 1px solid $border-colour;
+      margin-left: 0.5em;
+    }
+  }
+}
+#address-country{
+  width: 15.5em;
+}
+
+// Make hints the same width as text fields
+#popup.form-popup .hint{
+  width: 19em;
+}
+
+// Certificate provider
+#prof-skills,
+#knows-well{
+  width: 400px;
+}
