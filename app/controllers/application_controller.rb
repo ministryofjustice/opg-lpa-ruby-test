@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def with_secure_token model_class
-    token_header = 'SECURE-TOKEN'
+    token_header = RackMojAuth::Resources::SECURE_TOKEN.sub('HTTP_','')
 
     begin
       if token = read_secure_token

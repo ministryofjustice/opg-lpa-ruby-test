@@ -32,6 +32,8 @@ gem 'multiparameter_attributes_handler'
 
 gem 'foreman'
 
+gem 'rack_moj_auth', github: 'ministryofjustice/x-moj-auth'
+
 group :doc do
   gem 'sdoc', require: false
 end

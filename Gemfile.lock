@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/ministryofjustice/x-moj-auth.git
+  revision: 73ebb804d34e0280f99e52abdbe7fff1610dd5a4
+  specs:
+    rack_moj_auth (0.0.2)
+      httparty (>= 0.12.0)
+      rack (>= 1.5.0)
+
+GIT
   remote: https://github.com/ministryofjustice/moj_frontend_toolkit_gem.git
   revision: d61df6019230dad6dcb82d776046a8421964e600
   tag: v0.0.40
@@ -241,6 +249,7 @@ DEPENDENCIES
   launchy
   moj_frontend_toolkit_gem!
   multiparameter_attributes_handler
+  rack_moj_auth!
   rails (= 4.0.0)
   rspec-rails
   sass-rails (~> 4.0.0)
