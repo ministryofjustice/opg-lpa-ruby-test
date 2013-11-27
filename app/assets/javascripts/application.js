@@ -12,7 +12,6 @@
 //
 //= require bower/jquery/jquery
 //= require bower/mustache/mustache
-//= require jquery_ujs
 //= require turbolinks
 //= require moj
 //= require lpa
