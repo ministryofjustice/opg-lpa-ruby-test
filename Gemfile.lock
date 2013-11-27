@@ -6,8 +6,9 @@ GIT
       httparty (>= 0.12.0)
       rack (>= 1.5.0)
 
-PATH
-  remote: /Users/domsmith/Sites/moj_boilerplate
+GIT
+  remote: git@github.com:ministryofjustice/moj_boilerplate.git
+  revision: 659bcb187054965937160d8e4b1bcaac75bf540d
   specs:
     moj_boilerplate (0.0.1)
       rails (~> 4.0.0)
