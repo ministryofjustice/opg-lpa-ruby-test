@@ -23,7 +23,9 @@ Installation
 
 #### Bower
 
-Bower package manager is used for frontend package management. Install globally using:
+Bower package manager is used for frontend package management. Bower relies in Node.js so if you don't already have it installed, install it via the Node.js [website](http://nodejs.org/).
+
+Install Bower globally using:
 
 ```
 npm install -g bower
