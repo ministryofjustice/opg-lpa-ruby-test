@@ -15,37 +15,8 @@
 /log/*.log
 /tmp
 
-bin/autospec
-bin/byebug
-bin/coderay
-bin/erubis
-bin/guard
-bin/haml
-bin/htmldiff
-bin/launchy
-bin/ldiff
-bin/nokogiri
-bin/pry
-bin/rackup
-bin/rdoc
-bin/ri
-bin/rspec
-bin/sass
-bin/sass-convert
-bin/scss
-bin/sdoc
-bin/sdoc-merge
-bin/sprockets
-bin/thor
-bin/tilt
-bin/tt
-bin/cdiff
-bin/colortab
-bin/coveralls
-bin/decolor
-bin/restclient
-bin/term_display
-bin/term_mandel
+.env
+bin/*
 
 # Ignore Mac files
 .DS_Store

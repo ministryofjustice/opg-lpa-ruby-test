@@ -5,7 +5,9 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.0'
 
-gem "activeresource", '4.0.0'
+gem 'activeresource', '4.0.0'
+gem 'httparty'
+
 gem 'wicked'
 
 gem 'haml-rails'
@@ -28,6 +30,10 @@ gem 'turbolinks'
 
 gem 'multiparameter_attributes_handler'
 
+gem 'foreman'
+
+gem 'rack_moj_auth', github: 'ministryofjustice/x-moj-auth'
+
 group :doc do
   gem 'sdoc', require: false
 end
@@ -36,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'byebug'
   gem 'launchy'
+  gem 'clogger' # Rack middleware for logging HTTP requests
 end
 
 group :test do

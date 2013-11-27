@@ -14,6 +14,12 @@ class Applicant < ActiveResource::Base
     string 'phone'
   end
 
+  class << self
+    def headers= headers
+      @headers = headers
+    end
+  end
+
   def initialize(*args)
     # Make sure we always have associations assigned, so that activeresource doesn't request them
     args[0] ||= {}
@@ -23,4 +29,6 @@ class Applicant < ActiveResource::Base
     }.merge(args[0])
     super(*args)
   end
+
 end
+

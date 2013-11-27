@@ -1,19 +1,26 @@
 class LpasController < ApplicationController
   before_filter :check_applicant
+
   def index
-    @lpas = Applicant.find(session[:applicant_id]).lpas
+    with_secure_token(Applicant) do
+      @lpas = Applicant.find(session[:applicant_id]).lpas
+    end
   end
 
   def create
-    @lpa = Lpa.create(:applicant_id => session[:applicant_id])
-    redirect_to lpa_build_index_path(:lpa_id => @lpa.id)
+    with_secure_token(Lpa) do
+      @lpa = Lpa.create(:applicant_id => session[:applicant_id])
+      redirect_to lpa_build_index_path(:lpa_id => @lpa.id)
+    end
   end
 
   def show
-    @lpa = Lpa.find(params[:id])
-    render :json => @lpa
+    with_secure_token(Lpa) do
+      @lpa = Lpa.find(params[:id])
+      render :json => @lpa
+    end
   end
-  
+
   private
   def check_applicant
     unless session[:applicant_id].present?

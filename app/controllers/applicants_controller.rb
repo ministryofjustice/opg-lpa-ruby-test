@@ -5,12 +5,15 @@ class ApplicantsController < ApplicationController
   end
 
   def create
-    @applicant = Applicant.new(applicant_params)
-    if @applicant.save
-      session[:applicant_id] = @applicant.id
-      redirect_to lpas_path
-    else
-      render :template => '/applicants/new'
+    with_secure_token(Applicant) do
+      @applicant = Applicant.new(applicant_params)
+
+      if @applicant.save
+        session[:applicant_id] = @applicant.id
+        redirect_to lpas_path
+      else
+        render :template => '/applicants/new'
+      end
     end
   end
 

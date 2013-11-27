@@ -14,6 +14,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 
 require 'webmock/rspec'
+
 require 'capybara/rails'
 require 'capybara/rspec'
 
@@ -89,3 +90,13 @@ def fill_in_valid_applicant(overides={})
   select 1970, from: 'applicant_date_of_birth_1i'
 end
 
+def fill_in_sign_up(overrides={})
+  @email = overrides[:email]    || "joe.bloggs#{Time.now.to_i}@example.com"
+  fill_in 'Enter your email address', with: @email
+  fill_in 'Create a password',        with: overrides[:password] || 's3kr!tpass'
+end
+
+def fill_in_sign_in(overrides={})
+  fill_in 'Email address', with: @email
+  fill_in 'Password',      with: overrides[:password] || 's3kr!tpass'
+end
