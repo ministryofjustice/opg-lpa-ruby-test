@@ -6,7 +6,7 @@
 
 //===== Vendor scripts - /vendor/assets/javascripts/ =====\\
 //= require jquery.details
-//= require jquery.tools.min
+// require jquery.tools.min
 
 //===== MOJ boilerplate object and modules - [moj_boilerplate] Gem =====\\
 //= require moj
