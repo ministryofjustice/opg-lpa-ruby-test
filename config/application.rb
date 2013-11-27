@@ -47,5 +47,8 @@ module OpgLpa
 
 
     config.api_uri = "#{ENV['API_HOST']}/api"
+
+    # include Bower components in compiled assets
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
   end
 end

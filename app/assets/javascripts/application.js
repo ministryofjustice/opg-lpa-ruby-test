@@ -10,13 +10,20 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require bower/jquery/jquery
-//= require bower/mustache/mustache
-//= require turbolinks
+//===== Bower packages =====\\
+//= require jquery
+//= require mustache/mustache
+
+//===== MOJ object =====\\
 //= require moj
+
+//= require turbolinks
+
+//===== LPA app object and modules =====\\
 //= require lpa
 //= require_tree ./modules
 
+//===== Existing app plugins and js =====\\
 //= require_tree ./jquery-plugin/jquery-details
 //= require_tree ./jquery-plugin/opg
 //= require form
