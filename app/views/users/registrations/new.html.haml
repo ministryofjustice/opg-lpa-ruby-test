@@ -20,6 +20,7 @@
             = input_for(registration_form, "password", label_override: "Create a password") do
               = registration_form.password_field "password"
           %hr
-          = render partial: "terms_and_conditions"
+          - if Rails.env.production?
+            = render partial: "terms_and_conditions"
           %p.action.group
             = registration_form.submit "I understand", class: "button"
