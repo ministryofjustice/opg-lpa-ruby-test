@@ -1,6 +1,8 @@
 language: ruby
 rvm:
 - 2.0.0
+before_install:
+  - sudo apt-get install pdftk
 script: bundle exec rspec spec
 notifications:
   hipchat:
@@ -9,4 +11,3 @@ notifications:
     format: html
     template:
       - '%{message} (<a href="%{build_url}">details</a>/<a href="%{compare_url}">changes</a>) - build #%{build_number}, branch <a href="https://github.com/%{repository}/tree/%{branch}">%{branch}</a> of %{repository}'
-
