@@ -9,5 +9,5 @@
   = render "shared/validation_summary", :form_object => applicant_form
   = render :partial => 'shared/person_form', :locals => { :person_form => applicant_form, :show_dob => true, :hide_email => true, :hide_phone => true }
 
-  .action.group
+  %p.action.group
     = applicant_form.submit "Save and continue", class: "button aboutyou"

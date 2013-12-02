@@ -41,9 +41,14 @@
         border: 1px inset $border-colour; // Otherwise IE gets a black border
       }
       padding: 0.1em 0 0.1em 0.4em;
+      margin: 0 0.5em 0 0;
   }
 
-  textarea{  
+  select {
+    font-size: 100%;
+  }
+
+  textarea{
     min-height: 10em;
     height: auto;
   }
@@ -82,7 +87,7 @@
     vertical-align: 2px;
   }
 
-  // Help text  
+  // Help text
   .hint {
     clear: left;
     display: block;
@@ -164,7 +169,7 @@
       padding-left: 2.2em;
       li{
       list-style-type: none;
-      list-style-image: none; 
+      list-style-image: none;
       }
     }
     li{
@@ -219,18 +224,18 @@
 
 
   @if ($label-alignment == left or $label-alignment == right) {
-   
+
     @include form-horizontal($label-alignment, $label-width)
 
   // Top-aligned labels
-  } @else { 
+  } @else {
     label{ display:block; }
     input{ margin-left: 0; }
     legend span {
       padding-bottom: 0.3em;
       display: block;
     }
-    .inline{    
+    .inline{
       input[type=text],
       select,
       textarea{
@@ -271,8 +276,8 @@ input:-moz-placeholder {  padding-top: 0.15em; color: $grey-1; }
         color: #333;
         font-weight: 300;
       }
-      &::-webkit-details-marker { 
-        display:none; 
+      &::-webkit-details-marker {
+        display:none;
       }
     }
     &[open]{
@@ -362,7 +367,7 @@ input:-moz-placeholder {  padding-top: 0.15em; color: $grey-1; }
   fieldset{
     legend{
       display: block;
-      padding-left: $label-width - 1em; // Align legend with fields (needs offset)    
+      padding-left: $label-width - 1em; // Align legend with fields (needs offset)
     }
     // Nested fieldsets
     fieldset{
@@ -382,7 +387,7 @@ input:-moz-placeholder {  padding-top: 0.15em; color: $grey-1; }
       }
       // Shift controls up
       // To do: Make this work properly for non-inline option groups
-        .inline {       
+        .inline {
           .group{
             margin-bottom: 0.5em;
           }
@@ -432,15 +437,4 @@ input:-moz-placeholder {  padding-top: 0.15em; color: $grey-1; }
       }
     }
   }
-}
-
-// BUTTONS
-.button{
-  @include button($green);
-}
-.button-secondary{
-  @include button($panel-colour);
-}
-.button-warning{
-  @include button($red);
 }
