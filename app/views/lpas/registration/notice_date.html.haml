@@ -1,0 +1,9 @@
+Notification letters
+
+%p Please give the date on which you sent the notification letters.
+= form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+  %p Name
+  %p Notification letter sent on <input />
+  %p
+    = lpa_form.submit "Save and continue", :class => "button gotonextpart"
+

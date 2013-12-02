@@ -33,8 +33,7 @@
         %li
           %h3 Register the LPA
           %p After everyone’s signed the LPA, you have to pay an application fee, then send the signed LPA along with a completed registration form to the Office of the Public Guardian. It’s a good idea to apply to register your LPA straight after making it. An unregistered LPA can't be used.
-          %p
-            %a.button{:href => ""} Apply to register your LPA now
+          %p= link_to "Apply to register your LPA now", lpa_registration_index_path(@lpa), :class => "button"
           %p= guidance_link "Find out more about registering your LPA", "registering-the-lpa"
 
         %hr

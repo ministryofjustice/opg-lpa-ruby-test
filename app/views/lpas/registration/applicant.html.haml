@@ -1,0 +1,10 @@
+Who's applying to register the LPA?
+
+
+%p This LPA is being registered by 
+= form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+  %p The donor
+  %p The attorney
+  %p
+    = lpa_form.submit "Save and continue", :class => "button gotonextpart"
+

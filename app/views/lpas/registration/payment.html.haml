@@ -1,0 +1,9 @@
+Payment
+
+%p Application fee: £110
+%p This LPA is being registered by 
+= form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+  %p Email address <input />
+  %p
+    = lpa_form.submit "Proceed to payment", :class => "button gotonextpart"
+

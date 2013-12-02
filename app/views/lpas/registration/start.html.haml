@@ -1,0 +1,15 @@
+Register a lasting power of attorney
+
+How to register this LPA
+Over the next few pages, we’ll ask you a few questions about things like the signing dates of the LPA. You'll also need to notify any 'people to be told'.
+You then need to pay the £110 application fee. You can do this through our secure online service.
+Finally, print, sign and date the registration form, and send it to us with the signed LPA.
+More about registering an LPA
+
+Need to change something?
+
+Please don't amend any of the information in the LPA by hand. If the donor wants to change something, they must edit this LPA online and print off another copy. Everyone must sign it again.
+
+= form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+  = lpa_form.submit "Register this LPA", :class => "button gotonextpart"
+

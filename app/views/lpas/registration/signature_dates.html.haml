@@ -1,0 +1,12 @@
+When was the LPA signed?
+
+= form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+  %p (the donor)
+  %p This person signed part A of the LPA on <input />
+  %p (certificate provider)
+  %p This person signed part B of the LPA on <input />
+  %p (attorney)
+  %p This person signed part C of the LPA on <input />
+  %p
+    = lpa_form.submit "Save and continue", :class => "button gotonextpart"
+
