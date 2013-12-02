@@ -22,6 +22,10 @@ module LpasHelper
     raw s
   end
 
+  def set_progress_class(current_state)
+
+  end
+
   def lpa_overview(lpa)
     @wizard_steps.collect { |s|
       if step_completed?(s) && text = self.send("#{s}_overview", lpa)

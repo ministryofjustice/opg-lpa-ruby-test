@@ -1,7 +1,7 @@
 %nav.progress-indicator.group{:role => "navigation"}
   %ol.group
-    %li About you
-    %li.active Create the LPA
-    %li Sign the LPA
-    %li Register the LPA
-    %li Done
+    %li{:class => defined?(active_state) && (active_state == "about") ? "active" : ""} About you
+    %li{:class => defined?(active_state) && (active_state == "create") ? "active" : ""} Create the LPA
+    %li{:class => defined?(active_state) && (active_state == "sign") ? "active" : ""} Sign the LPA
+    %li{:class => defined?(active_state) && (active_state == "register") ? "active" : ""} Register the LPA
+    %li{:class => defined?(active_state) && (active_state == "done") ? "active" : ""} Done
