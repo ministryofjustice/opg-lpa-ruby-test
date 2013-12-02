@@ -3,13 +3,7 @@ if ENV["INTEGRATION"]
 feature 'Filling in an LPA' do
   before(:each) do
     WebMock.disable!
-    visit "/users/sign_up"
-    fill_in_sign_up
-    click_button "I understand"
-    expect(page).to have_content('Please check your email')
-    click_link "sign in now"
-    fill_in_sign_in
-    click_button "Sign in"
+    sign_up_and_sign_in
   end
 
   after(:each) do
@@ -228,33 +222,6 @@ feature 'Filling in an LPA' do
     click_button "Save and continue"
     expect(page).to have_content("can't be blank")
   end
-
-  def create_financial_lpa(overides={})
-    visit "/"
-    fill_in_valid_person(overides)
-    click_button "Save and continue"
-
-    click_button "Create a new LPA"
-
-    expect(page).to have_content('What type of LPA do you want to create?')
-    choose("Property and financial affairs")
-
-    click_button "Save and continue"
-  end
-
-  def create_healthcare_lpa(overides={})
-    visit "/"
-    fill_in_valid_person(overides)
-    click_button "Save and continue"
-
-    click_button "Create a new LPA"
-
-    expect(page).to have_content('What type of LPA do you want to create?')
-    choose("Health and welfare")
-
-    click_button "Save and continue"
-  end
-
 
 end
 end
