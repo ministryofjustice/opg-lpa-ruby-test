@@ -2,7 +2,6 @@
 
 //===== Bower packages - /vendor/assets/components/ =====\\
 //= require jquery
-//= require mustache/mustache
 
 //===== Vendor scripts - /vendor/assets/javascripts/ =====\\
 //= require jquery.details
