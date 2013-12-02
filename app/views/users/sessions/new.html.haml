@@ -1,14 +1,20 @@
-%header
+%header.page-header.group
   %hgroup
     %h1 Sign in
-    %p
-      Sign in or
-      = link_to 'create an account','#'
-      to get started.
 
-= form_for @session, url: users_session_path, :html => { :class => 'form' } do |session_form|
-  = render "shared/validation_summary", :form_object => session_form
-  = input_for(session_form, "username", label_override: 'Email address')
-  = input_for(session_form, "password", label_override: 'Password')
-  .action.group
-    = session_form.submit "Sign in", class: "button"
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      %p Sign in or #{link_to("create an account", "#")} to get started.
+
+      .account.form
+        = form_for @session, url: users_session_path, :html => { :class => "form", :autocomplete => "off" } do |session_form|
+          = render "shared/validation_summary", :form_object => session_form
+          = input_for(session_form, "username", label_override: "Email address") do
+            = session_form.email_field "username"
+          = input_for(session_form, "password", label_override: "Password") do
+            = session_form.password_field "username"
+          %p.action.group
+            = session_form.submit "Sign in", class: "button"
+          %p.action.group
+            = link_to("Forgotten your password?", "#")
