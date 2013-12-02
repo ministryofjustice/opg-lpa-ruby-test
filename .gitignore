@@ -20,6 +20,3 @@ bin/*
 
 # Ignore Mac files
 .DS_Store
-
-# Ignore Bower packages
-vendor/assets/components
