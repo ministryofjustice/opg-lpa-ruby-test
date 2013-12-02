@@ -5,7 +5,7 @@
 .article-container.group
   %article.group{:role => "article"}
     .inner
-      %p Sign in or #{link_to("create an account", "#")} to get started.
+      %p Sign in or #{link_to("create an account", users_new_registration_path)} to get started.
 
       .account.form
         = form_for @session, url: users_session_path, :html => { :class => "form", :autocomplete => "off" } do |session_form|
