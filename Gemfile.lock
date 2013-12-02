@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/ministryofjustice/moj_boilerplate.git
-  revision: 659bcb187054965937160d8e4b1bcaac75bf540d
+  revision: c9406ca2b1b935d9c20343418d6a439b933b46e0
   specs:
     moj_boilerplate (0.0.1)
       rails (~> 4.0.0)
