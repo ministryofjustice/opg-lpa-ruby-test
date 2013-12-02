@@ -19,6 +19,24 @@ Installation
     cd opg-lpa
     bundle install
 
+### Frontend
+
+#### Bower
+
+Bower package manager is used for frontend package management. Bower relies in Node.js so if you don't already have it installed, you can install it via the [Node.js website](http://nodejs.org/).
+
+Install Bower globally using:
+
+```
+npm install -g bower
+```
+
+Then run the following command from the project directory:
+
+```
+bower install
+```
+
 Tests
 -----
 

@@ -13,6 +13,7 @@
 //                  Outdented panels bleed into the margin so that their
 //                  contents are aligned with the surrounding contents
 
+
 @mixin panel(
   $colour: $panel-colour,
   $width: "",
@@ -63,7 +64,7 @@
   // PANEL CONTENTS
 
   // Reset top-margin for elements that appear at the top of panels
-  *:first-child{
+  > *:first-child{
     margin-top: 0em;
   }
 

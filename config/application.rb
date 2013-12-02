@@ -30,6 +30,8 @@ module OpgLpa
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+
+    #======= MOJ Boilerplate variables =======#
     # app title appears in the header bar
     config.app_title = 'Lasting Power of Attorney'
     # phase governs text indicators and highlight colours
@@ -38,11 +40,15 @@ module OpgLpa
     # product type may also govern highlight colours
     # known values: information, service
     config.product_type = 'service'
-    # govbranding switches on or off the crown logo, full footer and NTA font
-    config.govbranding = true
-    # feedback_email is the address linked in the alpha/beta bar asking for feedback
-    config.feedback_email = 'test@example.com'
+    # feedback link url
+    config.feedback_url = '#'
+    # Google Analytics tracking ID
+    config.ga_id = ''
+
 
     config.api_uri = "#{ENV['API_HOST']}/api"
+
+    # include Bower components in compiled assets
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
   end
 end

@@ -1,24 +1,35 @@
-// GOV.UK Toolkit
-@import "_conditionals";
-@import "_colours";
-@import "_typography";
-@import "_css3";
-@import "design-patterns/_buttons.scss";
+// Import the MOJ Boilerplate Base styles
+@import "moj-base";
 
-// from Government Service Design Manual
-@import "_panels";
-// from existing app
-@import "design-patterns/_content";
-@import "design-patterns/_forms";
-@import "design-patterns/_accordion-form";
-@import "design-patterns/_details";
-@import "design-patterns/_global-nav";
-@import "design-patterns/_progress-indicator";
-// pages
-@import "pages/_dashboard";
-@import "pages/_create-and-register-pages";
-@import "pages/_start-and-end-pages";
-@import "pages/_account-management";
+// GOV.UK Styleguide design patterns
+@import "design-patterns/accordion-form";
+// @import "design-patterns/account-management-tools";
+// @import "design-patterns/content";
+// @import "design-patterns/date-picker";
+@import "design-patterns/details";
+@import "design-patterns/forms";
+// @import "design-patterns/from-dept";
+@import "design-patterns/global-nav";
+// @import "design-patterns/grid";
+@import "design-patterns/panels";
+// @import "design-patterns/popups";
+// @import "design-patterns/help-popup";
+@import "design-patterns/progress-indicator";
+// @import "design-patterns/regular-grid";
+// @import "design-patterns/spinner";
+// @import "design-patterns/tooltip";
+@import "design-patterns/utils";
+
+// View specific styles
+// @import "views/homepage";
+@import "views/dashboard";
+@import "views/create-and-register-pages";
+// @import "views/account-management";
+// @import "views/person-form";
+@import "views/start-and-end-pages";
+
+// Form Finder specific
+// @import "global";
 
 
 /*
