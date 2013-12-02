@@ -12,7 +12,7 @@
           = render "shared/validation_summary", :form_object => registration_form
           %fieldset
             %legend Email address
-            = input_for(registration_form, "username", label_override: 'Enter your email address') do
+            = input_for(registration_form, "username", label_override: "Enter your email address") do
               = registration_form.email_field "username"
           %fieldset
             %legend Password
