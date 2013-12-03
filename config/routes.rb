@@ -1,6 +1,6 @@
 OpgLpa::Application.routes.draw do
 
-  root "lpas#index"
+  root "index#index"
 
   resources :lpas do
     resources :build, controller: 'lpas/build'
