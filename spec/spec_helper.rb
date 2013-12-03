@@ -90,13 +90,58 @@ def fill_in_valid_applicant(overides={})
   select 1970, from: 'applicant_date_of_birth_1i'
 end
 
+def unique_email
+  "joe.bloggs#{Time.now.to_f}#{rand(1000)}@example.com"
+end
+
+def valid_password
+  's3kr!tpass'
+end
+
 def fill_in_sign_up(overrides={})
-  @email = overrides[:email]    || "joe.bloggs#{Time.now.to_i}@example.com"
+  @email = overrides[:email] || unique_email
   fill_in 'Enter your email address', with: @email
-  fill_in 'Create a password',        with: overrides[:password] || 's3kr!tpass'
+  fill_in 'Create a password',        with: overrides[:password] || valid_password
 end
 
 def fill_in_sign_in(overrides={})
   fill_in 'Email address', with: @email
-  fill_in 'Password',      with: overrides[:password] || 's3kr!tpass'
+  fill_in 'Password',      with: overrides[:password] || valid_password
 end
+
+def sign_up_and_sign_in
+  visit "/users/sign_up"
+  fill_in_sign_up
+  click_button "I understand"
+  expect(page).to have_content('Please check your email')
+  click_link "sign in now"
+  fill_in_sign_in
+  click_button "Sign in"
+end
+
+def create_financial_lpa(overides={})
+  visit "/"
+  fill_in_valid_person(overides)
+  click_button "Save and continue"
+
+  click_button "Create a new LPA"
+
+  expect(page).to have_content('What type of LPA do you want to create?')
+  choose("Property and financial affairs")
+
+  click_button "Save and continue"
+end
+
+def create_healthcare_lpa(overides={})
+  visit "/"
+  fill_in_valid_person(overides)
+  click_button "Save and continue"
+
+  click_button "Create a new LPA"
+
+  expect(page).to have_content('What type of LPA do you want to create?')
+  choose("Health and welfare")
+
+  click_button "Save and continue"
+end
+

@@ -6,7 +6,12 @@ class Lpas::BuildController < ApplicationController
 
   def show
     with_secure_token(Lpa) do
-      @lpa = Lpa.find(params[:lpa_id])
+      begin
+        @lpa = Lpa.find(params[:lpa_id])
+      rescue ActiveResource::ForbiddenAccess
+        render text: 'Forbidden', status: 403, layout: false
+        return
+      end
       @lpa.donor.date_of_birth = Date.parse(@lpa.donor.date_of_birth) if @lpa.donor.present? && @lpa.donor.date_of_birth.present?
 
       case step
