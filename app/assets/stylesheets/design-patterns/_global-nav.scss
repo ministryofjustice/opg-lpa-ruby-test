@@ -1,11 +1,5 @@
 // GLOBAL NAVIGATION
 
-$gutter:            30px;
-$gutter-one-sixth:  $gutter/6; // equivalent to 5px
-$gutter-one-third:  $gutter/3; // equivalent to 10px
-$alpha-colour: $pink;
-$beta-colour: $orange;
-
 @mixin global-nav($active-colour: $black, $highlight-colour: $black){
   #global-nav {
     margin: 0;
@@ -13,41 +7,14 @@ $beta-colour: $orange;
     position: relative;
     z-index: 60;
 
-    @include media(tablet){
-      margin: 0;
-    }
-
     @include media(desktop){
       text-align: right;
-      width: 1020px;
       margin: 0 auto;
     }
 
     .inner {
-      // border-bottom: $gutter-one-sixth solid $active-colour;
-      padding: $gutter-one-sixth 2em 2em 2em;
+      max-width: none;
       @extend %contain-floats;
-      @include media(tablet){
-        padding-bottom: 0;
-      }
-    }
-
-    a,
-    .toggler {
-      @include core-16;
-      display: block;
-      padding: $gutter-one-third 8px;
-      text-decoration: none;
-      color: $active-colour;
-
-      @include media(desktop){
-        display: inline-block;
-      }
-
-      &:hover,
-      &:focus {
-        text-decoration: underline;
-      }
     }
 
     .home a {
@@ -87,22 +54,16 @@ $beta-colour: $orange;
     }
     nav {
       clear: both;
-      margin-bottom: 3px;
+      padding: 10px 0;
 
       @include media(desktop){
+        padding: 8px 0 6px;
         clear: none;
-        background: transparent;
-        position: static;
-        margin-bottom: 0;
       }
 
       #navigation{
         margin: 0;
         padding: 0;
-      }
-
-      .user{
-        margin-right: 8px;
       }
 
       .current {
@@ -112,6 +73,13 @@ $beta-colour: $orange;
       a {
         color: $black;
         text-decoration: underline;
+        display: block;
+        padding: 4px 8px;
+
+        @include media(desktop){
+          display: inline-block;
+        }
+
         &:hover,
         &:focus {
           text-decoration: none;
@@ -123,7 +91,11 @@ $beta-colour: $orange;
         vertical-align: middle;
 
         @include media(desktop){
-          display: inline;
+          display: inline-block;
+        }
+
+        &.user {
+          padding: 4px 8px;
         }
         .toggler {
           position: absolute;

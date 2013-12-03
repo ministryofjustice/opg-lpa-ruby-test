@@ -1,10 +1,9 @@
-%header.page-header.group
-  %hgroup
-    %h1 Your LPAs
+%header.page-header.inner
+  %h1 Your LPAs
 
 %article
   .inner
-    %div{:style => "float:right"} Your were last signed in on 02/12/2013 17:15:09
+    %div.pull-r Your were last signed in on 02/12/2013 17:15:09
     - if @lpas.each.count > 0
       %p These are all the LPAs that you've created.
     - else
