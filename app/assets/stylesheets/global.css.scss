@@ -21,7 +21,7 @@
 @import "design-patterns/utils";
 
 // View specific styles
-// @import "views/homepage";
+@import "views/homepage";
 @import "views/dashboard";
 @import "views/create-and-register-pages";
 @import "views/account-management";
@@ -152,15 +152,16 @@ article {
   // help notice
   .help-notice {
     background:none;
-    background: url(/images/icon-important.png) no-repeat scroll 0 0.5em;
+    background: image-url("icon/important.png") no-repeat scroll 0 1.5em;
 
     @include device-pixel-ratio() {
-      background-image: url(/images/icon-important-2x.png);
+      background-image: image-url("icon/important-2x.png");
       background-size: 34px 34px;
     }
 
     p {
       font-weight:600;
+      padding-right: 4em;
 
       a {
         font-weight:600;
