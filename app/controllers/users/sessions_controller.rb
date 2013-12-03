@@ -1,6 +1,6 @@
 class ApiClient
   include HTTParty
-  base_uri 'http://localhost:9292'
+  base_uri ENV['API_HOST']
 end
 
 class Users::SessionsController < ApplicationController
