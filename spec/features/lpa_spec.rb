@@ -1,23 +1,19 @@
 require 'spec_helper'
-if ENV["INTEGRATION"]
+
 feature 'Filling in an LPA' do
+
   before(:each) do
-    WebMock.disable!
     sign_up_and_sign_in
   end
 
-  after(:each) do
-    WebMock.enable!
-  end
-
-  scenario 'with invalid applicant' do
+  scenario 'with invalid applicant', :vcr do
     visit "/"
     fill_in_valid_person(:first_name => "")
     click_button "Save and continue"
     expect(page).to have_content("can't be blank")
   end
 
-  scenario 'valid financial with multiple attorneys and replacement attorneys and a person to be told' do
+  scenario 'valid financial with multiple attorneys and replacement attorneys and a person to be told', :vcr do
     create_financial_lpa
     expect(page).to have_content('This LPA covers Property and financial affairs')
 
@@ -118,7 +114,7 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("LPA created")
   end
 
-  scenario 'going backwards' do
+  scenario 'going backwards', :vcr do
     create_financial_lpa
     expect(page).to have_content('This LPA covers Property and financial affairs')
 
@@ -127,7 +123,7 @@ feature 'Filling in an LPA' do
     expect(page).to have_content('What type of LPA do you want to create?')
   end
 
-  scenario 'valid financial with 1 attorneys and 1 attorneys and no person to be told' do
+  scenario 'valid financial with 1 attorneys and 1 attorneys and no person to be told', :vcr do
     create_financial_lpa
     expect(page).to have_content('This LPA covers Property and financial affairs')
 
@@ -193,9 +189,9 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("LPA created")
     click_link "Save and continue"
     expect(page).to have_content("Next Steps")
- end
+  end
 
-  scenario 'healthcare with all valid details' do
+  scenario 'healthcare with all valid details', :vcr do
     create_healthcare_lpa
     expect(page).to have_content('This LPA covers Health and welfare')
 
@@ -214,7 +210,7 @@ feature 'Filling in an LPA' do
   end
 
 
-  scenario 'financial with invalid donor' do
+  scenario 'financial with invalid donor', :vcr do
     create_financial_lpa
     expect(page).to have_content('This LPA covers Property and financial affairs')
 
@@ -223,5 +219,4 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("can't be blank")
   end
 
-end
 end

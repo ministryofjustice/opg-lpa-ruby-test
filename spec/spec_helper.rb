@@ -18,7 +18,6 @@ require 'webmock/rspec'
 require 'capybara/rails'
 require 'capybara/rspec'
 
-
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -54,6 +53,14 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # VCR config
+  # config.configure_rspec_metadata!
+  config.treat_symbols_as_metadata_keys_with_true_values = true
+  config.around(:each, :vcr) do |example|
+    name = example.metadata[:full_description].split(/\s+/, 2).join("/").underscore.gsub(/[^\w\/]+/, "_")
+    VCR.use_cassette(name) { example.call }
+  end
 end
 
 def fill_in_valid_person(overides={})
@@ -144,4 +151,5 @@ def create_healthcare_lpa(overides={})
 
   click_button "Save and continue"
 end
+
 

@@ -53,6 +53,7 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'coveralls', require: false
+  gem 'vcr', '2.7.0'
 end
 
 # Use ActiveModel has_secure_password
