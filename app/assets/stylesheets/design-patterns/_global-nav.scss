@@ -1,11 +1,5 @@
 // GLOBAL NAVIGATION
 
-$gutter:            30px;
-$gutter-one-sixth:  $gutter/6; // equivalent to 5px
-$gutter-one-third:  $gutter/3; // equivalent to 10px
-$alpha-colour: $pink;
-$beta-colour: $orange;
-
 @mixin global-nav($active-colour: $black, $highlight-colour: $black){
   #global-nav {
     margin: 0;
@@ -25,11 +19,6 @@ $beta-colour: $orange;
     .inner {
       max-width: none;
       @extend %contain-floats;
-    }
-
-    a,
-    .toggler {
-
     }
 
     .home a {
@@ -72,7 +61,7 @@ $beta-colour: $orange;
       padding: 10px 0;
 
       @include media(desktop){
-        padding: 12px 0;
+        padding: 8px 0 6px;
         clear: none;
       }
 
@@ -88,6 +77,13 @@ $beta-colour: $orange;
       a {
         color: $black;
         text-decoration: underline;
+        display: block;
+        padding: 4px 8px;
+
+        @include media(desktop){
+          display: inline-block;
+        }
+
         &:hover,
         &:focus {
           text-decoration: none;
@@ -97,11 +93,13 @@ $beta-colour: $orange;
         display: block;
         position: relative;
         vertical-align: middle;
-        padding: 4px 0;
 
         @include media(desktop){
-          display: inline;
-          margin-left: 1em;
+          display: inline-block;
+        }
+
+        &.user {
+          padding: 4px 8px;
         }
         .toggler {
           position: absolute;
