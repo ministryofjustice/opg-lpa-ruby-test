@@ -23,31 +23,13 @@ $beta-colour: $orange;
     }
 
     .inner {
-      // border-bottom: $gutter-one-sixth solid $active-colour;
-      padding-top: $gutter-one-sixth;
       max-width: none;
       @extend %contain-floats;
-      @include media(tablet){
-        padding-bottom: 0;
-      }
     }
 
     a,
     .toggler {
-      @include core-16;
-      display: block;
-      padding: $gutter-one-third 0;
-      text-decoration: none;
-      color: $active-colour;
 
-      @include media(desktop){
-        display: inline-block;
-      }
-
-      &:hover,
-      &:focus {
-        text-decoration: underline;
-      }
     }
 
     .home a {
@@ -87,13 +69,11 @@ $beta-colour: $orange;
     }
     nav {
       clear: both;
-      margin-bottom: 3px;
+      padding: 10px 0;
 
       @include media(desktop){
+        padding: 12px 0;
         clear: none;
-        background: transparent;
-        position: static;
-        margin-bottom: 0;
       }
 
       #navigation{
@@ -117,10 +97,11 @@ $beta-colour: $orange;
         display: block;
         position: relative;
         vertical-align: middle;
-        margin-left: 1em;
+        padding: 4px 0;
 
         @include media(desktop){
           display: inline;
+          margin-left: 1em;
         }
         .toggler {
           position: absolute;

@@ -46,7 +46,7 @@
   }
 }
 
-// Make page headers bold
+// Set page-header styles
 header.page-header {
   h1 {
     @include heading-48;
@@ -54,6 +54,10 @@ header.page-header {
     padding-top: 24px;
     padding-bottom: 8px;
 
+    @include media(tablet) {
+      padding-top: 32px;
+      padding-bottom: 10px;
+    }
     @include media(desktop) {
       padding-top: 48px;
       padding-bottom: 16px;
