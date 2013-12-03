@@ -1,5 +1,4 @@
 require 'builder'
-require 'tempfile'
 
 class PDFMaker
   attr_writer :json
@@ -16,10 +15,12 @@ class PDFMaker
   private
 
   def populate_form(xfdf)
-    path = Tempfile.new('xfdf').path
+    # TODO: fix the paths!
+    rnd = Random.new.rand(1..100000000) + 1
+    path = File.open("../../templates/input#{rnd}.xfdf", 'w+').path
     File.open(path, 'w') {|f| f.write(xfdf) }
-    template = "#{Rails.root}/templates/lpa.pdf"
-    result = "#{Rails.root}/public/output.pdf"
+    template = "../../templates/lpa.pdf"
+    result = "../../public/output#{rnd}.pdf"
     system "pdftk #{template} fill_form #{path} output #{result} flatten"
     result
   end
