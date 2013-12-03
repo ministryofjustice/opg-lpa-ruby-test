@@ -10,8 +10,8 @@
       .account.form
         = form_for @session, url: users_session_path, :html => { :class => "form", :autocomplete => "off" } do |session_form|
           = render "shared/validation_summary", :form_object => session_form
-          = input_for(session_form, "username", label_override: "Email address") do
-            = session_form.email_field "username"
+          = input_for(session_form, "email", label_override: "Email address") do
+            = session_form.email_field "email"
           = input_for(session_form, "password", label_override: "Password") do
             = session_form.password_field "password"
           %p.action.group

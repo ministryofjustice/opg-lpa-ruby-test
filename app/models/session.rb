@@ -2,9 +2,9 @@ class Session
 
   include ActiveModel::Model
 
-  attr_accessor :username, :password
+  attr_accessor :email, :password
 
   def credentials
-    { user: { email: username, password: password } }
+    { user: { email: email, password: password } }
   end
 end
