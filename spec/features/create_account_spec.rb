@@ -8,12 +8,28 @@ feature 'Filling in an LPA' do
   scenario 'create an account' do
 
     visit "/users/sign_up"
+    fill_in_sign_up email: ''
+    click_button "I understand"
+    expect(page).to have_content("can't be blank")
+
+    fill_in_sign_up password: ''
+    click_button "I understand"
+    expect(page).to have_content("can't be blank")
+
     fill_in_sign_up
     click_button "I understand"
     expect(page).to have_content('Please check your email')
 
     click_link "sign in now"
     expect(page).to have_content('Sign in')
+
+    fill_in_sign_in email: ''
+    click_button "Sign in"
+    expect(page).to have_content("You need to sign in or sign up before continuing")
+
+    fill_in_sign_in password: ''
+    click_button "Sign in"
+    expect(page).to have_content("Invalid email or password")
 
     fill_in_sign_in
     click_button "Sign in"

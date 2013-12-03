@@ -105,7 +105,7 @@ def fill_in_sign_up(overrides={})
 end
 
 def fill_in_sign_in(overrides={})
-  fill_in 'Email address', with: @email
+  fill_in 'Email address', with: overrides[:email] || @email
   fill_in 'Password',      with: overrides[:password] || valid_password
 end
 

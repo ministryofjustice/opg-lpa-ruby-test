@@ -12,8 +12,8 @@
           = render "shared/validation_summary", :form_object => registration_form
           %fieldset
             %legend Email address
-            = input_for(registration_form, "username", label_override: "Enter your email address") do
-              = registration_form.email_field "username"
+            = input_for(registration_form, "email", label_override: "Enter your email address") do
+              = registration_form.email_field "email"
           %fieldset
             %legend Password
             %p Your password must be at least 8 characters long and must contain at least 1 letter and 1 number. Never share your password with others.
