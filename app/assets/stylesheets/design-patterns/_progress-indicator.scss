@@ -5,7 +5,7 @@
   nav.progress-indicator {
     padding-left: 1em;
     border-bottom: 3px solid $grey-3;
-    margin: -1em -2em 1em;
+    margin: -1em 0 1em;
     ol{
       list-style-type: decimal;
       list-style-position: inside;
@@ -21,7 +21,7 @@
       margin: 0 1em;
       padding: 0.75em 0;
       &.active{
-        border-bottom: 3px solid $active-colour;    
+        border-bottom: 3px solid $active-colour;
         @include media(mobile) {
           border: 0;
           font-weight: bold;

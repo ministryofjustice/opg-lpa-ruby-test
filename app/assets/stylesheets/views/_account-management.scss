@@ -16,22 +16,26 @@
     }
 
     .terms {
-        overflow: auto;
-        height: 250px;
-        margin: 0 -150px 2em 0;
-        padding: 2em;
-        border: 1px solid $border-colour;
+      overflow: auto;
+      height: 250px;
+      margin: 0 -150px 2em 0;
+      padding: 2em;
+      border: 1px solid $border-colour;
 
-        h1 {
-            margin-top: 0;
-        }
-        h1,
-        h2 {
-            font-size: 1.9em; font-size: 1.9rem;
-        }
-        li,
-        li p {
-            font-size: 1.6em; font-size: 1.6rem;
-        }
+      h1 {
+        margin-top: 0;
+      }
+      h1,
+      h2 {
+        font-size: 1.9em; font-size: 1.9rem;
+        font-weight: 700;
+      }
+      h3 {
+        font-weight: 700;
+      }
+      li,
+      li p {
+          font-size: 1.6em; font-size: 1.6rem;
+      }
     }
 }

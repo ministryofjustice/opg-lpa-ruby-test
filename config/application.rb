@@ -33,7 +33,7 @@ module OpgLpa
 
     #======= MOJ Boilerplate variables =======#
     # app title appears in the header bar
-    config.app_title = 'Lasting Power of Attorney'
+    config.app_title = 'Make a lasting power of attorney'
     # phase governs text indicators and highlight colours
     # presumed values: alpha, beta, live
     config.phase = 'beta'

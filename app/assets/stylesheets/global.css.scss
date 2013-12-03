@@ -4,7 +4,7 @@
 // GOV.UK Styleguide design patterns
 @import "design-patterns/accordion-form";
 // @import "design-patterns/account-management-tools";
-// @import "design-patterns/content";
+@import "design-patterns/content";
 // @import "design-patterns/date-picker";
 @import "design-patterns/details";
 @import "design-patterns/forms";
@@ -24,7 +24,7 @@
 // @import "views/homepage";
 @import "views/dashboard";
 @import "views/create-and-register-pages";
-// @import "views/account-management";
+@import "views/account-management";
 // @import "views/person-form";
 @import "views/start-and-end-pages";
 
@@ -32,39 +32,18 @@
 // @import "global";
 
 
-/*
- * Core global styles
- */
-#wrapper {
-  background-color: $white;//$grey-9;
-  border-bottom: 10px solid $mainstream-brand;
+// ===========================================================
+// ADJUSTMENTS TO DEFAULT STYLES
+// ===========================================================
 
-  @include ie-lte(7) {
-    zoom: 1;
-  }
+// Make page headers bold
+#wrapper header.page-header hgroup h1 {
+  font-weight: bold;
 }
 
-.inner {
-  margin: 0 auto;
-//  padding: 1em;
-  padding: 20px 30px;
-  position: relative;
-}
-
-main#content,
-section#content {
-  margin: 0 auto;
-  max-width: 960px;
-  position: relative;
-  display:block;
-
-  @include ie-lte(7) {
-    width: 960px;
-  }
-
-  @include media(mobile) {
-    max-width: auto;
-  }
+// Fix info notice overlap of icon
+article .info-notice h3 {
+  padding-right: 4em;
 }
 
 p {
@@ -79,6 +58,11 @@ h2 {
   @include core-24;
   margin-top: 0.5em;
   margin-bottom: 0.25em;
+
+  article & {
+    font-weight: 700;
+    margin: 1.2em 0 0.4em 0;
+  }
 }
 
 h3 {
@@ -93,152 +77,56 @@ h4 {
   margin-bottom: 0.25em;
 }
 
-
-/*
- * Page headers
- */
-
-header.page-header {
-    .skip-to-related {
-      position: absolute;
-      left: -9999em;
-
-      &:focus {
-        position: relative;
-        @include inline-block;
-        left: 32px;
-        top: -2em;
-      }
-
-      @include media(mobile) {
-        position: relative;
-        @include inline-block;
-        left: 1em;
-        top: -1em;
-      }
-    }
-
-    div {
-      background-color: #fff;
-      display: block;
-      margin: 0 24em 0 0;
-      padding: 1em 2em 2em 2em;
-
-      @include media(tablet) {
-        margin: 0;
-        padding-bottom: 0;
-      }
-
-      h1 {
-        @include heading-48;
-        background-repeat: no-repeat;
-        color: $text-colour;
-        font-weight: 600;
-
-        span {
-          @include core-27($line-height: 1);
-          display: block;
-          margin-bottom: 0.25em;
-          text-shadow: none;
-          color: $secondary-text-colour ;
-
-        @include ie-lte(8) {
-          height: 1%;
-        }
-      }
-    }
-  }
+ol {
+  list-style: decimal;
 }
 
-body.full-width {
-  header.page-header div,
-  .article-container,
-  article {
-    margin-right: 0;
-  }
-
-  header.page-header div {
-    padding-left: 30px;
-    padding-right: 30px;
-
-    @include media(mobile) {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-  }
+article p, article ul, article ol {
+  margin: 0.75em 0;
 }
 
-#wrapper.service header.page-header div,
-#wrapper.licence header.page-header div,
-#wrapper.video header.page-header div,
-#wrapper.answer header.page-header div,
-#wrapper.guide header.page-header div {
-  padding-left: 2em;
-
-  h1 {
-    margin-left: 0;
-
-    @include ie(6) {
-      position: relative;
-      z-index: 1;
-      zoom: 1;
-    }
-
-  }
+// Update to latest version
+// article .help-notice {
+//   background: url(/images/icon-important-2x.png);
+//   background-size: 34px 34px;
+// }
+// -----------------------------------
+article .application-notice {
+  padding: 0.1em 0 0.1em 1em;
+}
+article .application-notice {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0.25em 0 0.25em 3.5em;
 
   @include media(mobile) {
-    padding-left: 1em;
-
-    h1 {
-      min-height: (61em/25);
-    }
+    margin: 1em 0 1.5em 0;
   }
 }
+article .help-notice {
+  background:none;
+  background: url(/images/icon-important.png) no-repeat scroll 0 0.5em;
 
-#wrapper.programme header.page-header div,
-#wrapper.service header.page-header div {
-
-
-  @include media(mobile) {
-    padding-left: 1em;
-
-    h1 {
-      min-height: (61em/25);
-    }
+  @include device-pixel-ratio() {
+    background-image: url(/images/icon-important-2x.png);
+    background-size: 34px 34px;
   }
-}
 
-#wrapper.programme header.page-header div,
-#wrapper.service header.page-header div,
-#wrapper.licence header.page-header div,
-#wrapper.video header.page-header div {
-  @include media($min-width: 1182px) {
-    padding-left: 0;
+  p {
+    font-weight:600;
 
-    h1 {
-      padding-left: 32px;
-    }
-  }
-}
-
-#wrapper.answer header.page-header div,
-#wrapper.guide header.page-header div {
-  @include media($min-width: 1132px) {
-    padding-left: 0;
-
-    h1 {
-      padding-left: 32px;
+    a {
+      font-weight:600;
     }
   }
 }
 
 /* Fix header style */
 #wrapper header.page-header {
-  margin-bottom: 2em;
+  padding: 1.2em 0 0.8em;
 
   h1 {
-    font-size: 4.8rem;
-    margin: 0.6em 1em 1em 0;
+    @include heading-48;
   }
 }
 
