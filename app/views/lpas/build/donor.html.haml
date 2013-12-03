@@ -1,26 +1,28 @@
 = render "shared/create_header"
 
-%article
-  #accordion.accordion-form
-    = render "shared/completed_sections"
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      #accordion.accordion-form
+        = render "shared/completed_sections"
 
-    %section#donor.section.current
-      %h2.accordion-header #{lpa_overview(@lpa).count+1}. Who is the donor for this LPA?
-      .accordion-content
-        .section-intro
-          %p The 'donor' is the person making this LPA and appointing other people to make decisions on their behalf. The donor:
-          %ul
-            %li must be 18 or over
-            %li must be able to make their own decisions when they create the LPA – this is known as having mental capacity
-          %p Only the donor can make decisions about their LPA and the people to involve.
-          %p
-            %a.open-help-system.popup-link{:href=> "#donor", "data-journey-click" => "stageprompt.lpa:help:donor"} Find out more about being a donor
+        %section#donor.section.current
+          %h2.accordion-header #{lpa_overview(@lpa).count+1}. Who is the donor for this LPA?
+          .accordion-content
+            .section-intro
+              %p The 'donor' is the person making this LPA and appointing other people to make decisions on their behalf. The donor:
+              %ul
+                %li must be 18 or over
+                %li must be able to make their own decisions when they create the LPA – this is known as having mental capacity
+              %p Only the donor can make decisions about their LPA and the people to involve.
+              %p
+                %a.open-help-system.popup-link{:href=> "#donor", "data-journey-click" => "stageprompt.lpa:help:donor"} Find out more about being a donor
 
-        = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
-          = lpa_form.fields_for @lpa.donor do |donor_form|
-            = render "shared/validation_summary", :form_object => donor_form
-            = render :partial => '/shared/person_form', :locals => {:person_form => donor_form, :show_dob => true}
+            = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+              = lpa_form.fields_for @lpa.donor do |donor_form|
+                = render "shared/validation_summary", :form_object => donor_form
+                = render :partial => '/shared/person_form', :locals => {:person_form => donor_form, :show_dob => true}
 
-          .accordion-actions
-            %p
-              = lpa_form.submit "Save and continue", :class => "button gotonextpart"
+              .accordion-actions
+                %p
+                  = lpa_form.submit "Save and continue", :class => "button gotonextpart"

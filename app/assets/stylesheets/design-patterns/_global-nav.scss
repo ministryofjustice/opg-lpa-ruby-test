@@ -7,10 +7,6 @@
     position: relative;
     z-index: 60;
 
-    @include media(tablet){
-      margin: 0;
-    }
-
     @include media(desktop){
       text-align: right;
       margin: 0 auto;
