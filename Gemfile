@@ -5,6 +5,7 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.0'
 gem 'thin'
+gem 'sidekiq'
 
 gem 'activeresource', '4.0.0'
 gem 'httparty'
