@@ -127,7 +127,7 @@ def sign_up_and_sign_in
 end
 
 def create_financial_lpa(overides={})
-  visit "/"
+  visit "/applicants/new"
   fill_in_valid_person(overides)
   click_button "Save and continue"
 
@@ -140,7 +140,7 @@ def create_financial_lpa(overides={})
 end
 
 def create_healthcare_lpa(overides={})
-  visit "/"
+  visit "/applicants/new"
   fill_in_valid_person(overides)
   click_button "Save and continue"
 
