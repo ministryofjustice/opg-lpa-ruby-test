@@ -12,7 +12,7 @@ class Users::SessionsController < ApplicationController
   def create
     @session = Session.new(params[:session])
 
-    response = ApiClient.post('/auth/users/sign_in.json', body: @session.credentials)
+    response = ApiClient.post('/auth/users/sign_in', body: @session.credentials)
 
     if response.code == 201
       reset_session
