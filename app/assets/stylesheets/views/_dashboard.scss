@@ -22,6 +22,8 @@ article table{
   }
 }
 .lpa-list {
+  border-collapse: collapse;
+  border-spacing: 0;
   .lpa-actions{
     width: 11em;
     float: right;
