@@ -19,13 +19,13 @@ $beta-colour: $orange;
 
     @include media(desktop){
       text-align: right;
-      width: 1020px;
       margin: 0 auto;
     }
 
     .inner {
       // border-bottom: $gutter-one-sixth solid $active-colour;
-      padding: $gutter-one-sixth 2em 2em 2em;
+      padding-top: $gutter-one-sixth;
+      max-width: none;
       @extend %contain-floats;
       @include media(tablet){
         padding-bottom: 0;
@@ -36,7 +36,7 @@ $beta-colour: $orange;
     .toggler {
       @include core-16;
       display: block;
-      padding: $gutter-one-third 8px;
+      padding: $gutter-one-third 0;
       text-decoration: none;
       color: $active-colour;
 
@@ -101,10 +101,6 @@ $beta-colour: $orange;
         padding: 0;
       }
 
-      .user{
-        margin-right: 8px;
-      }
-
       .current {
         color: $white;
         background: $active-colour;
@@ -121,6 +117,7 @@ $beta-colour: $orange;
         display: block;
         position: relative;
         vertical-align: middle;
+        margin-left: 1em;
 
         @include media(desktop){
           display: inline;

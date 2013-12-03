@@ -36,9 +36,29 @@
 // ADJUSTMENTS TO DEFAULT STYLES
 // ===========================================================
 
+.inner {
+  width: auto;
+  padding: 0 1em;
+
+  @include media(desktop) {
+    max-width: 708px;
+    padding: 0 2em;
+  }
+}
+
 // Make page headers bold
-#wrapper header.page-header hgroup h1 {
-  font-weight: bold;
+header.page-header {
+  h1 {
+    @include heading-48;
+    font-weight: 700;
+    padding-top: 24px;
+    padding-bottom: 8px;
+
+    @include media(desktop) {
+      padding-top: 48px;
+      padding-bottom: 16px;
+    }
+  }
 }
 
 // Fix info notice overlap of icon
@@ -118,15 +138,6 @@ article .help-notice {
     a {
       font-weight:600;
     }
-  }
-}
-
-/* Fix header style */
-#wrapper header.page-header {
-  padding: 1.2em 0 0.8em;
-
-  h1 {
-    @include heading-48;
   }
 }
 

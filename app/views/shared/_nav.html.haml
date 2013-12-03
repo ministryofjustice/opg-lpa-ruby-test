@@ -1,11 +1,12 @@
 #global-nav.js-toggle-nav
-  %nav.content
-    %ul#navigation
-      %li.user
-        = session[:applicant_id]
-      %li
-        %a{:href => ""} Your details
-      %li
-        = link_to "Your LPAs", lpas_path
-      %li
-        = link_to "Sign out", delete_applicants_path
+  .inner
+    %nav.content
+      %ul#navigation
+        %li.user
+          = session[:applicant_id]
+        %li
+          %a{:href => ""} Your details
+        %li
+          = link_to "Your LPAs", lpas_path
+        %li
+          = link_to "Sign out", delete_applicants_path
