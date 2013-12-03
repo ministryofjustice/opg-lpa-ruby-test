@@ -62,6 +62,25 @@ header.page-header {
       padding-top: 48px;
       padding-bottom: 16px;
     }
+
+    span {
+      @include core-27;
+      display: block;
+      color: #6f777b;
+    }
+
+    .alpha {
+      @include phase-tag(alpha);
+    }
+    .beta {
+      @include phase-tag(beta);
+    }
+    .alpha, .beta {
+      float: none;
+      display: inline;
+      vertical-align: middle;
+      margin-left: 1em;
+    }
   }
 }
 
