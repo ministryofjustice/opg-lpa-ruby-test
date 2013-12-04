@@ -8,16 +8,7 @@
   padding: 0.5em 1em;
 }
 
-#popup.help-system {
-  @include popup(80%);
-
-  .close {
-    right: 2.25em;
-    z-index: 1;
-  }
-}
-
-.help-system {
+#help-system {
   // Header
   header {
     padding: 1em 3.25em;
@@ -118,6 +109,19 @@
         padding-right: 3em;
         border-right: 2px solid $light-blue-25;
       }
+    }
+  }
+}
+
+// custom styles when loaded as a lightbox
+#popup.help-system {
+  .inner {
+    max-width: none;
+    padding: 0;
+  }
+  .help-sections {
+    article {
+      padding-left: 2em;
     }
   }
 }
