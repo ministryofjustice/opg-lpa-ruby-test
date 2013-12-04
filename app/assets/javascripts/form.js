@@ -24,6 +24,15 @@ lpa.updateSelectbox = function (el, value) {
   form.find('[name=' + field + ']').val(value); // use the name attr as it's unique & will always exist
 };
 
+// Test for local storage
+function html5_storage() {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+  } catch (e) {
+    return false;
+  }
+}
+
 
 $(document).ready(function () {
 
@@ -230,25 +239,89 @@ $(document).ready(function () {
   // ====================================================================================
   // HELP SYSTEM
 
-  $('#help-system').hide();
+  $(".js-guidance").click(function (e) {
+      // localStorage.removeItem("guidanceHTML");
 
-  $(".open-help-system").click(function(event) {
-      var elHelp = $('#help-system');
-      var sectionName = $(this).attr('href').replace('#', '');
-      elHelp.show();
-      var lightBox = OPGPopup.popup(elHelp, "help-system", $(this));
+      var sectionName = $(this).attr('href').replace('guidance/#', ''),
+          lightbox;
 
-      // Set help page to the one specified in the href of the link
-      lightBox.find('li[data-filter="section-help-' + sectionName + '"] a').click();
-      //$('.help-system').offset({ top: -32});
+      // check to see if browser supports localstorage
+      if (html5_storage() && localStorage["guidanceHTML"]) {
+        // check to see if guidance markup is already stored
+        if(localStorage["guidanceHTML"]){
+          // load lightbox with markup from localstorage
+          lightBox = OPGPopup.popup(localStorage["guidanceHTML"], "help-system", $(this));
+        } else {
+          // load lightbox with loading message
+          // TODO: Use JS template rather than markup here...
+          lightBox = OPGPopup.popup('<div id="pop-content"><p>Loading...</p></div>', "help-system", $(this));
+
+          // load view into popup content with ajax
+          $("#pop-content").load('/guidance', function(html) {
+            // store markup in localstorage once complete
+            localStorage["guidanceHTML"] = html;
+          });
+        }
+      } else {
+        // if doesn't support localstorage, cache in hidden container
+
+      }
+
+//       var showLightbox = function() {
+
+//         elHelp.find('.help-sections section').addClass('hidden');
+//         elHelp.show();
+//         var lightBox = OPGPopup.popup(elHelp, "help-system", $(this));
+// console.log(lightBox)
+//         // Set help page to the one specified in the href of the link
+//         console.log('li[data-filter="section-help-' + sectionName + '"] a');
+//         lightBox.find('li[data-filter="section-help-' + sectionName + '"] a').click();
+
+//       };
+
+//       // e.preventDefault();
+
+//       if (!elHelp.find('#help-system-content').length) {
+//         $.get('/help/', function(html) {
+//           $('#help-system').append(html);
+//           GOVUK.helpPopup.init();
+//           showLightbox();
+//         });
+//       } else {
+//         showLightbox();
+//       };
+
       return false;
   });
 
-  // Make inline links to other help pages work
-  $('#help-system .help-sections a[href^="#/help/"]').click(function(event){
-      var href = $(this).attr('href');
-      $('#help-system .help-topics a[href="' + href + '"]').click();
-  });
+  // Make help content inline links to other help pages work
+  // $('#help-system .help-sections a[href^="#/help/"]').click(function () {
+  //     console.log('inline linked clicked')
+  //     var href = $(this).attr('href');
+  //     $('#help-system .help-topics a[href="' + href + '"]').click();
+  // });
+
+
+//   $('#help-system').hide();
+
+//   $(".open-help-system").click(function(event) {
+//     event.preventDefault();
+//       var elHelp = $('#help-system');
+//       var sectionName = $(this).attr('href').replace('#', '');
+//       elHelp.show();
+//       var lightBox = OPGPopup.popup(elHelp, "help-system", $(this));
+
+//       // Set help page to the one specified in the href of the link
+//       lightBox.find('li[data-filter="section-help-' + sectionName + '"] a').click();
+//       //$('.help-system').offset({ top: -32});
+// ]
+//   });
+
+//   // Make inline links to other help pages work
+//   $('#help-system .help-sections a[href^="#/help/"]').click(function(event){
+//       var href = $(this).attr('href');
+//       $('#help-system .help-topics a[href="' + href + '"]').click();
+//   });
 
 
   // ====================================================================================

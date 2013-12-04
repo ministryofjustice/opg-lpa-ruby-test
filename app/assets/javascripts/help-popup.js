@@ -26,7 +26,7 @@ var OPGPopup = {
     var $win = $(window),
         winH = $win.height(),
         winW = $win.width();
-    
+
     // Clear-up method
     var closePopup = function () {
 
@@ -54,9 +54,9 @@ var OPGPopup = {
       var tabbable = 'a, area, button, input, object, select, textarea, [tabindex]',
           first = wrap.find(tabbable).filter(':first'),
           last = wrap.find(tabbable).filter(':last');
-      
+
       first.add(last).keydown(function (e) {
-        
+
         var code = (e.keyCode ? e.keyCode : e.which),
             shift = e.shiftKey,
             self = $(this)[0],
@@ -71,7 +71,7 @@ var OPGPopup = {
       });
     };
 
-    // Stop rest of page from scrolling when scrolling the popup   
+    // Stop rest of page from scrolling when scrolling the popup
     if ($(document).height() > $(window).height()) {
       var scrollTop = ($('html').scrollTop()) ? $('html').scrollTop() : $('body').scrollTop(); // Works for Chrome, Firefox, IE...
       $('html').addClass('noscroll').css('top', -scrollTop);
@@ -91,7 +91,7 @@ var OPGPopup = {
 
     // Join it all together
     $popup.prepend($close).append(html).appendTo($mask);
-    
+
     // Place the mask in the DOM
     // If a placement has been provided, the popup is appended to that element,
     // otherwise the popup is appended to the body element.
@@ -99,7 +99,7 @@ var OPGPopup = {
 
     // Fade in the mask
     $mask.fadeTo(200, 1);
-    
+
     // Center and fase in the popup
     $popup.delay(100).fadeIn(200, function () {
       $popup.find('h2').attr('tabindex', -1);
@@ -107,7 +107,7 @@ var OPGPopup = {
 
       loopTabKeys($popup);
     });
-    
+
     return $popup;
   }
 };
@@ -138,8 +138,8 @@ GOVUK.helpPopup = {
       .siblings()
       .addClass('hidden');
 
-    // Scroll back to top of help 
-    $('#mask').scrollTop(0);    
+    // Scroll back to top of help
+    $('#mask').scrollTop(0);
   },
   init : function () {
     var hash = window.location.hash,
@@ -148,7 +148,7 @@ GOVUK.helpPopup = {
     // Help sections click actions
     if ($('.help-sections').length > 0) {
       $('.help-navigation .help-topics a').click(function (e) {
-          instObj.selectHelpTopic.call(this, e); 
+          instObj.selectHelpTopic.call(this, e);
         });
     }
 
@@ -162,12 +162,12 @@ GOVUK.helpPopup = {
         .find('a')
         .click();
     }
-    
+
     $('.help-navigation')
       .find('ul:eq(0) li')
       .each(function (idx) {
         var section = $(this).find('a').text(),
-            slug = $(this) 
+            slug = $(this)
               .data('filter')
               .match(/section-([\w-]+)/)
               .pop();
