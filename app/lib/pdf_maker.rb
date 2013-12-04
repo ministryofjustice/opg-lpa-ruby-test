@@ -3,8 +3,9 @@ require 'builder'
 class PDFMaker
   attr_writer :json
 
-  def initialize(json)
-    @json = json
+  def initialize(lpa_id, json)
+    @lpa_json = json
+    @lpa_id = lpa_id
   end
 
   def to_pdf
@@ -16,18 +17,17 @@ class PDFMaker
 
   def populate_form(xfdf)
     # TODO: fix the paths!
-    rnd = Random.new.rand(1..100000000) + 1
-    path = File.open("../../templates/input#{rnd}.xfdf", 'w+').path
+    path = File.open("templates/input#{@lpa_id}.xfdf", 'w+').path
     File.open(path, 'w') {|f| f.write(xfdf) }
-    template = "../../templates/lpa.pdf"
-    result = "../../public/output#{rnd}.pdf"
+    template = "templates/lpa.pdf"
+    result = "public/draft_#{@lpa_id}.pdf"
     system "pdftk #{template} fill_form #{path} output #{result} flatten"
     result
   end
 
   def create_donor
     hash = {}
-    j = JSON.parse @json
+    j = JSON.parse @lpa_json
     hash['cb_Page3DonorTitle'] = j["donor"]["title"]
     hash['PartADonorFirstName'] = j["donor"]["first_name"]
     hash['PartADonorLastName'] = j["donor"]["last_name"]

@@ -1,23 +1,21 @@
 require 'spec_helper'
 
 describe PDFMaker do
-
   describe "#to_pdf" do
-    let(:doc) { PDFMaker.new(donor_json) }
-    pdf_file = "#{Rails.root}/public/output.pdf"
-
-    it "should respond to :to_pdf" do
-      doc.respond_to?(:to_pdf).should be_true
+    before(:each) do
+      system("rm -f #{@pdf_filename}")
+      lpa_id = "529609ed77696e052c490100"
+      @doc = PDFMaker.new(lpa_id, donor_json).to_pdf
+      @pdf_filename = "#{Rails.root}/public/draft_#{lpa_id}.pdf"
     end
 
-    pending "should create a new PDF file" do
-      doc.to_pdf
-      File.exists?(pdf_file).should be_true
+    it "should create a new PDF file" do
+      File.exists?(@pdf_filename).should be_true
     end
 
-    pending "should add donor data to a PDF file" do
-      good_md5 = "9b87eee5fe8ddc90136eb1c5d3220dee"
-      Digest::MD5.hexdigest(File.read(pdf_file)).should eq good_md5
+    pending "should add correct data to a PDF file" do
+      good_md5 = Digest::MD5.hexdigest(File.read("spec/support/sample_lpa.pdf"))
+      Digest::MD5.hexdigest(File.read(@pdf_filename)).should eq good_md5
     end
   end
 end

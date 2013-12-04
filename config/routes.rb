@@ -5,6 +5,11 @@ OpgLpa::Application.routes.draw do
   get '/guidance' => 'content#guidance'
 
   resources :lpas do
+    get '/preview_pdf' => 'lpas#preview_pdf'
+    post '/preview_pdf' => 'lpas#preview_pdf'
+
+    get '/get_pdf' => 'lpas#get_pdf'
+
     resources :build, controller: 'lpas/build'
     collection do
       get :find

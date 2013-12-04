@@ -1,0 +1,26 @@
+$('.preview_pdf_link').html('Generating PDF...<br/>');
+
+function getPDFLink() {
+  lpa_id = "<%=j @lpa_id %>";
+  console.log('checking if pdf link is ready');
+  $.ajax({
+      url: "/lpas/"+lpa_id+"/get_pdf",
+      data: {lpa_id: lpa_id},
+      dataType: "json",
+      async: false,
+      timeout: 10000, // in miliseconds
+      cache: false,
+      success:function(data) {
+          console.log('success');
+          console.log(data);
+          if(data.pdfURL) {
+            $('.preview_pdf_link').html('<a href="'+data.pdfURL+'">PDF preview is ready.</a><br/>');
+            window.location.replace(data.pdfURL);
+          } else {
+            setTimeout(getPDFLink, 2000);
+          }
+      }
+  });
+}
+
+getPDFLink();

@@ -19,6 +19,26 @@ class LpasController < ApplicationController
     end
   end
 
+  def get_pdf
+    filename = "draft_#{params[:lpa_id]}.pdf"
+    @pdf_url = File.exist?("public/#{filename}") ? "/#{filename}" : false
+    respond_to do |format|
+      format.json {render json: {pdfURL: @pdf_url}}
+    end
+  end
+
+  def preview_pdf
+    with_secure_token(Lpa) do
+      @lpa = Lpa.find(params[:lpa_id])
+      @lpa_id = params[:lpa_id]
+      PDFWorker.perform_async(params[:lpa_id], @lpa.to_json)      
+      respond_to do |format|
+        format.js
+        format.html
+      end
+    end
+  end
+
   private
   def check_applicant
     with_secure_token(Applicant) do
