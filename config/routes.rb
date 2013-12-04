@@ -2,6 +2,8 @@ OpgLpa::Application.routes.draw do
 
   root "content#homepage"
 
+  get '/guidance' => 'guidance#index'
+
   resources :lpas do
     resources :build, controller: 'lpas/build'
     collection do
