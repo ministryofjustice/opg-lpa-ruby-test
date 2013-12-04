@@ -24,10 +24,9 @@ feature 'Filling in an LPAs attorneys' do
     expect(page).to have_content("Attorney Tulisa")
   end
 
-  def create_financial_lpa_to_attorneys(overides={})
-    visit "/applicants/new"
-    fill_in_valid_applicant(overides)
-    click_button "Save and continue"
+  def create_financial_lpa_to_attorneys(overrides={})
+    create_applicant overrides
+
     click_button "Create a new LPA"
     expect(page).to have_content('What type of LPA do you want to create?')
     choose("Property and financial affairs")

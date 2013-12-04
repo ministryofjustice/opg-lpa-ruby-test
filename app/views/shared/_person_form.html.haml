@@ -1,5 +1,5 @@
 - show_dob ||= false
-- hide_email ||= false
+- without_email ||= false
 - hide_phone ||= false
 %fieldset
   %legend Name
@@ -14,7 +14,7 @@
     = input_for(person_form, "date_of_birth") do
       = person_form.date_select "date_of_birth", { order: [ :day, :month, :year ], start_year: (Time.now.year - 120) }
 
-- unless hide_email
+- unless without_email
   = input_for(person_form, "email", :label_override => "Email (optional)")
 
 - unless hide_phone
