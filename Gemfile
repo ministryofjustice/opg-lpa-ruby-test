@@ -67,3 +67,6 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# performance monitoring
+gem 'newrelic_rpm'
