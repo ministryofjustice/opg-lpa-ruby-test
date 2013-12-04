@@ -235,48 +235,6 @@ $(document).ready(function () {
   }).change();
 
 
-
-  // ====================================================================================
-  // HELP SYSTEM
-
-  // $(".js-guidance").click(function (e) {
-  //     var href = $(this).attr('href'),
-  //         topic = href.substring(href.lastIndexOf("#")+1);
-  //     // select help topic
-  //     GOVUK.helpPopup.selectHelpTopic(topic);
-  //     return false;
-  // });
-
-  // Make help content inline links to other help pages work
-  // $('#help-system .help-sections a[href^="#/help/"]').click(function () {
-  //     console.log('inline linked clicked')
-  //     var href = $(this).attr('href');
-  //     $('#help-system .help-topics a[href="' + href + '"]').click();
-  // });
-
-
-//   $('#help-system').hide();
-
-//   $(".open-help-system").click(function(event) {
-//     event.preventDefault();
-//       var elHelp = $('#help-system');
-//       var sectionName = $(this).attr('href').replace('#', '');
-//       elHelp.show();
-//       var lightBox = OPGPopup.popup(elHelp, "help-system", $(this));
-
-//       // Set help page to the one specified in the href of the link
-//       lightBox.find('li[data-filter="section-help-' + sectionName + '"] a').click();
-//       //$('.help-system').offset({ top: -32});
-// ]
-//   });
-
-//   // Make inline links to other help pages work
-//   $('#help-system .help-sections a[href^="#/help/"]').click(function(event){
-//       var href = $(this).attr('href');
-//       $('#help-system .help-topics a[href="' + href + '"]').click();
-//   });
-
-
   // ====================================================================================
   // POP-UP PERSON FORM
 
