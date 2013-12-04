@@ -245,26 +245,21 @@ $(document).ready(function () {
       var sectionName = $(this).attr('href').replace('guidance/#', ''),
           lightbox;
 
-      // check to see if browser supports localstorage
-      if (html5_storage() && localStorage["guidanceHTML"]) {
-        // check to see if guidance markup is already stored
-        if(localStorage["guidanceHTML"]){
-          // load lightbox with markup from localstorage
-          lightBox = OPGPopup.popup(localStorage["guidanceHTML"], "help-system", $(this));
-        } else {
-          // load lightbox with loading message
-          // TODO: Use JS template rather than markup here...
-          lightBox = OPGPopup.popup('<div id="pop-content"><p>Loading...</p></div>', "help-system", $(this));
-
-          // load view into popup content with ajax
-          $("#pop-content").load('/guidance', function(html) {
-            // store markup in localstorage once complete
-            localStorage["guidanceHTML"] = html;
-          });
-        }
+      // check to see if browser supports localstorage & something exists
+      if (html5_storage() && typeof localStorage["guidanceHTML"] != 'undefined' && localStorage["guidanceHTML"] != '') {
+        lightBox = OPGPopup.popup(localStorage["guidanceHTML"], "help-system", $(this));
       } else {
-        // if doesn't support localstorage, cache in hidden container
+        // load lightbox with loading message
+        // TODO: Use JS template rather than markup here...
+        lightBox = OPGPopup.popup('<div id="pop-content"><p>Loading...</p></div>', "help-system", $(this));
 
+        // load view into popup content with ajax
+        $("#pop-content").load('/guidance', function(html) {
+          // store markup in localstorage once complete
+          if (html5_storage()){
+            localStorage["guidanceHTML"] = html;
+          }
+        });
       }
 
 //       var showLightbox = function() {
