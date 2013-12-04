@@ -2,6 +2,7 @@
 
 //===== Bower packages - /vendor/assets/components/ =====\\
 //= require jquery
+//= require jquery-ujs
 
 //===== Vendor scripts - /vendor/assets/javascripts/ =====\\
 //= require jquery.details
