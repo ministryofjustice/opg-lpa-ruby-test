@@ -47,6 +47,9 @@ var OPGPopup = {
       });
 
       $(source).focus();
+
+      // clear out any hash locations
+      window.location = '';
     };
 
     // Loop tab key
@@ -116,18 +119,55 @@ var OPGPopup = {
 var GOVUK = window.GOVUK || {};
 
 GOVUK.helpPopup = {
-  selectHelpTopic : function (e) {
-    var $this = $(this);
+  loadOverlay: function (callback) {
+    var lightBox;
+    localStorage.removeItem("guidanceHTML");
 
-    var $section = $(this).parent(),
-        slug = $section
-                .data('filter')
-                .match(/section-([\w-]+)/)
-                .pop();
+    // check to see if browser supports localstorage & something exists
+    // TODO: Have alternative 'cached' fallback for non-localstorage (maybe insert div into DOM)
+    if (html5_storage() && typeof localStorage["guidanceHTML"] != 'undefined' && localStorage["guidanceHTML"] != '') {
+      lightBox = OPGPopup.popup(localStorage["guidanceHTML"], "help-system", $(this));
+      // callback func
+      if (callback && typeof(callback) === "function") {
+        callback();
+      }
+    } else {
+      // load lightbox with loading message
+      // TODO: Use JS template rather than markup here...
+      lightBox = OPGPopup.popup('<div id="pop-content"><p>Loading...</p></div>', "help-system", $(this));
 
+      // load view into popup content with ajax
+      $("#pop-content").load('/guidance', function(response) {
+        // store markup in localstorage once complete
+        if (html5_storage()){
+          localStorage["guidanceHTML"] = response;
+        }
+        // callback func
+        if (callback && typeof(callback) === "function") {
+          callback();
+        }
+      });
+    }
+  },
+  selectHelpTopic: function (topic) {
+    var instObj = this;
+
+    // if the overlay is present, set topic immediately
+    if($('#popup.help-system').length > 0){
+      instObj.setTopic(topic);
+    } else {
+    // otherwise, load in the overlay first and set in callback
+      this.loadOverlay(function(){
+        instObj.setTopic(topic);
+      });
+    }
+  },
+  setTopic: function (slug) {
+    // set hash for current topic
+    window.location.hash = '/guidance/' + slug;
 
     // Set nav item as active
-    $section
+    $('.help-navigation a[href="/guidance/#' + slug + '"]').parent()
       .addClass('active')
       .siblings()
       .removeClass('active');
@@ -145,33 +185,21 @@ GOVUK.helpPopup = {
     var hash = window.location.hash,
         instObj = this;
 
-    // Help sections click actions
-    if ($('.help-sections').length > 0) {
-      $('.help-navigation .help-topics a').click(function (e) {
-          instObj.selectHelpTopic.call(this, e);
-        });
-    }
+    // nav click event
+    $('body').on('click', 'a.js-guidance', function (e){
+      var href = $(this).attr('href'),
+          topic = href.substring(href.lastIndexOf("#")+1);
+      // select topic
+      instObj.selectHelpTopic(topic);
+      return false;
+    });
 
     if (hash !== '' && hash !== '#/') {
       // on page load parse hash
-      hash = hash.substring(2);
-
-      $('.help-topics li').filter(function() {
-        return $(this).data('filter') == 'section-' + hash;
-      })
-        .find('a')
-        .click();
+      topic = hash.replace('#/guidance/', '');
+      // set topic
+      this.selectHelpTopic(topic);
     }
-
-    $('.help-navigation')
-      .find('ul:eq(0) li')
-      .each(function (idx) {
-        var section = $(this).find('a').text(),
-            slug = $(this)
-              .data('filter')
-              .match(/section-([\w-]+)/)
-              .pop();
-      });
   }
 };
 

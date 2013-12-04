@@ -47,10 +47,16 @@
       list-style-image: none;
 
       li {
-        margin: 0 -1em 0 -2px;
+        margin: 0;
         padding: 0.25em 0.5em 0.25em 1.8em;
         list-style-type: none;
         border-left: 2px solid transparent;
+
+        @include media(desktop) {
+          position: relative;
+          left: -2px;
+          margin-right: -2px;
+        }
 
         &.active {
           border-left: 2px solid $light-blue;
@@ -122,6 +128,10 @@
   .help-sections {
     article {
       padding-left: 2em;
+
+      body.js-enabled & {
+        // display: none;
+      }
     }
   }
 }

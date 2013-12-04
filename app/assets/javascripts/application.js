@@ -17,7 +17,7 @@
 
 //===== Existing app plugins and js - /app/assets/javascripts/ =====\\
 //= require_tree ./jquery-plugin/opg
+//= require help-popup
 //= require form
 //= require date-picker
-//= require help-popup
 //= require pwstrength

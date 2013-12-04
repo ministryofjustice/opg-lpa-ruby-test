@@ -6,16 +6,12 @@
       .group
         %h2{:tabindex => "-1"} Help topics
         %ul
-          %li{"data-filter" => "section-help-lpa-basics"}
-            %a#lpa-basics{:href => "#/help/lpa-basics"} LPA Basics
-          %li{"data-filter" => "section-help-about-this-tool"}
-            %a#about-this-tool{:href => "#/help/about-this-tool"} About this tool
-          %li{"data-filter" => "section-help-the-2-types-of-lpa"}
-            %a#the-2-types-of-lpa{:href => "#/help/the-2-types-of-lpa"} The 2 types of LPA
-          %li{"data-filter" => "section-help-donor"}
-            %a#help-donor{:href => "#/help/help-donor"} Donor
+          %li
+            %a.js-guidance{:href => "/guidance/#lpa-basics"} LPA Basics
+          %li
+            %a.js-guidance{:href => "/guidance/#about-this-tool"} About this tool
     .content.help-sections
-      %article#help-lpa-basics
+      %article#lpa-basics
         %h1 LPA Basics
 
         <p>A lasting power of attorney (LPA) is a powerful legal document that <strong>allows you to choose trusted people to make decisions on your behalf</strong>. An LPA is generally used if you don't have mental capacity to make decisions yourself.</p>
@@ -85,13 +81,13 @@
 
         <h3>Related help topics</h3>
 
-        <ul>
-        <li><a href="#/help/about-this-tool">About this tool</a></li>
-        <li><a href="#/help/the-2-types-of-lpa">The 2 types of LPA</a></li>
-        <li><a href="#/help/donor">Donor</a></li>
-        <li><a href="#/help/attorneys">Attorneys</a></li>
+        <ul class="related-navigation">
+        <li><a class="js-guidance" href="/guidance/#about-this-tool">About this tool</a></li>
+        <li><a href="/guidance/#the-2-types-of-lpa">The 2 types of LPA</a></li>
+        <li><a href="/guidance/#donor">Donor</a></li>
+        <li><a href="/guidance/#attorneys">Attorneys</a></li>
         </ul>
-      %article#help-about-this-tool
+      %article#about-this-tool
         %h1 LPA AAAAAA
 
         <p>A lasting power of attorney (LPA) is a powerful legal document that <strong>allows you to choose trusted people to make decisions on your behalf</strong>. An LPA is generally used if you don't have mental capacity to make decisions yourself.</p>

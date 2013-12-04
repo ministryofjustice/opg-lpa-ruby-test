@@ -239,55 +239,13 @@ $(document).ready(function () {
   // ====================================================================================
   // HELP SYSTEM
 
-  $(".js-guidance").click(function (e) {
-      // localStorage.removeItem("guidanceHTML");
-
-      var sectionName = $(this).attr('href').replace('guidance/#', ''),
-          lightbox;
-
-      // check to see if browser supports localstorage & something exists
-      if (html5_storage() && typeof localStorage["guidanceHTML"] != 'undefined' && localStorage["guidanceHTML"] != '') {
-        lightBox = OPGPopup.popup(localStorage["guidanceHTML"], "help-system", $(this));
-      } else {
-        // load lightbox with loading message
-        // TODO: Use JS template rather than markup here...
-        lightBox = OPGPopup.popup('<div id="pop-content"><p>Loading...</p></div>', "help-system", $(this));
-
-        // load view into popup content with ajax
-        $("#pop-content").load('/guidance', function(html) {
-          // store markup in localstorage once complete
-          if (html5_storage()){
-            localStorage["guidanceHTML"] = html;
-          }
-        });
-      }
-
-//       var showLightbox = function() {
-
-//         elHelp.find('.help-sections section').addClass('hidden');
-//         elHelp.show();
-//         var lightBox = OPGPopup.popup(elHelp, "help-system", $(this));
-// console.log(lightBox)
-//         // Set help page to the one specified in the href of the link
-//         console.log('li[data-filter="section-help-' + sectionName + '"] a');
-//         lightBox.find('li[data-filter="section-help-' + sectionName + '"] a').click();
-
-//       };
-
-//       // e.preventDefault();
-
-//       if (!elHelp.find('#help-system-content').length) {
-//         $.get('/help/', function(html) {
-//           $('#help-system').append(html);
-//           GOVUK.helpPopup.init();
-//           showLightbox();
-//         });
-//       } else {
-//         showLightbox();
-//       };
-
-      return false;
-  });
+  // $(".js-guidance").click(function (e) {
+  //     var href = $(this).attr('href'),
+  //         topic = href.substring(href.lastIndexOf("#")+1);
+  //     // select help topic
+  //     GOVUK.helpPopup.selectHelpTopic(topic);
+  //     return false;
+  // });
 
   // Make help content inline links to other help pages work
   // $('#help-system .help-sections a[href^="#/help/"]').click(function () {
