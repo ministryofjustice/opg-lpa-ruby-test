@@ -152,4 +152,3 @@ def create_healthcare_lpa(overides={})
   click_button "Save and continue"
 end
 
-

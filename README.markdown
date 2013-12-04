@@ -10,8 +10,8 @@ About
 
 This is a test rails front end for the OPG LPA application website. It integrates with opg-lpa-api for the data storage layer.
 
-Installation
-------------
+Local installation
+------------------
 
     git clone https://github.com/ministryofjustice/opg-lpa-api.git
     git clone https://github.com/ministryofjustice/opg-lpa.git
@@ -40,4 +40,11 @@ bower install
 Tests
 -----
 
-Run `rake` to run unit tests. If you want to use the api server running locally, then run `VCR=false rake` to run the integration tests.
+Run `rake` to run unit tests.
+
+If you want to use the api server running locally, then run `VCR=false rake` to run the integration tests.
+
+To automatically run tests on file changes:
+
+    bundle exec guard
+
