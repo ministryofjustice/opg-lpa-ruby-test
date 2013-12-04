@@ -63,35 +63,35 @@ RSpec.configure do |config|
   end
 end
 
-def fill_in_valid_person(overides={})
-  fill_in 'Title', with: overides[:title] || "Mr"
-  fill_in 'First name', with: overides[:first_name] || "Johnny"
-  fill_in 'Last name', with: overides[:last_name] || "Smithson"
-  fill_in 'Post code', with: overides[:post_code] || "SW1H 9AJ"
-  fill_in 'Street', with: overides[:address_line1] || "102 Petty France"
-  fill_in 'Town', with: overides[:town] || "Westminster"
-  fill_in 'County', with: overides[:county] || "London"
-  fill_in 'Country', with: overides[:country] || "Great Britain"
-  fill_in 'Email (optional)', with: overides[:email] || "johnny@example.com"
-  fill_in 'Phone (optional)', with: (overides[:phone] || "123 456") unless overides[:no_phone]
+def fill_in_valid_person(overrides={})
+  fill_in 'Title', with: overrides[:title] || "Mr"
+  fill_in 'First name', with: overrides[:first_name] || "Johnny"
+  fill_in 'Last name', with: overrides[:last_name] || "Smithson"
+  fill_in 'Post code', with: overrides[:post_code] || "SW1H 9AJ"
+  fill_in 'Street', with: overrides[:address_line1] || "102 Petty France"
+  fill_in 'Town', with: overrides[:town] || "Westminster"
+  fill_in 'County', with: overrides[:county] || "London"
+  fill_in 'Country', with: overrides[:country] || "Great Britain"
+  fill_in 'Email (optional)', with: overrides[:email] || "johnny@example.com" unless overrides[:without_email]
+  fill_in 'Phone (optional)', with: (overrides[:phone] || "123 456") unless overrides[:without_phone]
 end
 
-def fill_in_valid_donor(overides={})
-  fill_in_valid_person(overides)
+def fill_in_valid_donor(overrides={})
+  fill_in_valid_person(overrides)
   select 31, from: 'lpa_donor_date_of_birth_3i'
   select 'January', from: 'lpa_donor_date_of_birth_2i'
   select 1970, from: 'lpa_donor_date_of_birth_1i'
 end
 
-def fill_in_valid_attorney(overides={})
-  fill_in_valid_person(overides)
+def fill_in_valid_attorney(overrides={})
+  fill_in_valid_person(overrides)
   select 31, from: 'attorney_date_of_birth_3i'
   select 'January', from: 'attorney_date_of_birth_2i'
   select 1970, from: 'attorney_date_of_birth_1i'
 end
 
-def fill_in_valid_applicant(overides={})
-  fill_in_valid_person(overides)
+def fill_in_valid_applicant(overrides={})
+  fill_in_valid_person(overrides.merge(without_email: true, without_phone: true))
   select 31, from: 'applicant_date_of_birth_3i'
   select 'January', from: 'applicant_date_of_birth_2i'
   select 1970, from: 'applicant_date_of_birth_1i'
@@ -126,10 +126,14 @@ def sign_up_and_sign_in
   click_button "Sign in"
 end
 
-def create_financial_lpa(overides={})
+def create_applicant(overrides={})
   visit "/applicants/new"
-  fill_in_valid_person(overides)
+  fill_in_valid_applicant(overrides)
   click_button "Save and continue"
+end
+
+def create_financial_lpa(overrides={})
+  create_applicant overrides
 
   click_button "Create a new LPA"
 
@@ -139,10 +143,8 @@ def create_financial_lpa(overides={})
   click_button "Save and continue"
 end
 
-def create_healthcare_lpa(overides={})
-  visit "/applicants/new"
-  fill_in_valid_person(overides)
-  click_button "Save and continue"
+def create_healthcare_lpa(overrides={})
+  create_applicant overrides
 
   click_button "Create a new LPA"
 
@@ -151,5 +153,4 @@ def create_healthcare_lpa(overides={})
 
   click_button "Save and continue"
 end
-
 
