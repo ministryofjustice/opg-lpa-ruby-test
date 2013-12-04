@@ -3,5 +3,6 @@ class ContentController < ApplicationController
   end
 
   def guidance
+    render :layout => !request.xhr?
   end
 end
