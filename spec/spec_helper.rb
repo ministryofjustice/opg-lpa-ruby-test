@@ -91,7 +91,7 @@ def fill_in_valid_attorney(overrides={})
 end
 
 def fill_in_valid_applicant(overrides={})
-  fill_in_valid_person(overrides.merge(without_email: true))
+  fill_in_valid_person(overrides.merge(without_email: true, without_phone: true))
   select 31, from: 'applicant_date_of_birth_3i'
   select 'January', from: 'applicant_date_of_birth_2i'
   select 1970, from: 'applicant_date_of_birth_1i'
