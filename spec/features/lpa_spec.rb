@@ -7,7 +7,7 @@ feature 'Filling in an LPA' do
   end
 
   scenario 'with invalid applicant', :vcr do
-    visit "/"
+    visit "/applicants/new"
     fill_in_valid_person(:first_name => "")
     click_button "Save and continue"
     expect(page).to have_content("can't be blank")

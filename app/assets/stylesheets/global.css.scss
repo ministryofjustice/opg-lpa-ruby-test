@@ -21,7 +21,7 @@
 @import "design-patterns/utils";
 
 // View specific styles
-// @import "views/homepage";
+@import "views/homepage";
 @import "views/dashboard";
 @import "views/create-and-register-pages";
 @import "views/account-management";
@@ -61,6 +61,25 @@ header.page-header {
     @include media(desktop) {
       padding-top: 48px;
       padding-bottom: 16px;
+    }
+
+    span {
+      @include core-27;
+      display: block;
+      color: #6f777b;
+    }
+
+    .alpha {
+      @include phase-tag(alpha);
+    }
+    .beta {
+      @include phase-tag(beta);
+    }
+    .alpha, .beta {
+      float: none;
+      display: inline;
+      vertical-align: middle;
+      margin-left: 1em;
     }
   }
 }
@@ -133,15 +152,16 @@ article {
   // help notice
   .help-notice {
     background:none;
-    background: url(/images/icon-important.png) no-repeat scroll 0 0.5em;
+    background: image-url("icon/important.png") no-repeat scroll 0 1.5em;
 
     @include device-pixel-ratio() {
-      background-image: url(/images/icon-important-2x.png);
+      background-image: image-url("icon/important-2x.png");
       background-size: 34px 34px;
     }
 
     p {
       font-weight:600;
+      padding-right: 4em;
 
       a {
         font-weight:600;
