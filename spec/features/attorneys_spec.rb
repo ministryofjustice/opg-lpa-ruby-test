@@ -25,7 +25,7 @@ feature 'Filling in an LPAs attorneys' do
   end
 
   def create_financial_lpa_to_attorneys(overides={})
-    visit "/"
+    visit "/applicants/new"
     fill_in_valid_applicant(overides)
     click_button "Save and continue"
     click_button "Create a new LPA"
