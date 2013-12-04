@@ -1,6 +1,6 @@
 OpgLpa::Application.routes.draw do
 
-  root "index#index"
+  root "content#homepage"
 
   resources :lpas do
     resources :build, controller: 'lpas/build'
