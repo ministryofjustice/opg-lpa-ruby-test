@@ -9,17 +9,20 @@
 
   // Define the class
   var HelpSystem = function (options) {
-    this.settings = $.extend({}, this.defaults, options);
-    this._cacheEls();
-    this._bindEvents();
+    // only load if not on the static page
+    if($("#help-system").length === 0){
+      this.settings = $.extend({}, this.defaults, options);
+      this._cacheEls();
+      this._bindEvents();
 
-    // open popup if hash is present in url
-    var hash = window.location.hash;
-    if (hash !== '' && hash !== '#/') {
-      // on page load parse hash
-      var topic = hash.substring(hash.lastIndexOf("/")+1);
-      // set topic
-      this._selectHelpTopic(topic);
+      // open popup if hash is present in url
+      var hash = window.location.hash;
+      if (hash !== '' && hash !== '#/') {
+        // on page load parse hash
+        var topic = hash.substring(hash.lastIndexOf("/")+1);
+        // set topic
+        this._selectHelpTopic(topic);
+      }
     }
   };
 
