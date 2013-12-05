@@ -12,11 +12,7 @@ OpgLpa::Application.routes.draw do
     resources :people_to_be_told
   end
 
-  resources :applicants do
-    collection do
-      get :delete
-    end
-  end
+  resources :applicants
 
   namespace 'users' do
     get  '/sign_up' => 'registrations#new',    as: :new_registration

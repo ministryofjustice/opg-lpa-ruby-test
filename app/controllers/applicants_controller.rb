@@ -19,11 +19,6 @@ class ApplicantsController < ApplicationController
     end
   end
 
-  def delete
-    session[:applicant_id] = nil
-    redirect_to "/"
-  end
-
   private
 
   def applicant_params
