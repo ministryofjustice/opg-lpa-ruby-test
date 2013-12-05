@@ -24,6 +24,7 @@ OpgLpa::Application.routes.draw do
 
     get  '/sign_in' => 'sessions#new',    as: :new_session
     post '/sign_in' => 'sessions#create', as: :session
+    delete '/sign_out' => 'sessions#destroy', as: :destroy_session
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -31,7 +31,20 @@ class Users::SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    destroy_secure_token
+    reset_session
+    redirect_to "/"
+  end
+
   private
+
+  def destroy_secure_token
+    if read_secure_token
+      ApiClient.delete("/auth/sessions/#{read_secure_token}")
+    end
+    Rails.cache.delete(secure_token_cache_key)
+  end
 
   def store_secure_token token
     Rails.cache.write(secure_token_cache_key, token)
