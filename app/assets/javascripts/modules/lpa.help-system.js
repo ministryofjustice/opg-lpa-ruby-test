@@ -45,6 +45,7 @@
     _cacheEls: function () {
       this.html = undefined;
       this.topic = false;
+      this.source = false;
     },
 
     _bindEvents: function () {
@@ -54,6 +55,8 @@
       $('body').on('click', this.settings.selector, function (e){
         var href = $(this).attr('href'),
             topic = href.substring(href.lastIndexOf("#")+1);
+        // set the current click as the source
+        self.source = $(this);
         // select topic
         self._selectHelpTopic(topic);
         return false;
@@ -138,6 +141,7 @@
       if(html !== false){
         lpa.Modules.Popup.open(html, {
           ident: this.settings.overlayIdent,
+          source: this.source,
           beforeOpen: function () {
             // set topic
             self._setTopic(topic);
@@ -150,6 +154,7 @@
         // load overlay
         lpa.Modules.Popup.open(this.settings.loadingContent, {
           ident: self.settings.overlayIdent,
+          source: this.source,
           beforeOpen: function () {
             $("#popup-content").load('/' + self.settings.guidancePath, function(html) {
               // cache content

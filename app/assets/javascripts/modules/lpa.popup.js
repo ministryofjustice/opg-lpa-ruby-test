@@ -16,7 +16,7 @@
 
   Popup.prototype = {
     defaults: {
-      source: "#content",
+      source: $("#content"),
       placement: "body",
       popupId: "popup",
       maskHTML: '<div id="mask" class="popover-mask" />',
@@ -64,8 +64,9 @@
       // Stop rest of page from scrolling when scrolling the popup
       if ($(document).height() > $(window).height()) {
         // Works for Chrome, Firefox, IE...
-        var scrollTop = (this.$html.scrollTop()) ? this.$html.scrollTop() : this.$body.scrollTop();
-        this.$html.addClass('noscroll').css('top', -scrollTop);
+        var scrollTop = ($('html').scrollTop()) ? $('html').scrollTop() : $('body').scrollTop();
+        moj.log(scrollTop);
+        $('html').addClass('noscroll').css('top', -scrollTop);
       }
 
       // Join it all together
@@ -103,18 +104,19 @@
       // make sure there is a popup to close
       if($('#popup').length > 0){
         var self = this,
-            scrollTop = parseInt(this.$html.css('top')),
             opts = $('#popup').data('settings');
 
         // Re-enable scrolling of rest of page
-        this.$html.removeClass('noscroll');
-        $('html, body').scrollTop(-scrollTop);
+        var scrollTop = parseInt($('html').css('top'));
+        $('html').removeClass('noscroll');
+        $('html,body').scrollTop(-scrollTop);
 
         self.$popup.fadeOut(400, function () {
           self.$mask.fadeOut(200, function () {
             // focus on previous element
-            $(opts.source).focus();
-
+            if(typeof opts.source !== 'undefined' && opts.source){
+              opts.source.focus();
+            }
             // clear out any hash locations
             window.location.hash = '';
             history.pushState('', document.title, window.location.pathname);
