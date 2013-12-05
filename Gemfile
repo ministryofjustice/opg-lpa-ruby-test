@@ -4,8 +4,6 @@ source 'https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/'
 ruby '2.0.0'
 
 gem 'rails', '4.0.0'
-gem 'thin'
-gem 'sidekiq'
 
 gem 'activeresource', '4.0.0'
 gem 'httparty'
@@ -42,7 +40,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :production do
+  gem 'unicorn'
+end
+
 group :development, :test do
+  gem 'thin'
   gem 'rspec-rails'
   gem 'byebug'
   gem 'launchy'
@@ -71,3 +74,6 @@ end
 
 # performance monitoring
 gem 'newrelic_rpm'
+
+gem 'sidekiq'
+
