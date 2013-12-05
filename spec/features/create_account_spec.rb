@@ -32,8 +32,9 @@ feature 'Sign up and sign in' do
     click_button "Sign in"
     expect(page).to have_content('About you')
 
-    fill_in_valid_applicant
+    fill_in_valid_applicant first_name: 'Johnny', last_name: 'Smith'
     click_button "Save and continue"
+    expect(page).to have_content('Johnny Smith')
     expect(page).to have_content('Your LPAs')
 
     click_button "Create a new LPA"

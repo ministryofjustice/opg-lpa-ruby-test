@@ -17,6 +17,14 @@ class Applicant < ActiveResource::Base
     def headers= headers
       @headers = headers
     end
+
+    def current_applicant
+      begin
+        Applicant.find(:current)
+      rescue ActiveResource::ForbiddenAccess
+        nil
+      end
+    end
   end
 
   def initialize(*args)
