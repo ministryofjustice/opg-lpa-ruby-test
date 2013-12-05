@@ -72,6 +72,7 @@
   // Actions
   .action {
     padding: 1em 0;
+    margin: 0;
     border-top: 1px solid $light-blue-25;
 
     @include media(desktop) {
@@ -124,6 +125,10 @@
   .inner {
     max-width: none;
     padding: 0;
+  }
+  .action {
+    padding-left: 1em;
+    padding-right: 1em;
   }
   .help-sections {
     article {
