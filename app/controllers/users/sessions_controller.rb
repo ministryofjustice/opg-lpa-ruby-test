@@ -17,6 +17,12 @@ class Users::SessionsController < ApplicationController
     if response.code == 201
       reset_session
       store_secure_token response['authentication_token']
+
+      with_secure_token(Applicant) do
+        if applicant = Applicant.current_applicant
+          store_applicant_name(applicant)
+        end
+      end
       redirect_to new_applicant_path
     else
       set_validation_messages response, @session

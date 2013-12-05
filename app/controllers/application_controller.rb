@@ -38,4 +38,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def store_applicant_name applicant
+    session[:applicant_name] = [applicant.first_name, applicant.last_name].join(' ')
+  end
 end
