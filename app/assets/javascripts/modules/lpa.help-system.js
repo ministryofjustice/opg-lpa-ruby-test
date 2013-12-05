@@ -61,53 +61,44 @@
         return false;
       });
 
-      // $(window).on('hashchange', function() {
-      //   var hash = window.location.hash;
-      //   // moj.log(hash);
-      //   if (hash !== '' && hash !== '#/') {
-      //     var topic = hash.substring(hash.lastIndexOf("/")+1);
-      //     self._selectHelpTopic(topic);
-      //   }
-      // });
+      // listen to hash changes in url
+      $(window).on('hashchange', function() {
+        var hash = window.location.hash;
 
-      // add listener to state change to change contents
-      // window.addEventListener("popstate", function(e) {
-      //   var hash = window.location.hash;
-      //   moj.log("state change");
-
-      //   if (hash !== '' && hash !== '#/') {
-      //     // on page load parse hash
-      //     var topic = hash.substring(hash.lastIndexOf("/")+1);
-      //     // set topic
-      //     if (topic !== self.topic) {
-      //       moj.log(self.topic);
-      //       // self._selectHelpTopic(topic);
-      //     }
-      //   }
-      // });
+        // if a change has been made, select the topic
+        if (hash !== '' && hash !== '#/') {
+          var topic = hash.substring(hash.lastIndexOf("/")+1);
+          self._selectHelpTopic(topic);
+        }
+        // if the new hash is empty, clear out the popup
+        else if (hash === '') {
+          lpa.Modules.Popup.close();
+        }
+      });
     },
 
     _selectHelpTopic: function (topic) {
       var self = this;
 
-      // if the overlay is present, set topic immediately
-      if($('#popup.help-system').length > 0){
-        self._setTopic(topic);
-      } else {
-      // otherwise, load in the overlay first and set in callback
-        this._loadOverlay(topic);
+      // make sure no duplicate calls are fired
+      if (topic !== this.topic) {
+        // if the overlay is present, set topic immediately
+        if($('#popup.help-system').length > 0){
+          self._setTopic(topic);
+        } else {
+        // otherwise, load in the overlay first and set in callback
+          this._loadOverlay(topic);
+        }
       }
     },
 
     _setTopic: function (slug) {
-      moj.log("_setTopic: [" + slug + "]");
       // set topic to global obj
-      self.topic = slug;
+      this.topic = slug;
 
       // make sure we're not resetting the hash and adding to the history if we don't need to
       if ('#/' + this.settings.guidancePath + '/' + slug !== window.location.hash){
         window.location.hash = '#/' + this.settings.guidancePath + '/' + slug;
-        // history.pushState('', document.title, '#/' + this.settings.guidancePath + '/' + slug);
       }
 
       // Set nav item as active
@@ -176,78 +167,6 @@
           }
         });
       }
-
-
-
-
-      // var lightBox;
-      // // localStorage.removeItem("guidanceHTML");
-
-      // // check to see if browser supports localstorage & something exists
-      // if(html5_storage()) {
-      //   if (localStorage["guidanceHTML"] != '') {
-      //     lpa.Modules.Popup.open(localStorage["guidanceHTML"], {source: '', ident: this.settings.overlayIdent});
-      //     // lightBox = OPGPopup.popup(localStorage["guidanceHTML"], this.settings.overlayIdent, this.settings.overlaySource);
-      //   } else {
-      //     lightBox = OPGPopup.popup(this.loadingContent, this.settings.overlayIdent, this.settings.overlaySource);
-
-      //     // load view into popup content with ajax
-      //     $("#popup").find("*:nth-child(2)").load('/' + this.settings.guidancePath, function(response) {
-      //       // store markup in localstorage once complete
-      //       localStorage["guidanceHTML"] = response;
-      //       // callback func
-      //       if (ajaxCallback && typeof(ajaxCallback) === "function") {
-      //         ajaxCallback();
-      //       }
-      //     });
-      //   }
-      // } else {
-      //   if($('#help-placeholder').length > 0) {
-      //     moj.log("present");
-      //   } else {
-      //     // moj.log("loading...");
-      //     lightBox = OPGPopup.popup(this.loadingContent, this.settings.overlayIdent, this.settings.overlaySource);
-
-      //     // load view into popup content with ajax
-      //     $("#popup-content").load('/' + this.settings.guidancePath, function(response) {
-      //       // moj.log("loaded");
-      //       // callback func
-      //       if (ajaxCallback && typeof(ajaxCallback) === "function") {
-      //         ajaxCallback();
-      //       }
-      //     });
-      //   }
-      // }
-
-
-
-      // // TODO: Have alternative 'cached' fallback for non-localstorage (maybe insert div into DOM)
-      // if (html5_storage() && typeof localStorage["guidanceHTML"] != 'undefined' && localStorage["guidanceHTML"] != '') {
-      //   lightBox = OPGPopup.popup(localStorage["guidanceHTML"], "help-system", $(this));
-      //   // callback func
-      //   if (callback && typeof(callback) === "function") {
-      //     callback();
-      //   }
-      // } else {
-      //   // load lightbox with loading message
-      //   lightBox = OPGPopup.popup(this.loadingContent, "help-system", $(this));
-
-      //   if(){
-
-      //   }
-
-      //   // load view into popup content with ajax
-      //   $("#popup").find("*:nth-child(2)").load('/' + this.settings.guidancePath, function(response) {
-      //     // store markup in localstorage once complete
-      //     if (html5_storage()){
-      //       localStorage["guidanceHTML"] = response;
-      //     }
-      //     // callback func
-      //     if (callback && typeof(callback) === "function") {
-      //       callback();
-      //     }
-      //   });
-      // }
     }
   };
 
