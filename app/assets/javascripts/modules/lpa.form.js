@@ -8,9 +8,9 @@
   "use strict";
 
   // Add module to LPA namespace
-  lpa.Modules.form = {
+  lpa.Modules.Form = {
     init: function () {
-      moj.log("lpa.modules.form init");
+      moj.log("lpa.modules.form#init");
     }
   };
 }());
