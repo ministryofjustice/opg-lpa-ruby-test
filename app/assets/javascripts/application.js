@@ -12,6 +12,7 @@
 //= require moj
 
 //===== LPA app object and modules - /app/assets/javascripts/ =====\\
+//= require utils
 //= require lpa
 //= require_tree ./modules
 

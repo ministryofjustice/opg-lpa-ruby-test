@@ -24,16 +24,6 @@ lpa.updateSelectbox = function (el, value) {
   form.find('[name=' + field + ']').val(value); // use the name attr as it's unique & will always exist
 };
 
-// Test for local storage
-function html5_storage() {
-  try {
-    return 'localStorage' in window && window['localStorage'] !== null;
-  } catch (e) {
-    return false;
-  }
-}
-
-
 $(document).ready(function () {
 
   // ====================================================================================
