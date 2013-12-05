@@ -9,7 +9,6 @@ class ApplicantsController < ApplicationController
       @applicant = Applicant.new(applicant_params)
 
       if @applicant.save
-        session[:applicant_id] = @applicant.id
         store_applicant_name(@applicant)
 
         redirect_to lpas_path

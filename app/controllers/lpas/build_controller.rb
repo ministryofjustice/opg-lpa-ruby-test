@@ -49,8 +49,8 @@ class Lpas::BuildController < ApplicationController
 
   private
   def check_applicant
-    unless session[:applicant_id].present?
-      redirect_to new_applicant_path
+    with_secure_token(Applicant) do
+      redirect_to new_applicant_path unless Applicant.current_applicant
     end
   end
 

@@ -49,6 +49,7 @@ feature 'Sign up and sign in' do
     fill_in_sign_in
     click_button "Sign in"
     expect(page).to have_content('Johnny Smith')
+    expect(page).to_not have_content('About you')
   end
 
 end
