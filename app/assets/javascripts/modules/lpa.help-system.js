@@ -13,7 +13,7 @@
     this._cacheEls();
     this._bindEvents();
 
-    // localStorage.removeItem("guidanceHTML");
+    localStorage.removeItem("guidanceHTML");
 
     // open popup if hash is present in url
     var hash = window.location.hash;
@@ -31,6 +31,7 @@
       selector: "a.js-guidance",
       overlayIdent: "help-system",
       overlaySource: "#content",
+      loadingContent: '<p>Loading...</p>', // TODO: Use JS template rather than markup here...
       onOpen: function () {
         moj.log("onOpen");
       },
@@ -44,8 +45,6 @@
     },
 
     _cacheEls: function () {
-      // TODO: Use JS template rather than markup here...
-      this.loadingContent = '<p>Loading...</p>';
       this.html = undefined;
       this.topic = false;
     },
@@ -159,7 +158,7 @@
       // otherwise, AJAX it in and then switch the content in the popup
       else {
         // load overlay
-        lpa.Modules.Popup.open(this.loadingContent, {
+        lpa.Modules.Popup.open(this.settings.loadingContent, {
           ident: self.settings.overlayIdent,
           beforeOpen: function () {
             $("#popup-content").load('/' + self.settings.guidancePath, function(html) {
