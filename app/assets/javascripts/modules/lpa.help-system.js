@@ -13,8 +13,6 @@
     this._cacheEls();
     this._bindEvents();
 
-    localStorage.removeItem("guidanceHTML");
-
     // open popup if hash is present in url
     var hash = window.location.hash;
     if (hash !== '' && hash !== '#/') {
@@ -32,11 +30,8 @@
       overlayIdent: "help-system",
       overlaySource: "#content",
       loadingContent: '<p>Loading...</p>', // TODO: Use JS template rather than markup here...
-      onOpen: function () {
-        moj.log("onOpen");
-      },
-      onClose: function () {
-        moj.log("onClose");
+      popupOnClose: function () {
+        lpa.Modules.helpSystem.topic = undefined;
       }
     },
 
@@ -143,7 +138,8 @@
           beforeOpen: function () {
             // set topic
             self._setTopic(topic);
-          }
+          },
+          onClose: this.settings.popupOnClose
         });
       }
       // otherwise, AJAX it in and then switch the content in the popup
@@ -164,7 +160,8 @@
               // set the topic now that all content has loaded
               self._setTopic(topic);
             });
-          }
+          },
+          onClose: this.settings.popupOnClose
         });
       }
     }

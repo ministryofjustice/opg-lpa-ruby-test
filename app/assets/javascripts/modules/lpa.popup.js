@@ -69,7 +69,7 @@
       }
 
       // Join it all together
-      this.$popup.addClass(opts.ident).append(this.$close).append(this.$content.append(html)).appendTo(this.$mask);
+      this.$popup.data('settings', opts).addClass(opts.ident).append(this.$close).append(this.$content.append(html)).appendTo(this.$mask);
 
       // Place the mask in the DOM
       // If a placement has been provided, the popup is appended to that element,
@@ -100,31 +100,35 @@
     },
 
     close: function () {
-      var self = this,
-          scrollTop = parseInt(this.$html.css('top'));
+      // make sure there is a popup to close
+      if($('#popup').length > 0){
+        var self = this,
+            scrollTop = parseInt(this.$html.css('top')),
+            opts = $('#popup').data('settings');
 
-      // Re-enable scrolling of rest of page
-      this.$html.removeClass('noscroll');
-      $('html, body').scrollTop(-scrollTop);
+        // Re-enable scrolling of rest of page
+        this.$html.removeClass('noscroll');
+        $('html, body').scrollTop(-scrollTop);
 
-      self.$popup.fadeOut(400, function () {
-        self.$mask.fadeOut(200, function () {
-          // focus on previous element
-          $(self.settings.source).focus();
+        self.$popup.fadeOut(400, function () {
+          self.$mask.fadeOut(200, function () {
+            // focus on previous element
+            $(opts.source).focus();
 
-          // clear out any hash locations
-          window.location.hash = '';
-          history.pushState('', document.title, window.location.pathname);
+            // clear out any hash locations
+            window.location.hash = '';
+            history.pushState('', document.title, window.location.pathname);
 
-          // callback func
-          if (self.settings.onClose && typeof(self.settings.onClose) === "function") {
-            self.settings.onClose();
-          }
+            // callback func
+            if (opts.onClose && typeof(opts.onClose) === "function") {
+              opts.onClose();
+            }
 
-          // Remove the popup from the DOM
-          $(this).remove();
+            // Remove the popup from the DOM
+            $(this).remove();
+          });
         });
-      });
+      }
     },
 
     loopTabKeys: function (wrap) {
