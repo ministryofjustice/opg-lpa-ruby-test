@@ -19,6 +19,7 @@ var OPGPopup = {
     } else {
       $mask = $('<div id="mask" class="popover-mask" />');
       $popup = $('<div id="popup" class="' + ident + '" role="dialog" />');
+      $popupContent = $('<div id="popup-content" />');
       $close = $('<p class="close"><a id="lightboxclose" href="#" title="Click or press escape to close this window">Close</a></p>');
     }
 
@@ -39,7 +40,7 @@ var OPGPopup = {
         $mask.fadeOut(200, function () {
 
           // Put popup contents back where you found it
-          $(html).appendTo('#content').hide();
+          // $(html).appendTo('#content').hide();
 
           // Remove the popup from the DOM
           $(this).remove();
@@ -94,7 +95,7 @@ var OPGPopup = {
       });
 
     // Join it all together
-    $popup.prepend($close).append(html).appendTo($mask);
+    $popup.append($close).append($popupContent.append(html)).appendTo($mask);
 
     // Place the mask in the DOM
     // If a placement has been provided, the popup is appended to that element,
