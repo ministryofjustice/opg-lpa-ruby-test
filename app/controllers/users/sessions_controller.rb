@@ -21,9 +21,11 @@ class Users::SessionsController < ApplicationController
       with_secure_token(Applicant) do
         if applicant = Applicant.current_applicant
           store_applicant_name(applicant)
+          redirect_to controller: '/lpas', action: 'index'
+        else
+          redirect_to new_applicant_path
         end
       end
-      redirect_to new_applicant_path
     else
       set_validation_messages response, @session
       @session.password = nil
