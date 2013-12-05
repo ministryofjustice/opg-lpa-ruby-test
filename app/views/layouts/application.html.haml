@@ -1,3 +1,6 @@
+- content_for :head do
+  = csrf_meta_tag
+
 - content_for :inside_content do
   = render 'shared/nav'
 
