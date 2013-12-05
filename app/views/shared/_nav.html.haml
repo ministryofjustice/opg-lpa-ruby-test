@@ -6,4 +6,4 @@
         %li
           %a{:href => ""} Your details
         %li= link_to "Your LPAs", lpas_path
-        %li= link_to "Sign out", delete_applicants_path
+        %li= link_to "Sign out", users_destroy_session_path, method: :delete

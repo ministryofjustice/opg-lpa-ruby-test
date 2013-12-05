@@ -12,11 +12,7 @@ OpgLpa::Application.routes.draw do
     resources :people_to_be_told
   end
 
-  resources :applicants do
-    collection do
-      get :delete
-    end
-  end
+  resources :applicants, only: [:new, :create]
 
   namespace 'users' do
     get  '/sign_up' => 'registrations#new',    as: :new_registration
@@ -24,6 +20,7 @@ OpgLpa::Application.routes.draw do
 
     get  '/sign_in' => 'sessions#new',    as: :new_session
     post '/sign_in' => 'sessions#create', as: :session
+    delete '/sign_out' => 'sessions#destroy', as: :destroy_session
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

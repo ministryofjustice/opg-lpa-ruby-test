@@ -38,7 +38,17 @@ feature 'Sign up and sign in' do
     expect(page).to have_content('Your LPAs')
 
     click_button "Create a new LPA"
+    expect(page).to have_content('Johnny Smith')
 
+    click_link "Sign out"
+    expect(page).to_not have_content('Johnny Smith')
+    expect(page).to have_content('Make a lasting power of attorney')
+
+    click_link "sign in"
+    expect(page).to have_content('Sign in')
+    fill_in_sign_in
+    click_button "Sign in"
+    expect(page).to have_content('Johnny Smith')
   end
 
 end
