@@ -1,18 +1,20 @@
 = render "shared/create_header"
 
-%article
-  #accordion.accordion-form
-    = render "shared/completed_sections"
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      #accordion.accordion-form
+        = render "shared/completed_sections"
 
-    %section#donor.section.current
-      %h2.accordion-header #{lpa_overview(@lpa).count+1}. Who is the second certificate provider?
-      .accordion-content
-        .section-intro
+        %section#donor.section.current
+          %h2.accordion-header #{lpa_overview(@lpa).count+1}. Who is the second certificate provider?
+          .accordion-content
+            .section-intro
 
-        = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
-          = lpa_form.fields_for :certificate_provider2, @lpa.certificate_provider2 do |certificate_provider_form|
-            = render partial: '/shared/person_form', locals: { person_form: certificate_provider_form, without_phone: true }
+            = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+              = lpa_form.fields_for :certificate_provider2, @lpa.certificate_provider2 do |certificate_provider_form|
+                = render partial: '/shared/person_form', locals: { person_form: certificate_provider_form, without_phone: true }
 
-          .accordion-actions
-            %p
-              = lpa_form.submit "Save and continue", :class => "button gotonextpart"
+              .accordion-actions
+                %p
+                  = lpa_form.submit "Save and continue", :class => "button gotonextpart"

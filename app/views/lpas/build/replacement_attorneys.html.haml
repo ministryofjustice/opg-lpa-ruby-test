@@ -1,35 +1,37 @@
 = render "shared/create_header"
 
-%article
-  #accordion.accordion-form
-    = render "shared/completed_sections"
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      #accordion.accordion-form
+        = render "shared/completed_sections"
 
-    %section#donor.section.current
-      %h2.accordion-header #{lpa_overview(@lpa).count+1}. Do you want any replacement attorneys?
-      .accordion-content
-        .section-intro
-          %p The people you add here step in if your original attorneys can no longer act.
-          %p A replacement attorney must meet the same requirements as an original attorney. This includes being 18 or over when you sign your LPA.
-          %p
-            %a.js-guidance{:href=> guidance_path + "#replacement-attorneys", "data-journey-click" => "stageprompt.lpa:help:replacement-attorneys"} Find out more about replacement attorneys
+        %section#donor.section.current
+          %h2.accordion-header #{lpa_overview(@lpa).count+1}. Do you want any replacement attorneys?
+          .accordion-content
+            .section-intro
+              %p The people you add here step in if your original attorneys can no longer act.
+              %p A replacement attorney must meet the same requirements as an original attorney. This includes being 18 or over when you sign your LPA.
+              %p
+                %a.js-guidance{:href=> guidance_path + "#replacement-attorneys", "data-journey-click" => "stageprompt.lpa:help:replacement-attorneys"} Find out more about replacement attorneys
 
-        = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
-          - @lpa.replacement_attorneys.each_with_index do |attorney, index|
-            .person-summary.group
-              .person
-                %h3= attorney.full_name
-                %p= attorney.address.full_address
-              %ul.actions
-                %li
-                  %a{:href => "#"} View/edit details
-                %li
-                  = link_to "Delete", lpa_replacement_attorney_path(@lpa, attorney), method: :delete, id: "delete-replacement-attorney-#{index}", data: { confirm: "Do you want to remove this person?" }
-          - if @lpa.replacement_attorneys.length > 0
-            %p.add-another
-              = link_to("Add a replacement attorney?", new_lpa_replacement_attorney_path(@lpa), {:class => "add"})
-          - else
-            %p
-              = link_to("Add a replacement attorney", new_lpa_replacement_attorney_path(@lpa), {:class => "add button"})
-          .accordion-actions
-            %p
-              = link_to("Save and continue", next_wizard_path, {:class => "button"})
+            = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+              - @lpa.replacement_attorneys.each_with_index do |attorney, index|
+                .person-summary.group
+                  .person
+                    %h3= attorney.full_name
+                    %p= attorney.address.full_address
+                  %ul.actions
+                    %li
+                      %a{:href => "#"} View/edit details
+                    %li
+                      = link_to "Delete", lpa_replacement_attorney_path(@lpa, attorney), method: :delete, id: "delete-replacement-attorney-#{index}", data: { confirm: "Do you want to remove this person?" }
+              - if @lpa.replacement_attorneys.length > 0
+                %p.add-another
+                  = link_to("Add a replacement attorney?", new_lpa_replacement_attorney_path(@lpa), {:class => "add"})
+              - else
+                %p
+                  = link_to("Add a replacement attorney", new_lpa_replacement_attorney_path(@lpa), {:class => "add button"})
+              .accordion-actions
+                %p
+                  = link_to("Save and continue", next_wizard_path, {:class => "button"})

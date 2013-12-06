@@ -1,46 +1,48 @@
 = render "shared/create_header"
 
-%article
-  #accordion.accordion-form
-    = render "shared/completed_sections"
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      #accordion.accordion-form
+        = render "shared/completed_sections"
 
-    %section#donor.section.current
-      %h2.accordion-header #{lpa_overview(@lpa).count+1}. How should your replacement attorneys make decisions?
-      .accordion-content
-        .section-intro
-          %p Most people want their replacement attorneys to work together in the same way that their original attorneys did.
-          %p But if you want, you can choose to appoint your replacement attorneys differently to your originals.
-          %p
-            %a.js-guidance{:href=> guidance_path + "#how-attorneys-make-decisions", "data-journey-click" => "stageprompt.lpa:help:how-attorneys-make-decisions"} Get help with making this decision
+        %section#donor.section.current
+          %h2.accordion-header #{lpa_overview(@lpa).count+1}. How should your replacement attorneys make decisions?
+          .accordion-content
+            .section-intro
+              %p Most people want their replacement attorneys to work together in the same way that their original attorneys did.
+              %p But if you want, you can choose to appoint your replacement attorneys differently to your originals.
+              %p
+                %a.js-guidance{:href=> guidance_path + "#how-attorneys-make-decisions", "data-journey-click" => "stageprompt.lpa:help:how-attorneys-make-decisions"} Get help with making this decision
 
-        %h3 How should the replacement attorneys make decisions?
-        = form_for @lpa, :url => wizard_path, :html => {:id => "decisions-form", :class => "form"} do |lpa_form|
-          .emphasised.option.group
-            = lpa_form.label :how_replacement_attorneys_act_jointly_and_severally do
-              = lpa_form.radio_button :how_replacement_attorneys_act, "Jointly and Severally"
-              Jointly and Severally
-              %span.option-help
-                Attorneys can make decisions on their own or together.
-                %br Most people choose this option because it’s the most practical.
-            = lpa_form.label :how_replacement_attorneys_act_jointly do
-              = lpa_form.radio_button :how_replacement_attorneys_act, "Jointly"
-              Jointly
-              %span.option-help
-                Attorneys must agree unanimously on every decision, however big or small.
-                %br If one of your attorneys can no longer act the others will no longer be able to act.
-            = lpa_form.label :how_replacement_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions do
-              = lpa_form.radio_button :how_replacement_attorneys_act, "Jointly for some decisions, and jointly and severally for other decisions"
-              Jointly for some decisions, and jointly and severally for other decisions
-              %span.option-help
-                Attorneys must agree unanimously on some decisions, but can make others on their own.
-                %br You'll need to state which decisions need to be agreed unanimously.
+            %h3 How should the replacement attorneys make decisions?
+            = form_for @lpa, :url => wizard_path, :html => {:id => "decisions-form", :class => "form"} do |lpa_form|
+              .emphasised.option.group
+                = lpa_form.label :how_replacement_attorneys_act_jointly_and_severally do
+                  = lpa_form.radio_button :how_replacement_attorneys_act, "Jointly and Severally"
+                  Jointly and Severally
+                  %span.option-help
+                    Attorneys can make decisions on their own or together.
+                    %br Most people choose this option because it’s the most practical.
+                = lpa_form.label :how_replacement_attorneys_act_jointly do
+                  = lpa_form.radio_button :how_replacement_attorneys_act, "Jointly"
+                  Jointly
+                  %span.option-help
+                    Attorneys must agree unanimously on every decision, however big or small.
+                    %br If one of your attorneys can no longer act the others will no longer be able to act.
+                = lpa_form.label :how_replacement_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions do
+                  = lpa_form.radio_button :how_replacement_attorneys_act, "Jointly for some decisions, and jointly and severally for other decisions"
+                  Jointly for some decisions, and jointly and severally for other decisions
+                  %span.option-help
+                    Attorneys must agree unanimously on some decisions, but can make others on their own.
+                    %br You'll need to state which decisions need to be agreed unanimously.
 
-          %div.details-textbox{:id => "toggle-lpa[how_replacement_attorneys_act]-lpa_how_replacement_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions", "data-toggle-by" => "#lpa_how_replacement_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions"}
-            %p.hint
-              Please give details of the specific decisions that your attorneys must all agree on.
-              %a.js-guidance{:href => guidance_path + "#how-attorneys-make-decisions", "data-journey-click" => "stageprompt.lpa:help:how-attorneys-make-decisions"} Not sure what to put?
-            = lpa_form.text_area :how_replacement_attorneys_act_details, :row => 24, :cols => 80
+              %div.details-textbox{:id => "toggle-lpa[how_replacement_attorneys_act]-lpa_how_replacement_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions", "data-toggle-by" => "#lpa_how_replacement_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions"}
+                %p.hint
+                  Please give details of the specific decisions that your attorneys must all agree on.
+                  %a.js-guidance{:href => guidance_path + "#how-attorneys-make-decisions", "data-journey-click" => "stageprompt.lpa:help:how-attorneys-make-decisions"} Not sure what to put?
+                = lpa_form.text_area :how_replacement_attorneys_act_details, :row => 24, :cols => 80
 
-          .accordion-actions
-            %p
-              = lpa_form.submit "Save and continue", :class => "button gotonextpart"
+              .accordion-actions
+                %p
+                  = lpa_form.submit "Save and continue", :class => "button gotonextpart"

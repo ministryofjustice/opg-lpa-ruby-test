@@ -1,37 +1,39 @@
 = render "shared/create_header"
 
-%article
-  #accordion.accordion-form
-    = render "shared/completed_sections"
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      #accordion.accordion-form
+        = render "shared/completed_sections"
 
-    %section#donor.section.current
-      %h2.accordion-header #{lpa_overview(@lpa).count+1}. Who should be told before your LPA is registered?
-      .accordion-content
-        .section-intro
-          %p It's a good idea to let people know when you apply to register your LPA. You can add up to 5 'people to be told'. Many donors just add 1 or 2.
-          %p These people have a chance to raise any concerns before your LPA is registered, as a safeguard for you.
-          %p If you prefer, you can add a second certificate provider instead. You'll be given this option next.
-          %p
-            %a.js-guidance{:href=> guidance_path + "#people-to-be-told", "data-journey-click" => "stageprompt.lpa:help:people-to-be-told"} Find out more about 'people to be told'
+        %section#donor.section.current
+          %h2.accordion-header #{lpa_overview(@lpa).count+1}. Who should be told before your LPA is registered?
+          .accordion-content
+            .section-intro
+              %p It's a good idea to let people know when you apply to register your LPA. You can add up to 5 'people to be told'. Many donors just add 1 or 2.
+              %p These people have a chance to raise any concerns before your LPA is registered, as a safeguard for you.
+              %p If you prefer, you can add a second certificate provider instead. You'll be given this option next.
+              %p
+                %a.js-guidance{:href=> guidance_path + "#people-to-be-told", "data-journey-click" => "stageprompt.lpa:help:people-to-be-told"} Find out more about 'people to be told'
 
-        = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
-          - @lpa.people_to_be_told.each do |person_to_be_told|
-            .person-summary.group
-              .person
-                %h3= person_to_be_told.full_name
-                %p= person_to_be_told.address.full_address
-              %ul.actions
-                %li
-                  %a{:href => "#"} View/edit details
-                %li
-                  %a.delete-confirmation{:href => "#"} Delete
+            = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+              - @lpa.people_to_be_told.each do |person_to_be_told|
+                .person-summary.group
+                  .person
+                    %h3= person_to_be_told.full_name
+                    %p= person_to_be_told.address.full_address
+                  %ul.actions
+                    %li
+                      %a{:href => "#"} View/edit details
+                    %li
+                      %a.delete-confirmation{:href => "#"} Delete
 
-          - if @lpa.people_to_be_told.length > 0
-            %p.add-another
-              = link_to("Add a person to be told", new_lpa_person_to_be_told_path(@lpa), {:class => "add"})
-          - else
-            %p
-              = link_to("Add a person to be told", new_lpa_person_to_be_told_path(@lpa), {:class => "add button"})
-          .accordion-actions
-            %p
-              = link_to("Save and continue", next_wizard_path, {:class => "button"})
+              - if @lpa.people_to_be_told.length > 0
+                %p.add-another
+                  = link_to("Add a person to be told", new_lpa_person_to_be_told_path(@lpa), {:class => "add"})
+              - else
+                %p
+                  = link_to("Add a person to be told", new_lpa_person_to_be_told_path(@lpa), {:class => "add button"})
+              .accordion-actions
+                %p
+                  = link_to("Save and continue", next_wizard_path, {:class => "button"})
