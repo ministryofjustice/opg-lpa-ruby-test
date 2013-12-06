@@ -1,4 +1,4 @@
-#People to be told 
+# People to be told
 
 **'People to be told' are the individuals you choose to be notified** when you apply to register your LPA.
 
@@ -12,10 +12,10 @@ You don't have to choose people to be told. However, if you don't, you'll need 2
 
 ## Who you can choose
 
-You can choose up to 5 'people to be told', but **they can't be your attorneys or replacement attorneys**. Many donors choose family members or close friends. 
+You can choose up to 5 'people to be told', but **they can't be your attorneys or replacement attorneys**. Many donors choose family members or close friends.
 
 It's a good idea to talk to the people before you name them and to explain that:
- 
+
 * they don't have to do anything right away
 * they will only be notified when an application to register your LPA is made
 * they do not have to do anything then either, unless they have concerns
@@ -35,7 +35,7 @@ The form sets out reasons why people can object. It also tells them how to objec
 
 ## Where there are no concerns
 
-If the notified people have no concerns then **they don't have to say or do anything**. 
+If the notified people have no concerns then **they don't have to say or do anything**.
 
 ## Where there are grounds for objection
 
@@ -51,14 +51,14 @@ A 'person to be told' can object to the Office of the Public Guardian against re
 * you and an attorney were married or had a civil partnership and that relationship has been legally ended
 * an attorney doesn't have the mental capacity to be an attorney
 * an attorney has decided to stop acting (known as 'disclaiming their appointment')
-* you or an attorney are bankrupt or interim bankrupt, or subject to a debt relief order (this applies to property and financial affairs LPAs only)  
+* you or an attorney are bankrupt or interim bankrupt, or subject to a debt relief order (this applies to property and financial affairs LPAs only)
 
 
 ### Prescribed grounds
 
 A 'person to be told' can object to the Court of Protection against registration of the LPA if:
 
-* the power purported to be created by the LPA is not valid as an LPA – if they don't believe you had the capacity to make an LPA, for example 
+* the power purported to be created by the LPA is not valid as an LPA – if they don't believe you had the capacity to make an LPA, for example
 * the power created by the LPA no longer exists – if you, the donor, revoked it at a time when you had mental capacity
 * there was fraud, or undue pressure on you to make the LPA
 * an attorney proposes to behave in a way that would go beyond their authority, or would not be in your best interests

@@ -1,5 +1,5 @@
-#Replacement attorneys
-Replacement attorneys are **people you choose to step in if 1 or more of your original attorneys can no longer make decisions on your behalf.** 
+# Replacement attorneys
+Replacement attorneys are **people you choose to step in if 1 or more of your original attorneys can no longer make decisions on your behalf.**
 
 A replacement attorney will step in if one of your attorneys:
 
@@ -9,16 +9,16 @@ A replacement attorney will step in if one of your attorneys:
 * was your spouse or civil partner, but that relationship has legally ended
 * becomes bankrupt or subject to a debt relief order (only applies to LPAs for property and financial affairs)
 
-##Who can be a replacement attorney?
+## Who can be a replacement attorney?
 
-A replacement attorney must meet the same requirements as an original attorney. This includes having mental capacity and being 18 or over when you sign your LPA. See our [Attorneys](#/help/attorneys) help topic for more on the requirements.  
+A replacement attorney must meet the same requirements as an original attorney. This includes having mental capacity and being 18 or over when you sign your LPA. See our [Attorneys](#/help/attorneys) help topic for more on the requirements.
 
 ## Why have replacement attorneys?
 If you appoint only 1 attorney and that attorney can no longer act for you, your LPA will no longer work. Even if you appoint more than 1 attorney and just 1 of them can no longer act, there's still a risk that part or all of your LPA will not work, if they were appointed jointly for all or some decisions.
 
 In that situation your remaining attorney or attorneys, or someone else connected with you, would have to apply to the Court of Protection to get the power to act on your behalf if you did not have mental capacity. This could be a long and expensive process.
 
-###Protecting your LPA
+### Protecting your LPA
 If you have 1 or more replacement attorneys, your LPA should continue to be usable if an original attorney can no longer act.
 
 It's particularly important to **consider including replacement attorneys in your LPA** if:
@@ -28,7 +28,7 @@ It's particularly important to **consider including replacement attorneys in you
 
 In that case:
 
-* **If you have no replacement attorneys** and 1 of your original attorneys can no longer act, the others will not be able to make any of the decisions you've said they all need to agree on. 
+* **If you have no replacement attorneys** and 1 of your original attorneys can no longer act, the others will not be able to make any of the decisions you've said they all need to agree on.
 * **If you do have replacement attorneys**, they can step in and make those decisions instead.
 * Your remaining original attorneys can still make any decisions which don't have to be made jointly, alongside the replacement attorney.
 
@@ -56,7 +56,7 @@ If you decide your attorneys must make any or all decisions *jointly* (where the
 
 > You choose your spouse as your attorney. **You appoint your trusted friend as a replacement attorney** in case your spouse dies before you or can no longer act for another reason.
 
-> You choose 2 attorneys. **You appoint a replacement who can step in** and work with 1 of the attorneys if the other can no longer act. 
+> You choose 2 attorneys. **You appoint a replacement who can step in** and work with 1 of the attorneys if the other can no longer act.
 Remember, if you say attorneys must make any or all decisions jointly, the remaining original attorney will no longer be able to make those decisions. The replacement will replace both of the original attorneys in relation to those decisions.
 
 > You choose your spouse and adult son as attorneys. **You appoint your 3 grandchildren (all over 18) as replacement attorneys**. You don't state an order, so all 3 will step in if and when 1 of your original attorneys can no longer act.
@@ -70,7 +70,7 @@ Remember, if you say attorneys must make any or all decisions jointly, the remai
 * Would I want new attorneys to replace original ones in a particular order? (This is only possible if you have said that attorneys should make decisions jointly and severally.)
 
 
-Remember, many of the things you'll want to consider when choosing replacement attorneys are the same as you'd consider when choosing your original attorneys. 
+Remember, many of the things you'll want to consider when choosing replacement attorneys are the same as you'd consider when choosing your original attorneys.
 
 ### Related help topics
 * [Attorneys](#/help/attorneys)

@@ -19,7 +19,7 @@ You can also make a separate LPA for your business affairs if you want different
 
 Once your LPA is registered it is ready to use immediately (with your consent), unless you've said otherwise. This can allow your attorneys to help you manage your affairs while you still have mental capacity but for some other reason find it difficult or impractical to take care of them yourself.
 
-###How does a health and welfare LPA work?
+### How does a health and welfare LPA work?
 
 You choose someone to make decisions on your behalf about things like:
 

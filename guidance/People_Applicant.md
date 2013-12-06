@@ -1,17 +1,17 @@
-#Applicant
+# Applicant
 
 The applicant is **the person applying to register** the LPA. The applicant will also receive the stamped LPA once it's registered.
 
 Someone else, such as a solicitor, can help with an application. But the person who is applying must sign the 'Application to register a lasting power of attorney' form (LPA002). This form will be available to download after you have paid the adminstration fee.
 
-The Office of the Public Guardian (OPG) needs to know who is applying to register the LPA so that we can send the registered and stamped LPA to the right person. 
+The Office of the Public Guardian (OPG) needs to know who is applying to register the LPA so that we can send the registered and stamped LPA to the right person.
 
-Please note, **if a legal professional has been chosen as the correspondent, they will receive the LPA** instead of the applicant. 
+Please note, **if a legal professional has been chosen as the correspondent, they will receive the LPA** instead of the applicant.
 
 ## Who can apply to register an LPA?
-Either you as **the donor, or 1 or more of your attorneys**, can apply to register your LPA. A donor and attorney can't apply to register an LPA together. 
+Either you as **the donor, or 1 or more of your attorneys**, can apply to register your LPA. A donor and attorney can't apply to register an LPA together.
 
-###If you have more than one attorney
+### If you have more than one attorney
 If any of your attorneys want to register your LPA, the rules about who can apply depend on how you've said your attorneys must make decisions.
 
 If **all decisions are to be made jointly**:

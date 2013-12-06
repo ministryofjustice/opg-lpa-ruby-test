@@ -8,7 +8,7 @@ If you **don't** name 'people to be told', you need 2 certificate providers.
 
 You might want to take a look at our [People to be told](#/help/people-to-be-told) help topic too.
 
-##A certificate provider's role
+## A certificate provider's role
 A certificate provider helps to make sure that all's well when you make your LPA, and acts as an important safeguard. They must confirm that:
 
 * you understand the significance of the LPA
@@ -68,7 +68,7 @@ When you fill in the digital form you'll be asked to tick one of the following t
 If you pick the second or third option, you'll need to add details in one of the free-text boxes provided. Otherwise, the certificate provider will fill in these details on the LPA document when they sign it.
 
 ### Details to write in the box
-If they know you well personally, clearly state how, eg "friend", "neighbour" or "colleague".  This is more important than stating how many years they have known you. It's a common mistake to say something like "I've known the donor for 20 years." This doesn't explain your relationship. 
+If they know you well personally, clearly state how, eg "friend", "neighbour" or "colleague".  This is more important than stating how many years they have known you. It's a common mistake to say something like "I've known the donor for 20 years." This doesn't explain your relationship.
 
 The certificate provider will have to sign this statement on the printed LPA, so write it from their point of view: for instance, "I have been a colleague of the donor for 3 years." or "I've lived next door to (your name) for 8 years".
 
@@ -85,4 +85,4 @@ If they have relevant professional skills and experience, clearly state what the
 
 * [People to be told](#/help/people-to-be-told)
 * [Signing the LPA](#/help/signing-the-lpa)
-* [Registering the LPA](#/help/registering-the-lpa) 
+* [Registering the LPA](#/help/registering-the-lpa)

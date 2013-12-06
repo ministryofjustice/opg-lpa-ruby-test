@@ -22,7 +22,7 @@ Please note that if you're not able to sign or make a mark yourself, you can dir
 
 It's a good idea to apply to **register your LPA sooner rather than later**. That way any mistakes which could make it invalid can be put right before it's registered. And then your LPA will be ready to use as soon as you need it.
 
-###How do I pay the fee?
+### How do I pay the fee?
 This tool supports payment by:
 
 * cheque
