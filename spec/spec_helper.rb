@@ -61,6 +61,9 @@ RSpec.configure do |config|
     name = example.metadata[:full_description].split(/\s+/, 2).join("/").underscore.gsub(/[^\w\/]+/, "_")
     VCR.use_cassette(name) { example.call }
   end
+
+  #Attempted fix for NoMethodError: undefined method `click' for #<RSpec::Core in pdf preview test
+  config.include Capybara::DSL
 end
 
 def fill_in_valid_person(overrides={})

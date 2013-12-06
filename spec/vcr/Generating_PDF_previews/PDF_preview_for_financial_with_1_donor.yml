@@ -1,0 +1,35 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:9292/api/applicants.json
+    body:
+      encoding: UTF-8
+      string: '{"address":{"address_line1":"102 Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[],"title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","date_of_birth":"1970-01-31T00:00:00+01:00"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 05 Dec 2013 17:11:51 GMT
+recorded_with: VCR 2.7.0

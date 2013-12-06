@@ -1,0 +1,158 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:9292/api/applicants.json
+    body:
+      encoding: UTF-8
+      string: '{"address":{"address_line1":"102 Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[],"title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","date_of_birth":"1970-01-31T00:00:00+01:00"}'
+    headers:
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - close
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 05 Dec 2013 17:12:48 GMT
+- request:
+    method: post
+    uri: http://localhost:9292/auth/users
+    body:
+      encoding: UTF-8
+      string: user[email]=joe.bloggs1386263879.536971772%40example.com&user[password]=s3kr!tpass
+    headers: {}
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Location:
+      - http://localhost:9393/
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"27e32f441aeb45a740f70c97ac365d6e"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - ff444240-0106-455d-9a7f-efcc97852b83
+      X-Runtime:
+      - '0.068299'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
+      Date:
+      - Thu, 05 Dec 2013 17:17:59 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '100'
+    body:
+      encoding: UTF-8
+      string: '{"email":"joe.bloggs1386263879.536971772@example.com","authentication_token":"Gnh8NiHK43KJbWw9NEup"}'
+    http_version: 
+  recorded_at: Thu, 05 Dec 2013 17:17:59 GMT
+- request:
+    method: post
+    uri: http://localhost:9292/auth/users/sign_in
+    body:
+      encoding: UTF-8
+      string: user[email]=joe.bloggs1386263879.536971772%40example.com&user[password]=s3kr!tpass
+    headers: {}
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Location:
+      - http://localhost:9393/
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"27e32f441aeb45a740f70c97ac365d6e"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 9a32d5a4-f9eb-4f09-b5b5-ed97f847995d
+      X-Runtime:
+      - '0.091038'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
+      Date:
+      - Thu, 05 Dec 2013 17:17:59 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '100'
+    body:
+      encoding: UTF-8
+      string: '{"email":"joe.bloggs1386263879.536971772@example.com","authentication_token":"Gnh8NiHK43KJbWw9NEup"}'
+    http_version: 
+  recorded_at: Thu, 05 Dec 2013 17:17:59 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - Gnh8NiHK43KJbWw9NEup
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '21'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"error":"Forbidden"}'
+    http_version: 
+  recorded_at: Thu, 05 Dec 2013 17:17:59 GMT
+recorded_with: VCR 2.7.0
