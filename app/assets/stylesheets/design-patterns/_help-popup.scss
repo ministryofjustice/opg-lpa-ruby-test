@@ -13,7 +13,7 @@
   header {
     padding: 1em 3.25em;
     border-bottom: 1px solid $light-blue-25;
-    background: url(https://assets.digital.cabinet-office.gov.uk/static/icon-information-f78d8c1b10b141b5a9a8c7a40220c4a4.png) no-repeat scroll 1em 0.8em white;
+    background: url(https://assets.digital.cabinet-office.gov.uk/static/icon-information-f78d8c1b10b141b5a9a8c7a40220c4a4.png) no-repeat 1em 0.8em;
 
     p {
       margin: 0;
@@ -86,7 +86,7 @@
   // Content area
   .help-sections {
     @include media(desktop) {
-      float: right;
+      float: left;
       width: 75%;
     }
 

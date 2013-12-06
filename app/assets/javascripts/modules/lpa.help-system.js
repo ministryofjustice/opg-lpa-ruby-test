@@ -32,7 +32,7 @@
       selector: 'a.js-guidance',
       overlayIdent: 'help-system',
       overlaySource: '#content',
-      loadingContent: '<p>Loading...</p>', // TODO: Use JS template rather than markup here...
+      loadingContent: '<div id="help-system"><header><p>A guide to making your lasting power of attorney</p></header><div class="help-sections"><article><p><img src="/assets/ajax-loader.gif"> Loading guidance</p></article></div></div>', // TODO: Use JS template rather than markup here...
       popupOnClose: function () {
         lpa.Modules.helpSystem.topic = undefined;
       }
