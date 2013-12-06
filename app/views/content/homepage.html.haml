@@ -9,7 +9,7 @@
   %article.group{:role => "article"}
     .inner
       .page-intro
-        %p This tool will help you to create a #{link_to "lasting power of attorney", "guidance/#lpa-basics", { :class => "js-guidance", "data-journey-click" => "stageprompt.lpa:help:lpa-basics" }} (LPA) that can be registered in England and Wales. It will also support you in signing and applying to register an LPA with the Office of the Public Guardian (OPG).
+        %p This tool will help you to create a #{link_to "lasting power of attorney", guidance_path + "#lpa-basics", { :class => "js-guidance", "data-journey-click" => "stageprompt.lpa:help:lpa-basics" }} (LPA) that can be registered in England and Wales. It will also support you in signing and applying to register an LPA with the Office of the Public Guardian (OPG).
         %p Remember, an LPA must be registered before it can be used.
 
         -#
@@ -31,13 +31,13 @@
           %p.step-title
             %strong Sign the LPA
           %p Several people must sign the LPA document in a set order. We’ll explain who needs to sign and when.
-          %p= link_to "More about signing", "guidance/#signing-the-lpa", {:class => "js-guidance", "data-journey-click" => "stageprompt.lpa:help:signing-the-lpa"}
+          %p= link_to "More about signing", guidance_path + "#signing-the-lpa", {:class => "js-guidance", "data-journey-click" => "stageprompt.lpa:help:signing-the-lpa"}
         %li
           = image_tag "homepage/pictogram-register-lpa.png"
           %p.step-title
             %strong Register the LPA
           %p When you’re ready, sign back in here to complete a registration form and pay the £110 fee. Then post the LPA and registration form to OPG.
-          %p= link_to "More about registering", "guidance/#registering-the-lpa", {:class => "js-guidance", "data-journey-click" => "stageprompt.lpa:help:registering-the-lpa"}
+          %p= link_to "More about registering", guidance_path + "#registering-the-lpa", {:class => "js-guidance", "data-journey-click" => "stageprompt.lpa:help:registering-the-lpa"}
         %li
           = image_tag "homepage/pictogram-receive-lpa.png"
           %p.step-title
@@ -48,8 +48,8 @@
 
       %h2 Before you begin
       %p If you’re making your first LPA, there a few things you need to know and to think about. These help topics are a good place to start:
-      %p= link_to "LPA basics", "guidance/#lpa-basics", {:class => "js-guidance", "data-journey-click" => "stageprompt.lpa:help:lpa-basics"}
-      %p= link_to "About this tool", "guidance/#about-this-tool", {:class => "js-guidance", "data-journey-click" => "stageprompt.lpa:help:about-this-tool"}
+      %p= link_to "LPA basics", guidance_path + "#lpa-basics", {:class => "js-guidance", "data-journey-click" => "stageprompt.lpa:help:lpa-basics"}
+      %p= link_to "About this tool", guidance_path + "#about-this-tool", {:class => "js-guidance", "data-journey-click" => "stageprompt.lpa:help:about-this-tool"}
 
       %h2 Quick questions
       %p Here are some answers to common questions. You’ll find lots more guidance on the decisions you need to make, and the information you need to add, as you progress through the LPA tool.
@@ -57,19 +57,19 @@
       %details
         %summary{"aria-expanded" => "false", "data-journey-click" => "stageprompt.lpa:help.inline:/:how-much-does-it-cost-to-apply-to-register-an-lpa", role: "button"} How much does it cost to apply to register an LPA?
         %p There's a £110 application fee to register an LPA, paid by or on behalf of the donor – that’s the person who’s making the LPA. If the donor has an income below £12,000, or gets certain benefits, they might qualify for a lower fee, or the fee might be waived altogether.
-        %p #{link_to "Fees and reductions", "guidance/#fees-and-reductions", {:class => "js-guidance", "data-journey-click" => "stageprompt.lpa:help:fees-and-reductions"}}
+        %p #{link_to "Fees and reductions", guidance_path + "#fees-and-reductions", {:class => "js-guidance", "data-journey-click" => "stageprompt.lpa:help:fees-and-reductions"}}
         %p Remember, an LPA must be registered before it can be used.
       %details
         %summary{"aria-expanded" => "false", "data-journey-click" => "stageprompt.lpa:help.inline:/:how-long-does-it-take-to-register-an-lpa", role: "button"} How long does it take to register an LPA?
         %p It takes at least 4 weeks. This time is counted from when the completed and signed LPA is received by the Office of the Public Guardian. This time – known as the ‘waiting period’ – allows people involved in the LPA to raise any concerns before it’s registered.
         %p We also use the time to check that there are no mistakes in the LPA, including anything that would make it invalid or unworkable. We’ll get in touch if you need to correct something before the LPA can be registered.
         %p It’s a good idea to apply to register an LPA sooner rather than later.
-        %p #{link_to "Registering an LPA", "guidance/#registering-the-lpa", {:class => "js-guidance", "data-journey-click" => "stageprompt.lpa:help:registering-the-lpa"}}
+        %p #{link_to "Registering an LPA", guidance_path + "#registering-the-lpa", {:class => "js-guidance", "data-journey-click" => "stageprompt.lpa:help:registering-the-lpa"}}
       %details
         %summary{"aria-expanded" => "false", "data-journey-click" => "stageprompt.lpa:help.inline:/:can-i-do-it-all-using-this-tool", role: "button"} Can I do it all using this tool?
         %p Not quite. This digital tool will help you make an LPA and support you in applying to registering it. You’ll need to print a copy though, and get this signed, as well as completing some of the registration tasks offline. Then you’ll need to post the LPA to OPG for registration.
         %p We’ll explain what you need to do as you complete each step.
-        %p #{link_to "About this tool", "guidance/#about-this-tool", {:class => "js-guidance", "data-journey-click" => "stageprompt.lpa:help:about-this-tool"}}
+        %p #{link_to "About this tool", guidance_path + "#about-this-tool", {:class => "js-guidance", "data-journey-click" => "stageprompt.lpa:help:about-this-tool"}}
       %details
         %summary{"aria-expanded" => "false", "data-journey-click" => "stageprompt.lpa:help.inline:/:what-does-beta-mean", role: "button"} What does beta mean?
         %p Beta means this is a new online tool and we’re still testing and improving it. However, the tool is ready to use and will help you make and apply to register your LPA.
