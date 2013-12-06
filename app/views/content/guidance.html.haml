@@ -2,109 +2,20 @@
   .inner
     %header
       %p A guide to making your lasting power of attorney
+
     %nav.help-navigation
       .group
         %h2{:tabindex => "-1"} Help topics
         %ul
-          %li
-            %a.js-guidance{:href => "/guidance/#lpa-basics"} LPA Basics
-          %li
-            %a.js-guidance{:href => "/guidance/#about-this-tool"} About this tool
+          - @nav.each do |id, title|
+            %li
+              %a.js-guidance{:href => "/guidance/#" + id}= title
+
     .content.help-sections
-      %article#lpa-basics
-        %h1 LPA Basics
-
-        <p>A lasting power of attorney (LPA) is a powerful legal document that <strong>allows you to choose trusted people to make decisions on your behalf</strong>. An LPA is generally used if you don't have mental capacity to make decisions yourself.</p>
-
-        <h3>What is mental capacity?</h3>
-
-        <p>'Mental capacity' refers to <strong>the ability to make a decision</strong>. A person with mental capacity has at least a general understanding of the decision they need to make, why they need to make it, and the likely consequences. Sometimes people can make some kinds of decision, but don't have the mental capacity to make others. </p>
-
-        <p>Visit the Ministry of Justice website to <a href="http://www.justice.gov.uk/protecting-the-vulnerable/mental-capacity-act" rel="external" target="_blank">learn more about mental capacity</a>.</p>
-
-        <p>An LPA helps you <strong>keep control over decisions that affect you</strong>, even when you cannot make them personally. An LPA allows you to plan and choose:</p>
-
-        <ul>
-        <li>what decisions you want to be made on your behalf</li>
-        <li>who you want to make those decisions</li>
-        <li>how you want them to make those decisions</li>
-        </ul>
-
-        <p>Within an LPA, <strong>you are known as the 'donor'</strong>. And the <strong>people you choose to make decisions are called 'attorneys'</strong>.</p>
-
-        <h2>What an LPA covers</h2>
-
-        <p>There are 2 types of LPA:</p>
-
-        <h3>Property and financial affairs</h3>
-
-        <p>This LPA covers areas of your life where money and property is involved. You don't have to own your own home or have a lot of money to make this type of LPA. This type of LPA <strong>can be used on your behalf with your consent as soon as it's registered</strong>. You can also say in advance that it should be used only when you don't have mental capacity.  </p>
-
-        <h3>Health and welfare</h3>
-
-        <p>This LPA covers your medical, physical and personal care. It also lets you give your attorneys power to make decisions about treatment to keep you alive or, alternatively, to say that your doctors will make those decisions. This type of LPA <strong>can only be used if and when you don't have mental capacity</strong> to make decisions yourself.</p>
-
-        <p>Some people make 1 LPA, while others choose to make both types. You'll find more information about the 2 types of LPA when you're asked to choose which type to make.</p>
-
-        <h2>Protecting your best interests</h2>
-
-        <p>Your attorneys must always act in your best interests and follow any instructions you give them about making decisions. These instructions can include:</p>
-
-        <ul>
-        <li>whether attorneys make all or some decisions together or individually</li>
-        <li>any restrictions or conditions on how attorneys make decisions</li>
-        </ul>
-
-        <p>You can also include guidance on how you'd like attorneys to make decisions so that their decisions will be similar to the ones you would have made yourself.</p>
-
-        <p><strong>Your attorneys can only make decisions that they're authorised to make</strong> under your LPA. For example, if your LPA relates to your property and financial affairs, they can't make decisions about your care or where you live. And if your LPA relates to your health and welfare, they can't make decisions about spending your money.</p>
-
-        <h3>Code of Practice that attorneys must follow</h3>
-
-        <p>Attorneys must follow the <a href="http://www.justice.gov.uk/protecting-the-vulnerable/mental-capacity-act" rel="external" target="_blank">Mental Capacity Act Code of Practice</a>. The key principles are explained here:</p>
-
-        <ul>
-        <li>Your attorneys must assume that you can make your own decisions unless they establish that you can't do so.</li>
-        <li>Your attorneys must help you to make as many of your own decisions as you can. They must take all practicable steps to help you to make a decision. They can only treat you as unable to make a decision if they have not succeeded in helping you make a decision through those steps.</li>
-        <li>Your attorneys must not treat you as unable to make a decision simply because you make an unwise decision.</li>
-        <li>Your attorneys must act and make decisions in your best interests when you are unable to make a decision.</li>
-        <li>Before your attorneys make a decision or act for you, they must consider whether they can make the decision or act in a way that is less restrictive of your rights and freedom but still achieves the purpose.</li>
-        </ul>
-
-        <h2>Strong safeguards</h2>
-
-        <p><strong>An LPA can't be used until it's been registered by the Office of the Public Guardian (OPG)</strong>. And this can't happen until OPG is satisfied that the LPA is sound and that certain people have had the opportunity to raise objections. OPG can ask the Court of Protection to remove invalid restrictions, guidance or specific words so that an LPA can be registered.</p>
-
-        <p>In addition, <strong>a donor who still has mental capacity can ask OPG to cancel their registered LPA</strong> if they change their mind.</p>
-
-        <p>OPG protects people who don't have the mental capacity to make decisions for themselves. If someone raises concerns about how an attorney is acting under an LPA, OPG will investigate or work with other organisations to address complaints.</p>
-
-        <h3>Related help topics</h3>
-
-        <ul class="related-navigation">
-        <li><a class="js-guidance" href="/guidance/#about-this-tool">About this tool</a></li>
-        <li><a href="/guidance/#the-2-types-of-lpa">The 2 types of LPA</a></li>
-        <li><a href="/guidance/#donor">Donor</a></li>
-        <li><a href="/guidance/#attorneys">Attorneys</a></li>
-        </ul>
-      %article#about-this-tool
-        %h1 LPA AAAAAA
-
-        <p>A lasting power of attorney (LPA) is a powerful legal document that <strong>allows you to choose trusted people to make decisions on your behalf</strong>. An LPA is generally used if you don't have mental capacity to make decisions yourself.</p>
-
-        <h3>What is mental capacity?</h3>
-
-        <p>'Mental capacity' refers to <strong>the ability to make a decision</strong>. A person with mental capacity has at least a general understanding of the decision they need to make, why they need to make it, and the likely consequences. Sometimes people can make some kinds of decision, but don't have the mental capacity to make others. </p>
-
-        <p>Visit the Ministry of Justice website to <a href="http://www.justice.gov.uk/protecting-the-vulnerable/mental-capacity-act" rel="external" target="_blank">learn more about mental capacity</a>.</p>
-
-        <p>An LPA helps you <strong>keep control over decisions that affect you</strong>, even when you cannot make them personally. An LPA allows you to plan and choose:</p>
-
-        <ul>
-        <li>what decisions you want to be made on your behalf</li>
-        <li>who you want to make those decisions</li>
-        <li>how you want them to make those decisions</li>
-        </ul>
+      - debug(@sections)
+      - @sections.each do |id, content|
+        %article{:id => id}
+          = raw content
 
     .action.group
       %p
