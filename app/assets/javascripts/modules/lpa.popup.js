@@ -62,13 +62,8 @@
       // combine opts with settings for local settings
       opts = $.extend({}, this.settings, opts);
 
-      // Stop rest of page from scrolling when scrolling the popup
-      if ($(document).height() > $(window).height()) {
-        // Works for Chrome, Firefox, IE...
-        var scrollTop = ($('html').scrollTop()) ? $('html').scrollTop() : $('body').scrollTop();
-        moj.log(scrollTop);
-        $('html').addClass('noscroll').css('top', -scrollTop);
-      }
+      // disable body scroll
+      $('html, body').addClass('noscroll');
 
       // Join it all together
       this.$popup.data('settings', opts).addClass(opts.ident).append(this.$close).append(this.$content.html(html)).appendTo(this.$mask);
@@ -105,15 +100,8 @@
       // make sure there is a popup to close
       if($('#popup').length > 0){
         var self = this,
-            opts = $('#popup').data('settings');
-
-        // Re-enable scrolling of rest of page
-        var scrollTop = parseInt($('html').css('top'));
-        $('html').removeClass('noscroll');
-        // ###################
-        // ##  NOT WORKING  ##
-        // ###################
-        $('html,body').scrollTop(-scrollTop);
+            opts = $('#popup').data('settings'),
+            scrollPosition = $(window).scrollTop();
 
         self.$popup.fadeOut(400, function () {
           self.$mask.fadeOut(200, function () {
@@ -132,6 +120,10 @@
 
             // Remove the popup from the DOM
             $(this).remove();
+
+            // re-enable body scroll
+            $(window).scrollTop(scrollPosition);
+            $('html, body').removeClass('noscroll');
           });
         });
       }

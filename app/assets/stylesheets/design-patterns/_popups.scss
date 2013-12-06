@@ -4,14 +4,13 @@
 
 @mixin popup($width: 70%, $height: 26em, $border-colour: $light-blue-25){
   // Helper styles for popups
-  html.noscroll {
-      position: fixed;
-      top: 0;
-      left: 0;
-      overflow-y: scroll;
-      width: 100%;
+  body {
+    position: relative;
+    overflow-y: scroll;
   }
-
+  .noscroll {
+    overflow: hidden;
+  }
   .popover-mask {
     background-color: rgba(0, 0, 0, 0.5);
     display: none;

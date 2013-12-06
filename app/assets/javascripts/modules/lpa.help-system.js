@@ -79,6 +79,7 @@
     },
 
     _selectHelpTopic: function (topic) {
+      moj.log("_selectHelpTopic");
       var self = this;
 
       // make sure no duplicate calls are fired
