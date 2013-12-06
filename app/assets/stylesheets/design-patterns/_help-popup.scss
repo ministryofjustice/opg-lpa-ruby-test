@@ -3,132 +3,137 @@
 
 // Examples
 .example {
-background: none repeat scroll 0 0 #E7EBDA;
-margin: 0.75em -1em;
-padding: 0.5em 1em;
+  background: none repeat scroll 0 0 #E7EBDA;
+  margin: 0.75em -1em;
+  padding: 0.5em 1em;
 }
 
-#popup.help-system .close {
-    right: 2.25em;
-    z-index: 1;
-}
-
-#popup.help-system{
-  @include popup(80%);
-  margin-top: 0;
-  article{
-    padding: 0 0 0 1em;
-    @include media(mobile) {
-      padding: 0 1em;
-    }
-    margin: 0;
-    width: auto;
-  }
+#help-system {
   // Header
-  .header{
-    border-color: $light-blue-25;
-    padding-left: 3.25em;
-    padding-right: 3.25em;
-    background: url(https://assets.digital.cabinet-office.gov.uk/static/icon-information-f78d8c1b10b141b5a9a8c7a40220c4a4.png) no-repeat scroll 1em 0.8em white;  }
+  header {
+    padding: 1em 3.25em;
+    border-bottom: 1px solid $light-blue-25;
+    background: url(https://assets.digital.cabinet-office.gov.uk/static/icon-information-f78d8c1b10b141b5a9a8c7a40220c4a4.png) no-repeat 1em 0.8em;
+
+    p {
+      margin: 0;
+    }
+  }
+  // Navigation
+  .help-navigation {
+    padding: 0.5em 0 0;
+    border-bottom: 1px solid $light-blue-25;
+
+    @include media(desktop) {
+      float: right;
+      width: 25%;
+      border-bottom: 0;
+    }
+    h2 {
+      @include core-19;
+      margin: 0.75em 0 1em;
+      padding: 0.25em 0 0.25em 1.5em;
+    }
+    a {
+      @include core-16;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    ul {
+      margin: 0.5em 0 0;
+      padding: 0 0 1em;
+      list-style-image: none;
+
+      li {
+        margin: 0;
+        padding: 0.25em 0.5em 0.25em 1.8em;
+        list-style-type: none;
+        border-left: 2px solid transparent;
+
+        @include media(desktop) {
+          position: relative;
+          left: -2px;
+          margin-right: -2px;
+        }
+
+        &.active {
+          border-left: 2px solid $light-blue;
+          background: $highlight-colour;
+          a {
+            color: $text-colour;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
   // Actions
-  .action.group{
-    border-color: $light-blue-25;
-    @include media(mobile) {
-      margin-right: -1em;
+  .action {
+    padding: 1em 0;
+    margin: 0;
+    border-top: 1px solid $light-blue-25;
+
+    @include media(desktop) {
+      clear: both;
+    }
+
+    .close-help {
+      display: none;
     }
   }
   // Content area
-  .content{
-    float: left;
-    width: 74%;
-    @include media(mobile) {
-      width: 100%;
-      border-right: 0;
-      padding-right: 1em;
+  .help-sections {
+    @include media(desktop) {
+      float: left;
+      width: 75%;
     }
-    border-right: 2px solid $light-blue-25;
-    h1{
+
+    h1 {
       @include heading-48;
-      margin-top: 0.5em;
     }
     h3 {
       @include bold-19;
       margin: 2em 0 1em;
     }
-    ul{
+    ul {
       margin-left: 2em;
     }
-    section{
-      padding-left: 1em;
-      padding-right: 3em;
+    dt {
+      font-weight: bold;
     }
-  }
-  // Navigation
-  nav{
-    float: left;
-    margin: 0.5em 0 0 -2px;
-    border-left: 2px solid $light-blue-25;
-    width: 24%;
-    @include media(mobile) {
-      width: 100%;
-      border-left: 0;
-      border-top: 2px solid $light-blue-25;
-    }
-    h2{
-    margin: 0.75em 0 1em 0.5em;
-    padding: 0.25em 1em;
-    @include core-19;
-    }
-    ul{
-      margin: 0;
-      margin-top: 0.5em;
+    article {
       padding-bottom: 1em;
-      list-style-image: none;
-    }
-    li{
-      margin: 0 -1em 0 -2px;
-      padding: 0.25em 0.5em 0.25em 1.3em;
-      list-style-type: none;
-      border-left: 2px solid transparent;
-      &.active{
-        border-left: 2px solid $light-blue;
-        background: $highlight-colour;
-        a{
-          color: $text-colour;
-          text-decoration: none;
-        }
+      padding-top: 1.5em;
+      margin-bottom: -1px;
+      border-bottom: 1px solid $light-blue-25;
+
+      @include media(desktop) {
+        padding-right: 3em;
+        border-right: 2px solid $light-blue-25;
       }
     }
-    a{
-      @include core-16;
-      text-decoration: none;
-      &:hover{
-        text-decoration: underline;
+  }
+
+  // custom styles when loaded in popup
+  #popup & {
+    .inner {
+      max-width: none;
+      padding: 0;
+    }
+    .action {
+      padding-left: 1em;
+      padding-right: 1em;
+
+      .close-help {
+        display: inline;
       }
     }
-    .current{
-      background: #e8f0f0;
-      position: relative;
-      &:before {
-        width: 0;
-        height: 0;
-        content: " ";
-        border: 1.25em solid transparent;
-        border-right-color: #e8f0f0;
-        position: absolute;
-        left: -2.5em;
-        top: 0;
-      }
-      a{
-        color: #333;
+    .help-sections {
+      article {
+        padding-left: 2em;
       }
     }
   }
 }
-
-article {
-  dt{
-    font-weight: bold;
-  }
-}
-

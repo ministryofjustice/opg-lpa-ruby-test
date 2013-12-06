@@ -1,0 +1,29 @@
+%section#help-system
+  .inner
+    %header
+      %p A guide to making your lasting power of attorney
+
+    %nav.help-navigation
+      .group
+        %h2{:tabindex => "-1"} Help topics
+        %ul
+          - @nav.each do |id, title|
+            %li
+              %a.js-guidance{:href => "/guidance/#" + id}= title
+
+    .content.help-sections
+      - debug(@sections)
+      - @sections.each do |id, content|
+        %article{:id => id}
+          = raw content
+
+    .action.group
+      %p
+        Need help? Ring us on
+        = succeed "." do
+          %strong 0300 456 0300
+        Alternatively, email us at
+        = succeed "." do
+          %strong= link_to "customerservices@PublicGuardian.gsi.gov.uk", "mailto:customerservices@PublicGuardian.gsi.gov.uk?subject=Digital%20LPA%20Enquiry"
+      %hr
+      = link_to "Close help", "#", {:class => "close-help button-secondary"}

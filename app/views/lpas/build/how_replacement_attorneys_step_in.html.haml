@@ -1,36 +1,38 @@
 = render "shared/create_header"
 
-%article
-  #accordion.accordion-form
-    = render "shared/completed_sections"
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      #accordion.accordion-form
+        = render "shared/completed_sections"
 
-    %section#donor.section.current
-      %h2.accordion-header #{lpa_overview(@lpa).count+1}. How should your replacement attorneys step in?
-      .accordion-content
-        .section-intro
-          %p You can choose when your replacement attorneys step in, and in what order.
-          %p Your replacement attorneys will usually all step in together as soon as 1 of your original attorneys can no longer act. They will be able to make any decision jointly and severally along with the other original attorneys.
-          %p If you'd rather they stepped in later, or you want to choose a specific order, then select 1 of the other 2 options.
+        %section#donor.section.current
+          %h2.accordion-header #{lpa_overview(@lpa).count+1}. How should your replacement attorneys step in?
+          .accordion-content
+            .section-intro
+              %p You can choose when your replacement attorneys step in, and in what order.
+              %p Your replacement attorneys will usually all step in together as soon as 1 of your original attorneys can no longer act. They will be able to make any decision jointly and severally along with the other original attorneys.
+              %p If you'd rather they stepped in later, or you want to choose a specific order, then select 1 of the other 2 options.
 
-        %h3 My replacement attorneys will step in...
-        = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
-          .emphasised.option.group
-            = lpa_form.label :how_replacement_attorneys_act_as_soon_as_the_first_original_attorney_can_no_longer_act do
-              = lpa_form.radio_button :how_replacement_attorneys_act, "As soon as the first original attorney can no longer act"
-              As soon as the first original attorney can no longer act
-            = lpa_form.label :how_replacement_attorneys_act_as_soon_as_the_last_original_attorney_can_no_longer_act do
-              = lpa_form.radio_button :how_replacement_attorneys_act, "As soon as the last original attorney can no longer act"
-              As soon as the last original attorney can no longer act
-            = lpa_form.label :how_replacement_attorneys_act_in_some_other_way do
-              = lpa_form.radio_button :how_replacement_attorneys_act, "In some other way..."
-              In some other way...
+            %h3 My replacement attorneys will step in...
+            = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+              .emphasised.option.group
+                = lpa_form.label :how_replacement_attorneys_act_as_soon_as_the_first_original_attorney_can_no_longer_act do
+                  = lpa_form.radio_button :how_replacement_attorneys_act, "As soon as the first original attorney can no longer act"
+                  As soon as the first original attorney can no longer act
+                = lpa_form.label :how_replacement_attorneys_act_as_soon_as_the_last_original_attorney_can_no_longer_act do
+                  = lpa_form.radio_button :how_replacement_attorneys_act, "As soon as the last original attorney can no longer act"
+                  As soon as the last original attorney can no longer act
+                = lpa_form.label :how_replacement_attorneys_act_in_some_other_way do
+                  = lpa_form.radio_button :how_replacement_attorneys_act, "In some other way..."
+                  In some other way...
 
-          %div.details-textbox{:id => "toggle-lpa[how_replacement_attorneys_act]-lpa_how_replacement_attorneys_act_in_some_other_way", "data-toggle-by" => "#how_replacement_attorneys_act_in_some_other_way"}
-            %p.hint
-              Describe below how you'd like this to happen. Be careful - the more specific your instructions, the greater the chance that they won't be able to be followed. Remember, replacements can't replace other replacements. If in doubt, seek legal advice.
-              %a.open-help-system{:href => "#replacement-attorneys", "data-journey-click" => "stageprompt.lpa:help:replacement-attorneys"} Not sure what to put?
-            = lpa_form.text_area :how_replacement_attorneys_act_details, :row => 24, :cols => 80
+              %div.details-textbox{:id => "toggle-lpa[how_replacement_attorneys_act]-lpa_how_replacement_attorneys_act_in_some_other_way", "data-toggle-by" => "#how_replacement_attorneys_act_in_some_other_way"}
+                %p.hint
+                  Describe below how you'd like this to happen. Be careful - the more specific your instructions, the greater the chance that they won't be able to be followed. Remember, replacements can't replace other replacements. If in doubt, seek legal advice.
+                  %a.js-guidance{:href => guidance_path + "#replacement-attorneys", "data-journey-click" => "stageprompt.lpa:help:replacement-attorneys"} Not sure what to put?
+                = lpa_form.text_area :how_replacement_attorneys_act_details, :row => 24, :cols => 80
 
-          .accordion-actions
-            %p
-              = lpa_form.submit "Save and continue", :class => "button gotonextpart"
+              .accordion-actions
+                %p
+                  = lpa_form.submit "Save and continue", :class => "button gotonextpart"

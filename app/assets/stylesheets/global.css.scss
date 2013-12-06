@@ -12,8 +12,8 @@
 @import "design-patterns/global-nav";
 // @import "design-patterns/grid";
 @import "design-patterns/panels";
-// @import "design-patterns/popups";
-// @import "design-patterns/help-popup";
+@import "design-patterns/popups";
+@import "design-patterns/help-popup";
 @import "design-patterns/progress-indicator";
 // @import "design-patterns/regular-grid";
 // @import "design-patterns/spinner";
@@ -27,9 +27,6 @@
 @import "views/account-management";
 // @import "views/person-form";
 @import "views/start-and-end-pages";
-
-// Form Finder specific
-// @import "global";
 
 
 // ===========================================================
@@ -170,29 +167,26 @@ article {
   }
 }
 
-// Update to latest version
-// article .help-notice {
-//   background: url(/images/icon-important-2x.png);
-//   background-size: 34px 34px;
-// }
-// -----------------------------------
 
 // ===========================================================
 // GLOBAL NAVIGATION
 // ===========================================================
-
 @include global-nav($black, $grey-2);
 
 
 // ===========================================================
 // DETAILS TAG
 // ===========================================================
-
 @include details;
 
 
 // ===========================================================
 // PROGRESS INDICATOR
 // ===========================================================
-
 @include progress-indicator($turquoise);
+
+
+// ===========================================================
+// GENERIC POPUP
+// ===========================================================
+@include popup(80%);

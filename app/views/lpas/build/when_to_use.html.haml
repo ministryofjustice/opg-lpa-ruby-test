@@ -1,29 +1,31 @@
 = render "shared/create_header"
 
-%article
-  #accordion.accordion-form
-    = render "shared/completed_sections"
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      #accordion.accordion-form
+        = render "shared/completed_sections"
 
-    %section#donor.section.current
-      %h2.accordion-header #{lpa_overview(@lpa).count+1}. When can your LPA be used?
-      .accordion-content
-        .section-intro
-          %p If you want help straight away with certain decisions about your property and financial affairs you can say that your LPA can be used as soon as it's registered.
-          %p As long as you have mental capacity your registered LPA can only be used with your consent. You decide how and when it is used. Your attorneys will also be able to use your LPA fully if you don’t have mental capacity in the future.
-          %p Alternatively, you can say that your LPA can only be used if you don’t have mental capacity.
-          %p
-            %a.open-help-system.popup-link{:href=> "#when-an-lpa-can-be-used", "data-journey-click" => "stageprompt.lpa:help:donor"} Find out more about your options
+        %section#donor.section.current
+          %h2.accordion-header #{lpa_overview(@lpa).count+1}. When can your LPA be used?
+          .accordion-content
+            .section-intro
+              %p If you want help straight away with certain decisions about your property and financial affairs you can say that your LPA can be used as soon as it's registered.
+              %p As long as you have mental capacity your registered LPA can only be used with your consent. You decide how and when it is used. Your attorneys will also be able to use your LPA fully if you don’t have mental capacity in the future.
+              %p Alternatively, you can say that your LPA can only be used if you don’t have mental capacity.
+              %p
+                %a.js-guidance{:href=> guidance_path + "#when-an-lpa-can-be-used", "data-journey-click" => "stageprompt.lpa:help:donor"} Find out more about your options
 
-        %h3 My LPA can be used:
-        = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
-          .emphasised.option.group
-            = lpa_form.fields_for @lpa.donor do |donor_form|
-              = lpa_form.label :when_to_use_as_soon_as_its_registered_with_my_consent do
-                = lpa_form.radio_button :when_to_use, "as soon as it's registered (with my consent)"
-                as soon as it's registered (with my consent)
-              = lpa_form.label :when_to_use_only_if_i_dont_have_mental_capacity do
-                = lpa_form.radio_button :when_to_use, "only if I don't have mental capacity"
-                only if I don't have mental capacity
-          .accordion-actions
-            %p
-              = lpa_form.submit "Save and continue", :class => "button gotonextpart"
+            %h3 My LPA can be used:
+            = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+              .emphasised.option.group
+                = lpa_form.fields_for @lpa.donor do |donor_form|
+                  = lpa_form.label :when_to_use_as_soon_as_its_registered_with_my_consent do
+                    = lpa_form.radio_button :when_to_use, "as soon as it's registered (with my consent)"
+                    as soon as it's registered (with my consent)
+                  = lpa_form.label :when_to_use_only_if_i_dont_have_mental_capacity do
+                    = lpa_form.radio_button :when_to_use, "only if I don't have mental capacity"
+                    only if I don't have mental capacity
+              .accordion-actions
+                %p
+                  = lpa_form.submit "Save and continue", :class => "button gotonextpart"

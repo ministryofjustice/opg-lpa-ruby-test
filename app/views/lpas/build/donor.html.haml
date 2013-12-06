@@ -16,7 +16,7 @@
                 %li must be able to make their own decisions when they create the LPA – this is known as having mental capacity
               %p Only the donor can make decisions about their LPA and the people to involve.
               %p
-                %a.open-help-system.popup-link{:href=> "#donor", "data-journey-click" => "stageprompt.lpa:help:donor"} Find out more about being a donor
+                %a.js-guidance{:href=> guidance_path + "#donor", "data-journey-click" => "stageprompt.lpa:help:donor"} Find out more about being a donor
 
             = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
               = lpa_form.fields_for @lpa.donor do |donor_form|

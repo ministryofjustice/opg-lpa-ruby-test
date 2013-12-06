@@ -1,31 +1,33 @@
 = render "shared/create_header"
 
-%article
-  #accordion.accordion-form
-    = render "shared/completed_sections"
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      #accordion.accordion-form
+        = render "shared/completed_sections"
 
-    %section#donor.section.current
-      %h2.accordion-header #{lpa_overview(@lpa).count+1}. Can your attorneys give or refuse consent to life-sustaining treatment?
-      .accordion-content
-        .section-intro
-          %p This is a very important decision. Read the guidance carefully before you answer.
-          %ul
-            %li Life-sustaining treatment is any treatment a doctor considers necessary to keep you alive
-            %li If you don’t allow your attorneys to give or refuse consent on your behalf, your doctors will make decisions about life-sustaining treatment
-            %li Your attorneys can only make decisions about life-sustaining treatment if you don't have mental capacity
-          %p
-            %a.open-help-system.popup-link{:href=> "#life-sustaining-treatment", "data-journey-click" => "stageprompt.lpa:help:life-sustaining-treatment"} Read guidance on making this decision
+        %section#donor.section.current
+          %h2.accordion-header #{lpa_overview(@lpa).count+1}. Can your attorneys give or refuse consent to life-sustaining treatment?
+          .accordion-content
+            .section-intro
+              %p This is a very important decision. Read the guidance carefully before you answer.
+              %ul
+                %li Life-sustaining treatment is any treatment a doctor considers necessary to keep you alive
+                %li If you don’t allow your attorneys to give or refuse consent on your behalf, your doctors will make decisions about life-sustaining treatment
+                %li Your attorneys can only make decisions about life-sustaining treatment if you don't have mental capacity
+              %p
+                %a.js-guidance{:href=> guidance_path + "#life-sustaining-treatment", "data-journey-click" => "stageprompt.lpa:help:life-sustaining-treatment"} Read guidance on making this decision
 
-        %h3 Do you want to give your attorneys authority to make decisions about life-sustaining treatment on your behalf?
-        = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
-          .emphasised.option.group
-            = lpa_form.label :life_sustaining_treatment_option_a do
-              = lpa_form.radio_button :life_sustaining_treatment, "Option A"
-              Option A: Yes. I want to give my attorneys authority to give or refuse consent to life-sustaining treatment on my behalf
-            = lpa_form.label :life_sustaining_treatment_option_b do
-              = lpa_form.radio_button :life_sustaining_treatment, "Option B"
-              Option B: No. I don’t want to give my attorneys authority to give or refuse consent to life-sustaining treatment on my behalf
-          %p Later on, you'll need to sign and date the option you've chosen on your printed LPA document. Your signature must be witnessed.
-          .accordion-actions
-            %p
-              = lpa_form.submit "Save and continue", :class => "button gotonextpart"
+            %h3 Do you want to give your attorneys authority to make decisions about life-sustaining treatment on your behalf?
+            = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+              .emphasised.option.group
+                = lpa_form.label :life_sustaining_treatment_option_a do
+                  = lpa_form.radio_button :life_sustaining_treatment, "Option A"
+                  Option A: Yes. I want to give my attorneys authority to give or refuse consent to life-sustaining treatment on my behalf
+                = lpa_form.label :life_sustaining_treatment_option_b do
+                  = lpa_form.radio_button :life_sustaining_treatment, "Option B"
+                  Option B: No. I don’t want to give my attorneys authority to give or refuse consent to life-sustaining treatment on my behalf
+              %p Later on, you'll need to sign and date the option you've chosen on your printed LPA document. Your signature must be witnessed.
+              .accordion-actions
+                %p
+                  = lpa_form.submit "Save and continue", :class => "button gotonextpart"

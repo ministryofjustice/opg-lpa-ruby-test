@@ -1,7 +1,6 @@
 %header
-  %hgroup
-    %h1 Create a person to be told
-    %h2 Enter person to be told details
+  %h1 Create a person to be told
+  %h2 Enter person to be told details
 
 = form_for @person_to_be_told, :url => lpa_people_to_be_told_path(@lpa), :html => { :class => 'form' } do |person_to_be_told_form|
   = render "shared/validation_summary", :form_object => person_to_be_told_form

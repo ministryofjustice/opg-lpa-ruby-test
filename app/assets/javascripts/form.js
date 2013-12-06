@@ -24,7 +24,6 @@ lpa.updateSelectbox = function (el, value) {
   form.find('[name=' + field + ']').val(value); // use the name attr as it's unique & will always exist
 };
 
-
 $(document).ready(function () {
 
   // ====================================================================================
@@ -224,31 +223,6 @@ $(document).ready(function () {
           $('#contact-email').show();
       }
   }).change();
-
-
-
-  // ====================================================================================
-  // HELP SYSTEM
-
-  $('#help-system').hide();
-
-  $(".open-help-system").click(function(event) {
-      var elHelp = $('#help-system');
-      var sectionName = $(this).attr('href').replace('#', '');
-      elHelp.show();
-      var lightBox = OPGPopup.popup(elHelp, "help-system", $(this));
-
-      // Set help page to the one specified in the href of the link
-      lightBox.find('li[data-filter="section-help-' + sectionName + '"] a').click();
-      //$('.help-system').offset({ top: -32});
-      return false;
-  });
-
-  // Make inline links to other help pages work
-  $('#help-system .help-sections a[href^="#/help/"]').click(function(event){
-      var href = $(this).attr('href');
-      $('#help-system .help-topics a[href="' + href + '"]').click();
-  });
 
 
   // ====================================================================================

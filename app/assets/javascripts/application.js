@@ -1,4 +1,4 @@
-//= require turbolinks
+// require turbolinks
 
 //===== Bower packages - /vendor/assets/components/ =====\\
 //= require jquery
@@ -12,12 +12,15 @@
 //= require moj
 
 //===== LPA app object and modules - /app/assets/javascripts/ =====\\
+//= require utils
 //= require lpa
-//= require_tree ./modules
+//= require modules/lpa.popup.js
+//= require modules/lpa.help-system.js
+//= require modules/lpa.form.js
+// require_tree ./modules
 
 //===== Existing app plugins and js - /app/assets/javascripts/ =====\\
 //= require_tree ./jquery-plugin/opg
 //= require form
 //= require date-picker
-//= require help-popup
 //= require pwstrength

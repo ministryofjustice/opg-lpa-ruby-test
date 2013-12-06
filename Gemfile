@@ -37,6 +37,8 @@ gem 'foreman'
 
 gem 'rack_moj_auth', github: 'ministryofjustice/x-moj-auth'
 
+gem 'redcarpet', '3.0.0'
+
 group :doc do
   gem 'sdoc', require: false
 end
