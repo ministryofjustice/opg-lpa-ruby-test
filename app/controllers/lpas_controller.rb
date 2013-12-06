@@ -20,7 +20,6 @@ class LpasController < ApplicationController
   end
 
   def get_pdf
-    # sleep(5)
     filename = "draft_#{params[:lpa_id]}.pdf"
     @pdf_url = File.exist?("public/#{filename}") ? "/#{filename}" : false
     respond_to do |format|
