@@ -5,12 +5,12 @@
 // Dependencies: popup, lpa, moj, jQuery
 
 (function (){
-  "use strict";
+  'use strict';
 
   // Define the class
   var HelpSystem = function (options) {
     // only load if not on the static page
-    if($("#help-system").length === 0){
+    if($('#help-system').length === 0){
       this.settings = $.extend({}, this.defaults, options);
       this._cacheEls();
       this._bindEvents();
@@ -19,7 +19,7 @@
       var hash = window.location.hash;
       if (hash !== '' && hash !== '#/') {
         // on page load parse hash
-        var topic = hash.substring(hash.lastIndexOf("/")+1);
+        var topic = hash.substring(hash.lastIndexOf('/')+1);
         // set topic
         this._selectHelpTopic(topic);
       }
@@ -28,10 +28,10 @@
 
   HelpSystem.prototype = {
     defaults: {
-      guidancePath: "guidance",
-      selector: "a.js-guidance",
-      overlayIdent: "help-system",
-      overlaySource: "#content",
+      guidancePath: 'guidance',
+      selector: 'a.js-guidance',
+      overlayIdent: 'help-system',
+      overlaySource: '#content',
       loadingContent: '<p>Loading...</p>', // TODO: Use JS template rather than markup here...
       popupOnClose: function () {
         lpa.Modules.helpSystem.topic = undefined;
@@ -39,7 +39,7 @@
     },
 
     init: function (){
-      moj.log("lpa.modules.helpSystem#init");
+      moj.log('lpa.modules.helpSystem#init');
     },
 
     _cacheEls: function () {
@@ -52,9 +52,9 @@
       var self = this;
 
       // nav click event
-      $('body').on('click', this.settings.selector, function (e){
+      $('body').on('click', this.settings.selector, function (){
         var href = $(this).attr('href'),
-            topic = href.substring(href.lastIndexOf("#")+1);
+            topic = href.substring(href.lastIndexOf('#')+1);
         // set the current click as the source
         self.source = $(this);
         // select topic
@@ -68,7 +68,7 @@
 
         // if a change has been made, select the topic
         if (hash !== '' && hash !== '#/') {
-          var topic = hash.substring(hash.lastIndexOf("/")+1);
+          var topic = hash.substring(hash.lastIndexOf('/')+1);
           self._selectHelpTopic(topic);
         }
         // if the new hash is empty, clear out the popup
@@ -120,8 +120,8 @@
 
     _hasCachedContent: function () {
       // first try to load from html5 storage
-      if(html5_storage() && typeof localStorage["guidanceHTML"] !== 'undefined') {
-        return localStorage["guidanceHTML"];
+      if(html5_storage() && typeof localStorage.guidanceHTML !== 'undefined') {
+        return localStorage.guidanceHTML;
       }
       // then try from this class
       else if(typeof this.html !== 'undefined') {
@@ -156,11 +156,11 @@
           ident: self.settings.overlayIdent,
           source: this.source,
           beforeOpen: function () {
-            $("#popup-content").load('/' + self.settings.guidancePath, function(html) {
+            $('#popup-content').load('/' + self.settings.guidancePath, function(html) {
               // cache content
               if (html5_storage()) {
                 // save to html5 storage
-                localStorage["guidanceHTML"] = html;
+                localStorage.guidanceHTML = html;
               } else {
                 // save to obj
                 self.html = html;

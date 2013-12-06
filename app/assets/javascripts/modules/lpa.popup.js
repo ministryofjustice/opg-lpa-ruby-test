@@ -5,7 +5,7 @@
 // Dependencies: lpa, moj, jQuery
 
 (function (){
-  "use strict";
+  'use strict';
 
   // Define the class
   var Popup = function (options) {
@@ -16,9 +16,9 @@
 
   Popup.prototype = {
     defaults: {
-      source: $("#content"),
-      placement: "body",
-      popupId: "popup",
+      source: $('#content'),
+      placement: 'body',
+      popupId: 'popup',
       maskHTML: '<div id="mask" class="popover-mask" />',
       popupHTML: '<div id="popup" role="dialog" />',
       closeHTML: '<p class="close"><a id="lightboxclose" href="#" title="Click or press escape to close this window">Close</a></p>',
@@ -29,7 +29,7 @@
     },
 
     init: function (){
-      moj.log("lpa.modules.popup#init");
+      moj.log('lpa.modules.popup#init');
     },
 
     _cacheEls: function () {
@@ -58,8 +58,9 @@
     },
 
     open: function (html, opts) {
-      var self = this,
-          opts = $.extend({}, this.settings, opts);
+      var self = this;
+      // combine opts with settings for local settings
+      opts = $.extend({}, this.settings, opts);
 
       // Stop rest of page from scrolling when scrolling the popup
       if ($(document).height() > $(window).height()) {
@@ -78,7 +79,7 @@
       $(opts.placement)[opts.placement === 'body' ? 'append' : 'after'](this.$mask);
 
       // callback func
-      if (opts.beforeOpen && typeof(opts.beforeOpen) === "function") {
+      if (opts.beforeOpen && typeof(opts.beforeOpen) === 'function') {
         opts.beforeOpen();
       }
 
@@ -94,7 +95,7 @@
         self.loopTabKeys(self.$popup);
 
         // callback func
-        if (opts.onOpen && typeof(opts.onOpen) === "function") {
+        if (opts.onOpen && typeof(opts.onOpen) === 'function') {
           opts.onOpen();
         }
       });
@@ -109,6 +110,9 @@
         // Re-enable scrolling of rest of page
         var scrollTop = parseInt($('html').css('top'));
         $('html').removeClass('noscroll');
+        // ###################
+        // ##  NOT WORKING  ##
+        // ###################
         $('html,body').scrollTop(-scrollTop);
 
         self.$popup.fadeOut(400, function () {
@@ -122,7 +126,7 @@
             history.pushState('', document.title, window.location.pathname);
 
             // callback func
-            if (opts.onClose && typeof(opts.onClose) === "function") {
+            if (opts.onClose && typeof(opts.onClose) === 'function') {
               opts.onClose();
             }
 
