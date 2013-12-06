@@ -12,7 +12,7 @@
           %p As long as you have mental capacity your registered LPA can only be used with your consent. You decide how and when it is used. Your attorneys will also be able to use your LPA fully if you don’t have mental capacity in the future.
           %p Alternatively, you can say that your LPA can only be used if you don’t have mental capacity.
           %p
-            %a.open-help-system.popup-link{:href=> "#when-an-lpa-can-be-used", "data-journey-click" => "stageprompt.lpa:help:donor"} Find out more about your options
+            %a.js-guidance{:href=> guidance_path + "#when-an-lpa-can-be-used", "data-journey-click" => "stageprompt.lpa:help:donor"} Find out more about your options
 
         %h3 My LPA can be used:
         = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|

@@ -12,7 +12,7 @@
           %p These people have a chance to raise any concerns before your LPA is registered, as a safeguard for you.
           %p If you prefer, you can add a second certificate provider instead. You'll be given this option next.
           %p
-            %a.open-help-system.popup-link{:href=> "#people-to-be-told", "data-journey-click" => "stageprompt.lpa:help:people-to-be-told"} Find out more about 'people to be told'
+            %a.js-guidance{:href=> guidance_path + "#people-to-be-told", "data-journey-click" => "stageprompt.lpa:help:people-to-be-told"} Find out more about 'people to be told'
 
         = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
           - @lpa.people_to_be_told.each do |person_to_be_told|

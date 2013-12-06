@@ -14,7 +14,7 @@
             %li If you don’t allow your attorneys to give or refuse consent on your behalf, your doctors will make decisions about life-sustaining treatment
             %li Your attorneys can only make decisions about life-sustaining treatment if you don't have mental capacity
           %p
-            %a.open-help-system.popup-link{:href=> "#life-sustaining-treatment", "data-journey-click" => "stageprompt.lpa:help:life-sustaining-treatment"} Read guidance on making this decision
+            %a.js-guidance{:href=> guidance_path + "#life-sustaining-treatment", "data-journey-click" => "stageprompt.lpa:help:life-sustaining-treatment"} Read guidance on making this decision
 
         %h3 Do you want to give your attorneys authority to make decisions about life-sustaining treatment on your behalf?
         = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|

@@ -28,7 +28,7 @@
           %div.details-textbox{:id => "toggle-lpa[how_replacement_attorneys_act]-lpa_how_replacement_attorneys_act_in_some_other_way", "data-toggle-by" => "#how_replacement_attorneys_act_in_some_other_way"}
             %p.hint
               Describe below how you'd like this to happen. Be careful - the more specific your instructions, the greater the chance that they won't be able to be followed. Remember, replacements can't replace other replacements. If in doubt, seek legal advice.
-              %a.open-help-system{:href => "#replacement-attorneys", "data-journey-click" => "stageprompt.lpa:help:replacement-attorneys"} Not sure what to put?
+              %a.js-guidance{:href => guidance_path + "#replacement-attorneys", "data-journey-click" => "stageprompt.lpa:help:replacement-attorneys"} Not sure what to put?
             = lpa_form.text_area :how_replacement_attorneys_act_details, :row => 24, :cols => 80
 
           .accordion-actions

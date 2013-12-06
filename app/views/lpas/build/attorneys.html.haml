@@ -16,7 +16,7 @@
           %p The most important thing is that your attorneys are people you trust to respect your wishes and act in your best interests.
           %p There are some other things you must know and consider before you decide.
           %p
-            %a.open-help-system.popup-link{:href=> "#attorneys", "data-journey-click" => "stageprompt.lpa:help:attorneys"} Find out more about attorneys
+            %a.js-guidance{:href=> guidance_path + "#attorneys", "data-journey-click" => "stageprompt.lpa:help:attorneys"} Find out more about attorneys
 
 
         = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|

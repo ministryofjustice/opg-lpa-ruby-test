@@ -11,7 +11,7 @@
           %p The people you add here step in if your original attorneys can no longer act.
           %p A replacement attorney must meet the same requirements as an original attorney. This includes being 18 or over when you sign your LPA.
           %p
-            %a.open-help-system.popup-link{:href=> "#replacement-attorneys", "data-journey-click" => "stageprompt.lpa:help:replacement-attorneys"} Find out more about replacement attorneys
+            %a.js-guidance{:href=> guidance_path + "#replacement-attorneys", "data-journey-click" => "stageprompt.lpa:help:replacement-attorneys"} Find out more about replacement attorneys
 
         = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
           - @lpa.replacement_attorneys.each_with_index do |attorney, index|

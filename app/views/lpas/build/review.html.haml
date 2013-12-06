@@ -16,13 +16,13 @@
           %summary{"data-journey-click" => "stageprompt.lpa:help.inline:create/lpa-type:what-if-i-want-to-make-more-than-one-lpa", :role => "button", "aria-expanded" => "false"} Add extra instructions for the attorneys?
           %p
             If you'd like to add anything here, please
-            %a read our help topic on restrictions and guidance.
+            %a.js-guidance{:href => guidance_path + "#restrictions-and-guidance", "data-journey-click" => "stageprompt.lpa:help:restrictions-and-guidance"} read our help topic on restrictions and guidance.
             It contains useful examples and can help you avoid mistakes.
           %h3#restrictions-label
             %label.optional{:for => "resitrictions"} Conditions and restrictions
           %p.hint
             These are things that the attorneys MUST or MUST NOT do.
-            %a.open-help-system{:href => "#restrictions-and-guidance", "data-journey-click" => "stageprompt.lpa:help:restrictions-and-guidance"} Not sure what to put?
+            %a.js-guidance{:href => guidance_path + "#restrictions-and-guidance", "data-journey-click" => "stageprompt.lpa:help:restrictions-and-guidance"} Not sure what to put?
           -#%p
             <textarea name="restrictions" id="restrictions" rows="10" cols="67"></textarea>
 
@@ -30,7 +30,7 @@
             %label.optional{:for => "guidance"} Guidance
           %p.hint
             These are things you would like attorneys to think about when making decisions.
-            %a.open-help-system{:href => "#restrictions-and-guidance", "data-journey-click" => "stageprompt.lpa:help:restrictions-and-guidance"} Not sure what to put?
+            %a.js-guidance{:href => guidance_path + "#restrictions-and-guidance", "data-journey-click" => "stageprompt.lpa:help:restrictions-and-guidance"} Not sure what to put?
           -#%p
             <textarea name="guidance" id="guidance" rows="10" cols="67"></textarea>
 
@@ -38,7 +38,7 @@
             %label{:for => "charges"} Paying attorneys
           %p.hint
             You can set out whether and how much attorneys should be paid here.
-            %a.open-help-system{:href => "#restrictions-and-guidance", "data-journey-click" => "stageprompt.lpa:help:restrictions-and-guidance"} Not sure what to put?
+            %a.js-guidance{:href => guidance_path + "#paying-attorneys", "data-journey-click" => "stageprompt.lpa:help:paying-attorneys"} Not sure what to put?
           -#%p
             <textarea name="charges" id="charges" rows="10" cols="67"></textarea>
 

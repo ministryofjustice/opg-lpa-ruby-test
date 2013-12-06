@@ -10,7 +10,7 @@
         .section-intro
           %p Your choice here is very important as it affects how your LPA can be used. Whichever option you choose, your attorneys must always act in your best interests.
           %p
-            %a.open-help-system.popup-link{:href=> "#how-attorneys-make-decisions", "data-journey-click" => "stageprompt.lpa:help:how-attorneys-make-decisions"} Get help with making this decision
+            %a.js-guidance{:href=> guidance_path + "#how-attorneys-make-decisions", "data-journey-click" => "stageprompt.lpa:help:how-attorneys-make-decisions"} Get help with making this decision
 
         %h3 How should the attorneys make decisions?
         = form_for @lpa, :url => wizard_path, :html => {:id => "decisions-form", :class => "form"} do |lpa_form|
@@ -37,7 +37,7 @@
           %div.details-textbox{:id => "toggle-lpa[how_attorneys_act]-lpa_how_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions", "data-toggle-by" => "#lpa_how_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions"}
             %p.hint
               Please give details of the specific decisions that your attorneys must all agree on.
-              %a.open-help-system{:href => "#how-attorneys-make-decisions", "data-journey-click" => "stageprompt.lpa:help:how-attorneys-make-decisions"} Not sure what to put?
+              %a.js-guidance{:href => guidance_path + "#how-attorneys-make-decisions", "data-journey-click" => "stageprompt.lpa:help:how-attorneys-make-decisions"} Not sure what to put?
             = lpa_form.text_area :how_attorneys_act_details, :row => 24, :cols => 80
 
           .accordion-actions

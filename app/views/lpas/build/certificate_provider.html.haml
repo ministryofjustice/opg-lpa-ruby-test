@@ -28,7 +28,7 @@
             %li anyone running or working for a care home where you live, or a member of their family
             %li anyone running or working for a trust corporation appointed as an attorney in this LPA
           %p
-            %a.open-help-system.popup-link{:href=> "#certificate-prodviders", "data-journey-click" => "stageprompt.lpa:help:certificate-prodviders"} Find out how to choose a certificate provider
+            %a.js-guidance{:href=> guidance_path + "#certificate-prodviders", "data-journey-click" => "stageprompt.lpa:help:certificate-prodviders"} Find out how to choose a certificate provider
 
         = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
           = lpa_form.fields_for @lpa.certificate_provider do |certificate_provider_form|

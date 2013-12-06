@@ -1,9 +1,11 @@
+= render "shared/create_header"
+
 %article
   #accordion.accordion-form
     = render "shared/completed_sections"
 
     %section#donor.section.current
-      %h2.accordion-header 2. Who is the second certificate provider?
+      %h2.accordion-header #{lpa_overview(@lpa).count+1}. Who is the second certificate provider?
       .accordion-content
         .section-intro
 
