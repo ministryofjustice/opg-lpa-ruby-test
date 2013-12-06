@@ -115,25 +115,25 @@
       }
     }
   }
-}
 
-// custom styles when loaded as a lightbox
-#popup.help-system {
-  .inner {
-    max-width: none;
-    padding: 0;
-  }
-  .action {
-    padding-left: 1em;
-    padding-right: 1em;
-
-    .close-help {
-      display: inline;
+  // custom styles when loaded in popup
+  #popup & {
+    .inner {
+      max-width: none;
+      padding: 0;
     }
-  }
-  .help-sections {
-    article {
-      padding-left: 2em;
+    .action {
+      padding-left: 1em;
+      padding-right: 1em;
+
+      .close-help {
+        display: inline;
+      }
+    }
+    .help-sections {
+      article {
+        padding-left: 2em;
+      }
     }
   }
 }
