@@ -24,3 +24,6 @@ bin/*
 # Ignore PDFs
 /templates/*.xfdf
 /public/*.pdf
+
+#VCR cassettes
+/spec/vcr/*
