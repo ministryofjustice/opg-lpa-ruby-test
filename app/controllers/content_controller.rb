@@ -3,8 +3,9 @@ class ContentController < ApplicationController
   end
 
   def guidance
+    guidanceFolderPath = "guidance/"
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true)
-    orderFile = File.readlines("guidance/order.md")
+    orderFile = File.readlines(guidanceFolderPath + "order.md")
 
     @sections = Hash.new
     @nav = Hash.new
@@ -14,7 +15,7 @@ class ContentController < ApplicationController
         fileName = orderFile[index+1].strip.sub! '* ', ''
         id = line.sub('* ', '').gsub(' ', '-').strip.downcase!
 
-        @sections[id] = markdown.render(File.read("guidance/" + fileName))
+        @sections[id] = markdown.render(File.read(guidanceFolderPath + fileName))
         @nav[id] = line.sub('* ', '').strip!
       end
     end
