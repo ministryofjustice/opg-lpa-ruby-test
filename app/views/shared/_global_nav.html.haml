@@ -2,8 +2,11 @@
   .inner
     %nav.content
       %ul#navigation
-        %li.user= session[:applicant_name] || ''
-        %li
-          %a{:href => ""} Your details
+        %li.user
+          = succeed ":" do
+            = session[:applicant_name] || ''
+        -#
+          %li
+            %a{:href => ""} Your details
         %li= link_to "Your LPAs", lpas_path
         %li= link_to "Sign out", users_destroy_session_path, method: :delete

@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_filter :set_signed_in
+
   def create_single_date_field model_name
     if params[model_name]
       params[model_name] = MultiparameterAttributesHandler.manipulate_all params[model_name]
@@ -11,6 +13,10 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
+  def set_signed_in
+    @signed_in = read_secure_token.present?
+  end
 
   def secure_token_cache_key
     "secure_token_#{session[:session_id]}" if session[:session_id]
