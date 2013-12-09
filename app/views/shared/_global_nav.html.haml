@@ -2,9 +2,7 @@
   .inner
     %nav.content
       %ul#navigation
-        %li.user
-          = succeed ":" do
-            = session[:applicant_name] || ''
+        %li.user= session[:applicant_name] ? session[:applicant_name] + ":" : ''
         -#
           %li
             %a{:href => ""} Your details
