@@ -3,6 +3,8 @@ rvm:
 - 2.0.0
 before_install:
   - sudo apt-get install pdftk
+  - sudo apt-get install redis-server
+  - sudo redis-server --port 6379 &
 script: bundle exec rspec spec
 notifications:
   hipchat:
