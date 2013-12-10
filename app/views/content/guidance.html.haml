@@ -8,8 +8,7 @@
         %h2{:tabindex => "-1"} Help topics
         %ul
           - @nav.each do |id, title|
-            %li
-              %a.js-guidance{:href => "/guidance/#" + id}= title
+            %li= guidance_link title, id
 
     .content.help-sections
       - debug(@sections)

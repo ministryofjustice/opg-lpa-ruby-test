@@ -17,8 +17,7 @@
                 %li Attorneys must have mental capacity – the ability to make decisions
               %p The most important thing is that your attorneys are people you trust to respect your wishes and act in your best interests.
               %p There are some other things you must know and consider before you decide.
-              %p
-                %a.js-guidance{:href=> guidance_path + "#attorneys", "data-journey-click" => "stageprompt.lpa:help:attorneys"} Find out more about attorneys
+              %p= guidance_link "Find out more about attorneys", "attorneys"
 
 
             = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
