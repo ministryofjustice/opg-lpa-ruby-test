@@ -14,6 +14,7 @@
 //===== LPA app object and modules - /app/assets/javascripts/ =====\\
 //= require utils
 //= require lpa
+//= require modules/lpa.dialog.js
 //= require modules/lpa.popup.js
 //= require modules/lpa.help-system.js
 //= require modules/lpa.form.js

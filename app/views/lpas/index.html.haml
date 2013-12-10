@@ -31,4 +31,4 @@
               %td
                 .lpa-actions
                   = link_to "Continue", lpa_build_index_path(lpa), :class => "button"
-                  = link_to "Delete", "#", :class => "button-warning delete-lpa"
+                  = link_to "Delete", "#", :class => "button-warning js-dialog", "data-message" => "Are you sure you want to delete this LPA?"
