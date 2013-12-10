@@ -43,11 +43,11 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"email":"joe.bloggs1386264294.35972258@example.com","authentication_token":"TpUTDTBgP83qB3s5HYqq"}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:54 GMT
 - request:
     method: post
-    uri: http://localhost:9292/auth/users/sign_in
+    uri: http://localhost:9292/auth/sessions
     body:
       encoding: UTF-8
       string: user[email]=joe.bloggs1386264294.35972258%40example.com&user[password]=s3kr!tpass
@@ -88,7 +88,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"email":"joe.bloggs1386264294.35972258@example.com","authentication_token":"TpUTDTBgP83qB3s5HYqq"}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:54 GMT
 - request:
     method: get
@@ -121,7 +121,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"error":"Forbidden"}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:54 GMT
 - request:
     method: post
@@ -159,7 +159,7 @@ http_interactions:
       string: '{"id":"52a0b6e6526f6242e9c50200","uri":"http://localhost/api/applicants.json/52a0b6e6526f6242e9c50200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:54 GMT
 - request:
     method: get
@@ -194,7 +194,7 @@ http_interactions:
       string: '{"id":"52a0b6e6526f6242e9c50200","uri":"http://localhost/api/applicants.json/52a0b6e6526f6242e9c50200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:54 GMT
 - request:
     method: get
@@ -229,7 +229,7 @@ http_interactions:
       string: '{"id":"52a0b6e6526f6242e9c50200","uri":"http://localhost/api/applicants.json/52a0b6e6526f6242e9c50200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:54 GMT
 - request:
     method: post
@@ -266,7 +266,7 @@ http_interactions:
       string: '{"id":"52a0b6e6526f6242e9c70200","uri":"http://localhost/api/lpas.json/52a0b6e6526f6242e9c70200.json","applicant":{"id":"52a0b6e6526f6242e9c50200","uri":"http://localhost/api/applicants.json/52a0b6e6526f6242e9c50200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:54 GMT
 - request:
     method: get
@@ -301,7 +301,7 @@ http_interactions:
       string: '{"id":"52a0b6e6526f6242e9c50200","uri":"http://localhost/api/applicants.json/52a0b6e6526f6242e9c50200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[{"id":"52a0b6e6526f6242e9c70200","uri":"http://localhost/api/lpas.json/52a0b6e6526f6242e9c70200.json","donor":null,"type":null,"updated_at":"2013-12-05T17:24:54+00:00"}]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:54 GMT
 - request:
     method: get
@@ -336,7 +336,7 @@ http_interactions:
       string: '{"id":"52a0b6e6526f6242e9c50200","uri":"http://localhost/api/applicants.json/52a0b6e6526f6242e9c50200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[{"id":"52a0b6e6526f6242e9c70200","uri":"http://localhost/api/lpas.json/52a0b6e6526f6242e9c70200.json","donor":null,"type":null,"updated_at":"2013-12-05T17:24:54+00:00"}]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:54 GMT
 - request:
     method: get
@@ -371,7 +371,7 @@ http_interactions:
       string: '{"id":"52a0b6e6526f6242e9c70200","uri":"http://localhost/api/lpas.json/52a0b6e6526f6242e9c70200.json","applicant":{"id":"52a0b6e6526f6242e9c50200","uri":"http://localhost/api/applicants.json/52a0b6e6526f6242e9c50200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:54 GMT
 - request:
     method: get
@@ -406,7 +406,7 @@ http_interactions:
       string: '{"id":"52a0b6e6526f6242e9c50200","uri":"http://localhost/api/applicants.json/52a0b6e6526f6242e9c50200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[{"id":"52a0b6e6526f6242e9c70200","uri":"http://localhost/api/lpas.json/52a0b6e6526f6242e9c70200.json","donor":null,"type":null,"updated_at":"2013-12-05T17:24:54+00:00"}]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: get
@@ -441,7 +441,7 @@ http_interactions:
       string: '{"id":"52a0b6e6526f6242e9c70200","uri":"http://localhost/api/lpas.json/52a0b6e6526f6242e9c70200.json","applicant":{"id":"52a0b6e6526f6242e9c50200","uri":"http://localhost/api/applicants.json/52a0b6e6526f6242e9c50200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: put
@@ -482,7 +482,7 @@ http_interactions:
         and financial affairs","applicant":{"id":"52a0b6e6526f6242e9c50200","uri":"http://localhost/api/applicants.json/52a0b6e6526f6242e9c50200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: put
@@ -523,7 +523,7 @@ http_interactions:
         and financial affairs","applicant":{"id":"52a0b6e6526f6242e9c50200","uri":"http://localhost/api/applicants.json/52a0b6e6526f6242e9c50200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: get
@@ -559,7 +559,7 @@ http_interactions:
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[{"id":"52a0b6e6526f6242e9c70200","uri":"http://localhost/api/lpas.json/52a0b6e6526f6242e9c70200.json","donor":null,"type":"Property
         and financial affairs","updated_at":"2013-12-05T17:24:55+00:00"}]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: get
@@ -595,7 +595,7 @@ http_interactions:
         and financial affairs","applicant":{"id":"52a0b6e6526f6242e9c50200","uri":"http://localhost/api/applicants.json/52a0b6e6526f6242e9c50200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: get
@@ -631,7 +631,7 @@ http_interactions:
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[{"id":"52a0b6e6526f6242e9c70200","uri":"http://localhost/api/lpas.json/52a0b6e6526f6242e9c70200.json","donor":null,"type":"Property
         and financial affairs","updated_at":"2013-12-05T17:24:55+00:00"}]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: get
@@ -667,7 +667,7 @@ http_interactions:
         and financial affairs","applicant":{"id":"52a0b6e6526f6242e9c50200","uri":"http://localhost/api/applicants.json/52a0b6e6526f6242e9c50200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: put
@@ -712,7 +712,7 @@ http_interactions:
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: put
@@ -757,7 +757,7 @@ http_interactions:
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: get
@@ -793,7 +793,7 @@ http_interactions:
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[{"id":"52a0b6e6526f6242e9c70200","uri":"http://localhost/api/lpas.json/52a0b6e6526f6242e9c70200.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
         and financial affairs","updated_at":"2013-12-05T17:24:55+00:00"}]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: get
@@ -831,7 +831,7 @@ http_interactions:
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: get
@@ -867,7 +867,7 @@ http_interactions:
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[{"id":"52a0b6e6526f6242e9c70200","uri":"http://localhost/api/lpas.json/52a0b6e6526f6242e9c70200.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
         and financial affairs","updated_at":"2013-12-05T17:24:55+00:00"}]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: get
@@ -905,7 +905,7 @@ http_interactions:
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: put
@@ -952,7 +952,7 @@ http_interactions:
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: put
@@ -999,7 +999,7 @@ http_interactions:
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: get
@@ -1035,7 +1035,7 @@ http_interactions:
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[{"id":"52a0b6e6526f6242e9c70200","uri":"http://localhost/api/lpas.json/52a0b6e6526f6242e9c70200.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
         and financial affairs","updated_at":"2013-12-05T17:24:55+00:00"}]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: get
@@ -1074,7 +1074,7 @@ http_interactions:
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: get
@@ -1110,7 +1110,7 @@ http_interactions:
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[{"id":"52a0b6e6526f6242e9c70200","uri":"http://localhost/api/lpas.json/52a0b6e6526f6242e9c70200.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
         and financial affairs","updated_at":"2013-12-05T17:24:55+00:00"}]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: get
@@ -1149,7 +1149,7 @@ http_interactions:
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: get
@@ -1188,7 +1188,7 @@ http_interactions:
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: get
@@ -1227,7 +1227,7 @@ http_interactions:
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: put
@@ -1271,7 +1271,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"errors":{"attorneys":[{"first_name":["can''t be blank","is too short
         (minimum is 2 characters)"]}]}}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:55 GMT
 - request:
     method: get
@@ -1310,7 +1310,7 @@ http_interactions:
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:56 GMT
 - request:
     method: put
@@ -1362,7 +1362,7 @@ http_interactions:
         Tulisa","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"}],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:56 GMT
 - request:
     method: get
@@ -1398,7 +1398,7 @@ http_interactions:
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[{"id":"52a0b6e6526f6242e9c70200","uri":"http://localhost/api/lpas.json/52a0b6e6526f6242e9c70200.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
         and financial affairs","updated_at":"2013-12-05T17:24:56+00:00"}]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:56 GMT
 - request:
     method: get
@@ -1440,7 +1440,7 @@ http_interactions:
         Tulisa","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"}],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:56 GMT
 - request:
     method: get
@@ -1482,7 +1482,7 @@ http_interactions:
         Tulisa","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"}],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:56 GMT
 - request:
     method: put
@@ -1531,7 +1531,7 @@ http_interactions:
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:56 GMT
 - request:
     method: get
@@ -1570,7 +1570,7 @@ http_interactions:
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:56 GMT
 - request:
     method: get
@@ -1606,7 +1606,7 @@ http_interactions:
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[{"id":"52a0b6e6526f6242e9c70200","uri":"http://localhost/api/lpas.json/52a0b6e6526f6242e9c70200.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
         and financial affairs","updated_at":"2013-12-05T17:24:56+00:00"}]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:56 GMT
 - request:
     method: get
@@ -1645,6 +1645,6 @@ http_interactions:
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:56 GMT
 recorded_with: VCR 2.7.0

@@ -43,11 +43,11 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"email":"joe.bloggs1386264272.835767147@example.com","authentication_token":"x4B6nxaxeiRJiBF6K3bz"}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:32 GMT
 - request:
     method: post
-    uri: http://localhost:9292/auth/users/sign_in
+    uri: http://localhost:9292/auth/sessions
     body:
       encoding: UTF-8
       string: user[email]=joe.bloggs1386264272.835767147%40example.com&user[password]=s3kr!tpass
@@ -88,7 +88,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"email":"joe.bloggs1386264272.835767147@example.com","authentication_token":"x4B6nxaxeiRJiBF6K3bz"}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:33 GMT
 - request:
     method: get
@@ -121,7 +121,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"error":"Forbidden"}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:33 GMT
 - request:
     method: post
@@ -158,6 +158,6 @@ http_interactions:
       encoding: UTF-8
       string: '{"errors":{"first_name":["can''t be blank","is too short (minimum is
         2 characters)"]}}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 05 Dec 2013 17:24:33 GMT
 recorded_with: VCR 2.7.0
