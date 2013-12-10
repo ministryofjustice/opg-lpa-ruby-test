@@ -21,7 +21,7 @@ RSpec.configure do |config|
   end
 end
 
-feature 'Generating PDF previews', sidekiq: :inline do
+feature 'Generating PDF previews', :js => true do
 
   before(:each) do
     sign_up_and_sign_in
@@ -37,6 +37,11 @@ feature 'Generating PDF previews', sidekiq: :inline do
     expect(page).to have_content('Download preview of LPA')
 
     click_link "Download preview of LPA"
+    # expect(page).to have_content('Your PDF preview is being generated. Please reload this page in a few seconds.')
+
+    sleep(10)
+    # click_link "reload this page"
+
 
     expect(response_headers["Content-Type"]).to eq("application/pdf")
     expect(response_headers["Content-Disposition"]).to eq("inline; filename=\"draft.pdf\"")
@@ -52,6 +57,7 @@ feature 'Generating PDF previews', sidekiq: :inline do
     expect(page).to have_content('Download preview of LPA')
 
     click_link "Download preview of LPA"
+    sleep(10)
 
     expect(response_headers["Content-Type"]).to eq("application/pdf")
     expect(response_headers["Content-Disposition"]).to eq("inline; filename=\"draft.pdf\"")

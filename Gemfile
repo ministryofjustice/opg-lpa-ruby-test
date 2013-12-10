@@ -80,3 +80,5 @@ gem 'newrelic_rpm'
 gem 'sidekiq'
 
 gem 'poltergeist'
+
+gem 'redis-namespace', '1.3.2'

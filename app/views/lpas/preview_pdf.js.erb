@@ -13,7 +13,7 @@
         cache: false,
         success:function(data) {
             console.log('success');
-            console.log(data);
+            console.log(data.pdfURL);
             if(data.pdfURL) {
               window.location = data.pdfURL;
             } else {

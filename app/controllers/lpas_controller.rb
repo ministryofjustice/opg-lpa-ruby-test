@@ -25,6 +25,7 @@ class LpasController < ApplicationController
 
   def get_pdf
     if @applicant.has_lpa? params[:lpa_id]
+      puts lpa_pdf_path
       @pdf_url = File.exist?(draft_pdf_path) ? lpa_pdf_path : false
       respond_to do |format|      
         format.html { pdf if @pdf_url }
@@ -37,7 +38,9 @@ class LpasController < ApplicationController
     with_secure_token(Lpa) do
       @lpa = Lpa.find(params[:lpa_id])
       @lpa_id = params[:lpa_id]
-      PDFWorker.perform_async(params[:lpa_id], @lpa.to_json)
+      puts "Calling PDFWORKERRRRRRRRRRRR for #{@lpa_id}"
+      PDFWorker.perform_async(@lpa_id, @lpa.to_json)
+      puts "Called PDFWORKERRRRRRRRRRRR"
       respond_to do |format|
         format.js
         format.html { get_pdf }
