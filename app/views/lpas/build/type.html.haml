@@ -9,8 +9,7 @@
           .accordion-content
             .section-intro
               %p You can make an LPA to cover either your property and financial affairs, or your health and welfare.
-              %p
-                %a.js-guidance{:href => guidance_path + "#the-2-types-of-lpa", "data-journey-click" => "stageprompt.lpa:help:the-2-types-of-lpa"} Find out about the 2 types of LPA
+              %p= guidance_link "Find out about the 2 types of LPA", "the-2-types-of-lpa"
 
             = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
               .emphasised.option.group

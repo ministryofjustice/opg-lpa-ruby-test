@@ -17,30 +17,26 @@
             %details
               %summary{"data-journey-click" => "stageprompt.lpa:help.inline:create/lpa-type:what-if-i-want-to-make-more-than-one-lpa", :role => "button", "aria-expanded" => "false"} Add extra instructions for the attorneys?
               %p
-                If you'd like to add anything here, please
-                %a.js-guidance{:href => guidance_path + "#restrictions-and-guidance", "data-journey-click" => "stageprompt.lpa:help:restrictions-and-guidance"} read our help topic on restrictions and guidance.
+                If you'd like to add anything here, please #{guidance_link "read our help topic on restrictions and guidance", "restrictions-and-guidance"}.
                 It contains useful examples and can help you avoid mistakes.
               %h3#restrictions-label
                 %label.optional{:for => "resitrictions"} Conditions and restrictions
               %p.hint
-                These are things that the attorneys MUST or MUST NOT do.
-                %a.js-guidance{:href => guidance_path + "#restrictions-and-guidance", "data-journey-click" => "stageprompt.lpa:help:restrictions-and-guidance"} Not sure what to put?
+                These are things that the attorneys MUST or MUST NOT do. #{guidance_link "Not sure what to put", "restrictions-and-guidance"}?
               -#%p
                 <textarea name="restrictions" id="restrictions" rows="10" cols="67"></textarea>
 
               %h3#guidance-label
                 %label.optional{:for => "guidance"} Guidance
               %p.hint
-                These are things you would like attorneys to think about when making decisions.
-                %a.js-guidance{:href => guidance_path + "#restrictions-and-guidance", "data-journey-click" => "stageprompt.lpa:help:restrictions-and-guidance"} Not sure what to put?
+                These are things you would like attorneys to think about when making decisions. #{guidance_link "Not sure what to put", "restrictions-and-guidance"}?
               -#%p
                 <textarea name="guidance" id="guidance" rows="10" cols="67"></textarea>
 
               %h3#charges-label
                 %label{:for => "charges"} Paying attorneys
               %p.hint
-                You can set out whether and how much attorneys should be paid here.
-                %a.js-guidance{:href => guidance_path + "#paying-attorneys", "data-journey-click" => "stageprompt.lpa:help:paying-attorneys"} Not sure what to put?
+                You can set out whether and how much attorneys should be paid here. #{guidance_link "Not sure what to put", "paying-attorneys"}?
               -#%p
                 <textarea name="charges" id="charges" rows="10" cols="67"></textarea>
 

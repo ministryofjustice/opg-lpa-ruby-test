@@ -15,8 +15,7 @@
                 %li Life-sustaining treatment is any treatment a doctor considers necessary to keep you alive
                 %li If you don’t allow your attorneys to give or refuse consent on your behalf, your doctors will make decisions about life-sustaining treatment
                 %li Your attorneys can only make decisions about life-sustaining treatment if you don't have mental capacity
-              %p
-                %a.js-guidance{:href=> guidance_path + "#life-sustaining-treatment", "data-journey-click" => "stageprompt.lpa:help:life-sustaining-treatment"} Read guidance on making this decision
+              %p= guidance_link "Read guidance on making this decision", "life-sustaining-treatment"
 
             %h3 Do you want to give your attorneys authority to make decisions about life-sustaining treatment on your behalf?
             = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
