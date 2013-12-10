@@ -28,8 +28,6 @@
       var self = this;
 
       this.$link.on('click', function(){
-        moj.log("click");
-
         if (self.settings.type == "confirm") {
           if (!confirm(self.settings.message)) {
             return false;
