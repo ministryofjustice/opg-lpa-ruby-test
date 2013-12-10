@@ -12,8 +12,6 @@
         timeout: 10000, // in miliseconds
         cache: false,
         success:function(data) {
-            console.log('success');
-            console.log(data.pdfURL);
             if(data.pdfURL) {
               window.location = data.pdfURL;
             } else {

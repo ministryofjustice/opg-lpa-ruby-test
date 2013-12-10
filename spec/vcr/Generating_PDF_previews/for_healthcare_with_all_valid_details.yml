@@ -1190,4 +1190,35 @@ http_interactions:
         and welfare","updated_at":"2013-12-10T15:53:42+00:00"}]}'
     http_version: 
   recorded_at: Tue, 10 Dec 2013 17:09:13 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:50491/__identify__
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
+      Date:
+      - Tue, 10 Dec 2013 17:22:54 GMT
+      Content-Length:
+      - '14'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '70122086692980'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 17:22:54 GMT
 recorded_with: VCR 2.7.0
