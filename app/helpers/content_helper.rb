@@ -21,6 +21,6 @@ module ContentHelper
   end
 
   def guidance_link (label, section_id)
-    link_to label, "#{guidance_path}##{section_id}", {:class => 'js-guidance', "data-journey-click" => "stageprompt.lpa:help:#{section_id}" }
+    link_to label, "#{guidance_path}#section-#{section_id}", {:class => 'js-guidance', "data-journey-click" => "stageprompt.lpa:help:#{section_id}" }
   end
 end
