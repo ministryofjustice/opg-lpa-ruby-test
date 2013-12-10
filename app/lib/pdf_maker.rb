@@ -20,7 +20,8 @@ class PDFMaker
     path = File.open("templates/input#{@lpa_id}.xfdf", 'w+').path
     File.open(path, 'w') {|f| f.write(xfdf) }
     template = "templates/lpa.pdf"
-    result = "public/draft_#{@lpa_id}.pdf"
+    result = "pdfs/drafts/#{@lpa_id}.pdf"
+    # result = "public/drafts/#{@lpa_id}.pdf"
     system "pdftk #{template} fill_form #{path} output #{result} flatten"
     result
   end

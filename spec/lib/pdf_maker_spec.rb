@@ -6,7 +6,7 @@ describe PDFMaker do
       system("rm -f #{@pdf_filename}")
       lpa_id = "529609ed77696e052c490100"
       @doc = PDFMaker.new(lpa_id, donor_json).to_pdf
-      @pdf_filename = "#{Rails.root}/public/draft_#{lpa_id}.pdf"
+      @pdf_filename = "#{Rails.root}/pdfs/drafts/#{lpa_id}.pdf"
     end
 
     it "should create a new PDF file" do

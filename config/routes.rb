@@ -6,8 +6,8 @@ OpgLpa::Application.routes.draw do
 
   resources :lpas do
     get '/preview_pdf' => 'lpas#preview_pdf'
-
     get '/get_pdf' => 'lpas#get_pdf'
+    get '/pdf' => 'lpas#pdf'
 
     resources :build, controller: 'lpas/build'
     collection do
