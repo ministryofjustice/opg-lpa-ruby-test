@@ -21,5 +21,6 @@ bin/*
 # Ignore Mac files
 .DS_Store
 
-public/*pdf
-templates/*xfdf
+# Ignore XFDFs and PDFs
+/templates/*.xfdf
+/pdfs/drafts/*

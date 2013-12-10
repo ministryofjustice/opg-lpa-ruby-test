@@ -1,0 +1,1155 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:9292/auth/users
+    body:
+      encoding: UTF-8
+      string: user[email]=joe.bloggs1386683359.94567274%40example.com&user[password]=s3kr!tpass
+    headers: {}
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Location:
+      - http://localhost:9393/
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"fa682da361383c507c1f334b4d987e45"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - a981b94d-5cf1-4d4a-9409-16fa65f294e7
+      X-Runtime:
+      - '0.067252'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
+      Date:
+      - Tue, 10 Dec 2013 13:49:20 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '99'
+    body:
+      encoding: UTF-8
+      string: '{"email":"joe.bloggs1386683359.94567274@example.com","authentication_token":"1yVcvLsiqxZKYbWosss6"}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:20 GMT
+- request:
+    method: post
+    uri: http://localhost:9292/auth/users/sign_in
+    body:
+      encoding: UTF-8
+      string: user[email]=joe.bloggs1386683359.94567274%40example.com&user[password]=s3kr!tpass
+    headers: {}
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Location:
+      - http://localhost:9393/
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"fa682da361383c507c1f334b4d987e45"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 46c7ffb0-6ee3-439a-8d9b-c49e41f631f8
+      X-Runtime:
+      - '0.064703'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
+      Date:
+      - Tue, 10 Dec 2013 13:49:20 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '99'
+    body:
+      encoding: UTF-8
+      string: '{"email":"joe.bloggs1386683359.94567274@example.com","authentication_token":"1yVcvLsiqxZKYbWosss6"}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:20 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '21'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"error":"Forbidden"}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:20 GMT
+- request:
+    method: post
+    uri: http://localhost:9292/api/applicants.json
+    body:
+      encoding: UTF-8
+      string: '{"address":{"address_line1":"102 Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[],"title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","date_of_birth":"1970-01-31T00:00:00+01:00"}'
+    headers:
+      Content-Type:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '386'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"}}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:20 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '396'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:20 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '396'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:20 GMT
+- request:
+    method: post
+    uri: http://localhost:9292/api/lpas.json
+    body:
+      encoding: UTF-8
+      string: '{"donor":null,"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"applicant_id":"52a71be04872693ee5b40200"}'
+    headers:
+      Content-Type:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '566'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","applicant":{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:20 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '564'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","donor":null,"type":null,"updated_at":"2013-12-10T13:49:20+00:00"}]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:20 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '564'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","donor":null,"type":null,"updated_at":"2013-12-10T13:49:20+00:00"}]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:20 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/lpas/52a71be04872693ee5b60200.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '566'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","applicant":{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:20 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '564'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","donor":null,"type":null,"updated_at":"2013-12-10T13:49:20+00:00"}]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:20 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/lpas/52a71be04872693ee5b60200.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '566'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","applicant":{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:20 GMT
+- request:
+    method: put
+    uri: http://localhost:9292/api/lpas/52a71be04872693ee5b60200.json
+    body:
+      encoding: UTF-8
+      string: '{"donor":null,"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","applicant":{"address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[],"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
+        and financial affairs"}'
+    headers:
+      Content-Type:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '606'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","type":"Property
+        and financial affairs","applicant":{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:20 GMT
+- request:
+    method: put
+    uri: http://localhost:9292/api/lpas/52a71be04872693ee5b60200.json
+    body:
+      encoding: UTF-8
+      string: '{"donor":null,"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","applicant":{"address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[],"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
+        and financial affairs"}'
+    headers:
+      Content-Type:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '606'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","type":"Property
+        and financial affairs","applicant":{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:20 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '592'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","donor":null,"type":"Property
+        and financial affairs","updated_at":"2013-12-10T13:49:20+00:00"}]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:20 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/lpas/52a71be04872693ee5b60200.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '606'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","type":"Property
+        and financial affairs","applicant":{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:20 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '592'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","donor":null,"type":"Property
+        and financial affairs","updated_at":"2013-12-10T13:49:20+00:00"}]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:33 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/lpas/52a71be04872693ee5b60200.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '606'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","type":"Property
+        and financial affairs","applicant":{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:33 GMT
+- request:
+    method: put
+    uri: http://localhost:9292/api/lpas/52a71be04872693ee5b60200.json
+    body:
+      encoding: UTF-8
+      string: '{"donor":{"address":{"address_line1":"102 Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","email":"johnny@example.com","phone":"123
+        456","date_of_birth":"1970-01-31T00:00:00+01:00"},"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","type":"Property
+        and financial affairs","applicant":{"address":{"address_line1":"102 Petty
+        France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[],"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '941'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","type":"Property
+        and financial affairs","applicant":{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:33 GMT
+- request:
+    method: put
+    uri: http://localhost:9292/api/lpas/52a71be04872693ee5b60200.json
+    body:
+      encoding: UTF-8
+      string: '{"donor":{"address":{"address_line1":"102 Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","phone":"123
+        456","email":"johnny@example.com"},"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","type":"Property
+        and financial affairs","applicant":{"address":{"address_line1":"102 Petty
+        France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[],"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson"}}'
+    headers:
+      Content-Type:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '941'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","type":"Property
+        and financial affairs","applicant":{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:33 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '652'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
+        and financial affairs","updated_at":"2013-12-10T13:49:33+00:00"}]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:33 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/lpas/52a71be04872693ee5b60200.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '941'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","type":"Property
+        and financial affairs","applicant":{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:33 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '652'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
+        and financial affairs","updated_at":"2013-12-10T13:49:33+00:00"}]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:33 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/lpas/52a71be04872693ee5b60200.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - 1yVcvLsiqxZKYbWosss6
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '941'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a71be04872693ee5b60200","uri":"http://localhost/api/lpas.json/52a71be04872693ee5b60200.json","type":"Property
+        and financial affairs","applicant":{"id":"52a71be04872693ee5b40200","uri":"http://localhost/api/applicants.json/52a71be04872693ee5b40200.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 13:49:33 GMT
+- request:
+    method: post
+    uri: http://localhost:9292/auth/sessions
+    body:
+      encoding: UTF-8
+      string: user[email]=joe.bloggs1386689593.436007543%40example.com&user[password]=s3kr!tpass
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - text/html; charset=utf-8
+      X-Request-Id:
+      - 35090fe3-dfef-4861-a7c0-34757a775818
+      X-Runtime:
+      - '0.021813'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
+      Date:
+      - Tue, 10 Dec 2013 15:33:13 GMT
+      Connection:
+      - close
+      Content-Length:
+      - '18193'
+    body:
+      encoding: UTF-8
+      string: "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\"
+        />\n  <title>Action Controller: Exception caught</title>\n  <style>\n    body
+        {\n      background-color: #FAFAFA;\n      color: #333;\n      margin: 0px;\n
+        \   }\n\n    body, p, ol, ul, td {\n      font-family: helvetica, verdana,
+        arial, sans-serif;\n      font-size:   13px;\n      line-height: 18px;\n    }\n\n
+        \   pre {\n      font-size: 11px;\n      white-space: pre-wrap;\n    }\n\n
+        \   pre.box {\n      border: 1px solid #EEE;\n      padding: 10px;\n      margin:
+        0px;\n      width: 958px;\n    }\n\n    header {\n      color: #F0F0F0;\n
+        \     background: #C52F24;\n      padding: 0.5em 1.5em;\n    }\n\n    h1 {\n
+        \     margin: 0.2em 0;\n      line-height: 1.1em;\n      font-size: 2em;\n
+        \   }\n\n    h2 {\n      color: #C52F24;\n      line-height: 25px;\n    }\n\n
+        \   .details {\n      border: 1px solid #D0D0D0;\n      border-radius: 4px;\n
+        \     margin: 1em 0px;\n      display: block;\n      width: 978px;\n    }\n\n
+        \   .summary {\n      padding: 8px 15px;\n      border-bottom: 1px solid #D0D0D0;\n
+        \     display: block;\n    }\n\n    .details pre {\n      margin: 5px;\n      border:
+        none;\n    }\n\n    #container {\n      box-sizing: border-box;\n      width:
+        100%;\n      padding: 0 1.5em;\n    }\n\n    .source * {\n      margin: 0px;\n
+        \     padding: 0px;\n    }\n\n    .source {\n      border: 1px solid #D9D9D9;\n
+        \     background: #ECECEC;\n      width: 978px;\n    }\n\n    .source pre
+        {\n      padding: 10px 0px;\n      border: none;\n    }\n\n    .source .data
+        {\n      font-size: 80%;\n      overflow: auto;\n      background-color: #FFF;\n
+        \   }\n\n    .info {\n      padding: 0.5em;\n    }\n\n    .source .data .line_numbers
+        {\n      background-color: #ECECEC;\n      color: #AAA;\n      padding: 1em
+        .5em;\n      border-right: 1px solid #DDD;\n      text-align: right;\n    }\n\n
+        \   .line {\n      padding-left: 10px;\n    }\n\n    .line:hover {\n      background-color:
+        #F6F6F6;\n    }\n\n    .line.active {\n      background-color: #FFCCCC;\n
+        \   }\n\n    a { color: #980905; }\n    a:visited { color: #666; }\n    a:hover
+        { color: #C52F24; }\n\n      #route_table {\n    margin: 0 auto 0;\n    border-collapse:
+        collapse;\n  }\n\n  #route_table td {\n    padding: 0 30px;\n  }\n\n  #route_table
+        tr.bottom th {\n    padding-bottom: 10px;\n    line-height: 15px;\n  }\n\n
+        \ #route_table .matched_paths {\n    background-color: LightGoldenRodYellow;\n
+        \ }\n\n  #route_table .matched_paths {\n    border-bottom: solid 3px SlateGrey;\n
+        \ }\n\n  #path_search {\n    width: 80%;\n    font-size: inherit;\n  }\n\n
+        \ </style>\n\n  <script>\n    var toggle = function(id) {\n      var s = document.getElementById(id).style;\n
+        \     s.display = s.display == 'none' ? 'block' : 'none';\n      return false;\n
+        \   }\n    var show = function(id) {\n      document.getElementById(id).style.display
+        = 'block';\n    }\n    var hide = function(id) {\n      document.getElementById(id).style.display
+        = 'none';\n    }\n    var toggleTrace = function() {\n      return toggle('blame_trace');\n
+        \   }\n    var toggleSessionDump = function() {\n      return toggle('session_dump');\n
+        \   }\n    var toggleEnvDump = function() {\n      return toggle('env_dump');\n
+        \   }\n  </script>\n</head>\n<body>\n\n<header>\n  <h1>Routing Error</h1>\n</header>\n<div
+        id=\"container\">\n  <h2>No route matches [POST] &quot;/sessions&quot;</h2>\n\n
+        \ \n<p><code>Rails.root: /Users/hrishi/code/lpa/devise_authentication_api</code></p>\n\n<div
+        id=\"traces\">\n    <a href=\"#\" onclick=\"hide(&#39;Framework-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Application-Trace&#39;);;
+        return false;\">Application Trace</a> |\n    <a href=\"#\" onclick=\"hide(&#39;Application-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Framework-Trace&#39;);;
+        return false;\">Framework Trace</a> |\n    <a href=\"#\" onclick=\"hide(&#39;Application-Trace&#39;);hide(&#39;Framework-Trace&#39;);show(&#39;Full-Trace&#39;);;
+        return false;\">Full Trace</a> \n\n    <div id=\"Application-Trace\" style=\"display:
+        block;\">\n      <pre><code>lib/rack/json_content_length.rb:14:in `call&#39;</code></pre>\n
+        \   </div>\n    <div id=\"Framework-Trace\" style=\"display: none;\">\n      <pre><code>actionpack
+        (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call&#39;\nactionpack
+        (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;\nrailties
+        (4.0.0) lib/rails/rack/logger.rb:38:in `call_app&#39;\nrailties (4.0.0) lib/rails/rack/logger.rb:21:in
+        `block in call&#39;\nactivesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in
+        `block in tagged&#39;\nactivesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in
+        `tagged&#39;\nactivesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in
+        `tagged&#39;\nrailties (4.0.0) lib/rails/rack/logger.rb:21:in `call&#39;\nactionpack
+        (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;\nrack
+        (1.5.2) lib/rack/runtime.rb:17:in `call&#39;\nactivesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in
+        `call&#39;\nrack (1.5.2) lib/rack/lock.rb:17:in `call&#39;\nactionpack (4.0.0)
+        lib/action_dispatch/middleware/static.rb:64:in `call&#39;\nrailties (4.0.0)
+        lib/rails/engine.rb:511:in `call&#39;\nrailties (4.0.0) lib/rails/application.rb:97:in
+        `call&#39;\nrack (1.5.2) lib/rack/lock.rb:17:in `call&#39;\nrack (1.5.2) lib/rack/content_length.rb:14:in
+        `call&#39;\nrack (1.5.2) lib/rack/handler/webrick.rb:60:in `service&#39;\n/Users/hrishi/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in
+        `service&#39;\n/Users/hrishi/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in
+        `run&#39;\n/Users/hrishi/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in
+        `block in start_thread&#39;</code></pre>\n    </div>\n    <div id=\"Full-Trace\"
+        style=\"display: none;\">\n      <pre><code>actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in
+        `call&#39;\nactionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in
+        `call&#39;\nrailties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app&#39;\nrailties
+        (4.0.0) lib/rails/rack/logger.rb:21:in `block in call&#39;\nactivesupport
+        (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged&#39;\nactivesupport
+        (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged&#39;\nactivesupport
+        (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged&#39;\nrailties
+        (4.0.0) lib/rails/rack/logger.rb:21:in `call&#39;\nactionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in
+        `call&#39;\nrack (1.5.2) lib/rack/runtime.rb:17:in `call&#39;\nactivesupport
+        (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call&#39;\nrack
+        (1.5.2) lib/rack/lock.rb:17:in `call&#39;\nactionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in
+        `call&#39;\nrailties (4.0.0) lib/rails/engine.rb:511:in `call&#39;\nrailties
+        (4.0.0) lib/rails/application.rb:97:in `call&#39;\nlib/rack/json_content_length.rb:14:in
+        `call&#39;\nrack (1.5.2) lib/rack/lock.rb:17:in `call&#39;\nrack (1.5.2) lib/rack/content_length.rb:14:in
+        `call&#39;\nrack (1.5.2) lib/rack/handler/webrick.rb:60:in `service&#39;\n/Users/hrishi/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in
+        `service&#39;\n/Users/hrishi/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in
+        `run&#39;\n/Users/hrishi/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in
+        `block in start_thread&#39;</code></pre>\n    </div>\n</div>\n\n\n    <h2>\n
+        \     Routes\n    </h2>\n\n    <p>\n      Routes match in priority from top
+        to bottom\n    </p>\n\n    \n<table id='route_table' class='route_table'>\n
+        \ <thead>\n    <tr>\n      <th>Helper</th>\n      <th>HTTP Verb</th>\n      <th>Path</th>\n
+        \     <th>Controller#Action</th>\n    </tr>\n    <tr class='bottom'>\n      <th>\n
+        \       <a data-route-helper=\"_path\" href=\"#\" title=\"Returns a relative
+        path (without the http or domain)\">Path</a> /\n        <a data-route-helper=\"_url\"
+        href=\"#\" title=\"Returns an absolute url (with the http and domain)\">Url</a>\n
+        \     </th>\n      <th>\n      </th>\n      <th>\n        <input id=\"path_search\"
+        name=\"path[]\" placeholder=\"Path Match\" type=\"search\" />\n      </th>\n
+        \     <th>\n      </th>\n    </tr>\n  </thead>\n  <tbody class='matched_paths'
+        id='matched_paths'>\n  </tbody>\n  <tbody>\n    <tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name='new_user_session'>\n      new_user_session<span class='helper'>_path</span>\n
+        \ </td>\n  <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/users/sign_in(.:format)'
+        data-regexp='^\\/users\\/sign_in(?:\\.([^\\/.?]+))?$'>\n    /users/sign_in(.:format)\n
+        \ </td>\n  <td data-route-reqs='devise/sessions#new {:format=&gt;:json}'>\n
+        \   devise/sessions#new {:format=&gt;:json}\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='user_session'>\n      user_session<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/users/sign_in(.:format)' data-regexp='^\\/users\\/sign_in(?:\\.([^\\/.?]+))?$'>\n
+        \   /users/sign_in(.:format)\n  </td>\n  <td data-route-reqs='devise/sessions#create
+        {:format=&gt;:json}'>\n    devise/sessions#create {:format=&gt;:json}\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='destroy_user_session'>\n
+        \     destroy_user_session<span class='helper'>_path</span>\n  </td>\n  <td
+        data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/users/sign_out(.:format)'
+        data-regexp='^\\/users\\/sign_out(?:\\.([^\\/.?]+))?$'>\n    /users/sign_out(.:format)\n
+        \ </td>\n  <td data-route-reqs='devise/sessions#destroy {:format=&gt;:json}'>\n
+        \   devise/sessions#destroy {:format=&gt;:json}\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='user_password'>\n      user_password<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='POST'>\n    POST\n
+        \ </td>\n  <td data-route-path='/users/password(.:format)' data-regexp='^\\/users\\/password(?:\\.([^\\/.?]+))?$'>\n
+        \   /users/password(.:format)\n  </td>\n  <td data-route-reqs='devise/passwords#create
+        {:format=&gt;:json}'>\n    devise/passwords#create {:format=&gt;:json}\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='new_user_password'>\n
+        \     new_user_password<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n
+        \   GET\n  </td>\n  <td data-route-path='/users/password/new(.:format)' data-regexp='^\\/users\\/password\\/new(?:\\.([^\\/.?]+))?$'>\n
+        \   /users/password/new(.:format)\n  </td>\n  <td data-route-reqs='devise/passwords#new
+        {:format=&gt;:json}'>\n    devise/passwords#new {:format=&gt;:json}\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name='edit_user_password'>\n
+        \     edit_user_password<span class='helper'>_path</span>\n  </td>\n  <td
+        data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/users/password/edit(.:format)'
+        data-regexp='^\\/users\\/password\\/edit(?:\\.([^\\/.?]+))?$'>\n    /users/password/edit(.:format)\n
+        \ </td>\n  <td data-route-reqs='devise/passwords#edit {:format=&gt;:json}'>\n
+        \   devise/passwords#edit {:format=&gt;:json}\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='PATCH'>\n
+        \   PATCH\n  </td>\n  <td data-route-path='/users/password(.:format)' data-regexp='^\\/users\\/password(?:\\.([^\\/.?]+))?$'>\n
+        \   /users/password(.:format)\n  </td>\n  <td data-route-reqs='devise/passwords#update
+        {:format=&gt;:json}'>\n    devise/passwords#update {:format=&gt;:json}\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='PUT'>\n    PUT\n  </td>\n  <td data-route-path='/users/password(.:format)'
+        data-regexp='^\\/users\\/password(?:\\.([^\\/.?]+))?$'>\n    /users/password(.:format)\n
+        \ </td>\n  <td data-route-reqs='devise/passwords#update {:format=&gt;:json}'>\n
+        \   devise/passwords#update {:format=&gt;:json}\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='cancel_user_registration'>\n      cancel_user_registration<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/users/cancel(.:format)' data-regexp='^\\/users\\/cancel(?:\\.([^\\/.?]+))?$'>\n
+        \   /users/cancel(.:format)\n  </td>\n  <td data-route-reqs='devise/registrations#cancel
+        {:format=&gt;:json}'>\n    devise/registrations#cancel {:format=&gt;:json}\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='user_registration'>\n
+        \     user_registration<span class='helper'>_path</span>\n  </td>\n  <td data-route-verb='POST'>\n
+        \   POST\n  </td>\n  <td data-route-path='/users(.:format)' data-regexp='^\\/users(?:\\.([^\\/.?]+))?$'>\n
+        \   /users(.:format)\n  </td>\n  <td data-route-reqs='devise/registrations#create
+        {:format=&gt;:json}'>\n    devise/registrations#create {:format=&gt;:json}\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name='new_user_registration'>\n
+        \     new_user_registration<span class='helper'>_path</span>\n  </td>\n  <td
+        data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/users/sign_up(.:format)'
+        data-regexp='^\\/users\\/sign_up(?:\\.([^\\/.?]+))?$'>\n    /users/sign_up(.:format)\n
+        \ </td>\n  <td data-route-reqs='devise/registrations#new {:format=&gt;:json}'>\n
+        \   devise/registrations#new {:format=&gt;:json}\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name='edit_user_registration'>\n      edit_user_registration<span
+        class='helper'>_path</span>\n  </td>\n  <td data-route-verb='GET'>\n    GET\n
+        \ </td>\n  <td data-route-path='/users/edit(.:format)' data-regexp='^\\/users\\/edit(?:\\.([^\\/.?]+))?$'>\n
+        \   /users/edit(.:format)\n  </td>\n  <td data-route-reqs='devise/registrations#edit
+        {:format=&gt;:json}'>\n    devise/registrations#edit {:format=&gt;:json}\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='PATCH'>\n    PATCH\n  </td>\n  <td data-route-path='/users(.:format)'
+        data-regexp='^\\/users(?:\\.([^\\/.?]+))?$'>\n    /users(.:format)\n  </td>\n
+        \ <td data-route-reqs='devise/registrations#update {:format=&gt;:json}'>\n
+        \   devise/registrations#update {:format=&gt;:json}\n  </td>\n</tr>\n<tr class='route_row'
+        data-helper='path'>\n  <td data-route-name=''>\n  </td>\n  <td data-route-verb='PUT'>\n
+        \   PUT\n  </td>\n  <td data-route-path='/users(.:format)' data-regexp='^\\/users(?:\\.([^\\/.?]+))?$'>\n
+        \   /users(.:format)\n  </td>\n  <td data-route-reqs='devise/registrations#update
+        {:format=&gt;:json}'>\n    devise/registrations#update {:format=&gt;:json}\n
+        \ </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n  <td data-route-name=''>\n
+        \ </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n  </td>\n  <td data-route-path='/users(.:format)'
+        data-regexp='^\\/users(?:\\.([^\\/.?]+))?$'>\n    /users(.:format)\n  </td>\n
+        \ <td data-route-reqs='devise/registrations#destroy {:format=&gt;:json}'>\n
+        \   devise/registrations#destroy {:format=&gt;:json}\n  </td>\n</tr>\n<tr
+        class='route_row' data-helper='path'>\n  <td data-route-name=''>\n  </td>\n
+        \ <td data-route-verb='GET'>\n    GET\n  </td>\n  <td data-route-path='/users/:authentication_token(.:format)'
+        data-regexp='^\\/users\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /users/:authentication_token(.:format)\n
+        \ </td>\n  <td data-route-reqs='tokens#show {:format=&gt;:json}'>\n    tokens#show
+        {:format=&gt;:json}\n  </td>\n</tr>\n<tr class='route_row' data-helper='path'>\n
+        \ <td data-route-name=''>\n  </td>\n  <td data-route-verb='DELETE'>\n    DELETE\n
+        \ </td>\n  <td data-route-path='/sessions/:authentication_token(.:format)'
+        data-regexp='^\\/sessions\\/([^\\/.?]+)(?:\\.([^\\/.?]+))?$'>\n    /sessions/:authentication_token(.:format)\n
+        \ </td>\n  <td data-route-reqs='sessions#destroy {:format=&gt;:json}'>\n    sessions#destroy
+        {:format=&gt;:json}\n  </td>\n</tr>\n\n  </tbody>\n</table>\n\n<script type='text/javascript'>\n
+        \ function each(elems, func) {\n    if (!elems instanceof Array) { elems =
+        [elems]; }\n    for (var i = 0, len = elems.length; i < len; i++) {\n      func(elems[i]);\n
+        \   }\n  }\n\n  function setValOn(elems, val) {\n    each(elems, function(elem)
+        {\n      elem.innerHTML = val;\n    });\n  }\n\n  function onClick(elems,
+        func) {\n    each(elems, function(elem) {\n      elem.onclick = func;\n    });\n
+        \ }\n\n  // Enables functionality to toggle between `_path` and `_url` helper
+        suffixes\n  function setupRouteToggleHelperLinks() {\n    var toggleLinks
+        = document.querySelectorAll('#route_table [data-route-helper]');\n    onClick(toggleLinks,
+        function(){\n      var helperTxt   = this.getAttribute(\"data-route-helper\"),\n
+        \         helperElems = document.querySelectorAll('[data-route-name] span.helper');\n
+        \     setValOn(helperElems, helperTxt);\n    });\n  }\n\n  // takes an array
+        of elements with a data-regexp attribute and\n  // passes their their parent
+        <tr> into the callback function\n  // if the regexp matchs a given path\n
+        \ function eachElemsForPath(elems, path, func) {\n    each(elems, function(e){\n
+        \     var reg = e.getAttribute(\"data-regexp\");\n      if (path.match(RegExp(reg)))
+        {\n        func(e.parentNode.cloneNode(true));\n      }\n    })\n  }\n\n  //
+        Ensure path always starts with a slash \"/\" and remove params or fragments\n
+        \ function sanitizePath(path) {\n    var path = path.charAt(0) == '/' ? path
+        : \"/\" + path;\n    return path.replace(/\\#.*|\\?.*/, '');\n  }\n\n  //
+        Enables path search functionality\n  function setupMatchPaths() {\n    var
+        regexpElems     = document.querySelectorAll('#route_table [data-regexp]'),\n
+        \       pathElem        = document.querySelector('#path_search'),\n        selectedSection
+        = document.querySelector('#matched_paths'),\n        noMatchText     = '<tr><th
+        colspan=\"4\">None</th></tr>';\n\n\n    // Remove matches if no path is present\n
+        \   pathElem.onblur = function(e) {\n      if (pathElem.value === \"\") selectedSection.innerHTML
+        = \"\";\n    }\n\n    // On key press perform a search for matching paths\n
+        \   pathElem.onkeyup = function(e){\n      var path        = sanitizePath(pathElem.value),\n
+        \         defaultText = '<tr><th colspan=\"4\">Paths Matching (' + path +
+        '):</th></tr>';\n\n      // Clear out results section\n      selectedSection.innerHTML=
+        defaultText;\n\n      // Display matches if they exist\n      eachElemsForPath(regexpElems,
+        path, function(e){\n        selectedSection.appendChild(e);\n      });\n\n
+        \     // If no match present, tell the user\n      if (selectedSection.innerHTML
+        === defaultText) {\n        selectedSection.innerHTML = selectedSection.innerHTML
+        + noMatchText;\n      }\n    }\n  }\n\n  setupMatchPaths();\n  setupRouteToggleHelperLinks();\n</script>\n\n</div>\n\n\n</body>\n</html>\n"
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 15:33:13 GMT
+recorded_with: VCR 2.7.0
