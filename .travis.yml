@@ -1,10 +1,10 @@
 language: ruby
 rvm:
 - 2.0.0
+services:
+  - redis-server
 before_install:
   - sudo apt-get install pdftk
-  - sudo apt-get install redis-server
-  - sudo redis-server --port 6379 &
 script: bundle exec rspec spec
 notifications:
   hipchat:
