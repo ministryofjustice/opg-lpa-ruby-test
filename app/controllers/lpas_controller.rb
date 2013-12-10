@@ -38,9 +38,7 @@ class LpasController < ApplicationController
     with_secure_token(Lpa) do
       @lpa = Lpa.find(params[:lpa_id])
       @lpa_id = params[:lpa_id]
-      puts "Calling PDFWORKERRRRRRRRRRRR for #{@lpa_id}"
       PDFWorker.perform_async(@lpa_id, @lpa.to_json)
-      puts "Called PDFWORKERRRRRRRRRRRR"
       respond_to do |format|
         format.js
         format.html { get_pdf }
