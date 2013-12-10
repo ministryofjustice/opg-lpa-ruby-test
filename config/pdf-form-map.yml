@@ -1,0 +1,10 @@
+# PDF               JSON
+cb_Page3DonorTitle: donor, title
+PartADonorFirstName: donor, first_name
+PartADonorLastName: donor, last_name
+PartADonorOtherNames: donor, middle_names
+PartADonorDOB: donor, date_of_birth
+PartADonorAddress1: donor, address, address_line1
+PartADonorAddress2: donor, address, address_line2
+PartADonorAddress3: donor, address, address_line3
+PartADonorPostcode: donor, address, post_code

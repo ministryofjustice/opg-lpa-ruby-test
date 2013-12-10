@@ -15,28 +15,18 @@ class PDFMaker
   private
 
   def populate_form(xfdf)
-    # TODO: fix the paths!
     rnd = Random.new.rand(1..100000000) + 1
-    path = File.open("../../templates/input#{rnd}.xfdf", 'w+').path
+    input = File.join "..", "..", "templates", "input#{rnd}.xfdf"
+    path = File.open("#{input}", 'w+').path
     File.open(path, 'w') {|f| f.write(xfdf) }
-    template = "../../templates/lpa.pdf"
-    result = "../../public/output#{rnd}.pdf"
+    template = File.join "..", "..", "templates", "lpa.pdf"
+    result = File.join "..", "..", "public", "output#{rnd}.pdf"
     system "pdftk #{template} fill_form #{path} output #{result} flatten"
     result
   end
 
   def create_donor
-    hash = {}
-    j = JSON.parse @json
-    hash['cb_Page3DonorTitle'] = j["donor"]["title"]
-    hash['PartADonorFirstName'] = j["donor"]["first_name"]
-    hash['PartADonorLastName'] = j["donor"]["last_name"]
-    hash['PartADonorDOB'] = j["donor"]["date_of_birth"]
-    hash['PartADonorAddress1'] = j["donor"]["address"]["address_line1"]
-    hash['PartADonorAddress2'] = j["donor"]["address"]["address_line2"]
-    hash['PartADonorAddress3'] = j["donor"]["address"]["address_line3"]
-    hash['PartADonorPostcode'] = j["donor"]["address"]["post_code"]
-    hash
+    JSONFormatter.new(@json).to_form_data
   end
 
   def create_xfdf(fields)
