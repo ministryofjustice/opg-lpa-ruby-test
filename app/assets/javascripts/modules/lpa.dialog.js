@@ -1,8 +1,8 @@
 /*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global moj, lpa, $ */
+/*global lpa, $ */
 
 // Popup module for LPA
-// Dependencies: lpa, moj, jQuery
+// Dependencies: lpa, jQuery
 
 (function (){
   'use strict';
@@ -16,8 +16,8 @@
 
   Dialog.prototype = {
     defaults: {
-      type: "confirm", // options - confirm, alert, prompt
-      message: ""
+      type: 'confirm', // options - confirm, alert, prompt
+      message: ''
     },
 
     _cacheEls: function (el) {
@@ -28,15 +28,15 @@
       var self = this;
 
       this.$link.on('click', function(){
-        if (self.settings.type == "confirm") {
+        if (self.settings.type === 'confirm') {
           if (!confirm(self.settings.message)) {
             return false;
           }
-        } else if (self.settings.type == "prompt") {
+        } else if (self.settings.type === 'prompt') {
           if (!prompt(self.settings.message)) {
             return false;
           }
-        } else if (self.settings.type == "alert") {
+        } else if (self.settings.type === 'alert') {
           alert(self.settings.message);
           return false;
         }
