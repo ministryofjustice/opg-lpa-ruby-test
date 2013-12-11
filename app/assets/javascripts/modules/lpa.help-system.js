@@ -105,13 +105,13 @@
       // Set nav item as active
       $('.help-navigation a[href$="#' + slug + '"]').parent() // use 'ends with' selector so don't have to define url slug
         .addClass('active')
-        .siblings()
+        .siblings('li')
         .removeClass('active');
 
       // Show associated content
       $('#' + slug)
         .removeClass('hidden')
-        .siblings()
+        .siblings('article')
         .addClass('hidden');
 
       // Scroll back to top of help
