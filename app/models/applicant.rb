@@ -37,5 +37,8 @@ class Applicant < ActiveResource::Base
     super(*args)
   end
 
+  def has_lpa?(lpa_id)
+    self.lpas.map(&:id).include? lpa_id
+  end
 end
 

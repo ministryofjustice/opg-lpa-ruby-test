@@ -13,7 +13,6 @@ class Lpas::BuildController < ApplicationController
         return
       end
       @lpa.donor.date_of_birth = Date.parse(@lpa.donor.date_of_birth) if @lpa.donor.present? && @lpa.donor.date_of_birth.present?
-      PDFWorker.perform_async(@lpa.to_json)
       case step
       when :when_to_use
         skip_step if @lpa.type == "Health and welfare"

@@ -5,7 +5,7 @@ http_interactions:
     uri: http://localhost:9292/auth/users
     body:
       encoding: UTF-8
-      string: user[email]=joe.bloggs1386690797.6348312795%40example.com&user[password]=s3kr!tpass
+      string: user[email]=joe.bloggs1386690809.1051981922%40example.com&user[password]=s3kr!tpass
     headers: {}
   response:
     status:
@@ -25,32 +25,32 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"4e0fdf47e583b1dc06c7ebb456ddbd07"'
+      - '"7867130dd47af9d07a7f9f8c9f6ffd32"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 53317d2a-a1fb-40ad-b1c9-fa06565282a1
+      - dfdf5b9b-b407-4140-8a34-a57bddf0d66e
       X-Runtime:
-      - '0.065272'
+      - '0.068002'
       Server:
       - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
       Date:
-      - Tue, 10 Dec 2013 15:53:17 GMT
+      - Tue, 10 Dec 2013 15:53:29 GMT
       Connection:
       - close
       Content-Length:
       - '101'
     body:
       encoding: UTF-8
-      string: '{"email":"joe.bloggs1386690797.6348312795@example.com","authentication_token":"Ms7Bi6rVdsyFNUdRAEep"}'
+      string: '{"email":"joe.bloggs1386690809.1051981922@example.com","authentication_token":"QJm-WZ9mJCRkTgpSAizw"}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:17 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:29 GMT
 - request:
     method: post
     uri: http://localhost:9292/auth/sessions
     body:
       encoding: UTF-8
-      string: user[email]=joe.bloggs1386690797.6348312795%40example.com&user[password]=s3kr!tpass
+      string: user[email]=joe.bloggs1386690809.1051981922%40example.com&user[password]=s3kr!tpass
     headers: {}
   response:
     status:
@@ -70,26 +70,26 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"4e0fdf47e583b1dc06c7ebb456ddbd07"'
+      - '"7867130dd47af9d07a7f9f8c9f6ffd32"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 533b6912-69ce-44b4-8ffc-f2c8894ec0fd
+      - c5cd91e3-bdc2-41bc-a97b-8ae4834fd63c
       X-Runtime:
-      - '0.064442'
+      - '0.065349'
       Server:
       - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
       Date:
-      - Tue, 10 Dec 2013 15:53:17 GMT
+      - Tue, 10 Dec 2013 15:53:29 GMT
       Connection:
       - close
       Content-Length:
       - '101'
     body:
       encoding: UTF-8
-      string: '{"email":"joe.bloggs1386690797.6348312795@example.com","authentication_token":"Ms7Bi6rVdsyFNUdRAEep"}'
+      string: '{"email":"joe.bloggs1386690809.1051981922@example.com","authentication_token":"QJm-WZ9mJCRkTgpSAizw"}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:17 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:29 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -100,7 +100,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -122,7 +122,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"error":"Forbidden"}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:17 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:29 GMT
 - request:
     method: post
     uri: http://localhost:9292/api/applicants.json
@@ -134,7 +134,7 @@ http_interactions:
       Content-Type:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -156,11 +156,11 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:29 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -171,7 +171,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -191,11 +191,11 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:29 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -206,7 +206,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -226,22 +226,22 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:29 GMT
 - request:
     method: post
     uri: http://localhost:9292/api/lpas.json
     body:
       encoding: UTF-8
-      string: '{"donor":null,"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"applicant_id":"52a738ee66756eab2f440100"}'
+      string: '{"donor":null,"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"applicant_id":"52a738f966756eab2f640100"}'
     headers:
       Content-Type:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -263,11 +263,11 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","applicant":{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","applicant":{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:29 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -278,7 +278,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -298,11 +298,11 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","donor":null,"type":null,"updated_at":"2013-12-10T15:53:18+00:00"}]}'
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","donor":null,"type":null,"updated_at":"2013-12-10T15:53:29+00:00"}]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:29 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -313,7 +313,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -333,14 +333,14 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","donor":null,"type":null,"updated_at":"2013-12-10T15:53:18+00:00"}]}'
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","donor":null,"type":null,"updated_at":"2013-12-10T15:53:29+00:00"}]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:29 GMT
 - request:
     method: get
-    uri: http://localhost:9292/api/lpas/52a738ee66756eab2f460100.json
+    uri: http://localhost:9292/api/lpas/52a738f966756eab2f660100.json
     body:
       encoding: US-ASCII
       string: ''
@@ -348,7 +348,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -368,11 +368,11 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","applicant":{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","applicant":{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:29 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -383,7 +383,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -403,14 +403,14 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","donor":null,"type":null,"updated_at":"2013-12-10T15:53:18+00:00"}]}'
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","donor":null,"type":null,"updated_at":"2013-12-10T15:53:29+00:00"}]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:29 GMT
 - request:
     method: get
-    uri: http://localhost:9292/api/lpas/52a738ee66756eab2f460100.json
+    uri: http://localhost:9292/api/lpas/52a738f966756eab2f660100.json
     body:
       encoding: US-ASCII
       string: ''
@@ -418,7 +418,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -438,25 +438,25 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","applicant":{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","applicant":{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:29 GMT
 - request:
     method: put
-    uri: http://localhost:9292/api/lpas/52a738ee66756eab2f460100.json
+    uri: http://localhost:9292/api/lpas/52a738f966756eab2f660100.json
     body:
       encoding: UTF-8
-      string: '{"donor":null,"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","applicant":{"address":{"address_line1":"102
+      string: '{"donor":null,"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","applicant":{"address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[],"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Health
-        and welfare"}'
+        9AJ","country":"Great Britain"},"lpas":[],"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
+        and financial affairs"}'
     headers:
       Content-Type:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -471,33 +471,33 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '594'
+      - '606'
       Connection:
       - keep-alive
       Server:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","type":"Health
-        and welfare","applicant":{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","type":"Property
+        and financial affairs","applicant":{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:29 GMT
 - request:
     method: put
-    uri: http://localhost:9292/api/lpas/52a738ee66756eab2f460100.json
+    uri: http://localhost:9292/api/lpas/52a738f966756eab2f660100.json
     body:
       encoding: UTF-8
-      string: '{"donor":null,"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","applicant":{"address":{"address_line1":"102
+      string: '{"donor":null,"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","applicant":{"address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[],"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Health
-        and welfare"}'
+        9AJ","country":"Great Britain"},"lpas":[],"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
+        and financial affairs"}'
     headers:
       Content-Type:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -512,19 +512,19 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '594'
+      - '606'
       Connection:
       - keep-alive
       Server:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","type":"Health
-        and welfare","applicant":{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","type":"Property
+        and financial affairs","applicant":{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:29 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -535,7 +535,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -548,22 +548,22 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '580'
+      - '592'
       Connection:
       - keep-alive
       Server:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","donor":null,"type":"Health
-        and welfare","updated_at":"2013-12-10T15:53:18+00:00"}]}'
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","donor":null,"type":"Property
+        and financial affairs","updated_at":"2013-12-10T15:53:29+00:00"}]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:29 GMT
 - request:
     method: get
-    uri: http://localhost:9292/api/lpas/52a738ee66756eab2f460100.json
+    uri: http://localhost:9292/api/lpas/52a738f966756eab2f660100.json
     body:
       encoding: US-ASCII
       string: ''
@@ -571,7 +571,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -584,19 +584,19 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '594'
+      - '606'
       Connection:
       - keep-alive
       Server:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","type":"Health
-        and welfare","applicant":{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","type":"Property
+        and financial affairs","applicant":{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:29 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -607,7 +607,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -620,22 +620,22 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '580'
+      - '592'
       Connection:
       - keep-alive
       Server:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","donor":null,"type":"Health
-        and welfare","updated_at":"2013-12-10T15:53:18+00:00"}]}'
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","donor":null,"type":"Property
+        and financial affairs","updated_at":"2013-12-10T15:53:29+00:00"}]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:41 GMT
 - request:
     method: get
-    uri: http://localhost:9292/api/lpas/52a738ee66756eab2f460100.json
+    uri: http://localhost:9292/api/lpas/52a738f966756eab2f660100.json
     body:
       encoding: US-ASCII
       string: ''
@@ -643,7 +643,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -656,34 +656,35 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '594'
+      - '606'
       Connection:
       - keep-alive
       Server:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","type":"Health
-        and welfare","applicant":{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","type":"Property
+        and financial affairs","applicant":{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:41 GMT
 - request:
     method: put
-    uri: http://localhost:9292/api/lpas/52a738ee66756eab2f460100.json
+    uri: http://localhost:9292/api/lpas/52a738f966756eab2f660100.json
     body:
       encoding: UTF-8
       string: '{"donor":{"address":{"address_line1":"102 Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","email":"johnny@example.com","phone":"123
-        456","date_of_birth":"1970-01-31T00:00:00+01:00"},"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","type":"Health
-        and welfare","applicant":{"address":{"address_line1":"102 Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[],"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson"}}'
+        456","date_of_birth":"1970-01-31T00:00:00+01:00"},"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","type":"Property
+        and financial affairs","applicant":{"address":{"address_line1":"102 Petty
+        France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[],"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson"}}'
     headers:
       Content-Type:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -698,36 +699,37 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '929'
+      - '941'
       Connection:
       - keep-alive
       Server:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","type":"Health
-        and welfare","applicant":{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","type":"Property
+        and financial affairs","applicant":{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:41 GMT
 - request:
     method: put
-    uri: http://localhost:9292/api/lpas/52a738ee66756eab2f460100.json
+    uri: http://localhost:9292/api/lpas/52a738f966756eab2f660100.json
     body:
       encoding: UTF-8
       string: '{"donor":{"address":{"address_line1":"102 Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","phone":"123
-        456","email":"johnny@example.com"},"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","type":"Health
-        and welfare","applicant":{"address":{"address_line1":"102 Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[],"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson"}}'
+        456","email":"johnny@example.com"},"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","type":"Property
+        and financial affairs","applicant":{"address":{"address_line1":"102 Petty
+        France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[],"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson"}}'
     headers:
       Content-Type:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -742,21 +744,21 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '929'
+      - '941'
       Connection:
       - keep-alive
       Server:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","type":"Health
-        and welfare","applicant":{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","type":"Property
+        and financial affairs","applicant":{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:41 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -767,7 +769,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -780,22 +782,22 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '640'
+      - '652'
       Connection:
       - keep-alive
       Server:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Health
-        and welfare","updated_at":"2013-12-10T15:53:18+00:00"}]}'
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
+        and financial affairs","updated_at":"2013-12-10T15:53:41+00:00"}]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:41 GMT
 - request:
     method: get
-    uri: http://localhost:9292/api/lpas/52a738ee66756eab2f460100.json
+    uri: http://localhost:9292/api/lpas/52a738f966756eab2f660100.json
     body:
       encoding: US-ASCII
       string: ''
@@ -803,7 +805,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -816,21 +818,21 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '929'
+      - '941'
       Connection:
       - keep-alive
       Server:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","type":"Health
-        and welfare","applicant":{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","type":"Property
+        and financial affairs","applicant":{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:41 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -841,7 +843,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -854,22 +856,22 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '640'
+      - '652'
       Connection:
       - keep-alive
       Server:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Health
-        and welfare","updated_at":"2013-12-10T15:53:18+00:00"}]}'
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
+        and financial affairs","updated_at":"2013-12-10T15:53:41+00:00"}]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:41 GMT
 - request:
     method: get
-    uri: http://localhost:9292/api/lpas/52a738ee66756eab2f460100.json
+    uri: http://localhost:9292/api/lpas/52a738f966756eab2f660100.json
     body:
       encoding: US-ASCII
       string: ''
@@ -877,7 +879,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -890,21 +892,21 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '929'
+      - '941'
       Connection:
       - keep-alive
       Server:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","type":"Health
-        and welfare","applicant":{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","type":"Property
+        and financial affairs","applicant":{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:18 GMT
+  recorded_at: Tue, 10 Dec 2013 15:53:41 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -915,7 +917,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -928,22 +930,22 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '640'
+      - '652'
       Connection:
       - keep-alive
       Server:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Health
-        and welfare","updated_at":"2013-12-10T15:53:18+00:00"}]}'
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
+        and financial affairs","updated_at":"2013-12-10T15:53:41+00:00"}]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:19 GMT
+  recorded_at: Tue, 10 Dec 2013 17:09:17 GMT
 - request:
     method: get
-    uri: http://localhost:9292/api/lpas/52a738ee66756eab2f460100.json
+    uri: http://localhost:9292/api/applicants/current.json
     body:
       encoding: US-ASCII
       string: ''
@@ -951,7 +953,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -964,37 +966,134 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '929'
+      - '652'
       Connection:
       - keep-alive
       Server:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","type":"Health
-        and welfare","applicant":{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+      string: '{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
-        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
+        and financial affairs","updated_at":"2013-12-10T15:53:41+00:00"}]}'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:19 GMT
+  recorded_at: Tue, 10 Dec 2013 17:09:19 GMT
 - request:
-    method: put
-    uri: http://localhost:9292/api/lpas/52a738ee66756eab2f460100.json
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
     body:
-      encoding: UTF-8
-      string: '{"donor":{"address":{"address_line1":"102 Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","phone":"123
-        456","email":"johnny@example.com"},"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","type":"Health
-        and welfare","applicant":{"address":{"address_line1":"102 Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[],"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson"},"life_sustaining_treatment":"Option
-        B"}'
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - QJm-WZ9mJCRkTgpSAizw
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
     headers:
       Content-Type:
       - application/json
+      Content-Length:
+      - '652'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
+        and financial affairs","updated_at":"2013-12-10T15:53:41+00:00"}]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 17:09:21 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
       Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
+      - QJm-WZ9mJCRkTgpSAizw
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '652'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
+        and financial affairs","updated_at":"2013-12-10T15:53:41+00:00"}]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 17:09:23 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - QJm-WZ9mJCRkTgpSAizw
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '652'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a738f966756eab2f640100","uri":"http://localhost/api/applicants.json/52a738f966756eab2f640100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738f966756eab2f660100","uri":"http://localhost/api/lpas.json/52a738f966756eab2f660100.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Property
+        and financial affairs","updated_at":"2013-12-10T15:53:41+00:00"}]}'
+    http_version: 
+  recorded_at: Tue, 10 Dec 2013 17:09:25 GMT
+- request:
+    method: get
+    uri: http://127.0.0.1:59010/__identify__
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -1004,143 +1103,19 @@ http_interactions:
   response:
     status:
       code: 200
-      message: OK
+      message: 'OK '
     headers:
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '968'
-      Connection:
-      - keep-alive
       Server:
-      - thin 1.6.1 codename Death Proof
-    body:
-      encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","type":"Health
-        and welfare","life_sustaining_treatment":"Option B","applicant":{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
-        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
-        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:19 GMT
-- request:
-    method: put
-    uri: http://localhost:9292/api/lpas/52a738ee66756eab2f460100.json
-    body:
-      encoding: UTF-8
-      string: '{"donor":{"address":{"address_line1":"102 Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","phone":"123
-        456","email":"johnny@example.com"},"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","type":"Health
-        and welfare","applicant":{"address":{"address_line1":"102 Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[],"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson"},"life_sustaining_treatment":"Option
-        B"}'
-    headers:
-      Content-Type:
-      - application/json
-      Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - '*/*'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json
+      - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
+      Date:
+      - Wed, 11 Dec 2013 14:27:18 GMT
       Content-Length:
-      - '968'
+      - '14'
       Connection:
-      - keep-alive
-      Server:
-      - thin 1.6.1 codename Death Proof
+      - Keep-Alive
     body:
       encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","type":"Health
-        and welfare","life_sustaining_treatment":"Option B","applicant":{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
-        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
-        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
+      string: '70359245983520'
     http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:19 GMT
-- request:
-    method: get
-    uri: http://localhost:9292/api/applicants/current.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/json
-      Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '640'
-      Connection:
-      - keep-alive
-      Server:
-      - thin 1.6.1 codename Death Proof
-    body:
-      encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
-        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","donor":{"first_name":"Johnny","middle_names":"","last_name":"Smithson"},"type":"Health
-        and welfare","updated_at":"2013-12-10T15:53:19+00:00"}]}'
-    http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:19 GMT
-- request:
-    method: get
-    uri: http://localhost:9292/api/lpas/52a738ee66756eab2f460100.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept:
-      - application/json
-      Secure-Token:
-      - Ms7Bi6rVdsyFNUdRAEep
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '968'
-      Connection:
-      - keep-alive
-      Server:
-      - thin 1.6.1 codename Death Proof
-    body:
-      encoding: UTF-8
-      string: '{"id":"52a738ee66756eab2f460100","uri":"http://localhost/api/lpas.json/52a738ee66756eab2f460100.json","type":"Health
-        and welfare","life_sustaining_treatment":"Option B","applicant":{"id":"52a738ee66756eab2f440100","uri":"http://localhost/api/applicants.json/52a738ee66756eab2f440100.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
-        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"}},"donor":{"date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smithson","address":{"address_line1":"102
-        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"phone":"123 456","email":"johnny@example.com"},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
-    http_version: 
-  recorded_at: Tue, 10 Dec 2013 15:53:19 GMT
+  recorded_at: Wed, 11 Dec 2013 14:27:18 GMT
 recorded_with: VCR 2.7.0
