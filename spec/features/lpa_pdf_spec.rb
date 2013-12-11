@@ -9,7 +9,11 @@ feature 'Generating PDF previews', :js => true do
     system("rm -f pdfs/drafts/*.pdf")
   end
 
-  pending 'for healthcare with all valid details', :vcr do
+  after(:each) do
+    system("rm -f pdfs/drafts/*.pdf")
+  end
+
+  scenario 'for healthcare with all valid details', :vcr do
     create_healthcare_lpa
     expect(page).to have_content('This LPA covers Health and welfare')
 
@@ -19,13 +23,13 @@ feature 'Generating PDF previews', :js => true do
     expect(page).to have_content('Download preview of LPA')
 
     click_link "Download preview of LPA"
-    sleep(3)
+    sleep(10)
 
     expect(response_headers["Content-Type"]).to eq("application/pdf")
     expect(response_headers["Content-Disposition"]).to eq("inline; filename=\"draft.pdf\"")
   end
 
-  pending 'for financial with all valid details', :vcr do
+  scenario 'for financial with all valid details', :vcr do
     create_financial_lpa
     expect(page).to have_content('This LPA covers Property and financial affairs')
 
@@ -35,7 +39,7 @@ feature 'Generating PDF previews', :js => true do
     expect(page).to have_content('Download preview of LPA')
 
     click_link "Download preview of LPA"
-    sleep(3)
+    sleep(10)
 
     expect(response_headers["Content-Type"]).to eq("application/pdf")
     expect(response_headers["Content-Disposition"]).to eq("inline; filename=\"draft.pdf\"")
