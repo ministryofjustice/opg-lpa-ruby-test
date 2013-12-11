@@ -22,7 +22,7 @@ gem 'govuk_template'
 gem 'govuk_frontend_toolkit'
 # gem 'moj_frontend_toolkit_gem', git: 'https://github.com/ministryofjustice/moj_frontend_toolkit_gem.git', tag: 'v0.0.40'
 # local boilerplate
-gem 'moj_boilerplate', git: 'https://github.com/ministryofjustice/moj_boilerplate.git'
+gem 'moj_boilerplate', git: 'https://github.com/ministryofjustice/moj_boilerplate.git', tag: 'v0.1.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
