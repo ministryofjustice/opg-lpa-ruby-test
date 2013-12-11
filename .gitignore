@@ -23,4 +23,4 @@ bin/*
 
 # Ignore XFDFs and PDFs
 /templates/*.xfdf
-/pdfs/drafts/*
+/pdfs/drafts/*.pdf
