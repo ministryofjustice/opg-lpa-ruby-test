@@ -9,7 +9,7 @@ feature 'Generating PDF previews', :js => true do
     system("rm -f pdfs/drafts/*.pdf")
   end
 
-  scenario 'for healthcare with all valid details', :vcr do
+  pending 'for healthcare with all valid details', :vcr do
     create_healthcare_lpa
     expect(page).to have_content('This LPA covers Health and welfare')
 
@@ -25,7 +25,7 @@ feature 'Generating PDF previews', :js => true do
     expect(response_headers["Content-Disposition"]).to eq("inline; filename=\"draft.pdf\"")
   end
 
-  scenario 'for financial with all valid details', :vcr do
+  pending 'for financial with all valid details', :vcr do
     create_financial_lpa
     expect(page).to have_content('This LPA covers Property and financial affairs')
 
