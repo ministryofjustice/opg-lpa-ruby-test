@@ -19,6 +19,14 @@ Local installation
     cd opg-lpa
     bundle install
 
+### PDFtk
+
+On Mac OS X, download installer from here:
+[http://www.pdflabs.com/tools/pdftk-server/#download](http://www.pdflabs.com/tools/pdftk-server/#download)
+
+On Linux:
+    sudo apt-get install pdftk
+
 ### Frontend
 
 #### Bower
@@ -27,15 +35,11 @@ Bower package manager is used for frontend package management. Bower relies in N
 
 Install Bower globally using:
 
-```
-npm install -g bower
-```
+    npm install -g bower
 
 Then run the following command from the project directory:
 
-```
-bower install
-```
+    bower install
 
 Tests
 -----
