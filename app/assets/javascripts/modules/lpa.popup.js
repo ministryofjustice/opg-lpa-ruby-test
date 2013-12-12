@@ -66,7 +66,7 @@
       $('html, body').addClass('noscroll');
 
       // Join it all together
-      this.$popup.data('settings', opts).addClass(opts.ident).append(this.$close).append(this.$content.html(html)).appendTo(this.$mask);
+      this.$popup.data('settings', opts).attr('class', opts.ident).append(this.$close).append(this.$content.html(html)).appendTo(this.$mask);
 
       // Place the mask in the DOM
       // If a placement has been provided, the popup is appended to that element,
