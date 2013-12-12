@@ -1,42 +1,36 @@
 class AttorneysController < ApplicationController
 
   def new
-    with_secure_token(Lpa) do
-      @lpa = Lpa.find(params[:lpa_id])
-      @attorney = Attorney.new
-    end
+    @lpa = Lpa.find(params[:lpa_id])
+    @attorney = Attorney.new
   end
 
   def create
-    with_secure_token(Lpa) do
-      @lpa = Lpa.find(params[:lpa_id])
-      @attorney = Attorney.new(attorney_params)
-      @lpa.send(attorney_relation) << @attorney
+    @lpa = Lpa.find(params[:lpa_id])
+    @attorney = Attorney.new(attorney_params)
+    @lpa.send(attorney_relation) << @attorney
 
-      if @lpa.save
-        redirect_to lpa_build_path(lpa_id: @lpa, id: attorney_relation)
-      else
-        render template: "/#{attorney_relation}/new"
-      end
+    if @lpa.save
+      redirect_to lpa_build_path(lpa_id: @lpa, id: attorney_relation)
+    else
+      render template: "/#{attorney_relation}/new"
     end
   end
 
   def destroy
-    with_secure_token(Lpa) do
-      @lpa = Lpa.find(params[:lpa_id])
+    @lpa = Lpa.find(params[:lpa_id])
 
-      if attorney = @lpa.attorneys.detect {|x| x.id == params[:id]}
-        attorney._destroy = true
-      end
-      if replacement_attorney = @lpa.replacement_attorneys.detect {|x| x.id == params[:id]}
-        replacement_attorney._destroy = true
-      end
-
-      @lpa.save
-
-      @lpa = Lpa.find(params[:lpa_id])
-      redirect_to lpa_build_path(lpa_id: @lpa, id: attorney_relation)
+    if attorney = @lpa.attorneys.detect {|x| x.id == params[:id]}
+      attorney._destroy = true
     end
+    if replacement_attorney = @lpa.replacement_attorneys.detect {|x| x.id == params[:id]}
+      replacement_attorney._destroy = true
+    end
+
+    @lpa.save
+
+    @lpa = Lpa.find(params[:lpa_id])
+    redirect_to lpa_build_path(lpa_id: @lpa, id: attorney_relation)
   end
 
   def attorney_relation
