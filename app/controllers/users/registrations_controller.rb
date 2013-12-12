@@ -15,7 +15,7 @@ class Users::RegistrationsController < ApplicationController
     response = ApiClient.post('/auth/users', body: @registration.credentials)
 
     if response.code == 201
-      # success
+      SignUpConfirmer.signup_email(@registration.email).deliver
     else
       set_validation_messages response, @registration
       render :template => '/users/registrations/new'
