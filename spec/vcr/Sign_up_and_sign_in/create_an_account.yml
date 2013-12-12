@@ -25,13 +25,13 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - c9aa8e6a-40cc-4b1d-b3ed-52964f2832bd
+      - d170d21e-ef47-4d18-8f8f-441accb76583
       X-Runtime:
-      - '0.061457'
+      - '0.059363'
       Server:
       - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
       Date:
-      - Thu, 12 Dec 2013 10:28:28 GMT
+      - Thu, 12 Dec 2013 10:44:22 GMT
       Connection:
       - close
       Content-Length:
@@ -40,13 +40,13 @@ http_interactions:
       encoding: UTF-8
       string: '{"errors":{"email":["can''t be blank"]}}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:28 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:22 GMT
 - request:
     method: post
     uri: http://localhost:9292/auth/users
     body:
       encoding: UTF-8
-      string: user[email]=joe.bloggs1386844108.8119065%40example.com&user[password]=
+      string: user[email]=joe.bloggs1386845062.780882809%40example.com&user[password]=
     headers: {}
   response:
     status:
@@ -66,13 +66,13 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 25105504-29f9-40af-8d47-4621f3449ae1
+      - 87298141-c09c-4808-97b6-5c2ebe6cbd8c
       X-Runtime:
-      - '0.004378'
+      - '0.005711'
       Server:
       - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
       Date:
-      - Thu, 12 Dec 2013 10:28:28 GMT
+      - Thu, 12 Dec 2013 10:44:22 GMT
       Connection:
       - close
       Content-Length:
@@ -81,13 +81,13 @@ http_interactions:
       encoding: UTF-8
       string: '{"errors":{"password":["can''t be blank"]}}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:28 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:22 GMT
 - request:
     method: post
     uri: http://localhost:9292/auth/users
     body:
       encoding: UTF-8
-      string: user[email]=joe.bloggs1386844108.899088918%40example.com&user[password]=s3kr!tpass
+      string: user[email]=joe.bloggs1386845062.913575704%40example.com&user[password]=s3kr!tpass
     headers: {}
   response:
     status:
@@ -107,26 +107,26 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"56b6e31ca0021e4052799b418c74c882"'
+      - '"a3174795f8b8b373318018ddc62988d9"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 95acdd59-31ab-4f00-b806-c984af0a27ad
+      - ec77d639-f78c-4af4-a8fc-d3bab7452d3b
       X-Runtime:
-      - '0.067397'
+      - '0.069641'
       Server:
       - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
       Date:
-      - Thu, 12 Dec 2013 10:28:29 GMT
+      - Thu, 12 Dec 2013 10:44:23 GMT
       Connection:
       - close
       Content-Length:
       - '100'
     body:
       encoding: UTF-8
-      string: '{"email":"joe.bloggs1386844108.899088918@example.com","authentication_token":"PStvfiuMbLSdymJcdXbT"}'
+      string: '{"email":"joe.bloggs1386845062.913575704@example.com","authentication_token":"LUaMyiysNkr1YxJ6i-GE"}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:29 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:23 GMT
 - request:
     method: post
     uri: http://localhost:9292/auth/sessions
@@ -152,13 +152,13 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - e1b3d795-6bc3-49a3-958c-d7af79363969
+      - 6a277160-8cb6-4f7a-8417-66cc88e33b5d
       X-Runtime:
-      - '0.002002'
+      - '0.002751'
       Server:
       - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
       Date:
-      - Thu, 12 Dec 2013 10:28:29 GMT
+      - Thu, 12 Dec 2013 10:44:23 GMT
       Connection:
       - close
       Content-Length:
@@ -167,13 +167,13 @@ http_interactions:
       encoding: UTF-8
       string: '{"error":"You need to sign in or sign up before continuing."}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:29 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:23 GMT
 - request:
     method: post
     uri: http://localhost:9292/auth/sessions
     body:
       encoding: UTF-8
-      string: user[email]=joe.bloggs1386844108.899088918%40example.com&user[password]=
+      string: user[email]=joe.bloggs1386845062.913575704%40example.com&user[password]=
     headers: {}
   response:
     status:
@@ -193,13 +193,13 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - 0d72a6a1-3240-4555-b326-9ebd6b0923b8
+      - d4561409-5e0c-4cdc-b31f-a3e26efe6bb7
       X-Runtime:
-      - '0.001905'
+      - '0.001926'
       Server:
       - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
       Date:
-      - Thu, 12 Dec 2013 10:28:29 GMT
+      - Thu, 12 Dec 2013 10:44:23 GMT
       Connection:
       - close
       Content-Length:
@@ -208,13 +208,13 @@ http_interactions:
       encoding: UTF-8
       string: '{"error":"Invalid email or password."}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:29 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:23 GMT
 - request:
     method: post
     uri: http://localhost:9292/auth/sessions
     body:
       encoding: UTF-8
-      string: user[email]=joe.bloggs1386844108.899088918%40example.com&user[password]=s3kr!tpass
+      string: user[email]=joe.bloggs1386845062.913575704%40example.com&user[password]=s3kr!tpass
     headers: {}
   response:
     status:
@@ -234,26 +234,26 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"56b6e31ca0021e4052799b418c74c882"'
+      - '"a3174795f8b8b373318018ddc62988d9"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - e46f6de5-f635-49a6-a1a5-b7218b5d8e97
+      - 29a650f9-947d-49d4-988d-dd6779c10bdd
       X-Runtime:
-      - '0.066763'
+      - '0.067030'
       Server:
       - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
       Date:
-      - Thu, 12 Dec 2013 10:28:29 GMT
+      - Thu, 12 Dec 2013 10:44:23 GMT
       Connection:
       - close
       Content-Length:
       - '100'
     body:
       encoding: UTF-8
-      string: '{"email":"joe.bloggs1386844108.899088918@example.com","authentication_token":"PStvfiuMbLSdymJcdXbT"}'
+      string: '{"email":"joe.bloggs1386845062.913575704@example.com","authentication_token":"LUaMyiysNkr1YxJ6i-GE"}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:29 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:23 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -264,7 +264,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - PStvfiuMbLSdymJcdXbT
+      - LUaMyiysNkr1YxJ6i-GE
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -286,7 +286,40 @@ http_interactions:
       encoding: UTF-8
       string: '{"error":"Forbidden"}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:29 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:23 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - LUaMyiysNkr1YxJ6i-GE
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '21'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"error":"Forbidden"}'
+    http_version: 
+  recorded_at: Thu, 12 Dec 2013 10:44:23 GMT
 - request:
     method: post
     uri: http://localhost:9292/api/applicants.json
@@ -298,7 +331,7 @@ http_interactions:
       Content-Type:
       - application/json
       Secure-Token:
-      - PStvfiuMbLSdymJcdXbT
+      - LUaMyiysNkr1YxJ6i-GE
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -320,11 +353,11 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a98fcd526f626aa81f0a00","uri":"http://localhost/api/applicants.json/52a98fcd526f626aa81f0a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
+      string: '{"id":"52a99387526f626aa8460a00","uri":"http://localhost/api/applicants.json/52a99387526f626aa8460a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:29 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:23 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -335,7 +368,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - PStvfiuMbLSdymJcdXbT
+      - LUaMyiysNkr1YxJ6i-GE
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -355,11 +388,11 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a98fcd526f626aa81f0a00","uri":"http://localhost/api/applicants.json/52a98fcd526f626aa81f0a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
+      string: '{"id":"52a99387526f626aa8460a00","uri":"http://localhost/api/applicants.json/52a99387526f626aa8460a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[]}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:29 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:23 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -370,7 +403,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - PStvfiuMbLSdymJcdXbT
+      - LUaMyiysNkr1YxJ6i-GE
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -390,22 +423,22 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a98fcd526f626aa81f0a00","uri":"http://localhost/api/applicants.json/52a98fcd526f626aa81f0a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
+      string: '{"id":"52a99387526f626aa8460a00","uri":"http://localhost/api/applicants.json/52a99387526f626aa8460a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"},"lpas":[]}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:30 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:24 GMT
 - request:
     method: post
     uri: http://localhost:9292/api/lpas.json
     body:
       encoding: UTF-8
-      string: '{"donor":null,"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"applicant_id":"52a98fcd526f626aa81f0a00"}'
+      string: '{"donor":null,"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[],"replacement_attorneys":[],"applicant_id":"52a99387526f626aa8460a00"}'
     headers:
       Content-Type:
       - application/json
       Secure-Token:
-      - PStvfiuMbLSdymJcdXbT
+      - LUaMyiysNkr1YxJ6i-GE
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -427,11 +460,11 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a98fce526f626aa8210a00","uri":"http://localhost/api/lpas.json/52a98fce526f626aa8210a00.json","applicant":{"id":"52a98fcd526f626aa81f0a00","uri":"http://localhost/api/applicants.json/52a98fcd526f626aa81f0a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
+      string: '{"id":"52a99388526f626aa8480a00","uri":"http://localhost/api/lpas.json/52a99388526f626aa8480a00.json","applicant":{"id":"52a99387526f626aa8460a00","uri":"http://localhost/api/applicants.json/52a99387526f626aa8460a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:30 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:24 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -442,7 +475,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - PStvfiuMbLSdymJcdXbT
+      - LUaMyiysNkr1YxJ6i-GE
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -462,11 +495,11 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a98fcd526f626aa81f0a00","uri":"http://localhost/api/applicants.json/52a98fcd526f626aa81f0a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
+      string: '{"id":"52a99387526f626aa8460a00","uri":"http://localhost/api/applicants.json/52a99387526f626aa8460a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[{"id":"52a98fce526f626aa8210a00","uri":"http://localhost/api/lpas.json/52a98fce526f626aa8210a00.json","donor":null,"type":null,"updated_at":"2013-12-12T10:28:30+00:00"}]}'
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a99388526f626aa8480a00","uri":"http://localhost/api/lpas.json/52a99388526f626aa8480a00.json","donor":null,"type":null,"updated_at":"2013-12-12T10:44:24+00:00"}]}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:30 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:24 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -477,7 +510,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - PStvfiuMbLSdymJcdXbT
+      - LUaMyiysNkr1YxJ6i-GE
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -497,14 +530,14 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a98fcd526f626aa81f0a00","uri":"http://localhost/api/applicants.json/52a98fcd526f626aa81f0a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
+      string: '{"id":"52a99387526f626aa8460a00","uri":"http://localhost/api/applicants.json/52a99387526f626aa8460a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[{"id":"52a98fce526f626aa8210a00","uri":"http://localhost/api/lpas.json/52a98fce526f626aa8210a00.json","donor":null,"type":null,"updated_at":"2013-12-12T10:28:30+00:00"}]}'
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a99388526f626aa8480a00","uri":"http://localhost/api/lpas.json/52a99388526f626aa8480a00.json","donor":null,"type":null,"updated_at":"2013-12-12T10:44:24+00:00"}]}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:30 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:24 GMT
 - request:
     method: get
-    uri: http://localhost:9292/api/lpas/52a98fce526f626aa8210a00.json
+    uri: http://localhost:9292/api/lpas/52a99388526f626aa8480a00.json
     body:
       encoding: US-ASCII
       string: ''
@@ -512,7 +545,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - PStvfiuMbLSdymJcdXbT
+      - LUaMyiysNkr1YxJ6i-GE
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -532,14 +565,14 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a98fce526f626aa8210a00","uri":"http://localhost/api/lpas.json/52a98fce526f626aa8210a00.json","applicant":{"id":"52a98fcd526f626aa81f0a00","uri":"http://localhost/api/applicants.json/52a98fcd526f626aa81f0a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
+      string: '{"id":"52a99388526f626aa8480a00","uri":"http://localhost/api/lpas.json/52a99388526f626aa8480a00.json","applicant":{"id":"52a99387526f626aa8460a00","uri":"http://localhost/api/applicants.json/52a99387526f626aa8460a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
         9AJ","country":"Great Britain"}},"attorneys":[],"replacement_attorneys":[],"people_to_be_told":[]}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:30 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:24 GMT
 - request:
     method: delete
-    uri: http://localhost:9292/auth/sessions/PStvfiuMbLSdymJcdXbT
+    uri: http://localhost:9292/auth/sessions/LUaMyiysNkr1YxJ6i-GE
     body:
       encoding: US-ASCII
       string: ''
@@ -560,26 +593,26 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Request-Id:
-      - fd5b8fbc-3c76-4313-a53d-136ae293b99a
+      - 469d4e48-8bb3-4596-9edd-d59e2f987ed3
       X-Runtime:
-      - '0.010597'
+      - '0.010864'
       Server:
       - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
       Date:
-      - Thu, 12 Dec 2013 10:28:30 GMT
+      - Thu, 12 Dec 2013 10:44:24 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
       string: ''
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:30 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:24 GMT
 - request:
     method: post
     uri: http://localhost:9292/auth/sessions
     body:
       encoding: UTF-8
-      string: user[email]=joe.bloggs1386844108.899088918%40example.com&user[password]=s3kr!tpass
+      string: user[email]=joe.bloggs1386845062.913575704%40example.com&user[password]=s3kr!tpass
     headers: {}
   response:
     status:
@@ -599,26 +632,26 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"f89341a3c9d0198d3ecfc373a4d23908"'
+      - '"04c6847261cab9f9d8a587fb2599cec5"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - cd4ac922-d838-44f0-b99a-f0d6860c1038
+      - d6056804-0313-4387-85ff-687593b9da1c
       X-Runtime:
-      - '0.066294'
+      - '0.068496'
       Server:
       - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
       Date:
-      - Thu, 12 Dec 2013 10:28:30 GMT
+      - Thu, 12 Dec 2013 10:44:24 GMT
       Connection:
       - close
       Content-Length:
       - '100'
     body:
       encoding: UTF-8
-      string: '{"email":"joe.bloggs1386844108.899088918@example.com","authentication_token":"SbJm4B9nEpnZW-uy_bRu"}'
+      string: '{"email":"joe.bloggs1386845062.913575704@example.com","authentication_token":"sgYFsczmfTpSTEMaJcqd"}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:30 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:24 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -629,7 +662,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - SbJm4B9nEpnZW-uy_bRu
+      - sgYFsczmfTpSTEMaJcqd
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -649,11 +682,11 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a98fcd526f626aa81f0a00","uri":"http://localhost/api/applicants.json/52a98fcd526f626aa81f0a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
+      string: '{"id":"52a99387526f626aa8460a00","uri":"http://localhost/api/applicants.json/52a99387526f626aa8460a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[{"id":"52a98fce526f626aa8210a00","uri":"http://localhost/api/lpas.json/52a98fce526f626aa8210a00.json","donor":null,"type":null,"updated_at":"2013-12-12T10:28:30+00:00"}]}'
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a99388526f626aa8480a00","uri":"http://localhost/api/lpas.json/52a99388526f626aa8480a00.json","donor":null,"type":null,"updated_at":"2013-12-12T10:44:24+00:00"}]}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:30 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:25 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -664,7 +697,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - SbJm4B9nEpnZW-uy_bRu
+      - sgYFsczmfTpSTEMaJcqd
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -684,9 +717,79 @@ http_interactions:
       - thin 1.6.1 codename Death Proof
     body:
       encoding: UTF-8
-      string: '{"id":"52a98fcd526f626aa81f0a00","uri":"http://localhost/api/applicants.json/52a98fcd526f626aa81f0a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
+      string: '{"id":"52a99387526f626aa8460a00","uri":"http://localhost/api/applicants.json/52a99387526f626aa8460a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
         Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
-        9AJ","country":"Great Britain"},"lpas":[{"id":"52a98fce526f626aa8210a00","uri":"http://localhost/api/lpas.json/52a98fce526f626aa8210a00.json","donor":null,"type":null,"updated_at":"2013-12-12T10:28:30+00:00"}]}'
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a99388526f626aa8480a00","uri":"http://localhost/api/lpas.json/52a99388526f626aa8480a00.json","donor":null,"type":null,"updated_at":"2013-12-12T10:44:24+00:00"}]}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:28:30 GMT
+  recorded_at: Thu, 12 Dec 2013 10:44:25 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - sgYFsczmfTpSTEMaJcqd
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '561'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a99387526f626aa8460a00","uri":"http://localhost/api/applicants.json/52a99387526f626aa8460a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a99388526f626aa8480a00","uri":"http://localhost/api/lpas.json/52a99388526f626aa8480a00.json","donor":null,"type":null,"updated_at":"2013-12-12T10:44:24+00:00"}]}'
+    http_version: 
+  recorded_at: Thu, 12 Dec 2013 10:44:25 GMT
+- request:
+    method: get
+    uri: http://localhost:9292/api/applicants/current.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Secure-Token:
+      - sgYFsczmfTpSTEMaJcqd
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '561'
+      Connection:
+      - keep-alive
+      Server:
+      - thin 1.6.1 codename Death Proof
+    body:
+      encoding: UTF-8
+      string: '{"id":"52a99387526f626aa8460a00","uri":"http://localhost/api/applicants.json/52a99387526f626aa8460a00.json","date_of_birth":"1970-01-31","title":"Mr","first_name":"Johnny","middle_names":"","last_name":"Smith","address":{"address_line1":"102
+        Petty France","address_line2":"","address_line3":"","town":"Westminster","county":"London","post_code":"SW1H
+        9AJ","country":"Great Britain"},"lpas":[{"id":"52a99388526f626aa8480a00","uri":"http://localhost/api/lpas.json/52a99388526f626aa8480a00.json","donor":null,"type":null,"updated_at":"2013-12-12T10:44:24+00:00"}]}'
+    http_version: 
+  recorded_at: Thu, 12 Dec 2013 10:44:25 GMT
 recorded_with: VCR 2.7.0
