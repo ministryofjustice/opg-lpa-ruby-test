@@ -186,7 +186,7 @@
     .validation-message{
       color: $mellow-red;
       @include core-16;
-      display: block;
+      display: block !important;
       padding-bottom: 0.5em;
     }
   }
