@@ -1,0 +1,9 @@
+# Section 2
+# 1st attorney
+PartAAttorney1FirstName: first_name
+PartAAttorney1LastName: last_name
+PartAAttorney1DOB: date_of_birth
+PartAAttorney1Address1: address, address_line1
+PartAAttorney1Address2: address, address_line2
+PartAAttorney1Address3: address, address_line3
+PartAAttorney1Postcode: address, post_code
