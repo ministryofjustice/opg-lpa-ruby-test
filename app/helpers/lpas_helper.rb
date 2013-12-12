@@ -16,7 +16,7 @@ module LpasHelper
     if block_given?
       s << raw(capture(&block))
     else
-      s << raw(form.text_field label)
+      s << raw(form.text_field label, class: options[:label_override] == false ? 'push' : '')
     end
     s << '</div>'
     raw s
