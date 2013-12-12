@@ -1,5 +1,5 @@
 /*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global moj, lpa, $ */
+/*global html5_storage, PubSub, moj, lpa, $ */
 
 // Help System module for LPA
 // Dependencies: popup, lpa, moj, jQuery
@@ -76,6 +76,9 @@
           lpa.Modules.Popup.close();
         }
       });
+
+      // generic subscriptions to popup events
+      PubSub.subscribe('popup.close', this.settings.popupOnClose);
     },
 
     _selectHelpTopic: function (topic) {
@@ -145,8 +148,7 @@
           beforeOpen: function () {
             // set topic
             self._setTopic(topic);
-          },
-          onClose: this.settings.popupOnClose
+          }
         });
       }
       // otherwise, AJAX it in and then switch the content in the popup
@@ -168,8 +170,7 @@
               // set the topic now that all content has loaded
               self._setTopic(topic);
             });
-          },
-          onClose: this.settings.popupOnClose
+          }
         });
       }
     }

@@ -1,5 +1,5 @@
 /*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global moj, lpa, $ */
+/*global PubSub, moj, lpa, $ */
 
 // Popup module for LPA
 // Dependencies: lpa, moj, jQuery
@@ -21,7 +21,7 @@
       popupId: 'popup',
       maskHTML: '<div id="mask" class="popover-mask" />',
       popupHTML: '<div id="popup" role="dialog" />',
-      closeHTML: '<p class="close"><a id="lightboxclose" href="#" title="Click or press escape to close this window">Close</a></p>',
+      closeHTML: '<p class="close js-popup-close"><a id="lightboxclose" href="#" title="Click or press escape to close this window">Close</a></p>',
       contentHTML: '<div id="popup-content" />',
       beforeOpen: null,
       onOpen: null,
@@ -51,7 +51,7 @@
             self.close();
           }
         })
-        .on('click', '#popup .close, #popup .close-help', function (e) {
+        .on('click', '#popup .js-popup-close', function (e) {
           e.preventDefault();
           self.close();
         });
@@ -74,6 +74,7 @@
       $(opts.placement)[opts.placement === 'body' ? 'append' : 'after'](this.$mask);
 
       // callback func
+      PubSub.publish('popup.beforeOpen');
       if (opts.beforeOpen && typeof(opts.beforeOpen) === 'function') {
         opts.beforeOpen();
       }
@@ -90,6 +91,7 @@
         self.loopTabKeys(self.$popup);
 
         // callback func
+        PubSub.publish('popup.open');
         if (opts.onOpen && typeof(opts.onOpen) === 'function') {
           opts.onOpen();
         }
@@ -114,6 +116,7 @@
             history.pushState('', document.title, window.location.pathname);
 
             // callback func
+            PubSub.publish('popup.close');
             if (opts.onClose && typeof(opts.onClose) === 'function') {
               opts.onClose();
             }
