@@ -5,13 +5,24 @@ describe Users::RegistrationsController do
   describe 'create' do
 
     context 'when successful' do
-      it 'should send email' do
-        email = 'ex@ample.com'
-
+      before do
+        @applicant_email_address = 'ex@ample.com'
         ApiClient.stub(:post).and_return double(code: 201)
+      end
 
-        SignUpConfirmer.should_receive(:signup_email).with email
-        get :create, registration: { email: email, password: 'password' }
+      def get_create
+        get :create, registration: { email: @applicant_email_address, password: 'password' }
+      end
+
+      it 'should create email with applicant email address' do
+        SignUpConfirmer.should_receive(:signup_email).with(@applicant_email_address).and_return double(deliver: nil)
+        get_create
+      end
+
+      it 'should send email' do
+        ActionMailer::Base.deliveries.should be_empty
+        get_create
+        ActionMailer::Base.deliveries.should_not be_empty
       end
     end
   end

@@ -2,6 +2,12 @@
 ENV["RAILS_ENV"] ||= 'test'
 ENV['API_HOST'] ||= 'http://localhost:9292'
 
+ENV['SENDER_EMAIL'] ||= "'Sender' <sender@testhost>"
+ENV['SITE_URL'] ||= "testhost"
+ENV['CONTACT_PHONE'] ||= "0000 000 0000"
+ENV['CONTACT_EMAIL'] ||= "contact@testhost"
+ENV['CONTACT_ADDRESS'] ||= "PO Box 123"
+
 unless ENV['HOME'].to_s[/\/Users/]
   # Coveralls for code coverage on Travis builds
   require 'coveralls'
@@ -61,6 +67,8 @@ RSpec.configure do |config|
     name = example.metadata[:full_description].split(/\s+/, 2).join("/").underscore.gsub(/[^\w\/]+/, "_")
     VCR.use_cassette(name) { example.call }
   end
+
+  config.before(:each) { ActionMailer::Base.deliveries.clear }
 end
 
 def fill_in_valid_person(overrides={})
