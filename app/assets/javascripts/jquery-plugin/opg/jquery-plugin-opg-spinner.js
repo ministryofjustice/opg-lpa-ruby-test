@@ -40,6 +40,7 @@
       } else if (this.options.placement === "before") {
         this.$spinElement.before($('<img src="/assets/ajax-loader.gif" alt="Loading spinner" class="spinner" />'));
       }
+
       this.disable();
     },
 
