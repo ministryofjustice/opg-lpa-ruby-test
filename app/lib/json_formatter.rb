@@ -8,15 +8,15 @@ class JSONFormatter
   def to_form_data
     result = {}
     result.merge! populate_values
-    result.merge!(populate_attorneys) if multiple_attorneys?
+    result.merge!(populate_attorneys) if has_attorneys?
     result
   end
 
-  def multiple_attorneys?
+  private
+
+  def has_attorneys?
     (@json["attorneys"].size > 0) if @json.key? "attorneys"
   end
-
-  private
 
   def populate_values()
     hash = {}

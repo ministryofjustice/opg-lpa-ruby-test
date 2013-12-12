@@ -210,12 +210,6 @@ describe JSONFormatter do
   context "when there are two attorneys present" do
     let(:formatter) { JSONFormatter.new(two_attorneys) }
 
-    describe "#multiple_attorneys?" do
-      it "should return boolean value" do
-        formatter.multiple_attorneys?.should be_true
-      end
-    end
-
     it "should populate the fields for both attorneys" do
       formatter.to_form_data.should eq two_attorneys_hash
     end
