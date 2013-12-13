@@ -36,6 +36,8 @@ gem 'multiparameter_attributes_handler'
 
 gem 'foreman'
 
+gem 'country_select'
+
 gem 'rack_moj_auth', github: 'ministryofjustice/x-moj-auth'
 
 gem 'redcarpet', '3.0.0'
