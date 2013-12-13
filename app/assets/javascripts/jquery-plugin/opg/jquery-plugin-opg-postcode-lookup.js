@@ -9,9 +9,17 @@
 (function( $ ) {
   $.fn.opgPostcodeLookup = function() {
 
+    // cache els
+    var $popup = $('#popup'),
+        $addressFields = $popup.find('input[name*="[address]"], select[name*="[country]"]'),
+        $dxAddressFields = $popup.find('input[name*="dx"]'),
+        $postcode = $popup.find('input[name*="post_code"]');
+
+
     // add a common class to elements that we will be hiding and revealing as a group
-    $('#popup').find('input[name*="[address]"]').parent().addClass('address-hidden');
-    $('#popup').find('input[name*="dx"]').parent().addClass('dxaddress-hidden');
+    $addressFields.parent().addClass('address-hidden');
+    $dxAddressFields.parent().addClass('address-hidden');
+
 
     var dxLink = '';
     if ($('#popup').find('input[name*="dx"]').length !== 0) {
@@ -55,22 +63,28 @@
     $('#enter_address_manually').on('click', function (e) {
         e.preventDefault();
 
-      	$('.address-hidden').removeClass('address-hidden').addClass('address-unhidden');
-        $('#popup').find('input[name*="dx"]').parent().addClass('dxaddress-hidden');
+        // show hide relevant fields
+        $addressFields.parent().removeClass('address-hidden');
+        $dxAddressFields.parent().addClass('address-hidden');
 
-        $('#address-postcode').val($('#postcode-lookup').val());
+        // copy across postcode if entered
+        if($('#postcode-lookup').val() !== '') {
+          $postcode.val($('#postcode-lookup').val());
+        }
 
+        // add/remove active state
         $('#enter_dx_address').removeClass('text-style');
-
       	$(this).addClass('text-style');
     });
 
     $('#enter_dx_address').on('click', function (e) {
         e.preventDefault();
 
-        $('.dxaddress-hidden').removeClass('dxaddress-hidden');
-        $('#popup').find('input[name*="[address]"]').parent().addClass('address-hidden');
+        // show hide relevant fields
+        $addressFields.parent().addClass('address-hidden');
+        $dxAddressFields.parent().removeClass('address-hidden');
 
+        // add/remove active state
         $('#enter_address_manually').removeClass('text-style');
         $(this).addClass('text-style');
     });

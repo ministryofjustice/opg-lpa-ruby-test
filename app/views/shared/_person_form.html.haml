@@ -1,7 +1,7 @@
 - show_other_names ||= false
 - show_dob ||= false
-- show_email ||= false
-- show_phone ||= false
+- without_email ||= false
+- without_phone ||= false
 - show_dx_address ||= false
 - show_legends ||= false
 
@@ -27,11 +27,11 @@
     = input_for(person_form, "date_of_birth") do
       = person_form.date_select "date_of_birth", { order: [ :day, :month, :year ], start_year: (Time.now.year - 120) }
 
-- if show_email
+- unless without_email
   = input_for(person_form, "email", {:label_override => "Email (optional)"}) do
     = person_form.email_field "email"
 
-- if show_phone
+- unless without_phone
   = input_for(person_form, "phone", {:label_override => "Phone (optional)"})
 
 %fieldset.address-fieldset
@@ -45,7 +45,7 @@
     = input_for(person_address_form, "county")
     = input_for(person_address_form, "post_code", {}, {:class => "postcode"})
     = input_for(person_address_form, "country") do
-      = country_select(person_address_form, "country", [ "United Kingdom" ])
+      = country_select(person_address_form, "country", ["United Kingdom"])
 
 - if show_dx_address
   .group
