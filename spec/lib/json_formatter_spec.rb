@@ -64,13 +64,6 @@ def good_hash
     "PartADonorOtherNames" => "",
     "PartADonorPostcode" => "SW1",
     "cb_Page3DonorTitle" => "Mr",
-    # "PartAAttorney1Address1" => nil,
-    # "PartAAttorney1Address2" => nil,
-    # "PartAAttorney1Address3" => nil,
-    # "PartAAttorney1DOB" => nil,
-    # "PartAAttorney1FirstName" => nil,
-    # "PartAAttorney1LastName" => nil,
-    # "PartAAttorney1Postcode" => nil
   }
 end
 
