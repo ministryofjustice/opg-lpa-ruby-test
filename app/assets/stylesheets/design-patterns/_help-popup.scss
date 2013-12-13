@@ -46,6 +46,11 @@
       padding: 0 0 1em;
       list-style-image: none;
 
+      @include media(desktop) {
+        margin-left: -2px;
+        border-left: 2px solid $light-blue-25;
+      }
+
       li {
         margin: 0;
         padding: 0.25em 0.5em 0.25em 1.8em;
@@ -133,6 +138,8 @@
     .help-sections {
       article {
         padding-left: 2em;
+        border-bottom: 0;
+        margin-bottom: 0;
       }
     }
   }
