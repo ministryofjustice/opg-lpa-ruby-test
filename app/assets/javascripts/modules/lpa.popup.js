@@ -66,6 +66,7 @@
       $('html, body').addClass('noscroll');
 
       // Join it all together
+      this.$popup.removeData();
       this.$popup.data('settings', opts).attr('class', opts.ident).append(this.$close).append(this.$content.html(html)).appendTo(this.$mask);
 
       // Place the mask in the DOM
@@ -102,13 +103,13 @@
       // make sure there is a popup to close
       if($('#popup').length > 0){
         var self = this,
-            opts = $('#popup').data('settings'),
+            opts = this.$popup.data('settings'),
             scrollPosition = $(window).scrollTop();
 
         self.$popup.fadeOut(400, function () {
           self.$mask.fadeOut(200, function () {
             // focus on previous element
-            if(typeof opts.source !== 'undefined' && opts.source){
+            if(typeof opts !== 'undefined' && typeof opts.source !== 'undefined' && opts.source){
               opts.source.focus();
             }
             // clear out any hash locations

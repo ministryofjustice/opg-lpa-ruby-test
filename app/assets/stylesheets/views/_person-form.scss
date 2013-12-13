@@ -71,17 +71,29 @@
   }
 }
 
-.address-hidden,
-.dxaddress-hidden {
+.address-hidden {
   visibility: hidden;
   position: absolute;
   top: 0;
   left: -99999px;
 }
 
-
 // ===========================================================
 // PERSON FORM
+// ===========================================================
+
+.person-form {
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    margin-right: 1em;
+  }
+}
+
+
+
+// ===========================================================
+// LEGACY CODE
 // ===========================================================
 
 // Pre-populate form link (not required for live version)

@@ -32,6 +32,7 @@
 
     _cacheEls: function () {
       this.formContent = [];
+      this.originalSource = false;
       this.source = false;
     },
 
@@ -51,7 +52,12 @@
           href = source.attr('href'),
           form = source.data('form');
 
-      // set the current click as the source
+      // set original source to be the original link clicked form the body to be able to return to it when the popup is closed
+      // fixes when links inside a popup load another form. User should be focused back to original content button when closing
+      if($('#popup').length === 0){
+        this.originalSource = source;
+      }
+      // always set this source to be the clicked link
       this.source = source;
 
       // If this link is disabled then stop here
@@ -139,7 +145,7 @@
       if(html !== false){
         lpa.Modules.Popup.open(html, {
           ident: this.settings.overlayIdent,
-          source: this.source,
+          source: this.originalSource,
           beforeOpen: function () {
             // set pcode lookup
             $('#popup').opgPostcodeLookup();
@@ -151,7 +157,7 @@
         // load overlay
         lpa.Modules.Popup.open(this.settings.loadingContent, {
           ident: self.settings.overlayIdent,
-          source: this.source,
+          source: this.originalSource,
           beforeOpen: function () {
             $('#popup-content').load(href, function(html) {
               // cache content
