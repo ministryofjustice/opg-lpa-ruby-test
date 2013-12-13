@@ -1,29 +1,42 @@
+- show_other_names ||= false
 - show_dob ||= false
+- show_email ||= false
+- show_phone ||= false
 - show_dx_address ||= false
-- without_email ||= false
-- without_phone ||= false
+- show_legends ||= false
+
 %fieldset
-  %legend Name
+  - if show_legends
+    %legend Name
   = input_for(person_form, "title")
   = input_for(person_form, "first_name", {}, {:required => "", "parsley-minlength" => "2"})
   = input_for(person_form, "middle_names", {:label_override => "Middle names (optional)"})
   = input_for(person_form, "last_name", {}, {:required => "", "parsley-minlength" => "2"})
+  - if show_other_names
+    %details
+      %summary.hint{:role => "button", "aria-expanded" => "false"} Is this person known by any other names?
+      .group
+        %label#othername-label{:for => "othername"} Other names
+        %input#othername{:name => "othername", :type => "text", :autocomplete => "off", :maxlength => "100"}
+    -#= input_for(person_form, "other_names")
 
 - if show_dob
   %fieldset
-    %legend Date of Birth
+    - if show_legends
+      %legend Date of Birth
     = input_for(person_form, "date_of_birth") do
       = person_form.date_select "date_of_birth", { order: [ :day, :month, :year ], start_year: (Time.now.year - 120) }
 
-- unless without_email
+- if show_email
   = input_for(person_form, "email", {:label_override => "Email (optional)"}) do
     = person_form.email_field "email"
 
-- unless without_phone
+- if show_phone
   = input_for(person_form, "phone", {:label_override => "Phone (optional)"})
 
 %fieldset.address-fieldset
-  %legend Address
+  - if show_legends
+    %legend Address
   = person_form.fields_for person_form.object.address do |person_address_form|
     = input_for(person_address_form, "address_line1", {:label_override => "Street"})
     = input_for(person_address_form, "address_line2", {:label_override => false})
@@ -31,7 +44,8 @@
     = input_for(person_address_form, "town")
     = input_for(person_address_form, "county")
     = input_for(person_address_form, "post_code", {}, {:class => "postcode"})
-    = input_for(person_address_form, "country")
+    = input_for(person_address_form, "country") do
+      = country_select(person_address_form, "country", [ "United Kingdom" ])
 
 - if show_dx_address
   .group
