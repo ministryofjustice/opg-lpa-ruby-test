@@ -142,6 +142,9 @@ GEM
     newrelic_rpm (3.6.9.171)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    numbers_and_words (0.10.0)
+      activesupport
+      i18n
     poltergeist (1.5.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -282,6 +285,7 @@ DEPENDENCIES
   moj_boilerplate!
   multiparameter_attributes_handler
   newrelic_rpm
+  numbers_and_words
   poltergeist
   rack_moj_auth!
   rails (= 4.0.0)
