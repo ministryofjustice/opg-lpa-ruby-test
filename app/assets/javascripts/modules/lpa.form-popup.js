@@ -27,7 +27,7 @@
       moj.log('lpa.Modules.FormPopup#init');
       this._cacheEls();
       this._bindEvents();
-      localStorage.clear();
+      sessionStorage.clear();
     },
 
     _cacheEls: function () {
@@ -118,8 +118,8 @@
     },
 
     _getCachedForm: function (url) {
-      if(html5_storage() && typeof localStorage[url] !== 'undefined') {
-        return localStorage[url];
+      if(html5_storage() && typeof sessionStorage[url] !== 'undefined') {
+        return sessionStorage[url];
       }
       // then try from this class
       else if(typeof this.formContent[url] !== 'undefined') {
@@ -157,7 +157,7 @@
               // cache content
               if (html5_storage()) {
                 // save to html5 storage
-                localStorage[form] = html;
+                sessionStorage[form] = html;
               } else {
                 // save to obj
                 self.formContent[form] = html;
