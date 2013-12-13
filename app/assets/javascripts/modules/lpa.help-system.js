@@ -120,8 +120,8 @@
 
     _hasCachedContent: function () {
       // first try to load from html5 storage
-      if(html5_storage() && typeof localStorage.guidanceHTML !== 'undefined') {
-        return localStorage.guidanceHTML;
+      if(html5_storage() && typeof sessionStorage.guidanceHTML !== 'undefined') {
+        return sessionStorage.guidanceHTML;
       }
       // then try from this class
       else if(typeof this.html !== 'undefined') {
@@ -160,7 +160,7 @@
               // cache content
               if (html5_storage()) {
                 // save to html5 storage
-                localStorage.guidanceHTML = html;
+                sessionStorage.guidanceHTML = html;
               } else {
                 // save to obj
                 self.html = html;
