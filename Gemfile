@@ -42,12 +42,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :production do
-  gem 'unicorn'
-end
+gem 'unicorn'
 
 group :development, :test do
-  gem 'thin'
   gem 'rspec-rails'
   gem 'byebug'
   gem 'launchy'
