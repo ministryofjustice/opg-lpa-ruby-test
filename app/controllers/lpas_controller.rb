@@ -33,6 +33,7 @@ class LpasController < ApplicationController
   def preview_pdf
     @lpa = Lpa.find(params[:lpa_id])
     @lpa_id = params[:lpa_id]
+    File.delete(draft_pdf_path) if File.exist? draft_pdf_path
     PDFWorker.perform_async(@lpa_id, @lpa.to_json)
     respond_to do |format|
       format.js
