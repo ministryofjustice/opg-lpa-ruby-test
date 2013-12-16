@@ -28,7 +28,7 @@
 
   HelpSystem.prototype = {
     defaults: {
-      guidancePath: 'guidance',
+      guidancePath: 'help',
       selector: 'a.js-guidance',
       overlayIdent: 'help-system',
       overlaySource: '#content',

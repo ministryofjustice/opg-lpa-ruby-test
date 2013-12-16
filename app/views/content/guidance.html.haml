@@ -13,7 +13,7 @@
     .content.help-sections
       - debug(@sections)
       - @sections.each do |id, content|
-        %article{:id => "section-#{id}"}
+        %article{:id => "topic-#{id}"}
           = raw content
 
     .action.group
