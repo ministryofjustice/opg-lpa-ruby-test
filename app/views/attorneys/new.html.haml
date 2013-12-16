@@ -12,17 +12,9 @@
 
         %fieldset
           %p.hint The following fields are optional.
-          .group
-            %label#email-label.optional{:for => "email"}
-              Email
-              %span.visuallyhidden (optional)
-
-            %input.email{:name => "email", :type => "email", :value => "", :autocomplete => "off", :maxlength => "100"}
-          .group
-            %label#phone-label.optional{:for => "phone"}
-              Phone
-              %span.visuallyhidden (optional)
-            %input#phone{:name => "phone", :type => "text", :value => "", :autocomplete => "off"}
+          = input_for(attorney_form, "email") do
+            = attorney_form.email_field "email"
+          = input_for(attorney_form, "phone")
           .group
             %label#occupation-label.optional{:for => "occupation"}
               Occupation
