@@ -73,6 +73,7 @@
 
     _submitForm: function (e) {
       var $form = $(e.target),
+          $submitBtn = $form.find('input[type="submit"]'),
           url = $form.attr('action');
 
 
@@ -80,41 +81,45 @@
 
 
       if($form.parsley('validate')){
-        $form.find('input[type="submit"]').spinner();
+        // load spinner
+        // $submitBtn.spinner();
         moj.log('validated');
 
-        $.post(url, form.serialize(), function (response) {
+        $.post(url, $form.serialize(), function (response, textStatus, jqXHR) {
           moj.log(response);
+          moj.log(textStatus);
+          moj.log(jqXHR);
 
-          if(response.success !== undefined) {
-            // successful, so redirect
-            window.location.reload();
-          } else if (response.toLowerCase().indexOf("sign in") != -1) {
-            // not logged in, redirect
-            window.location.reload();
-          } else {
-            // handle error
+          // if(response.success !== undefined) {
+          //   // successful, so redirect
+          //   // window.location.reload();
+          // } else if (response.toLowerCase().indexOf("sign in") != -1) {
+          //   // not logged in, redirect
+          //   moj.log('not logged in');
+          //   window.location = '/users/sign_in';
+          // } else {
+          //   // handle error
+          //   $submitBtn.spinner('off');
 
+          //   // has the login timed out?  if so, we must close the lightbox
+          //   // if (resp.toLowerCase().indexOf("sign in") != -1) {
+          //   //   window.location.reload();
+          //   // } else {
+          //   //   $lightbox = $('#form-lightbox').html(resp);
 
-            // has the login timed out?  if so, we must close the lightbox
-            // if (resp.toLowerCase().indexOf("sign in") != -1) {
-            //   window.location.reload();
-            // } else {
-            //   $lightbox = $('#form-lightbox').html(resp);
+          //   //   // Mark as dirty
+          //   //   $lightbox.find('form').data('dirty', true);
 
-            //   // Mark as dirty
-            //   $lightbox.find('form').data('dirty', true);
+          //   //   OPGPopup.popup($lightbox, "form-popup", form);
 
-            //   OPGPopup.popup($lightbox, "form-popup", form);
-
-            //   var donorCannotSign = $('#donor_cannot_sign').is(':checked');
-            //   if (donorCannotSign) {
-            //     $('#donorsignprompt').show();
-            //   } else {
-            //     $('#donorsignprompt').hide();
-            //   }
-            // }
-          }
+          //   //   var donorCannotSign = $('#donor_cannot_sign').is(':checked');
+          //   //   if (donorCannotSign) {
+          //   //     $('#donorsignprompt').show();
+          //   //   } else {
+          //   //     $('#donorsignprompt').hide();
+          //   //   }
+          //   // }
+          // }
         });
       } else {
         moj.log('not validated');
