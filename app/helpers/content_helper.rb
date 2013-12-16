@@ -11,8 +11,7 @@ module ContentHelper
         fileName = orderFile[index+1].strip.sub '* ', ''
         title = line.sub('* ', '').strip
         id = title.gsub(' ', '-').downcase
-
-        guidance[:sections][id] = markdown.render(File.read(guidanceFolderPath + fileName))
+        guidance[:sections][id] = markdown.render(File.read(guidanceFolderPath + fileName)).gsub /<a href="\/help\/#topic-(.+)">(.+)<\/a>/, '<a href="/help/#topic-\1" class="js-guidance" data-journey="stageprompt.lpa:help:\1">\2</a>'
         guidance[:nav][id] = title
       end
     end
