@@ -3,7 +3,7 @@ Attorneys are **people you trust and appoint under your LPA to make decisions on
 
 You must have at least one attorney, and there's no upper limit. Remember, though, that **too many attorneys could make things difficult** in practice, as they'll need to work together.
 
-You'll also need to think about replacement attorneys – people who step in if one of your original attorneys can no longer act. So take a look at our [Replacement attorneys](#/help/replacement-attorneys) help topic too.
+You'll also need to think about replacement attorneys – people who step in if one of your original attorneys can no longer act. So take a look at our [Replacement attorneys](/help/#topic-replacement-attorneys) help topic too.
 
 ## Who can be an attorney?
 In legal terms, an 'attorney' is a person who's allowed to act on behalf of someone, but **attorneys don't need to be solicitors**. Many people choose family members, friends and other trusted individuals with no legal background. If an attorney is not a professional, the important thing is that you know each other well and that they are **someone who will respect your views and act in your best interests**.
@@ -49,7 +49,7 @@ Your LPA can only be used once it's been registered with the Office of the Publi
 
 Visit the Ministry of Justice website to <a href="http://www.justice.gov.uk/protecting-the-vulnerable/mental-capacity-act" rel="external" target="_blank">learn more about mental capacity</a>.
 
-See our help topic [When an LPA can be used](#/help/when-an-lpa-can-be-used), which explains the different rules for the 2 types of LPA.
+See our help topic [When an LPA can be used](/help/#topic-when-an-lpa-can-be-used), which explains the different rules for the 2 types of LPA.
 
 ## When attorneys can no longer act
 An attorney can no longer act on your behalf if they:
@@ -84,5 +84,5 @@ It's very important that you choose the best person or people to act as attorney
 Remember, **you also need to decide if you need replacement attorneys**.
 
 ### Related help topics
-* [Restrictions and guidance](#/help/restrictions-and-guidance)
-* [Replacement attorneys](#/help/replacement-attorneys)
+* [Restrictions and guidance](/help/#topic-restrictions-and-guidance)
+* [Replacement attorneys](/help/#topic-replacement-attorneys)

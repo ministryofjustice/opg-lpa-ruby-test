@@ -44,7 +44,7 @@ There are some rules about bankruptcy and debt relief orders for a property and 
 
 **If you are bankrupt** or subject to a debt relief order you can make and sign a property and financial affairs LPA, and it can be registered. However, your **attorneys will not have power over all of your property**. If this applies to you, you should think about getting legal advice before you make your LPA.
 
-Please note, **if you become bankrupt** or subject to a debt relief order after your property and financial affairs LPA is made or registered it will be cancelled. See our [Attorneys](#/help/attorneys) help topic to find out what could happen if an attorney becomes bankrupt or subject to a debt relief order.
+Please note, **if you become bankrupt** or subject to a debt relief order after your property and financial affairs LPA is made or registered it will be cancelled. See our [Attorneys](/help/#topic-attorneys) help topic to find out what could happen if an attorney becomes bankrupt or subject to a debt relief order.
 
 
 ## Choosing attorneys
@@ -56,7 +56,7 @@ Make sure you give yourself plenty of time to think about who you want as your a
 If you use more than one name, or used to be known by a different name, it's a good idea to make a list of these. This will help your attorneys deal with banks and other organisations on your behalf if your LPA is used.
 
 ### Related help topics
-* [LPA basics](#/help/lpa-basics)
-* [Attorneys](#/help/attorneys)
-* [How attorneys make decisions](#/help/how-attorneys-make-decisions)
+* [LPA basics](/help/#topic-lpa-basics)
+* [Attorneys](/help/#topic-attorneys)
+* [How attorneys make decisions](/help/#topic-how-attorneys-make-decisions)
 

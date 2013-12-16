@@ -6,7 +6,7 @@ If you also name 'people to be told', you need 1 certificate provider.
 
 If you **don't** name 'people to be told', you need 2 certificate providers.
 
-You might want to take a look at our [People to be told](#/help/people-to-be-told) help topic too.
+You might want to take a look at our [People to be told](/help/#topic-people-to-be-told) help topic too.
 
 ## A certificate provider's role
 A certificate provider helps to make sure that all's well when you make your LPA, and acts as an important safeguard. They must confirm that:
@@ -83,6 +83,6 @@ If they have relevant professional skills and experience, clearly state what the
 
 ### Related help topics
 
-* [People to be told](#/help/people-to-be-told)
-* [Signing the LPA](#/help/signing-the-lpa)
-* [Registering the LPA](#/help/registering-the-lpa)
+* [People to be told](/help/#topic-people-to-be-told)
+* [Signing the LPA](/help/#topic-signing-the-lpa)
+* [Registering the LPA](/help/#topic-registering-the-lpa)

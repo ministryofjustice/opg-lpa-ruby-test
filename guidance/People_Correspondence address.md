@@ -22,5 +22,5 @@ OPG may need to get in touch with the correspondent so that we can:
 OPG will send your registered LPA to the person who applied to register that LPA – the applicant. The exception is if you choose a legal professional to act as correspondent, in which case they'll receive the registered LPA instead of the applicant.
 
 ### Related help topics
-* [Applicant](#/help/applicant)
-* [Registering the LPA](#/help/registering-the-lpa)
+* [Applicant](/help/#topic-applicant)
+* [Registering the LPA](/help/#topic-registering-the-lpa)

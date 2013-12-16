@@ -11,7 +11,7 @@ A replacement attorney will step in if one of your attorneys:
 
 ## Who can be a replacement attorney?
 
-A replacement attorney must meet the same requirements as an original attorney. This includes having mental capacity and being 18 or over when you sign your LPA. See our [Attorneys](#/help/attorneys) help topic for more on the requirements.
+A replacement attorney must meet the same requirements as an original attorney. This includes having mental capacity and being 18 or over when you sign your LPA. See our [Attorneys](/help/#topic-attorneys) help topic for more on the requirements.
 
 ## Why have replacement attorneys?
 If you appoint only 1 attorney and that attorney can no longer act for you, your LPA will no longer work. Even if you appoint more than 1 attorney and just 1 of them can no longer act, there's still a risk that part or all of your LPA will not work, if they were appointed jointly for all or some decisions.
@@ -73,5 +73,5 @@ Remember, if you say attorneys must make any or all decisions jointly, the remai
 Remember, many of the things you'll want to consider when choosing replacement attorneys are the same as you'd consider when choosing your original attorneys.
 
 ### Related help topics
-* [Attorneys](#/help/attorneys)
-* [How attorneys make decisions](#/help/how-attorneys-make-decisions)
+* [Attorneys](/help/#topic-attorneys)
+* [How attorneys make decisions](/help/#topic-how-attorneys-make-decisions)

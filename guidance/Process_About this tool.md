@@ -16,9 +16,9 @@ Please note that if you're not able to sign or make a mark yourself, you can dir
 
 * **Create**: make decisions about your LPA and choose the people you want to be involved. Print out your completed LPA document
 * **Sign**: make sure all the required people sign your LPA document in the correct order
-  * See [Signing the LPA](#/help/signing-the-lpa)
+  * See [Signing the LPA](/help/#topic-signing-the-lpa)
 * **Apply to register**: fill in some more details and pay the application fee, then send the documents to the Office of the Public Guardian (OPG)
-  * See [Registering your LPA](#/help/registering-the-lpa)
+  * See [Registering your LPA](/help/#topic-registering-the-lpa)
 
 It's a good idea to apply to **register your LPA sooner rather than later**. That way any mistakes which could make it invalid can be put right before it's registered. And then your LPA will be ready to use as soon as you need it.
 
@@ -28,7 +28,7 @@ This tool supports payment by:
 * cheque
 * WorldPay secure online payment
 
-The standard fee is £110. Some people qualify for a reduced fee or no fee. See [Fees and reductions](#/help/fees-and-discounts)
+The standard fee is £110. Some people qualify for a reduced fee or no fee. See [Fees and reductions](/help/#topic-fees-and-discounts)
 
 ## Before you begin
 
@@ -47,5 +47,5 @@ You need to make quite a few decisions when you make your LPA. You should think 
 
 
 ### Related help topics
-* [LPA basics](#/help/lpa-basics)
-* [Fees and reductions](#/help/fees-and-reductions)
+* [LPA basics](/help/#topic-lpa-basics)
+* [Fees and reductions](/help/#topic-fees-and-reductions)

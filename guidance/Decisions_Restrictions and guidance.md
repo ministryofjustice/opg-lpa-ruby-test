@@ -76,7 +76,7 @@ Here are some other areas where people often make mistakes:
 
 * you can't tell your attorneys to do anything against the law – this includes anything to do with euthanasia and assisted suicide
 * you can't say that attorneys should act in the best interests of your spouse or child – your attorneys act for you, not for someone else
-* you can't say a replacement attorney can only start acting in specific circumstances (see our [Replacement attorneys](#/help/replacement-attorneys) help topic). For instance, you can't use restrictions to add special circumstances – like an original attorney being on holiday – in which your replacement attorney can step in
+* you can't say a replacement attorney can only start acting in specific circumstances (see our [Replacement attorneys](/help/#topic-replacement-attorneys) help topic). For instance, you can't use restrictions to add special circumstances – like an original attorney being on holiday – in which your replacement attorney can step in
 * don't add restrictions about health and welfare to a property and financial affairs LPA. Don't add restrictions about property and financial affairs to a health and welfare LPA. You should make a separate LPA for each instead
 * you can't tell an attorney to change your will – it's outside their powers
 * you can't give an attorney power to appoint a substitute or successor attorney
@@ -156,5 +156,5 @@ And this is the kind of guidance that could be used in a **health and welfare LP
 The last of these would only apply if you chose to allow your attorneys to make decisions about life-sustaining treatment.
 
 ### Related help topics
-* [How attorneys make decisions](#/help/how-attorneys-make-decisions)
-* [Life-sustaining treatment](#/help/life-sustaining-treatment)
+* [How attorneys make decisions](/help/#topic-how-attorneys-make-decisions)
+* [Life-sustaining treatment](/help/#topic-life-sustaining-treatment)
