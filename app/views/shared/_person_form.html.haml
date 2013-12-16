@@ -45,7 +45,7 @@
     = input_for(person_address_form, "county")
     = input_for(person_address_form, "post_code", {}, {:class => "postcode"})
     = input_for(person_address_form, "country") do
-      = country_select(person_address_form, "country", ["United Kingdom"])
+      = country_select("lpa[donor][address]", "country", ["United Kingdom"])
 
 - if show_dx_address
   .group
