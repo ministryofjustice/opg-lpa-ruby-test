@@ -5,9 +5,8 @@
   'use strict';
 
   // get id of LPAs
-  var lpa_id = '<%=j @lpa_id %>',
-      $link = $('#content').find('.js-preview-pdf'),
-      fallback = function (response) {
+  var $link = $('#content').find('.js-preview-pdf'),
+      fallback = function () {
         $link
           .unbind('click')
           .text($link.data('title'))
@@ -27,8 +26,7 @@
 
   // create new polling object
   var poller = new Poller({
-    url: '/lpas/' + lpa_id + '/get_pdf',
-    data: {lpa_id: lpa_id},
+    url: '<%=j lpa_get_pdf_path %>',
     maxAttempts: 3,
     onSuccess: function (response) {
       // redirect to PDF

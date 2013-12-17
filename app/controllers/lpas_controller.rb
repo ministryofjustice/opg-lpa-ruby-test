@@ -22,7 +22,7 @@ class LpasController < ApplicationController
   def get_pdf
     if @applicant.has_lpa? params[:lpa_id]
       puts lpa_pdf_path
-      success = false
+      success = File.exist?(draft_pdf_path)
       @pdf_url = success ? lpa_pdf_path : false
       respond_to do |format|
         format.html { pdf if @pdf_url }
