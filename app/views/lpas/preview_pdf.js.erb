@@ -6,12 +6,24 @@
 
   // get id of LPAs
   var lpa_id = '<%=j @lpa_id %>',
-      $link = $('#content').find('.js-preview-pdf');
+      $link = $('#content').find('.js-preview-pdf'),
+      fallback = function (response) {
+        $link
+          .unbind('click')
+          .text($link.data('title'))
+          .removeData('title')
+          .spinner('off');
+      };
 
   // create loading animation
-  $link.addClass('disabled').blur().data('title', $link.text()).text('Generating PDF').click(function() {
-    return false;
-  });
+  $link
+    .spinner({placement: 'before'})
+    .blur()
+    .data('title', $link.text())
+    .text('Generating PDF')
+    .click(function() {
+      return false;
+    });
 
   // create new polling object
   var poller = new Poller({
@@ -22,14 +34,8 @@
       // redirect to PDF
       window.location = response.pdfURL;
     },
-    onMaxAttempts: function (response) {
-      // re-enable link
-      $link.removeClass('disabled').unbind('click').text($link.data('title'));
-    },
-    onMaxFails: function () {
-      // make link clickable again
-      $link.removeClass('disabled').unbind('click').text($link.data('title'));
-    }
+    onMaxAttempts: fallback,
+    onMaxFails: fallback
   });
   // start polling
   poller.init();
