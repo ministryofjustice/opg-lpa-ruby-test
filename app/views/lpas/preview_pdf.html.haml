@@ -1,1 +1,11 @@
-%h3 Your PDF preview is being generated. Please #{link_to "reload this page", url_for(params)} in a few seconds.
+- content_for :head do
+  -#%meta{"http-equiv" => "refresh", :content => "5"}
+
+= render "shared/create_header"
+
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      %h2 Preview PDF
+      %p Your PDF preview is being generated. This page will refresh every 5 seconds. You can also refresh manually using the link below.
+      %p= link_to "Reload page", url_for(params)
