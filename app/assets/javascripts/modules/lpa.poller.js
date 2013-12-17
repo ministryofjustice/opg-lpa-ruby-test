@@ -6,7 +6,6 @@
 
   // Define the class
   var Poller = function (options) {
-    // moj.log('test');
     this.settings = $.extend({}, this.defaults, options);
   };
 
@@ -49,8 +48,6 @@
 
     // get AJAX data + respond to it
     getData: function(){
-      moj.log(this.settings);
-
       $.ajax({
         url: this.settings.url,
         data: this.settings.data,

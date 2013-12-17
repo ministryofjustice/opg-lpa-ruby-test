@@ -1,5 +1,5 @@
 /*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global Poller, $ */
+/*global alert, Poller, $ */
 
 (function(){
   'use strict';
@@ -7,7 +7,7 @@
   // get id of LPAs
   var $link = $('#content').find('.js-preview-pdf'),
       fallback = function () {
-        alert("Unfortunately your PDF could not be generated, please try again.");
+        alert('Unfortunately your PDF could not be generated, please try again.');
         $link
           .unbind('click')
           .text($link.data('title'))
