@@ -9,7 +9,7 @@
       $link = $('#content').find('.js-preview-pdf');
 
   // create loading animation
-  $link.addClass('disabled').blur().click(function() {
+  $link.addClass('disabled').blur().data('title', $link.text()).text('Generating PDF').click(function() {
     return false;
   });
 
@@ -17,16 +17,18 @@
   var poller = new Poller({
     url: '/lpas/' + lpa_id + '/get_pdf',
     data: {lpa_id: lpa_id},
+    maxAttempts: 3,
     onSuccess: function (response) {
       // redirect to PDF
       window.location = response.pdfURL;
     },
     onMaxAttempts: function (response) {
-
+      // re-enable link
+      $link.removeClass('disabled').unbind('click').text($link.data('title'));
     },
     onMaxFails: function () {
       // make link clickable again
-      $link.removeClass('disabled').unbind('click');
+      $link.removeClass('disabled').unbind('click').text($link.data('title'));
     }
   });
   // start polling
