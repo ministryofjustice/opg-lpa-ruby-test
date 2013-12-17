@@ -7,6 +7,7 @@
   // get id of LPAs
   var $link = $('#content').find('.js-preview-pdf'),
       fallback = function () {
+        alert("Unfortunately your PDF could not be generated, please try again.");
         $link
           .unbind('click')
           .text($link.data('title'))
@@ -27,7 +28,6 @@
   // create new polling object
   var poller = new Poller({
     url: '<%=j lpa_get_pdf_path %>',
-    maxAttempts: 3,
     onSuccess: function (response) {
       // redirect to PDF
       window.location = response.pdfURL;
