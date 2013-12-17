@@ -18,7 +18,7 @@
 //= require modules/lpa.popup.js
 //= require modules/lpa.help-system.js
 //= require modules/lpa.form.js
-// require_tree ./modules
+//= require modules/lpa.poller.js
 
 //===== Existing app plugins and js - /app/assets/javascripts/ =====\\
 //= require_tree ./jquery-plugin/opg

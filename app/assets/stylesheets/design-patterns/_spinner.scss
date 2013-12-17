@@ -1,4 +1,7 @@
-
 img.spinner {
-  margin: 0 0 -3px 8px;
+  margin: 0 8px -2px;
+}
+img.spinner ~ button,
+img.spinner ~ input {
+  margin-bottom: -3px;
 }

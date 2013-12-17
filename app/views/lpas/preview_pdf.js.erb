@@ -1,25 +1,40 @@
-(function($){
-  $('.preview_pdf_link').html('Generating PDF...');
+/*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
+/*global alert, Poller, $ */
 
-  function getPDFLink() {
-    var lpa_id = "<%=j @lpa_id %>";
-    console.log('checking if pdf link is ready');
-    $.ajax({
-        url: "/lpas/"+lpa_id+"/get_pdf",
-        data: {lpa_id: lpa_id},
-        dataType: "json",
-        async: false,
-        timeout: 10000, // in miliseconds
-        cache: false,
-        success:function(data) {
-            if(data.pdfURL) {
-              window.location = data.pdfURL;
-            } else {
-              setTimeout(getPDFLink, 2000);
-            }
-        }
-    });
-  }
+(function(){
+  'use strict';
 
-  getPDFLink();
-})(jQuery);
+  // get id of LPAs
+  var $link = $('#content').find('.js-preview-pdf'),
+      fallback = function () {
+        $link
+          .before('<span>Sorry, the preview could not be generated.</span> ')
+          .unbind('click')
+          .text('Try again')
+          .spinner('off');
+      };
+
+  // create loading animation
+  $link
+    .spinner({placement: 'before'})
+    .blur()
+    .data('title', $link.text())
+    .text('Generating PDF')
+    .click(function() {
+      return false;
+    })
+    .siblings('span').remove();
+
+  // create new polling object
+  var poller = new Poller({
+    url: '<%=j lpa_get_pdf_path %>',
+    onSuccess: function (response) {
+      // redirect to PDF
+      window.location = response.pdfURL;
+    },
+    onMaxAttempts: fallback,
+    onMaxFails: fallback
+  });
+  // start polling
+  poller.init();
+})();
