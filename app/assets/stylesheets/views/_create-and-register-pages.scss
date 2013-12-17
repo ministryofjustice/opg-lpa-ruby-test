@@ -19,20 +19,20 @@
   .section.current{
     .accordion-actions{
       p{
-        width: 50%;
+        width: 40%;
         float: left;
       }
       .secondary-actions{
         float: left;
         margin: 0;
         padding: 0;
-        width: 50%;
+        width: 60%;
         li{
           float: right;
           list-style-type: none;
           list-style-image: none;
           padding: 0;
-          margin: 0.8em 0 0 0.5em;
+          margin: 1em 0 0 0.5em;
         }
       }
     }

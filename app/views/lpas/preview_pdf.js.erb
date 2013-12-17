@@ -7,11 +7,10 @@
   // get id of LPAs
   var $link = $('#content').find('.js-preview-pdf'),
       fallback = function () {
-        alert('Unfortunately your PDF could not be generated, please try again.');
         $link
+          .before('<span>Sorry, the preview could not be generated.</span> ')
           .unbind('click')
-          .text($link.data('title'))
-          .removeData('title')
+          .text('Try again')
           .spinner('off');
       };
 
@@ -23,7 +22,8 @@
     .text('Generating PDF')
     .click(function() {
       return false;
-    });
+    })
+    .siblings('span').remove();
 
   // create new polling object
   var poller = new Poller({
