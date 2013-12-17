@@ -5,9 +5,9 @@ A health and welfare LPA takes effect after registration, and only **when you do
 ### What is mental capacity?
 Mental capacity is a person's capacity to make a particular decision at the time it needs to be made. To find out more about  mental capacity, look at the <a href="http://www.justice.gov.uk/protecting-the-vulnerable/mental-capacity-act" rel="external" target="_blank">Mental Capacity Act 2005 Code of Practice</a>.
 
-However, a property and financial affairs LPA is different. It usually takes effect **when it is registered**. Once we've sent the LPA back to you, your attorneys can make financial decisions on your behalf, **but only if you agree they can do so**.  
+However, a property and financial affairs LPA is different. It usually takes effect **when it is registered**. Once we've sent the LPA back to you, your attorneys can make financial decisions on your behalf, **but only if you agree they can do so**.
 
-You don't have to register an LPA as soon as you've filled it in and signed it, but it's a sensible idea to do so. It means you can catch any errors early. It can be complicated and expensive for you or your attorneys to deal with problems further down the line – especially if you then don't have mental capacity to correct errors.  
+You don't have to register an LPA as soon as you've filled it in and signed it, but it's a sensible idea to do so. It means you can catch any errors early. It can be complicated and expensive for you or your attorneys to deal with problems further down the line – especially if you then don't have mental capacity to correct errors.
 
 
 ### Choosing when your property and financial affairs LPA should begin
@@ -18,7 +18,7 @@ A property and financial affairs LPA usually comes into effect when it's registe
 
 * **if at some stage you don't have mental capacity** your attorneys can act to make decisions on your behalf
 
-However, you can choose for your property and financial affairs LPA to take effect **only when you don't have mental capacity**. Your attorneys **will not be able to act** for you as long as you still have mental capacity. 
+However, you can choose for your property and financial affairs LPA to take effect **only when you don't have mental capacity**. Your attorneys **will not be able to act** for you as long as you still have mental capacity.
 
 The LPA tool lets you say when your LPA can be used. You can choose 'as soon as it's registered' or 'only once I don't have mental capacity'.
 
@@ -34,7 +34,7 @@ or
 
 For many donors, it's useful to have attorneys help them while they still have mental capacity but **find it difficult or impractical to get things done for some other reason**. For example, if you have a disability and find it hard to get out and about or tricky to communicate with your bank or gas supplier, you may want your attorneys to help you with these things.
 
-As long as you have the capacity to make decisions yourself, you have complete control over your property and financial affairs. You just agree with your attorneys that they can make certain decisions for you. For example, you may ask them to **pay bills and deal with the bank**, but not allow them to make decisions about selling your house. 
+As long as you have the capacity to make decisions yourself, you have complete control over your property and financial affairs. You just agree with your attorneys that they can make certain decisions for you. For example, you may ask them to **pay bills and deal with the bank**, but not allow them to make decisions about selling your house.
 
 Alternatively you can choose not to allow them to use the LPA at all while you are still able to make decisions for yourself.
 
@@ -57,7 +57,7 @@ or:
 
 > This lasting power of attorney only applies if my GP or another doctor confirms in writing that I don't have capacity to make specific decisions about property or finances.
 
-When you reach the 'Restrictions and guidance' section in this LPA tool, you can add to the text there if you want restrictions such as the above. 
+When you reach the 'Restrictions and guidance' section in this LPA tool, you can add to the text there if you want restrictions such as the above.
 
 Alternatively you may trust your attorneys to carry out a good assessment of your mental capacity, in which case you do not need to change the wording.
 
@@ -73,5 +73,5 @@ Alternatively you may trust your attorneys to carry out a good assessment of you
 
 
 ### Related help topics
-* [Registering the LPA](#/help/registering-the-lpa)
-* [Restrictions and guidance](#/help/restrictions-and-guidance)
+* [Registering the LPA](/help/#topic-registering-the-lpa)
+* [Restrictions and guidance](/help/#topic-restrictions-and-guidance)

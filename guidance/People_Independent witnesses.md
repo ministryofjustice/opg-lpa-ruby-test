@@ -3,7 +3,7 @@ Witnesses are **people who see you and your attorneys (including any replacement
 
 **When you, as the donor, sign Part A** of the LPA document your signature must be witnessed. Please note that if you're not able to sign or make a mark yourself, someone else can sign on your behalf. You'll need to add a special 'continuation sheet' to your LPA for them to sign.
 
-**When your attorneys sign Part C** of the LPA document their signatures must be witnessed. 
+**When your attorneys sign Part C** of the LPA document their signatures must be witnessed.
 
 ## Who can be an independent witness?
 Independent witnesses must be 18 or over.
@@ -17,5 +17,5 @@ The same independent person can witness both donor and attorney signatures, assu
 [J&E - I've added 'another independent person' in both instances - is this ok? The pdf I've referenced doesn't say this but I would have thought this was the case as both the cert provider and people to be told may not be fully 'independent']
 
 ### Related help topics
-* [Signing the LPA](#/help/signing-the-lpa)
-* [Registering the LPA](#/help/registering-the-lpa)
+* [Signing the LPA](/help/#topic-signing-the-lpa)
+* [Registering the LPA](/help/#topic-registering-the-lpa)

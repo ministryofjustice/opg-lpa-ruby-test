@@ -27,5 +27,5 @@ If you've said **some or all decisions can be made jointly and severally**:
 If more than 1 attorney applies to register your LPA, **OPG will send the registered and stamped LPA to the attorney whose name appears first** on the application.
 
 ### Related help topics
-* [Correspondence address](#/help/correspondence-address)
-* [How attorneys make decisions](#/help/how-attorneys-make-decisions)
+* [Correspondence address](/help/#topic-correspondence-address)
+* [How attorneys make decisions](/help/#topic-how-attorneys-make-decisions)

@@ -2,7 +2,7 @@ OpgLpa::Application.routes.draw do
 
   root "content#homepage"
 
-  get '/guidance' => 'content#guidance'
+  get '/help' => 'content#guidance'
 
   resources :lpas do
     get '/preview_pdf' => 'lpas#preview_pdf'

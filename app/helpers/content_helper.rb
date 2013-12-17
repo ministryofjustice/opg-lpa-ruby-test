@@ -11,8 +11,7 @@ module ContentHelper
         fileName = orderFile[index+1].strip.sub '* ', ''
         title = line.sub('* ', '').strip
         id = title.gsub(' ', '-').downcase
-
-        guidance[:sections][id] = markdown.render(File.read(guidanceFolderPath + fileName))
+        guidance[:sections][id] = markdown.render(File.read(guidanceFolderPath + fileName)).gsub /<a href="\/help\/#topic-(.+)">(.+)<\/a>/, '<a href="/help/#topic-\1" class="js-guidance" data-journey="stageprompt.lpa:help:\1">\2</a>'
         guidance[:nav][id] = title
       end
     end
@@ -21,6 +20,6 @@ module ContentHelper
   end
 
   def guidance_link (label, section_id)
-    link_to label, "#{guidance_path}#section-#{section_id}", {:class => 'js-guidance', "data-journey-click" => "stageprompt.lpa:help:#{section_id}" }
+    link_to label, "#{help_path}/#topic-#{section_id}", {:class => 'js-guidance', "data-journey-click" => "stageprompt.lpa:help:#{section_id}" }
   end
 end
