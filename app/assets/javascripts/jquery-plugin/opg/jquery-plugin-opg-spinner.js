@@ -1,6 +1,6 @@
 /**
  * jQuery Ajax Spinner for OPG LPA project
- * 
+ *
  * @copyright MOJ Digital Services Division
  * @author Mat Harden <mat.harden@digital.justice.gov.uk>
  */
@@ -10,14 +10,15 @@
   // Create the defaults once
   var pluginName = "spinner",
       defaults = {
-        disabledClass: 'disabled'
+        disabledClass: 'disabled',
+        placement: 'after'
       };
 
   // The actual plugin constructor
   function Plugin( element, options ) {
     // Merge options with defaults
     this.options = $.extend( {}, defaults, options );
-    
+
     // Set master element
     this.element = element;
     this.$el = $(element);
@@ -34,15 +35,18 @@
     init: function(e) {
       if (this.disabled()) return;
 
-      this.$spinElement.after($('<img src="/images/ajax-loader.gif" alt="Loading spinner" class="spinner" />'));
-
+      if (this.options.placement === "after") {
+        this.$spinElement.after($('<img src="/assets/ajax-loader.gif" alt="Loading spinner" class="spinner" />'));
+      } else if (this.options.placement === "before") {
+        this.$spinElement.before($('<img src="/assets/ajax-loader.gif" alt="Loading spinner" class="spinner" />'));
+      }
       this.disable();
     },
 
     disable: function() {
       // Apply disabled class to trigger element
       this.$el.addClass(this.options.disabledClass);
-      
+
       // If it's a form control disable it
       if (this.isFormControl()) {
         this.$el.prop('disabled', true);
@@ -92,7 +96,7 @@
     return this.each(function () {
       var data = $.data(this),
           plugin = 'plugin_' + pluginName;
-      
+
       if (data[plugin]) {
         if (options == 'off') {
           data[plugin].off();
