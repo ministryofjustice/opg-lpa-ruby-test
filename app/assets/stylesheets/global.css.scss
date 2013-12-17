@@ -100,12 +100,20 @@ h3 {
   @include core-19;
   margin-top: 0.5em;
   margin-bottom: 0.25em;
+
+  article & {
+    font-weight: 700;
+  }
 }
 
 h4 {
   @include core-19;
   margin-top: 0.5em;
   margin-bottom: 0.25em;
+
+  article & {
+    font-weight: 700;
+  }
 }
 
 p, ul, ol {
