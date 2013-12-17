@@ -11,6 +11,9 @@ class PDFMaker
   def to_pdf
     xfdf = XFDFMaker.new(create_donor).create
     populate_form(xfdf)
+    lpa_pdf = Rails.root, "pdfs", "drafts", "#{@lpa_id}.pdf"
+    PopulateAttorneys.new(lpa_pdf, @lpa_json).fill_forms
+    lpa_pdf
   end
 
   private
