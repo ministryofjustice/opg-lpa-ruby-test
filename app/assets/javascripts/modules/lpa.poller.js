@@ -22,10 +22,12 @@
 
     // default settings
     defaults: {
-      interval: 2000, // starting interval - 2 seconds
-      dataType: 'json',
+      firstInterval: 500,
+      interval: 2000,
+      ajaxDataType: 'json',
       ajaxTimeout: 5000,
-      maxAttempts: 10,
+      onSuccess: null,
+      maxAttempts: 5,
       onMaxAttempts: null,
       maxFails: 5,
       onMaxFails: null
@@ -33,41 +35,47 @@
 
     // kicks off the setTimeout
     init: function(){
+      // use smaller interval for first poll
+      this.newTimeout(this.settings.firstInterval);
+    },
+
+    // use this function with timeout for future polls
+    newTimeout: function (interval) {
       this.timeout = setTimeout(
         $.proxy(this.getData, this), // ensures 'this' is the poller obj inside getData, not the window object
-        this.settings.interval
+        interval
       );
     },
 
     // get AJAX data + respond to it
     getData: function(){
-      var self = this;
+      moj.log(this.settings);
 
       $.ajax({
         url: this.settings.url,
         data: this.settings.data,
-        dataType: this.settings.dataType,
+        dataType: this.settings.ajaxDataType,
         timeout: this.settings.ajaxTimeout,
         cache: false,
         context: this, // make sure context within callbacks is this obj
-        // async: false,
-
         success: function(response){
           // if correct response
-          if(response.pdfURL){
+          if(response.success === true){
             // clear out setTimeout
             this.timeout = null;
-            // redirect to PDF
-            window.location = response.pdfURL;
+            // if successful, run callback
+            if (this.settings.onSuccess && typeof(this.settings.onSuccess) === 'function') {
+              this.settings.onSuccess(response);
+            }
           } else if (++this.attempted < this.settings.maxAttempts) {
             // recurse if not ready
-            this.init(self.settings);
+            this.newTimeout(this.settings.interval);
           } else {
             // clear out setTimeout
             this.timeout = null;
             // if too many attempts, run callback func
             if (this.settings.onMaxAttempts && typeof(this.settings.onMaxAttempts) === 'function') {
-              this.settings.onMaxAttempts();
+              this.settings.onMaxAttempts(response);
             }
           }
         },
@@ -81,7 +89,7 @@
         // increase interval to give breathing room
         this.settings.interval += 250;
         // recurse
-        this.init(this.settings);
+        this.newTimeout(this.settings.interval);
       } else {
         // clear out setTimeout
         this.timeout = null;

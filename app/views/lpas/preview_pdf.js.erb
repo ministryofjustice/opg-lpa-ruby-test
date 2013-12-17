@@ -17,8 +17,11 @@
   var poller = new Poller({
     url: '/lpas/' + lpa_id + '/get_pdf',
     data: {lpa_id: lpa_id},
-    maxFails: 1,
-    onMaxAttemps: function () {
+    onSuccess: function (response) {
+      // redirect to PDF
+      window.location = response.pdfURL;
+    },
+    onMaxAttempts: function (response) {
 
     },
     onMaxFails: function () {
@@ -26,6 +29,6 @@
       $link.removeClass('disabled').unbind('click');
     }
   });
-  // initiate polling
+  // start polling
   poller.init();
 })();

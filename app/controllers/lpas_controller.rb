@@ -22,10 +22,11 @@ class LpasController < ApplicationController
   def get_pdf
     if @applicant.has_lpa? params[:lpa_id]
       puts lpa_pdf_path
-      @pdf_url = File.exist?(draft_pdf_path) ? lpa_pdf_path : false
+      success = File.exist?(draft_pdf_path)
+      @pdf_url = success ? lpa_pdf_path : false
       respond_to do |format|
         format.html { pdf if @pdf_url }
-        format.js {render json: {pdfURL: @pdf_url}}
+        format.js {render json: {success: success, pdfURL: @pdf_url}}
       end
     end
   end
