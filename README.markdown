@@ -53,3 +53,23 @@ To automatically run tests on file changes:
 
     bundle exec guard
 
+
+Local Execution of all dependencies
+-----
+
+Run the database servers:
+
+    Mongo server
+    Redis server
+
+Clone the following projects:
+
+    opg-lpa <this project>
+    ../devise_authentication_api <path relative to opg-lpa project>
+    ../opg-lpa-api
+
+Follow the instructions on the README.md file to setup each service without executing it.
+
+Run all services at once with the command:
+
+    PORT=3000 foreman start
