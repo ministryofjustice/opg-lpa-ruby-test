@@ -9,7 +9,7 @@ class PDFMaker
   end
 
   def to_pdf
-    xfdf = create_xfdf(create_donor)
+    xfdf = XFDFMaker.new(create_donor).create
     populate_form(xfdf)
   end
 
@@ -26,24 +26,5 @@ class PDFMaker
 
   def create_donor
     JSONFormatter.new(@lpa_json).to_form_data
-  end
-
-  def create_xfdf(fields)
-    xml = Builder::XmlMarkup.new
-    xml.instruct!
-    xml.xfdf("xmlns" => "http://ns.adobe.com/xfdf/", "xml:space" => "preserve") {
-      xml.fields {
-        fields.each do |field, value|
-          xml.field(:name => field) {
-            if value.is_a? Array
-              value.each {|item| xml.value(item.to_s) }
-            else
-              xml.value(value.to_s)
-            end
-          }
-        end
-      }
-    }
-    xml.target!
   end
 end
