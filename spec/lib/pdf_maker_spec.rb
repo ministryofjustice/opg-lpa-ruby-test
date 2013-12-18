@@ -25,7 +25,7 @@ describe PDFMaker do
           lpa_id = "52a72c0377696e03df020000"
           pdf = PDFMaker.new(lpa_id, three_attorneys_json).to_pdf
           pages = %x[pdftk #{pdf} dump_data | awk '/NumberOfPages/ {print $2}']
-          pages.to_i.should eq 16
+          pages.to_i.should eq 18
         end
 
         it "should have attorney data"

@@ -8,7 +8,7 @@ describe PopulateAttorneys do
     context "when filling out their details" do
 
       before(:all) do
-        cont_pdfs = File.join(Rails.root, "pdfs", "drafts", "continuation_A1_*.pdf")
+        cont_pdfs = File.join(Rails.root, "pdfs", "drafts", "*.pdf")
         Dir.glob(cont_pdfs).each do |f|
           File.delete f
         end
@@ -19,7 +19,7 @@ describe PopulateAttorneys do
         pdfs_dir = "#{Rails.root}/pdfs/drafts/*"
         count = Dir[pdfs_dir].length
         PopulateAttorneys.new(pdf_file, json).fill_forms
-        Dir[pdfs_dir].length.should eq (count + 1)
+        Dir[pdfs_dir].length.should eq (count + 2)
       end
 
       describe "third attorney should be added to the continuation sheet"
@@ -31,7 +31,7 @@ describe PopulateAttorneys do
         let(:pages) { %x[pdftk #{file} dump_data | awk '/NumberOfPages/ {print $2}'] }
 
         it "should have the correct number of pages" do
-          pages.to_i.should eq 16
+          pages.to_i.should eq 18
         end
       end
     end
