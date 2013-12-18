@@ -21,7 +21,7 @@
       popupId: 'popup',
       maskHTML: '<div id="mask" class="popover-mask" />',
       popupHTML: '<div id="popup" role="dialog" />',
-      closeHTML: '<p class="close"><a id="lightboxclose" href="#" title="Click or press escape to close this window">Close</a></p>',
+      closeHTML: '<p class="js-popup-close"><a id="lightboxclose" href="#" title="Click or press escape to close this window">Close</a></p>',
       contentHTML: '<div id="popup-content" />',
       beforeOpen: null,
       onOpen: null,
@@ -51,7 +51,7 @@
             self.close();
           }
         })
-        .on('click', '#popup .close, #popup .close-help', function (e) {
+        .on('click', '#popup .js-popup-close', function (e) {
           e.preventDefault();
           self.close();
         });
