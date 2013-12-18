@@ -9,11 +9,15 @@ class AttorneyContinuations
 
   def continuationA1
     @hash["Line1"] = first_line
-    @hash["Line2"] = get_full_name
+    @hash["Line2"] = get_name_with_title
     @hash["Line3"] = get_address
     @hash["Line4"] = ""
     @hash["Line5"] = get_dob
     @hash
+  end
+
+  def continuationC1
+    { "fullName_auth_sig_1" => "#{get_full_name}" }
   end
 
   private
@@ -24,7 +28,11 @@ class AttorneyContinuations
   end
 
   def get_full_name
-    "#{@data["title"]} #{@data["first_name"]} #{@data["last_name"]}"
+    "#{@data["first_name"]} #{@data["last_name"]}"
+  end
+
+  def get_name_with_title
+    "#{@data["title"]} #{get_full_name}"
   end
 
   def get_address

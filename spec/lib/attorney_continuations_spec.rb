@@ -38,16 +38,21 @@ end
 describe AttorneyContinuations do
 
   context "when a attorney continuation is required" do
+    let(:cont) { AttorneyContinuations.new(1, 1, third_attorney) }
 
     describe "#continuationA1" do
-      let(:cont) { AttorneyContinuations.new(1, 1, third_attorney) }
-
       it "should set the correct attorney count in numbers" do
         cont.continuationA1["Line1"].should eq "Third attorney"
       end
 
       it "should generate correct fields to fill" do
         cont.continuationA1.should eq attorney_parsed
+      end
+    end
+
+    describe "#continuationC1" do
+      it "should set the correct attorney name" do
+        cont.continuationC1["fullName_auth_sig_1"].should eq "Attorney3_name Attorney3_surname"
       end
     end
   end
