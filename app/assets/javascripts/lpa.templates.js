@@ -1,6 +1,20 @@
 this["lpa"] = this["lpa"] || {};
 this["lpa"]["templates"] = this["lpa"]["templates"] || {};
 
+this["lpa"]["templates"]["validation-field-message"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression;
+
+
+  buffer += "<span class=\"validation-message\">";
+  if (stack1 = helpers.error) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = (depth0 && depth0.error); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</span>";
+  return buffer;
+  });
+
 this["lpa"]["templates"]["validation-summary"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
