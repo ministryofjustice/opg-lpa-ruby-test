@@ -17,7 +17,7 @@
 
       // open popup if hash is present in url
       var hash = window.location.hash;
-      if (hash !== '' && hash !== '#/') {
+      if (hash !== '' && hash !== '#/' && hash.indexOf(self.settings.guidancePath) !== -1) {
         // on page load parse hash
         var topic = hash.substring(hash.lastIndexOf('/')+1);
         // set topic
@@ -67,7 +67,7 @@
         var hash = window.location.hash;
 
         // if a change has been made, select the topic
-        if (hash !== '' && hash !== '#/') {
+        if (hash !== '' && hash !== '#/' && hash.indexOf(self.settings.guidancePath) !== -1) {
           var topic = hash.substring(hash.lastIndexOf('/')+1);
           self._selectHelpTopic(topic);
         }
