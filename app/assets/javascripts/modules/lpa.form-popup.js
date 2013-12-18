@@ -171,16 +171,21 @@
       if(form.find('.validation-summary').length === 0){
         form.prepend(template);
       } else {
-        form.find('.validation-summary').html(template);
+        form.find('.validation-summary').replaceWith(template);
       }
     },
 
     _invalidField: function (form, name, errors) {
       var $field = form.find('[name*="'+name+'"]'),
-          $label = $field.siblings('label');
+          $label = $field.siblings('label'),
+          template = lpa.templates['validation-field-message']({error: errors[0]});
 
+      // add validation class to parent
       $field.parent('.group').addClass('validation');
-      $label.append('<span class="validation-message">'+errors[0]+'</span>');
+      // remove old errors
+      $label.find('.validation-message').remove();
+      // apply new template
+      $label.append(template);
     }
   };
 
