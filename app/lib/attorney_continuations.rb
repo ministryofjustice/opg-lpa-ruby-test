@@ -7,7 +7,7 @@ class AttorneyContinuations
     @hash["sheetNumber"] = sheet_no.to_s
   end
 
-  def to_form_data
+  def continuationA1
     @hash["Line1"] = first_line
     @hash["Line2"] = get_full_name
     @hash["Line3"] = get_address

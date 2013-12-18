@@ -12,7 +12,7 @@ class PopulateAttorneys
     attorneys.each do |attorney|
       count += 1
       continuation_data = AttorneyContinuations.new(total_continuations, count, attorney)
-      xfdf = XFDFMaker.new(continuation_data.to_form_data)
+      xfdf = XFDFMaker.new(continuation_data.continuationA1)
       populate_form xfdf.create
       concatenate_continuation
     end

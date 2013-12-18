@@ -40,12 +40,12 @@ describe AttorneyContinuations do
   context "when a attorney continuation is required" do
 
     it "should set the correct attorney count in numbers" do
-      line1 = AttorneyContinuations.new(1, 1, third_attorney).to_form_data["Line1"]
+      line1 = AttorneyContinuations.new(1, 1, third_attorney).continuationA1["Line1"]
       line1.should eq "Third attorney"
     end
 
     it "should generate correct fields to fill" do
-      AttorneyContinuations.new(1, 1, third_attorney).to_form_data.should eq attorney_parsed
+      AttorneyContinuations.new(1, 1, third_attorney).continuationA1.should eq attorney_parsed
     end
   end
 
