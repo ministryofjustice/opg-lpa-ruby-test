@@ -1,5 +1,5 @@
 /*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global html5_storage, PubSub, lpa, moj, $ */
+/*global html5_storage, lpa, moj, $ */
 
 // Form Popup module for LPA
 // Dependencies: lpa, jQuery
@@ -82,7 +82,7 @@
           dataType: 'json',
           data: $form.serialize(),
           context: this,
-          success: function (response, textStatus, jqXHR) {
+          success: function (response) {
             if(response.success !== undefined && response.success) {
               // successful, so redirect
               window.location.reload();
@@ -90,7 +90,7 @@
               var thing = this;
               // if field errors, display them
               if(response.errors !== undefined){
-                var data = {errors: new Array()};
+                var data = {errors: []};
                 $.each(response.errors, function (name, errors) {
                   data.errors.push({name: name, label: $('#'+name+'_label').text(), error: errors[0]});
                   thing._invalidField($form, name, errors);
