@@ -24,3 +24,6 @@ bin/*
 # Ignore XFDFs and PDFs
 /templates/*.xfdf
 /pdfs/drafts/*.pdf
+
+# Ignore grunt node modules
+node_modules/

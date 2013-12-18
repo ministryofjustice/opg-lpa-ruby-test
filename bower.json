@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "dependencies": {
     "jquery": "1.10.2",
-    "jquery-ujs": ""
-  },
-  "devDependencies": {}
+    "jquery-ujs": "",
+    "pubsub-js": "1.4.0",
+    "parsleyjs": "1.2.2",
+    "handlebars": "~1.1.2"
+  }
 }

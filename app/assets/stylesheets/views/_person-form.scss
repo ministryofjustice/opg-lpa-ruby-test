@@ -1,49 +1,52 @@
 // ===========================================================
-// PERSON FORM POP-UP 
+// PERSON FORM POP-UP
 // ===========================================================
 
 // Person form popup
-#popup.form-popup{
-  @include popup(38em);
-  // Header
-  .header{
+#popup.form-popup {
+  width: 38em;
+
+  .inner {
+    max-width: none;
+    padding: 0;
+  }
+
+  .header {
+    border-color: #bfc1c3;
     @if $is-ie == false {
-      background: url("/images/icon/person.png") no-repeat 1em 17px;
+      background: image-url("icon/person.png") 18px center no-repeat;
       background-size: 2.5%;
-      padding-left: 2.5em;  
-    }
-    font-weight: bold;
-  }
-  // Action buttons at bottom of popup
-  .action.group{
-    padding-left: 10em;
-    .button-secondary{
-      margin-left: 4.5em;
+      padding-left: 2.5em;
     }
   }
-}
 
-
-// ===========================================================
-// PERSON FORM
-// ===========================================================
-
-// Pre-populate form link (not required for live version)
-#form-populate{
-  float: right;
-  padding: 1em 4em;
-}
-
-// Basic form layout
-.person-form {
-  position: relative;
-  padding-left: 1em;
-  input[type="text"],
-  input[type="email"]{
-    width: 15em;
-  }
-  .form{
+  .form {
     @include form-horizontal;
+    padding-left: 1em;
+
+    fieldset {
+      legend {
+        display: none;
+      }
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 15em;
+
+      &.postcode {
+        width: 5em;
+      }
+    }
+
+    .action {
+      .button-secondary {
+        margin-left: 4.5em;
+      }
+    }
+
+
+    // TO CHECK //
     .option.group{
       padding-right: 2em;
     }
@@ -68,24 +71,59 @@
   }
 }
 
-// Title dropdown (Mr, Mrs etc.)
-.title select{
-  display: none;
+.address-hidden {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: -99999px;
+}
+
+// ===========================================================
+// PERSON FORM
+// ===========================================================
+
+.person-form {
+  input[type="checkbox"],
+  input[type="radio"] {
+    margin-right: 1em;
+  }
 }
 
 // Select a person for a role
-.form .role-select{
+.form .role-select {
   overflow: auto;
   border-bottom: 1px solid $border-colour;
-  margin: 0 0 0 -1.25em;
+  margin: 0;
   padding: 1em 0 1em 1.25em;
   background: $highlight-colour;
-  a{
+
+  #popup & {
+    margin-left: -1em;
+  }
+  a {
     @include core-16;
   }
-  select{
+  select {
     min-width: 11.5em;
   }
+}
+
+
+
+// ===========================================================
+// LEGACY CODE
+// ===========================================================
+
+// Pre-populate form link (not required for live version)
+#form-populate{
+  float: right;
+  padding: 1em 4em;
+}
+
+
+// Title dropdown (Mr, Mrs etc.)
+.title select{
+  display: none;
 }
 
 // Address and postcode-lookup

@@ -1,5 +1,5 @@
 /*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global moj, lpa, $ */
+/*global html5_storage, moj, lpa, $ */
 
 // Help System module for LPA
 // Dependencies: popup, lpa, moj, jQuery
@@ -17,7 +17,7 @@
 
       // open popup if hash is present in url
       var hash = window.location.hash;
-      if (hash !== '' && hash !== '#/') {
+      if (hash !== '' && hash !== '#/' && hash.indexOf(this.settings.guidancePath) !== -1) {
         // on page load parse hash
         var topic = hash.substring(hash.lastIndexOf('/')+1);
         // set topic
@@ -67,7 +67,7 @@
         var hash = window.location.hash;
 
         // if a change has been made, select the topic
-        if (hash !== '' && hash !== '#/') {
+        if (hash !== '' && hash !== '#/' && hash.indexOf(self.settings.guidancePath) !== -1) {
           var topic = hash.substring(hash.lastIndexOf('/')+1);
           self._selectHelpTopic(topic);
         }
@@ -120,8 +120,8 @@
 
     _hasCachedContent: function () {
       // first try to load from html5 storage
-      if(html5_storage() && typeof localStorage.guidanceHTML !== 'undefined') {
-        return localStorage.guidanceHTML;
+      if(html5_storage() && typeof sessionStorage.guidanceHTML !== 'undefined') {
+        return sessionStorage.guidanceHTML;
       }
       // then try from this class
       else if(typeof this.html !== 'undefined') {
@@ -142,11 +142,11 @@
         lpa.Modules.Popup.open(html, {
           ident: this.settings.overlayIdent,
           source: this.source,
+          onClose: self.settings.popupOnClose,
           beforeOpen: function () {
             // set topic
             self._setTopic(topic);
-          },
-          onClose: this.settings.popupOnClose
+          }
         });
       }
       // otherwise, AJAX it in and then switch the content in the popup
@@ -155,12 +155,13 @@
         lpa.Modules.Popup.open(this.settings.loadingContent, {
           ident: self.settings.overlayIdent,
           source: this.source,
+          onClose: self.settings.popupOnClose,
           beforeOpen: function () {
             $('#popup-content').load('/' + self.settings.guidancePath, function(html) {
               // cache content
               if (html5_storage()) {
                 // save to html5 storage
-                localStorage.guidanceHTML = html;
+                sessionStorage.guidanceHTML = html;
               } else {
                 // save to obj
                 self.html = html;
@@ -168,8 +169,7 @@
               // set the topic now that all content has loaded
               self._setTopic(topic);
             });
-          },
-          onClose: this.settings.popupOnClose
+          }
         });
       }
     }

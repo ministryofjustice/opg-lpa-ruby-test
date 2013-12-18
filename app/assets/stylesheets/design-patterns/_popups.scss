@@ -67,8 +67,9 @@
     // Popup header
     .header {
       border-bottom: 1px solid $border-colour;
-      padding: 1em 2em;
-      @include core-19;
+      padding: 1em 2em 0.8em;
+      margin: 0;
+      @include bold-19;
 
       h1, h2, h3, p {
         margin: 0;

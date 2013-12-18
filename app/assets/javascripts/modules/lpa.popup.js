@@ -1,5 +1,5 @@
 /*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global moj, lpa, $ */
+/*global PubSub, moj, lpa, $ */
 
 // Popup module for LPA
 // Dependencies: lpa, moj, jQuery
@@ -19,9 +19,10 @@
       source: $('#content'),
       placement: 'body',
       popupId: 'popup',
+      ident: null,
       maskHTML: '<div id="mask" class="popover-mask" />',
       popupHTML: '<div id="popup" role="dialog" />',
-      closeHTML: '<p class="close"><a id="lightboxclose" href="#" title="Click or press escape to close this window">Close</a></p>',
+      closeHTML: '<p class="close js-popup-close"><a id="lightboxclose" href="#" title="Click or press escape to close this window">Close</a></p>',
       contentHTML: '<div id="popup-content" />',
       beforeOpen: null,
       onOpen: null,
@@ -51,7 +52,7 @@
             self.close();
           }
         })
-        .on('click', '#popup .close, #popup .close-help', function (e) {
+        .on('click', '#popup .js-popup-close', function (e) {
           e.preventDefault();
           self.close();
         });
@@ -66,7 +67,8 @@
       $('html, body').addClass('noscroll');
 
       // Join it all together
-      this.$popup.data('settings', opts).addClass(opts.ident).append(this.$close).append(this.$content.html(html)).appendTo(this.$mask);
+      this.$popup.removeData();
+      this.$popup.data('settings', opts).attr('class', opts.ident).append(this.$close).append(this.$content.html(html)).appendTo(this.$mask);
 
       // Place the mask in the DOM
       // If a placement has been provided, the popup is appended to that element,
@@ -74,6 +76,7 @@
       $(opts.placement)[opts.placement === 'body' ? 'append' : 'after'](this.$mask);
 
       // callback func
+      PubSub.publish('popup.beforeOpen', opts.ident);
       if (opts.beforeOpen && typeof(opts.beforeOpen) === 'function') {
         opts.beforeOpen();
       }
@@ -90,6 +93,7 @@
         self.loopTabKeys(self.$popup);
 
         // callback func
+        PubSub.publish('popup.open', opts.ident);
         if (opts.onOpen && typeof(opts.onOpen) === 'function') {
           opts.onOpen();
         }
@@ -100,13 +104,13 @@
       // make sure there is a popup to close
       if($('#popup').length > 0){
         var self = this,
-            opts = $('#popup').data('settings'),
+            opts = this.$popup.data('settings'),
             scrollPosition = $(window).scrollTop();
 
         self.$popup.fadeOut(400, function () {
           self.$mask.fadeOut(200, function () {
             // focus on previous element
-            if(typeof opts.source !== 'undefined' && opts.source){
+            if(typeof opts !== 'undefined' && typeof opts.source !== 'undefined' && opts.source){
               opts.source.focus();
             }
             // clear out any hash locations
@@ -114,6 +118,7 @@
             history.pushState('', document.title, window.location.pathname);
 
             // callback func
+            PubSub.publish('popup.close', opts.ident);
             if (opts.onClose && typeof(opts.onClose) === 'function') {
               opts.onClose();
             }

@@ -63,12 +63,14 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("Bob Man")
 
     click_link 'Add a replacement attorney'
-    fill_in_valid_person(:first_name => "Bobby", :last_name => "Man")
+    fill_in_valid_name(:first_name => "Bobby", :last_name => "Man")
+    fill_in_valid_address
     click_button "Save details"
     expect(page).to have_content("Bobby Man")
 
     click_link 'Add a replacement attorney'
-    fill_in_valid_person(:first_name => "Egbert", :last_name => "Man")
+    fill_in_valid_name(:first_name => "Egbert", :last_name => "Man")
+    fill_in_valid_address
     click_button "Save details"
     expect(page).to have_content("Egbert Man")
 
@@ -88,7 +90,8 @@ feature 'Filling in an LPA' do
 
     # Certificate provider
     expect(page).to have_content("Who is the certificate provider?")
-    fill_in_valid_person(:first_name => "Charlie", :last_name => "Prover", without_phone: true)
+    fill_in_valid_name(:first_name => "Charlie", :last_name => "Prover", without_phone: true)
+    fill_in_valid_address
     click_button "Save and continue"
 
     expect(page).to have_content('The certificate provider is Mr Charlie Prover')
@@ -96,11 +99,13 @@ feature 'Filling in an LPA' do
     # Who to be told
     expect(page).to have_content("Who should be told before your LPA is registered?")
     click_link 'Add a person to be told'
-    fill_in_valid_person(:first_name => "Jill", :last_name => "Graham")
+    fill_in_valid_name(:first_name => "Jill", :last_name => "Graham")
+    fill_in_valid_address
     click_button "Save and continue"
     expect(page).to have_content('Mr Jill Graham')
     click_link 'Add a person to be told'
-    fill_in_valid_person(:first_name => "Bob", :last_name => "Graham")
+    fill_in_valid_name(:first_name => "Bob", :last_name => "Graham")
+    fill_in_valid_address
     click_button "Save and continue"
     expect(page).to have_content('Mr Bob Graham')
 
@@ -143,7 +148,8 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("Who are your attorneys?")
 
     click_link 'Add an attorney'
-    fill_in_valid_person(:first_name => "Dave", :last_name => "Jameson")
+    fill_in_valid_name(:first_name => "Dave", :last_name => "Jameson")
+    fill_in_valid_address
 
     click_button "Save details"
     expect(page).to have_content("Dave Jameson")
@@ -155,7 +161,8 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("Do you want any replacement attorneys?")
 
     click_link 'Add a replacement attorney'
-    fill_in_valid_person(:first_name => "Bob", :last_name => "Man")
+    fill_in_valid_name(:first_name => "Bob", :last_name => "Man")
+    fill_in_valid_address
     click_button "Save details"
     expect(page).to have_content("Bob Man")
 
@@ -165,7 +172,8 @@ feature 'Filling in an LPA' do
 
     # Certificate provider
     expect(page).to have_content("Who is the certificate provider?")
-    fill_in_valid_person(:first_name => "Charlie", :last_name => "Prover", without_phone: true)
+    fill_in_valid_name(:first_name => "Charlie", :last_name => "Prover", without_phone: true)
+    fill_in_valid_address
     click_button "Save and continue"
 
     expect(page).to have_content('The certificate provider is Mr Charlie Prover')
@@ -178,7 +186,8 @@ feature 'Filling in an LPA' do
 
     # Second Certificate provider
     expect(page).to have_content("Who is the second certificate provider?")
-    fill_in_valid_person(:first_name => "Gregg", :last_name => "John", without_phone: true)
+    fill_in_valid_name(:first_name => "Gregg", :last_name => "John", without_phone: true)
+    fill_in_valid_address
     click_button "Save and continue"
 
     expect(page).to have_content('The second certificate provider is Mr Gregg John')
@@ -212,7 +221,8 @@ feature 'Filling in an LPA' do
     create_financial_lpa
     expect(page).to have_content('This LPA covers Property and financial affairs')
 
-    fill_in_valid_person(:first_name => "")
+    fill_in_valid_name(:first_name => "")
+    fill_in_valid_address
     click_button "Save and continue"
     expect(page).to have_content("can't be blank")
   end

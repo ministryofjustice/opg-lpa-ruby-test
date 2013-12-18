@@ -3,10 +3,37 @@
 .article-container.group
   %article.group{:role => "article"}
     .inner
-      %h2 Enter attorney details
-      = form_for @attorney, :url => lpa_attorneys_path(@lpa), :html => { :class => 'form' } do |attorney_form|
+      %h2.header Enter attorney details
+      = form_for @attorney, :url => lpa_attorneys_path(@lpa), :html => { :class => 'form', 'novalidate' => '' } do |attorney_form|
         = render "shared/validation_summary", :form_object => attorney_form
-        = render :partial => '/shared/person_form', :locals => {:person_form => attorney_form, :show_dob => true}
+        %p.role-select.group
+          = link_to "Using a trust corporation?", new_lpa_attorney_path(@lpa), {:class => 'js-form-popup', "data-form" => "attorney-trust-corporation"}
+        = render :partial => '/shared/person_form', :locals => {:person_form => attorney_form, :show_dob => true, :show_dx_address => true, :without_email => true, :without_phone => true}
 
-        .action.group
+        %fieldset
+          %p.hint The following fields are optional.
+          = input_for(attorney_form, "email") do
+            = attorney_form.email_field "email"
+          = input_for(attorney_form, "phone")
+          .group
+            %label#occupation-label.optional{:for => "occupation"}
+              Occupation
+              %span.visuallyhidden (optional)
+            %input#occupation{:name => "occupation", :type => "text", :value => "", :autocomplete => "off", :maxlength => "100"}
+          .group
+            %label#relationshipToDonor-label.optional{:for => "relationshipToDonor"}
+              Relationship to donor
+              %span.visuallyhidden (optional)
+            %select#relationshipToDonor{:name => "relationshipToDonor"}
+              %option{:value => "", :selected => "selected"} Please select
+              %option{:value => "Partner"} Spouse or civil partner of the donor
+              %option{:value => "Child"} Child of donor
+              %option{:value => "Solicitor"} Solicitor acting for the donor
+              %option{:value => "Other"} Other (please specify)...
+          .group{:style => "display: none;"}
+            %label#relationshipToDonorOther-label.optional{:for => "relationshipToDonorOther"} Specify relationship to donor
+            %input#relationshipToDonorOther{:name => "relationshipToDonorOther", :type => "text", :autocomplete => "off", :maxlength => "100"}
+
+        %p.action.group
           = attorney_form.submit "Save details", class: "button"
+          = link_to "Cancel", "#", class: "button-secondary js-popup-close"

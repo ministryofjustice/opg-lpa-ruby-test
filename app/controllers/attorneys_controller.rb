@@ -3,6 +3,8 @@ class AttorneysController < ApplicationController
   def new
     @lpa = Lpa.find(params[:lpa_id])
     @attorney = Attorney.new
+
+    render :layout => !request.xhr?
   end
 
   def create
@@ -10,10 +12,17 @@ class AttorneysController < ApplicationController
     @attorney = Attorney.new(attorney_params)
     @lpa.send(attorney_relation) << @attorney
 
+
     if @lpa.save
-      redirect_to lpa_build_path(lpa_id: @lpa, id: attorney_relation)
+      respond_to do |format|
+        format.html { redirect_to lpa_build_path(lpa_id: @lpa, id: attorney_relation) }
+        format.json { render json: { success: true } }
+      end
     else
-      render template: "/#{attorney_relation}/new"
+      respond_to do |format|
+        format.html { render template: "/#{attorney_relation}/new" }
+        format.json { render json: { errors: @attorney.errors } }
+      end        
     end
   end
 

@@ -101,27 +101,6 @@
   }
 }
 
-// Customise validation message style to support Zend framework
-.form-popup {
-  .validation-summary {
-    margin:1em 1em 1em 0;
-
-    h1 {
-      @include core-27;
-    }
-  }
-
-  .validation {
-    margin-right:0;
-    margin-bottom:0.5em;
-    padding-left:0.8125em;
-
-    .validation-message {
-      padding-bottom:0;
-    }
-  }
-}
-
 // Emphasised form controls
 @include emphasised-form-controls;
 
