@@ -36,14 +36,11 @@
     },
 
     _bindEvents: function () {
-      // form open
-      $('body').on('click', this.settings.selector, $.proxy(this._btnClick, this));
-
-      // submit form
-      $('body').on('submit', '#popup.form-popup form', $.proxy(this._submitForm, this));
-
-      // generic subscriptions to popup events
-      PubSub.subscribe('popup.open', $.proxy(this.settings.popupOnOpen, this));
+      $('body')
+        // form open
+        .on('click', this.settings.selector, $.proxy(this._btnClick, this))
+        // submit form
+        .on('submit', '#popup.form-popup form', $.proxy(this._submitForm, this));
     },
 
     _btnClick: function (e) {
@@ -75,7 +72,7 @@
           $submitBtn = $form.find('input[type="submit"]'),
           url = $form.attr('action');
 
-      // if($form.parsley('validate')){
+      if($form.parsley('validate')){
         // start spinner
         $submitBtn.spinner();
 
@@ -109,7 +106,7 @@
             }
           }
         });
-      // }
+      }
       return false;
     },
 
@@ -136,6 +133,7 @@
         lpa.Modules.Popup.open(html, {
           ident: this.settings.overlayIdent,
           source: this.originalSource,
+          onOpen: this.settings.popupOnOpen,
           beforeOpen: function () {
             // set pcode lookup
             $('#popup').opgPostcodeLookup();
@@ -146,8 +144,9 @@
       else {
         // load overlay
         lpa.Modules.Popup.open(this.settings.loadingContent, {
-          ident: self.settings.overlayIdent,
+          ident: this.settings.overlayIdent,
           source: this.originalSource,
+          onOpen: this.settings.popupOnOpen,
           beforeOpen: function () {
             $('#popup-content').load(href, function(html) {
               // cache content
