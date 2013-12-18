@@ -3,6 +3,7 @@
 //===== Bower packages - /vendor/assets/components/ =====\\
 //= require jquery
 //= require jquery-ujs
+//= require parsleyjs/parsley
 
 //===== Vendor scripts - /vendor/assets/javascripts/ =====\\
 //= require jquery.details

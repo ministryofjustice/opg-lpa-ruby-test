@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "dependencies": {
     "jquery": "1.10.2",
-    "jquery-ujs": ""
+    "jquery-ujs": "",
+    "parsleyjs": "1.2.2"
   },
   "devDependencies": {}
 }
