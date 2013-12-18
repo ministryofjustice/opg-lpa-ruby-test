@@ -21,7 +21,6 @@ class LpasController < ApplicationController
 
   def get_pdf
     if @applicant.has_lpa? params[:lpa_id]
-      puts lpa_pdf_path
       success = File.exist?(draft_pdf_path)
       @pdf_url = success ? lpa_pdf_path : false
       respond_to do |format|
@@ -38,7 +37,7 @@ class LpasController < ApplicationController
     PDFWorker.perform_async(@lpa_id, @lpa.to_json)
     respond_to do |format|
       format.js
-      format.html { get_pdf }
+      format.html { redirect_to lpa_get_pdf_path }
     end
   end
 
