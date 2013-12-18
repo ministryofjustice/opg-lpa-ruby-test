@@ -1,0 +1,16 @@
+<div aria-labbelledby="error-heading" class="validation-summary group" role="alert">
+  <h1 id="error-heading">There was a problem submitting the form</h1>
+
+  {{#if errors}}
+  <p>Because of the following problems:</p>
+  <ol>
+    {{#each errors}}
+    <li>
+      <a href="#{{name}}_label">{{label}} {{error}}</a>
+    </li>
+    {{/each}}
+  </ol>
+  {{else}}
+  <p>Please reload the page and try again.</p>
+  {{/if}}
+</div>

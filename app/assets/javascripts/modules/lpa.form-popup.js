@@ -27,7 +27,6 @@
       moj.log('lpa.Modules.FormPopup#init');
       this._cacheEls();
       this._bindEvents();
-      sessionStorage.clear();
     },
 
     _cacheEls: function () {
@@ -76,60 +75,41 @@
           $submitBtn = $form.find('input[type="submit"]'),
           url = $form.attr('action');
 
+      // if($form.parsley('validate')){
+        // start spinner
+        $submitBtn.spinner();
 
-      moj.log('submitting form...');
-
-
-      if($form.parsley('validate')){
-        // load spinner
-        // $submitBtn.spinner();
-        moj.log('validated');
-
-        $.post(url, $form.serialize(), 
-              function (response, textStatus, jqXHR) {
-                moj.log("done");
-                if(response.success) {
-                  window.location.reload();
-                } else {
-                  moj.log(response.errors);
-                }
-
-              // if(response.success !== undefined) {
-              //   // successful, so redirect
-              //   // window.location.reload();
-              // } else if (response.toLowerCase().indexOf("sign in") != -1) {
-              //   // not logged in, redirect
-              //   moj.log('not logged in');
-              //   window.location = '/users/sign_in';
-              // } else {
-              //   // handle error
-              //   $submitBtn.spinner('off');
-
-              //   // has the login timed out?  if so, we must close the lightbox
-              //   // if (resp.toLowerCase().indexOf("sign in") != -1) {
-              //   //   window.location.reload();
-              //   // } else {
-              //   //   $lightbox = $('#form-lightbox').html(resp);
-
-              //   //   // Mark as dirty
-              //   //   $lightbox.find('form').data('dirty', true);
-
-              //   //   OPGPopup.popup($lightbox, "form-popup", form);
-
-              //   //   var donorCannotSign = $('#donor_cannot_sign').is(':checked');
-              //   //   if (donorCannotSign) {
-              //   //     $('#donorsignprompt').show();
-              //   //   } else {
-              //   //     $('#donorsignprompt').hide();
-              //   //   }
-              //   // }
-              // }
-              },
-              "JSON");
-      } else {
-        moj.log('not validated');
-      }
-
+        $.ajax({
+          url: url,
+          type: 'post',
+          dataType: 'json',
+          data: $form.serialize(),
+          context: this,
+          success: function (response, textStatus, jqXHR) {
+            if(response.success !== undefined && response.success) {
+              // successful, so redirect
+              window.location.reload();
+            } else {
+              var thing = this;
+              // if field errors, display them
+              if(response.errors !== undefined){
+                var data = {errors: new Array()};
+                $.each(response.errors, function (name, errors) {
+                  data.errors.push({name: name, label: $('#'+name+'_label').text(), error: errors[0]});
+                  thing._invalidField($form, name, errors);
+                });
+                // show error summary
+                this._invalidSummary($form, data);
+              } else {
+                // show error summary
+                this._invalidSummary($form, {});
+              }
+              // stop spinner
+              $submitBtn.spinner('off');
+            }
+          }
+        });
+      // }
       return false;
     },
 
@@ -184,6 +164,23 @@
           }
         });
       }
+    },
+
+    _invalidSummary: function (form, data) {
+      var template = lpa.templates['validation-summary'](data);
+      if(form.find('.validation-summary').length === 0){
+        form.prepend(template);
+      } else {
+        form.find('.validation-summary').html(template);
+      }
+    },
+
+    _invalidField: function (form, name, errors) {
+      var $field = form.find('[name*="'+name+'"]'),
+          $label = $field.siblings('label');
+
+      $field.parent('.group').addClass('validation');
+      $label.append('<span class="validation-message">'+errors[0]+'</span>');
     }
   };
 
