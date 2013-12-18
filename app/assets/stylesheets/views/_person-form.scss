@@ -82,6 +82,18 @@
 // PERSON FORM
 // ===========================================================
 
+.person-form {
+  input[type="checkbox"],
+  input[type="radio"] {
+    margin-right: 1em;
+  }
+}
+
+// ===========================================================
+// LEGACY CODE
+// ===========================================================
+
+
 // Pre-populate form link (not required for live version)
 #form-populate{
   float: right;
