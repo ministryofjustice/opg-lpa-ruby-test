@@ -1,5 +1,5 @@
 /*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global html5_storage, PubSub, moj, lpa, $ */
+/*global html5_storage, moj, lpa, $ */
 
 // Help System module for LPA
 // Dependencies: popup, lpa, moj, jQuery
