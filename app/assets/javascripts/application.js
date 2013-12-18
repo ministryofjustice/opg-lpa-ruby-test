@@ -4,6 +4,7 @@
 //= require jquery
 //= require jquery-ujs
 //= require parsleyjs/parsley
+//= require handlebars
 
 //===== Vendor scripts - /vendor/assets/javascripts/ =====\\
 //= require jquery.details

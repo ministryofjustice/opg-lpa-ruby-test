@@ -4,7 +4,8 @@
   "dependencies": {
     "jquery": "1.10.2",
     "jquery-ujs": "",
-    "parsleyjs": "1.2.2"
+    "parsleyjs": "1.2.2",
+    "handlebars": "~1.1.2"
   },
   "devDependencies": {}
 }
