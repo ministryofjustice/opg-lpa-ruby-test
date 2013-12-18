@@ -6,7 +6,11 @@ end
 class Users::RegistrationsController < ApplicationController
 
   def new
-    @registration = Registration.new
+    if @signed_in
+      redirect_to lpas_path
+    else
+      @registration = Registration.new
+    end
   end
 
   def create
