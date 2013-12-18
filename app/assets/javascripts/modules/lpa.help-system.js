@@ -17,7 +17,7 @@
 
       // open popup if hash is present in url
       var hash = window.location.hash;
-      if (hash !== '' && hash !== '#/' && hash.indexOf(self.settings.guidancePath) !== -1) {
+      if (hash !== '' && hash !== '#/' && hash.indexOf(this.settings.guidancePath) !== -1) {
         // on page load parse hash
         var topic = hash.substring(hash.lastIndexOf('/')+1);
         // set topic
@@ -76,9 +76,6 @@
           lpa.Modules.Popup.close();
         }
       });
-
-      // generic subscriptions to popup events
-      PubSub.subscribe('popup.close', this.settings.popupOnClose);
     },
 
     _selectHelpTopic: function (topic) {
@@ -145,6 +142,7 @@
         lpa.Modules.Popup.open(html, {
           ident: this.settings.overlayIdent,
           source: this.source,
+          onClose: self.settings.popupOnClose,
           beforeOpen: function () {
             // set topic
             self._setTopic(topic);
@@ -157,6 +155,7 @@
         lpa.Modules.Popup.open(this.settings.loadingContent, {
           ident: self.settings.overlayIdent,
           source: this.source,
+          onClose: self.settings.popupOnClose,
           beforeOpen: function () {
             $('#popup-content').load('/' + self.settings.guidancePath, function(html) {
               // cache content

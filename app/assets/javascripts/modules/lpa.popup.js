@@ -19,6 +19,7 @@
       source: $('#content'),
       placement: 'body',
       popupId: 'popup',
+      ident: null,
       maskHTML: '<div id="mask" class="popover-mask" />',
       popupHTML: '<div id="popup" role="dialog" />',
       closeHTML: '<p class="close js-popup-close"><a id="lightboxclose" href="#" title="Click or press escape to close this window">Close</a></p>',
@@ -75,7 +76,7 @@
       $(opts.placement)[opts.placement === 'body' ? 'append' : 'after'](this.$mask);
 
       // callback func
-      PubSub.publish('popup.beforeOpen');
+      PubSub.publish('popup.beforeOpen', opts.ident);
       if (opts.beforeOpen && typeof(opts.beforeOpen) === 'function') {
         opts.beforeOpen();
       }
@@ -92,7 +93,7 @@
         self.loopTabKeys(self.$popup);
 
         // callback func
-        PubSub.publish('popup.open');
+        PubSub.publish('popup.open', opts.ident);
         if (opts.onOpen && typeof(opts.onOpen) === 'function') {
           opts.onOpen();
         }
@@ -117,7 +118,7 @@
             history.pushState('', document.title, window.location.pathname);
 
             // callback func
-            PubSub.publish('popup.close');
+            PubSub.publish('popup.close', opts.ident);
             if (opts.onClose && typeof(opts.onClose) === 'function') {
               opts.onClose();
             }

@@ -41,9 +41,6 @@
 
       // submit form
       $('body').on('submit', '#popup.form-popup form', $.proxy(this._submitForm, this));
-
-      // generic subscriptions to popup events
-      PubSub.subscribe('popup.open', $.proxy(this.settings.popupOnOpen, this));
     },
 
     _btnClick: function (e) {
@@ -136,6 +133,7 @@
         lpa.Modules.Popup.open(html, {
           ident: this.settings.overlayIdent,
           source: this.originalSource,
+          onOpen: this.settings.popupOnOpen,
           beforeOpen: function () {
             // set pcode lookup
             $('#popup').opgPostcodeLookup();
@@ -146,8 +144,9 @@
       else {
         // load overlay
         lpa.Modules.Popup.open(this.settings.loadingContent, {
-          ident: self.settings.overlayIdent,
+          ident: this.settings.overlayIdent,
           source: this.originalSource,
+          onOpen: this.settings.popupOnOpen,
           beforeOpen: function () {
             $('#popup-content').load(href, function(html) {
               // cache content
