@@ -89,6 +89,25 @@
   }
 }
 
+// Select a person for a role
+.form .role-select {
+  overflow: auto;
+  border-bottom: 1px solid $border-colour;
+  margin: 0;
+  padding: 1em 0 1em 1.25em;
+  background: $highlight-colour;
+
+  #popup & {
+    margin-left: -1em;
+  }
+  a {
+    @include core-16;
+  }
+  select {
+    min-width: 11.5em;
+  }
+}
+
 // ===========================================================
 // LEGACY CODE
 // ===========================================================
@@ -104,21 +123,6 @@
 // Title dropdown (Mr, Mrs etc.)
 .title select{
   display: none;
-}
-
-// Select a person for a role
-.form .role-select{
-  overflow: auto;
-  border-bottom: 1px solid $border-colour;
-  margin: 0 0 0 -1.25em;
-  padding: 1em 0 1em 1.25em;
-  background: $highlight-colour;
-  a{
-    @include core-16;
-  }
-  select{
-    min-width: 11.5em;
-  }
 }
 
 // Address and postcode-lookup
