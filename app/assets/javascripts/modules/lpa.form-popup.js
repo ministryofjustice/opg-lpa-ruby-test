@@ -36,11 +36,11 @@
     },
 
     _bindEvents: function () {
-      // form open
-      $('body').on('click', this.settings.selector, $.proxy(this._btnClick, this));
-
-      // submit form
-      $('body').on('submit', '#popup.form-popup form', $.proxy(this._submitForm, this));
+      $('body')
+        // form open
+        .on('click', this.settings.selector, $.proxy(this._btnClick, this))
+        // submit form
+        .on('submit', '#popup.form-popup form', $.proxy(this._submitForm, this));
     },
 
     _btnClick: function (e) {
@@ -72,7 +72,7 @@
           $submitBtn = $form.find('input[type="submit"]'),
           url = $form.attr('action');
 
-      // if($form.parsley('validate')){
+      if($form.parsley('validate')){
         // start spinner
         $submitBtn.spinner();
 
@@ -106,7 +106,7 @@
             }
           }
         });
-      // }
+      }
       return false;
     },
 
