@@ -6,7 +6,11 @@ end
 class Users::SessionsController < ApplicationController
 
   def new
-    @session = Session.new
+    if @signed_in
+      redirect_to lpas_path
+    else
+      @session = Session.new
+    end
   end
 
   def create
