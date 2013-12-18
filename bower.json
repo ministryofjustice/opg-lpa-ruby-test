@@ -5,6 +5,7 @@
     "jquery": "1.10.2",
     "jquery-ujs": "",
     "pubsub-js": "1.4.0",
-    "parsleyjs": "1.2.2"
+    "parsleyjs": "1.2.2",
+    "mustache": "~0.7.3"
   }
 }
