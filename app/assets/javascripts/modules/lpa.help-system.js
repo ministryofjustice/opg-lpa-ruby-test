@@ -17,7 +17,7 @@
 
       // open popup if hash is present in url
       var hash = window.location.hash;
-      if (hash !== '' && hash !== '#/' && hash.indexOf(self.settings.guidancePath) !== -1) {
+      if (hash !== '' && hash !== '#/' && hash.indexOf(this.settings.guidancePath) !== -1) {
         // on page load parse hash
         var topic = hash.substring(hash.lastIndexOf('/')+1);
         // set topic
