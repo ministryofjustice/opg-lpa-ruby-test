@@ -19,6 +19,7 @@
       source: $('#content'),
       placement: 'body',
       popupId: 'popup',
+      ident: null,
       maskHTML: '<div id="mask" class="popover-mask" />',
       popupHTML: '<div id="popup" role="dialog" />',
       closeHTML: '<p class="js-popup-close"><a id="lightboxclose" href="#" title="Click or press escape to close this window">Close</a></p>',
