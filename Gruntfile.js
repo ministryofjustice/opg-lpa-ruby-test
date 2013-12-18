@@ -11,9 +11,6 @@ module.exports = function (grunt) {
           namespace: "lpa.templates",
           prettify: false,
           amdWrapper: false,
-          templateSettings: {
-            // interpolate : /\{\{(.+?)\}\}/g
-          },
           processName: function(filename) {
             // Shortens the file path for the template and removes file extension.
             return filename.slice(filename.indexOf("templates")+10, filename.length).replace(/\.[^/.]+$/, "");
