@@ -107,6 +107,10 @@ end
 
 def two_attorneys_hash
   {
+    "Page1A1SheetCount" => 0,
+    "Page1CSheetCount" => 0,
+    "Page1TotalContSheetCount" => 0,
+
     "cb_Page3DonorTitle" => "Mr",
     "PartADonorAddress1" => "1 Streety Street",
     "PartADonorAddress2" => "",
@@ -136,6 +140,36 @@ def two_attorneys_hash
   }
 end
 
+def three_attorneys_hash
+  {
+    "Page1A1SheetCount" => 1,
+    "Page1CSheetCount" => 1,
+    "Page1TotalContSheetCount" => 2,
+    "PartAAttorney1Address1" => "Attorney",
+    "PartAAttorney1Address2" => "Attorney",
+    "PartAAttorney1Address3" => "Attorney",
+    "PartAAttorney1DOB" => "2013-12-11",
+    "PartAAttorney1FirstName" => "Attorney",
+    "PartAAttorney1LastName" => "Attorney",
+    "PartAAttorney1Postcode" => "Attorney",
+    "PartAAttorney2Address1" => "Attorney2",
+    "PartAAttorney2Address2" => "Attorney2",
+    "PartAAttorney2Address3" => "Attorney2",
+    "PartAAttorney2DOB" => "2013-12-11",
+    "PartAAttorney2FirstName" => "Attorney2",
+    "PartAAttorney2LastName" => "Attorney2",
+    "PartAAttorney2Postcode" => "Attorney2",
+    "PartADonorAddress1" => "",
+    "PartADonorAddress2" => "",
+    "PartADonorAddress3" => "",
+    "PartADonorDOB" => "2013-12-10",
+    "PartADonorFirstName" => "Donor",
+    "PartADonorLastName" => "Donorski",
+    "PartADonorOtherNames" => "",
+    "PartADonorPostcode" => "",
+    "cb_Page3DonorTitle" => "Mr"
+  }
+end
 
 describe JSONFormatter do
 
@@ -152,6 +186,14 @@ describe JSONFormatter do
 
     it "should populate the fields for both attorneys" do
       formatter.to_form_data.should eq two_attorneys_hash
+    end
+  end
+
+  context "when there are more than two attorneys present" do
+    let(:formatter) { JSONFormatter.new(three_attorneys_json) }
+
+    it "should populate the fields for both attorneys" do
+      formatter.to_form_data.should eq three_attorneys_hash
     end
   end
 
