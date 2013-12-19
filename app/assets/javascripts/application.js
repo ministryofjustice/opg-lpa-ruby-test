@@ -20,6 +20,7 @@
 //= require modules/lpa.dialog.js
 //= require modules/lpa.popup.js
 //= require modules/lpa.help-system.js
+//= require modules/lpa.form-popup.js
 //= require modules/lpa.form.js
 //= require modules/lpa.poller.js
 
