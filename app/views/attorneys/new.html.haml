@@ -13,7 +13,6 @@
           %p.hint The following fields are optional.
           = input_for(attorney_form, "email", {:type => "email"})
           = input_for(attorney_form, "phone")
-          = input_for(attorney_form, "occupation", {}, {:maxlength => "100", :size => ""})
           .group
             %label#relationshipToDonor-label.optional{:for => "relationshipToDonor"}
               Relationship to donor
