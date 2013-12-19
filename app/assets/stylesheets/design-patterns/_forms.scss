@@ -152,8 +152,12 @@
   .validation-summary{
     border: 3px solid $mellow-red;
     @include panel(lighten($mellow-red, 45%));
+    .form-popup & {
+      margin: 1em 1em 1em 0;
+    }
     h1{
       margin-bottom: 0;
+      @include bold-24;
     }
     a {
       color: $mellow-red;
@@ -175,7 +179,6 @@
     li{
       @include core-16;
     }
-
   }
   // Inline validation messages
   .validation{
@@ -183,11 +186,20 @@
     border-left: 3px solid $mellow-red;
     margin: 0 -1em 0.5em -1em;
     padding: 0.75em 1em 1em 1em;
+    .form-popup & {
+      margin-right: 0;
+      margin-bottom: 0.5em;
+      padding-left: 0.8125em;
+    }
     .validation-message{
       color: $mellow-red;
       @include core-16;
-      display: block;
+      display: block !important;
       padding-bottom: 0.5em;
+
+      .form-popup & {
+        padding-bottom: 0;
+      }
     }
   }
 
@@ -345,6 +357,7 @@ input:-moz-placeholder {  padding-top: 0.15em; color: $grey-1; }
   }
   // Maintain help text and button alignment with form fields with side-aligned labels
   .hint{ margin-left: $label-width + 2.25em; }
+  .push{ margin-left: $label-width + 0.5em; }
   .action.group { padding-left: $label-width; }
 
   input,

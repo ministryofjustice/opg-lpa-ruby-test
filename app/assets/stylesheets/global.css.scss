@@ -25,7 +25,7 @@
 @import "views/dashboard";
 @import "views/create-and-register-pages";
 @import "views/account-management";
-// @import "views/person-form";
+@import "views/person-form";
 @import "views/start-and-end-pages";
 
 
@@ -179,6 +179,18 @@ a.disabled {
   text-decoration: none;
   color: $grey-1;
   cursor: default;
+}
+
+
+// ===========================================================
+// Responsive/Accessibility helpers
+// ===========================================================
+.hidden--no-js {
+  display: none;
+
+  body.js-enabled & {
+    display: block;
+  }
 }
 
 
