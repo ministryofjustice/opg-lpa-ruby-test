@@ -1,5 +1,5 @@
 /*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global moj, lpa, $ */
+/*global html5_storage, moj, lpa, $ */
 
 // Help System module for LPA
 // Dependencies: popup, lpa, moj, jQuery
@@ -17,7 +17,7 @@
 
       // open popup if hash is present in url
       var hash = window.location.hash;
-      if (hash !== '' && hash !== '#/') {
+      if (this._isGuidanceHash(hash)) {
         // on page load parse hash
         var topic = hash.substring(hash.lastIndexOf('/')+1);
         // set topic
@@ -67,7 +67,7 @@
         var hash = window.location.hash;
 
         // if a change has been made, select the topic
-        if (hash !== '' && hash !== '#/') {
+        if (self._isGuidanceHash(hash)) {
           var topic = hash.substring(hash.lastIndexOf('/')+1);
           self._selectHelpTopic(topic);
         }
@@ -76,6 +76,10 @@
           lpa.Modules.Popup.close();
         }
       });
+    },
+
+    _isGuidanceHash: function (hash) {
+      return hash !== '' && hash !== '#/' && hash.indexOf(this.settings.guidancePath) !== -1;
     },
 
     _selectHelpTopic: function (topic) {

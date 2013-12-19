@@ -19,9 +19,10 @@
       source: $('#content'),
       placement: 'body',
       popupId: 'popup',
+      ident: null,
       maskHTML: '<div id="mask" class="popover-mask" />',
       popupHTML: '<div id="popup" role="dialog" />',
-      closeHTML: '<p class="close"><a id="lightboxclose" href="#" title="Click or press escape to close this window">Close</a></p>',
+      closeHTML: '<p class="close"><a href="#" class="js-popup-close" title="Click or press escape to close this window">Close</a></p>',
       contentHTML: '<div id="popup-content" />',
       beforeOpen: null,
       onOpen: null,
@@ -51,7 +52,7 @@
             self.close();
           }
         })
-        .on('click', '#popup .close, #popup .close-help', function (e) {
+        .on('click', '#popup .js-popup-close', function (e) {
           e.preventDefault();
           self.close();
         });
@@ -100,13 +101,13 @@
       // make sure there is a popup to close
       if($('#popup').length > 0){
         var self = this,
-            opts = $('#popup').data('settings'),
+            opts = this.$popup.data('settings'),
             scrollPosition = $(window).scrollTop();
 
         self.$popup.fadeOut(400, function () {
           self.$mask.fadeOut(200, function () {
             // focus on previous element
-            if(typeof opts.source !== 'undefined' && opts.source){
+            if(typeof opts !== 'undefined' && typeof opts.source !== 'undefined' && opts.source){
               opts.source.focus();
             }
             // clear out any hash locations
