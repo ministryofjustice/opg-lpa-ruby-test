@@ -73,35 +73,43 @@ RSpec.configure do |config|
   config.before(:each) { ActionMailer::Base.deliveries.clear }
 end
 
-def fill_in_valid_person(overrides={})
+def fill_in_valid_name(overrides={})
   fill_in 'Title', with: overrides[:title] || "Mr"
   fill_in 'First name', with: overrides[:first_name] || "Johnny"
   fill_in 'Last name', with: overrides[:last_name] || "Smithson"
+end
+
+def fill_in_valid_address(overrides={})
   fill_in 'Post code', with: overrides[:post_code] || "SW1H 9AJ"
   fill_in 'Street', with: overrides[:address_line1] || "102 Petty France"
   fill_in 'Town', with: overrides[:town] || "Westminster"
   fill_in 'County', with: overrides[:county] || "London"
   fill_in 'Country', with: overrides[:country] || "Great Britain"
+end
+
+def fill_in_valid_donor(overrides={})
+  fill_in_valid_name(overrides)
+  fill_in_valid_address(overrides)
+  select 31, from: 'lpa_donor_date_of_birth_3i'
+  select 'January', from: 'lpa_donor_date_of_birth_2i'
+  select 1970, from: 'lpa_donor_date_of_birth_1i'
   fill_in 'Email (optional)', with: overrides[:email] || "johnny@example.com" unless overrides[:without_email]
   fill_in 'Phone (optional)', with: (overrides[:phone] || "123 456") unless overrides[:without_phone]
 end
 
-def fill_in_valid_donor(overrides={})
-  fill_in_valid_person(overrides)
-  select 31, from: 'lpa_donor_date_of_birth_3i'
-  select 'January', from: 'lpa_donor_date_of_birth_2i'
-  select 1970, from: 'lpa_donor_date_of_birth_1i'
-end
-
 def fill_in_valid_attorney(overrides={})
-  fill_in_valid_person(overrides)
+  fill_in_valid_name(overrides)
+  fill_in_valid_address(overrides)
   select 31, from: 'attorney_date_of_birth_3i'
   select 'January', from: 'attorney_date_of_birth_2i'
   select 1970, from: 'attorney_date_of_birth_1i'
+  fill_in 'Email', with: overrides[:email] || "johnny@example.com" unless overrides[:without_email]
+  fill_in 'Phone', with: (overrides[:phone] || "123 456") unless overrides[:without_phone]
 end
 
 def fill_in_valid_applicant(overrides={})
-  fill_in_valid_person(overrides.merge(without_email: true, without_phone: true))
+  fill_in_valid_name(overrides)
+  fill_in_valid_address(overrides)
   select 31, from: 'applicant_date_of_birth_3i'
   select 'January', from: 'applicant_date_of_birth_2i'
   select 1970, from: 'applicant_date_of_birth_1i'

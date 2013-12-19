@@ -34,10 +34,10 @@
 
               - if @lpa.attorneys.length > 0
                 %p.add-another
-                  = link_to("Add an attorney?", new_lpa_attorney_path(@lpa), {:class => "add"})
+                  = link_to("Add an attorney?", new_lpa_attorney_path(@lpa), {:class => "add js-form-popup", "data-form" => "attorney"})
               - else
                 %p
-                  = link_to("Add an attorney", new_lpa_attorney_path(@lpa), {:class => "add button"})
+                  = link_to("Add an attorney", new_lpa_attorney_path(@lpa), {:class => "add button js-form-popup", "data-form" => "attorney"})
               .accordion-actions
                 %p
                   = link_to("Save and continue", next_wizard_path, {:class => "button"})

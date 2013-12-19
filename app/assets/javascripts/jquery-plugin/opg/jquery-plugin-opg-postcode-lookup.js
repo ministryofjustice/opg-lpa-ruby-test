@@ -1,7 +1,7 @@
 /**
  * JQuery Postcode Lookup plugin for OPG-LPA project
  * Relies on /postcode/lookup route
- * 
+ *
  * @copyright The Engine Group
  * @author Chris Moreton <chris.moreton@netsensia.com>
  */
@@ -9,33 +9,32 @@
 (function( $ ) {
   $.fn.opgPostcodeLookup = function() {
 
+    // cache els
+    var $popup = $('#popup'),
+        $addressFields = $popup.find('input[name*="[address]"], select[name*="[country]"]'),
+        $dxAddressFields = $popup.find('input[name*="dx"]'),
+        $postcode = $popup.find('input[name*="post_code"]');
+
 
     // add a common class to elements that we will be hiding and revealing as a group
-    $('#address-addr1').parent().addClass('address-hideable');
-    $('#address-addr2').parent().addClass('address-hideable');
-    $('#address-addr3').parent().addClass('address-hideable');
-    $('#address-town').parent().addClass('address-hideable');
-    $('#address-county').parent().addClass('address-hideable');
-    $('#address-country').parent().addClass('address-hideable');
-    $('#address-postcode').parent().addClass('address-hideable');
+    $addressFields.parent().addClass('address-hidden');
+    $dxAddressFields.parent().addClass('address-hidden');
 
-    $('#dxExchange').parent().addClass('dxaddress-hideable');
-    $('#dxNumber').parent().addClass('dxaddress-hideable');
 
     var dxLink = '';
-    if ($('#dxExchange')[0]) {
+    if ($('#popup').find('input[name*="dx"]').length !== 0) {
         dxLink = '<li><a href="#" id="enter_dx_address">Enter DX address</a></li>'
     }
-    
+
     // Add the Lookup control above the address fields
     $('.address-fieldset').prepend(
         '<p class="group">' +
-        '<label for="postcode-lookup">Postcode</label> ' +
-        '<input autocomplete="off" type="text" id="postcode-lookup" class="postcode"><a href="#" id="find_uk_address" class="postcode-lookup button-secondary" role="button">Find UK address</a>' +    
+          '<label for="postcode-lookup">Postcode</label> ' +
+          '<input autocomplete="off" type="text" id="postcode-lookup" class="postcode"><a href="#" id="find_uk_address" class="postcode-lookup button-secondary" role="button">Find UK address</a>' +
         '</p>' +
         '<p class="group" id="pick_an_address"><label for="address_list">Pick an address</label><select class="address-list"></select>' +
         '<ul class="address-fields-link hint">' +
-        '<li><a href="#" id="enter_address_manually">Enter address manually</a></li>' + 
+          '<li><a href="#" id="enter_address_manually">Enter address manually</a></li>' +
         dxLink +
         '</ul>'
     );
@@ -60,24 +59,36 @@
             $('#find_uk_address').click();
         }
     });
-    
+
     $('#enter_address_manually').on('click', function (e) {
         e.preventDefault();
-    	$('.address-hideable').show();
-        $('.dxaddress-hideable').hide();
-        $('#address-postcode').val($('#postcode-lookup').val());
+
+        // show hide relevant fields
+        $addressFields.parent().removeClass('address-hidden');
+        $dxAddressFields.parent().addClass('address-hidden');
+
+        // copy across postcode if entered
+        if($('#postcode-lookup').val() !== '') {
+          $postcode.val($('#postcode-lookup').val());
+        }
+
+        // add/remove active state
         $('#enter_dx_address').removeClass('text-style');
-    	$(this).addClass('text-style');
+      	$(this).addClass('text-style');
     });
 
     $('#enter_dx_address').on('click', function (e) {
         e.preventDefault();
-        $('.dxaddress-hideable').show();
-        $('.address-hideable').hide();
+
+        // show hide relevant fields
+        $addressFields.parent().addClass('address-hidden');
+        $dxAddressFields.parent().removeClass('address-hidden');
+
+        // add/remove active state
         $('#enter_address_manually').removeClass('text-style');
         $(this).addClass('text-style');
     });
-    
+
     // declare the function to be called when the Lookup button is clicked
     $('#find_uk_address').on('click', function (e) {
         e.preventDefault();
@@ -87,7 +98,7 @@
             errorText = 'There was a problem: ';
 
         if (!postcode) { return }
-        
+
         lookup.spinner({element:'#find_uk_address'});
 
         // extract the postcode and call the lookup service
@@ -106,7 +117,7 @@
                 } else {
                     errorText+= errorThrown;
                 }
-                
+
                 alert(error.text(errorText));
             },
             success:function(data) {
@@ -125,7 +136,7 @@
                         var parts = addressID.split(".");
                         addressID = parts[0];
                         var shortAddress = data.addresses[i].description;
-                        
+
                         list.append($('<option value="' + addressID + '">' + shortAddress + '</option>'));
                     }
 
@@ -135,10 +146,10 @@
                     list.change(function() {
                     	var list = $(this),
                             selectedID = list.val();
-                        
+
                         if (selectedID != -1) {
                             list.spinner();
-                            
+
 	                    	$.ajax({
 	                            url:'/address/lookup',
 	                            data: {addressid:selectedID},
@@ -152,17 +163,17 @@
 	                                $('#address-town').val(data.city);
 	                                $('#address-county').val(data.county);
 	                                $('#address-postcode').val(postcode);
-	                            	
+
 	                                $('.address-hideable').show();
 	                                $('.dxaddress-hideable').hide();
-	
+
 	                                $('#enter_dx_address').removeClass('text-style');
 	                                $('#enter_address_manually').addClass('text-style');
-	                                
+
 	                                $('#pick_an_address').hide();
-	                                
+
 	                                $('#address-addr1').trigger('change');
-	                            	
+
 	                            }
 	                    	});
                     	}
