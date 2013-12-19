@@ -11,13 +11,11 @@
           = render "shared/validation_summary", :form_object => registration_form
           %fieldset
             %legend Email address
-            = input_for(registration_form, "email", label_override: "Enter your email address") do
-              = registration_form.email_field "email"
+            = input_for(registration_form, "email", {type: "email", label_override: "Enter your email address"})
           %fieldset
             %legend Password
             %p Your password must be at least 8 characters long and must contain at least 1 letter and 1 number. Never share your password with others.
-            = input_for(registration_form, "password", label_override: "Create a password") do
-              = registration_form.password_field "password"
+            = input_for(registration_form, "password", {type: "password", label_override: "Create a password"})
           %hr
           - if Rails.env.production?
             = render partial: "terms_and_conditions"

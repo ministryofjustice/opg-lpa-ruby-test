@@ -9,17 +9,11 @@
         %p.role-select.group
           = link_to "Using a trust corporation?", new_lpa_attorney_path(@lpa), {:class => 'js-form-popup', "data-form" => "attorney-trust-corporation"}
         = render :partial => '/shared/person_form', :locals => {:person_form => attorney_form, :show_dob => true, :show_dx_address => true, :without_email => true, :without_phone => true}
-
         %fieldset
           %p.hint The following fields are optional.
-          = input_for(attorney_form, "email") do
-            = attorney_form.email_field "email"
+          = input_for(attorney_form, "email", {:type => "email"})
           = input_for(attorney_form, "phone")
-          .group
-            %label#occupation-label.optional{:for => "occupation"}
-              Occupation
-              %span.visuallyhidden (optional)
-            %input#occupation{:name => "occupation", :type => "text", :value => "", :autocomplete => "off", :maxlength => "100"}
+          = input_for(attorney_form, "occupation", {}, {:maxlength => "100", :size => ""})
           .group
             %label#relationshipToDonor-label.optional{:for => "relationshipToDonor"}
               Relationship to donor

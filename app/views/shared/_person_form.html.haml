@@ -5,6 +5,7 @@
 - show_dx_address ||= false
 - show_legends ||= false
 
+
 %fieldset
   - if show_legends
     %legend Name
@@ -18,7 +19,6 @@
       .group
         %label#othername-label{:for => "othername"} Other names
         %input#othername{:name => "othername", :type => "text", :autocomplete => "off", :maxlength => "100"}
-    -#= input_for(person_form, "other_names")
 
 - if show_dob
   %fieldset
@@ -28,8 +28,7 @@
       = person_form.date_select "date_of_birth", { order: [ :day, :month, :year ], start_year: (Time.now.year - 120) }
 
 - unless without_email
-  = input_for(person_form, "email", {:label_override => "Email (optional)"}) do
-    = person_form.email_field "email"
+  = input_for(person_form, "email", {:type => "email", :label_override => "Email (optional)"})
 
 - unless without_phone
   = input_for(person_form, "phone", {:label_override => "Phone (optional)"})

@@ -3,7 +3,8 @@ module LpasHelper
     '<span class="validation-message">' + object.errors.messages[field.to_sym].first + '</span>'
   end
 
-  def input_for(form, label, options={}, html_options={}, &block)
+  def input_for(form, label, options = {}, html_options = {}, &block)
+    options = {:type => "text"}.merge(options)
     errors_present = form.object.errors.messages[label.to_sym].present?
     s = "<div class=\"group#{" validation" if errors_present}\">"
     if options[:label_override] != false
@@ -18,7 +19,7 @@ module LpasHelper
     if block_given?
       s << raw(capture(&block))
     else
-      s << raw(form.text_field label, html_options)
+      s << raw(form.send("#{options[:type]}_field".to_sym, label, html_options))
     end
     s << '</div>'
     raw s

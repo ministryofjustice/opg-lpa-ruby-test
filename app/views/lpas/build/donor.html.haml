@@ -17,10 +17,18 @@
               %p Only the donor can make decisions about their LPA and the people to involve.
               %p= guidance_link "Find out more about being a donor", "donor"
 
-            = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+            = form_for @lpa, :url => wizard_path, :html => {:class => "form person-form"} do |lpa_form|
               = lpa_form.fields_for @lpa.donor do |donor_form|
                 = render "shared/validation_summary", :form_object => donor_form
-                = render :partial => '/shared/person_form', :locals => {:person_form => donor_form, :show_dob => true}
+                %p.role-select.group.hidden--no-js
+                  = link_to "Use my details", "#", {:class => 'js-populate-my-details'}
+                = render :partial => '/shared/person_form', :locals => {:person_form => donor_form, :show_other_names => true, :show_dob => true}
+                %fieldset#donor-sign
+                  .option.group
+                    %label.optional{:for => "donor_cannot_sign"}
+                      %input{:type => "hidden", :name => "donor_cannot_sign", :value => "0"}
+                      %input.donor-cannot-sign{:type => "checkbox", :name => "donor_cannot_sign", :id => "donor_cannot_sign", :value => "1"} This person cannot physically sign the LPA
+                    %span.hint We'll include an extra signature sheet so someone can sign on their behalf
 
               .accordion-actions
                 %p
