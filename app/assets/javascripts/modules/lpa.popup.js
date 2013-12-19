@@ -22,7 +22,7 @@
       ident: null,
       maskHTML: '<div id="mask" class="popover-mask" />',
       popupHTML: '<div id="popup" role="dialog" />',
-      closeHTML: '<p class="js-popup-close"><a id="lightboxclose" href="#" title="Click or press escape to close this window">Close</a></p>',
+      closeHTML: '<p class="close"><a href="#" class="js-popup-close" title="Click or press escape to close this window">Close</a></p>',
       contentHTML: '<div id="popup-content" />',
       beforeOpen: null,
       onOpen: null,
