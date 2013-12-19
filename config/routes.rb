@@ -13,6 +13,7 @@ OpgLpa::Application.routes.draw do
     collection do
       get :find
     end
+    resources :donors
     resources :attorneys
     resources :replacement_attorneys
     resources :people_to_be_told

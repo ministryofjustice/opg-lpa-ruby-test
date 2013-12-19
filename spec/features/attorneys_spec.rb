@@ -26,16 +26,16 @@ feature 'Filling in an LPAs attorneys' do
 
   def create_financial_lpa_to_attorneys(overrides={})
     create_applicant overrides
-
     click_button "Create a new LPA"
     expect(page).to have_content('What type of LPA do you want to create?')
     choose("Property and financial affairs")
     click_button "Save and continue"
+    click_link "Add donor details"
     fill_in_valid_donor
-    click_button "Save and continue"
+    click_button "Save details"    
+    click_link "Save and continue"
     choose("as soon as it's registered (with my consent)")
     click_button "Save and continue"
-
     expect(page).to have_content("Who are your attorneys?")
   end
 

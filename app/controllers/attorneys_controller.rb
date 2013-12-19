@@ -4,7 +4,7 @@ class AttorneysController < ApplicationController
     @lpa = Lpa.find(params[:lpa_id])
     @attorney = Attorney.new
 
-    render :layout => !request.xhr?
+    #render :layout => !request.xhr?
   end
 
   def create

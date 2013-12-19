@@ -17,19 +17,19 @@
               %p Only the donor can make decisions about their LPA and the people to involve.
               %p= guidance_link "Find out more about being a donor", "donor"
 
-            = form_for @lpa, :url => wizard_path, :html => {:class => "form person-form"} do |lpa_form|
-              = lpa_form.fields_for @lpa.donor do |donor_form|
-                = render "shared/validation_summary", :form_object => donor_form
-                %p.role-select.group.hidden--no-js
-                  = link_to "Use my details", "#", {:class => 'js-populate-my-details'}
-                = render :partial => '/shared/person_form', :locals => {:person_form => donor_form, :show_other_names => true, :show_dob => true}
-                %fieldset#donor-sign
-                  .option.group
-                    %label.optional{:for => "donor_cannot_sign"}
-                      %input{:type => "hidden", :name => "donor_cannot_sign", :value => "0"}
-                      %input.donor-cannot-sign{:type => "checkbox", :name => "donor_cannot_sign", :id => "donor_cannot_sign", :value => "1"} This person cannot physically sign the LPA
-                    %span.hint We'll include an extra signature sheet so someone can sign on their behalf
+            - if @lpa.donor.persisted?
+              .person-summary.group
+                .person
+                  %h3= @lpa.donor.full_name
+                  %p= @lpa.donor.address.full_address
+                %ul.actions
+                  %li
+                    / TODO: Use edit path, not new. Edit path is broken right now because donor has no id.
+                    = link_to("View/edit details", new_lpa_donor_path(@lpa), {:class => "add button", "data-form" => "donor"})
 
-              .accordion-actions
-                %p
-                  = lpa_form.submit "Save and continue", :class => "button gotonextpart"
+            - else
+              %p
+                = link_to("Add donor details", new_lpa_donor_path(@lpa), {:class => "add button", "data-form" => "donor"})
+            .accordion-actions
+              %p
+                = link_to("Save and continue", next_wizard_path, {:class => "button", disabled: @lpa.donor.persisted? ? false : "disabled"})

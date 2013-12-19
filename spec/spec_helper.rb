@@ -90,9 +90,9 @@ end
 def fill_in_valid_donor(overrides={})
   fill_in_valid_name(overrides)
   fill_in_valid_address(overrides)
-  select 31, from: 'lpa_donor_date_of_birth_3i'
-  select 'January', from: 'lpa_donor_date_of_birth_2i'
-  select 1970, from: 'lpa_donor_date_of_birth_1i'
+  select 31, from: 'donor_date_of_birth_3i'
+  select 'January', from: 'donor_date_of_birth_2i'
+  select 1970, from: 'donor_date_of_birth_1i'
   fill_in 'Email (optional)', with: overrides[:email] || "johnny@example.com" unless overrides[:without_email]
   fill_in 'Phone (optional)', with: (overrides[:phone] || "123 456") unless overrides[:without_phone]
 end

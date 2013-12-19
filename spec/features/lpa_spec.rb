@@ -16,8 +16,10 @@ feature 'Filling in an LPA' do
     expect(page).to have_content('This LPA covers Property and financial affairs')
 
     # Donor info
+    click_link "Add donor details"    
     fill_in_valid_donor
-    click_button "Save and continue"
+    click_button "Save details"
+    click_link "Save and continue"
 
     expect(page).to have_content('The donor is Mr Johnny Smithson')
 
@@ -131,8 +133,10 @@ feature 'Filling in an LPA' do
     expect(page).to have_content('This LPA covers Property and financial affairs')
 
     # Donor info
+    click_link "Add donor details"
     fill_in_valid_donor
-    click_button "Save and continue"
+    click_button "Save details"    
+    click_link "Save and continue"
 
     expect(page).to have_content('The donor is Mr Johnny Smithson')
 
@@ -203,8 +207,10 @@ feature 'Filling in an LPA' do
     expect(page).to have_content('This LPA covers Health and welfare')
 
     # Donor info
+    click_link "Add donor details"    
     fill_in_valid_donor
-    click_button "Save and continue"
+    click_button "Save details"
+    click_link "Save and continue"
 
     # Life sustaining treatment decision
     expect(page).to have_content('The donor is Mr Johnny Smithson')
@@ -221,9 +227,11 @@ feature 'Filling in an LPA' do
     create_financial_lpa
     expect(page).to have_content('This LPA covers Property and financial affairs')
 
+    click_link "Add donor details"    
+
     fill_in_valid_name(:first_name => "")
     fill_in_valid_address
-    click_button "Save and continue"
+    click_button "Save details"
     expect(page).to have_content("can't be blank")
   end
 
