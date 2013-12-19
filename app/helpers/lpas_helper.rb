@@ -13,7 +13,7 @@ module LpasHelper
         raw(x)
       end
     else
-      html_options[:class] = "#{html_options[:class]} push"
+      html_options[:class] = "#{html_options[:class]} push".strip
     end
     if block_given?
       s << raw(capture(&block))
