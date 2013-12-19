@@ -8,7 +8,10 @@ class JSONFormatter
   def to_form_data
     result = {}
     result.merge! populate_values
-    result.merge!(populate_attorneys) if has_attorneys?
+    if has_attorneys?
+      result.merge!(populate_attorneys)
+      result.merge!(populate_continuations_count)
+    end
     result
   end
 
@@ -46,4 +49,15 @@ class JSONFormatter
     end
     attorney_result
   end
+
+  def populate_continuations_count
+    count = @json["attorneys"].size
+    size = ( count > 2) ? (count - 2) : 0
+    {
+      "Page1A1SheetCount" => size,
+      "Page1CSheetCount" => size,
+      "Page1TotalContSheetCount" => (size * 2)
+    }
+  end
+
 end
