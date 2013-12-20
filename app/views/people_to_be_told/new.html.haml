@@ -8,5 +8,5 @@
         = render "shared/validation_summary", :form_object => person_to_be_told_form
         = render :partial => '/shared/person_form', :locals => {:person_form => person_to_be_told_form, :without_email => true, :without_phone => true}
         %p.action.group
-          = person_to_be_told_form.submit "Save and continue", class: "button"
+          = person_to_be_told_form.submit "Save details", class: "button"
           = link_to "Cancel", "#", class: "button-secondary js-popup-close"
