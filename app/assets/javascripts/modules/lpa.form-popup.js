@@ -85,8 +85,11 @@
           dataType: 'json',
           data: $form.serialize(),
           context: this,
-          success: function (response) {
-            if(response.success !== undefined && response.success) {
+          success: function (response, textStatus, jqXHR) {
+            if (jqXHR.status !== 200) {
+              // if not a succesful request, reload page
+              window.location.reload();
+            } else if(response.success !== undefined && response.success) {
               // successful, so redirect
               window.location.reload();
             } else {
@@ -107,6 +110,10 @@
               // stop spinner
               $submitBtn.spinner('off');
             }
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+            // an error occured, reload the page
+            window.location.reload();
           }
         });
       }
