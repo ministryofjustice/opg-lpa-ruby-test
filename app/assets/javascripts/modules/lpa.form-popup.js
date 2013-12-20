@@ -72,7 +72,10 @@
           $submitBtn = $form.find('input[type="submit"]'),
           url = $form.attr('action');
 
-      if($form.parsley('validate')){
+      if(!$form.parsley('validate')){
+        // show error summary
+        this._invalidSummary($form, {});
+      } else {
         // start spinner
         $submitBtn.spinner();
 
@@ -166,9 +169,9 @@
     },
 
     _invalidSummary: function (form, data) {
-      var template = lpa.templates['validation-summary'](data);
+      var template = lpa.templates['shared.validation-summary'](data);
       if(form.find('.validation-summary').length === 0){
-        form.prepend(template);
+        form.find('fieldset').filter(':first').prepend(template);
       } else {
         form.find('.validation-summary').replaceWith(template);
       }
@@ -177,7 +180,7 @@
     _invalidField: function (form, name, errors) {
       var $field = form.find('[name*="'+name+'"]'),
           $label = $field.siblings('label'),
-          template = lpa.templates['validation-field-message']({error: errors[0]});
+          template = lpa.templates['shared.validation-field-message']({error: errors[0]});
 
       // add validation class to parent
       $field.parent('.group').addClass('validation');
