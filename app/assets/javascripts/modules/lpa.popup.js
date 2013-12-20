@@ -20,10 +20,10 @@
       placement: 'body',
       popupId: 'popup',
       ident: null,
-      maskHTML: '<div id="mask" class="popover-mask" />',
-      popupHTML: '<div id="popup" role="dialog" />',
-      closeHTML: '<p class="close"><a href="#" class="js-popup-close" title="Click or press escape to close this window">Close</a></p>',
-      contentHTML: '<div id="popup-content" />',
+      maskTemplate: lpa.templates['popup.mask'](),
+      containerTemplate: lpa.templates['popup.container'](),
+      contentTemplate: lpa.templates['popup.content'](),
+      closeTemplate: lpa.templates['popup.close'](),
       beforeOpen: null,
       onOpen: null,
       onClose: null
@@ -37,10 +37,10 @@
       this.$win = $(window);
       this.$html = $('html');
       this.$body = $('body');
-      this.$mask = $(this.settings.maskHTML);
-      this.$popup = $(this.settings.popupHTML);
-      this.$close = $(this.settings.closeHTML);
-      this.$content = $(this.settings.contentHTML);
+      this.$mask = $(this.settings.maskTemplate);
+      this.$popup = $(this.settings.containerTemplate);
+      this.$content = $(this.settings.contentTemplate);
+      this.$close = $(this.settings.closeTemplate);
     },
 
     _bindEvents: function () {
