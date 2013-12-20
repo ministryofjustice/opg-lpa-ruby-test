@@ -3,10 +3,10 @@
 .article-container.group
   %article.group{:role => "article"}
     .inner
-      %h2 Enter replacement attorney details
-      = form_for @attorney, :url => lpa_replacement_attorneys_path(@lpa), :html => { :class => 'form' } do |attorney_form|
+      %h2.header Enter replacement attorney details
+      = form_for @attorney, :url => lpa_replacement_attorneys_path(@lpa), :html => { :class => 'form', 'novalidate' => '' } do |attorney_form|
         = render "shared/validation_summary", :form_object => attorney_form
-        = render :partial => '/shared/person_form', :locals => { :person_form => attorney_form, :show_dob => true }
-
-        .action.group
+        = render :partial => '/shared/person_form', :locals => {:person_form => attorney_form, :show_dob => true, :show_dx_address => true, :without_email => true, :without_phone => true}
+        %p.action.group
           = attorney_form.submit "Save details", class: "button"
+          = link_to "Cancel", "#", class: "button-secondary js-popup-close"
