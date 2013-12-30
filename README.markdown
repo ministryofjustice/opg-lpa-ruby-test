@@ -75,3 +75,11 @@ All JS template files currently live in `app/assets/javascripts/templates/`. To 
 To manually check JS files run:
 
     grunt jshint
+
+#### Image Optimisation
+
+[grunt-contrib-imagemin](https://github.com/gruntjs/grunt-contrib-imagemin) is used to optimise images.
+
+To optimise run:
+
+    grunt imagemin
