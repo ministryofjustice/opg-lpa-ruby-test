@@ -56,12 +56,22 @@ Then run the following command from the project directory to update packages:
 
 ### Grunt
 
+To watch directories for changes and to trigger relevant tasks run:
+
+    grunt watch
+
+#### JS Templating
+
 [Grunt](http://gruntjs.com/) is being used to compile [Handlebars](http://handlebarsjs.com/) templates.
 
-All templates currently live in `app/assets/javascripts/templates/`. To compile all templates run:
+All JS template files currently live in `app/assets/javascripts/templates/`. To compile the templates run:
 
     grunt handlebars
 
-To watch the templates directory run:
+#### Error Checking
 
-    grunt watch
+[JSHint](http://www.jshint.com/docs/) is being run on JS files to detect errors and problems in JS code.
+
+To manually check JS files run:
+
+    grunt jshint

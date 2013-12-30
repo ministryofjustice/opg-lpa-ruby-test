@@ -1,8 +1,7 @@
-/*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global $ */
+/*global lpa */
 
 (function (){
-  "use strict";
+  'use strict';
 
   var lpa = {
     Modules: {},
@@ -26,5 +25,7 @@
 }());
 
 $(function () {
+  'use strict';
+
   lpa.init();
 });

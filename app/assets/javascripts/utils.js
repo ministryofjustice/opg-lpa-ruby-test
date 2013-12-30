@@ -1,7 +1,11 @@
+/*jshint unused: false */
+
 // Test for local storage
 function html5_storage() {
+  'use strict';
+
   try {
-    return 'sessionStorage' in window && window['sessionStorage'] !== null;
+    return 'sessionStorage' in window && window.sessionStorage !== null;
   } catch (e) {
     return false;
   }
@@ -11,15 +15,17 @@ function html5_storage() {
 window.ParsleyConfig = window.ParsleyConfig || {};
 
 (function ($) {
-  window.ParsleyConfig = $.extend( true, {}, window.ParsleyConfig, {
+  'use strict';
+
+  window.ParsleyConfig = $.extend(true, {}, window.ParsleyConfig, {
     messages: {
-      defaultMessage: "in invalid",
+      defaultMessage: 'in invalid',
       type: {
-        email:      "must be a valid email address"
+        email:      'must be a valid email address'
       },
-      required:       "can't be blank",
-      min:            "is too short (minimum is %s characters)",
-      max:            "is too long (maximum is %s characters)"
+      required:       'can\'t be blank',
+      min:            'is too short (minimum is %s characters)',
+      max:            'is too long (maximum is %s characters)'
     },
     trigger: 'change',
     animate: false,
@@ -27,11 +33,11 @@ window.ParsleyConfig = window.ParsleyConfig || {};
     errors: {
       errorElem: '<span class="validation-message"></span>',
       errorsWrapper: '<span></span>',
-      classHandler: function (elem, isRadioOrCheckbox) {
+      classHandler: function (elem) {
         return $(elem).parent();
       },
-      container: function (elem, isRadioOrCheckbox) {
-        return elem.parent().find("label");
+      container: function (elem) {
+        return elem.parent().find('label');
       }
     }
   });

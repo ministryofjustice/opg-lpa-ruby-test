@@ -1,10 +1,9 @@
-/*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global html5_storage, lpa, moj, $ */
+/*global html5_storage, lpa, moj */
 
 // Form Popup module for LPA
 // Dependencies: lpa, jQuery
 
-(function (){
+(function () {
   'use strict';
 
   // Define the class
@@ -50,7 +49,7 @@
 
       // set original source to be the original link clicked form the body to be able to return to it when the popup is closed
       // fixes when links inside a popup load another form. User should be focused back to original content button when closing
-      if($('#popup').length === 0){
+      if ($('#popup').length === 0) {
         this.originalSource = source;
       }
       // always set this source to be the clicked link
@@ -72,7 +71,7 @@
           $submitBtn = $form.find('input[type="submit"]'),
           url = $form.attr('action');
 
-      if(!$form.parsley('validate')){
+      if (!$form.parsley('validate')) {
         // show error summary
         this._invalidSummary($form, {});
       } else {
@@ -89,16 +88,17 @@
             if (jqXHR.status !== 200) {
               // if not a succesful request, reload page
               window.location.reload();
-            } else if(response.success !== undefined && response.success) {
+            } else if (response.success !== undefined && response.success) {
               // successful, so redirect
               window.location.reload();
             } else {
-              var thing = this;
+              var thing = this,
+                  data;
               // if field errors, display them
-              if(response.errors !== undefined){
-                var data = {errors: []};
+              if (response.errors !== undefined) {
+                data = {errors: []};
                 $.each(response.errors, function (name, errors) {
-                  data.errors.push({name: name, label: $('#'+name+'_label').text(), error: errors[0]});
+                  data.errors.push({name: name, label: $('#' + name + '_label').text(), error: errors[0]});
                   thing._invalidField($form, name, errors);
                 });
                 // show error summary
@@ -111,6 +111,7 @@
               $submitBtn.spinner('off');
             }
           },
+          /*jshint unused: false */
           error: function (jqXHR, textStatus, errorThrown) {
             // an error occured, reload the page
             window.location.reload();
@@ -121,11 +122,11 @@
     },
 
     _getCachedForm: function (url) {
-      if(html5_storage() && typeof sessionStorage[url] !== 'undefined') {
+      if (html5_storage() && typeof sessionStorage[url] !== 'undefined') {
         return sessionStorage[url];
       }
       // then try from this class
-      else if(typeof this.formContent[url] !== 'undefined') {
+      else if (typeof this.formContent[url] !== 'undefined') {
         return this.formContent[url];
       }
       // otherwise, return false
@@ -139,7 +140,7 @@
           html = this._getCachedForm(form);
 
       // if content has been cached, load it straight in
-      if(html !== false){
+      if (html !== false) {
         lpa.Modules.Popup.open(html, {
           ident: this.settings.overlayIdent,
           source: this.originalSource,
@@ -158,7 +159,7 @@
           source: this.originalSource,
           onOpen: this.settings.popupOnOpen,
           beforeOpen: function () {
-            $('#popup-content').load(href, function(html) {
+            $('#popup-content').load(href, function (html) {
               // cache content
               if (html5_storage()) {
                 // save to html5 storage
@@ -177,7 +178,7 @@
 
     _invalidSummary: function (form, data) {
       var template = lpa.templates['shared.validation-summary'](data);
-      if(form.find('.validation-summary').length === 0){
+      if (form.find('.validation-summary').length === 0) {
         form.find('fieldset').filter(':first').prepend(template);
       } else {
         form.find('.validation-summary').replaceWith(template);
@@ -185,7 +186,7 @@
     },
 
     _invalidField: function (form, name, errors) {
-      var $field = form.find('[name*="'+name+'"]'),
+      var $field = form.find('[name*="' + name + '"]'),
           $label = $field.siblings('label'),
           template = lpa.templates['shared.validation-field-message']({error: errors[0]});
 

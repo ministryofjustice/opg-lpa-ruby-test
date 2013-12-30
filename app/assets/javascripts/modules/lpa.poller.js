@@ -1,7 +1,4 @@
-/*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global $ */
-
-(function(){
+(function () {
   'use strict';
 
   // Define the class
@@ -12,13 +9,10 @@
   Poller.prototype = {
     // number of failed requests
     failed: 0,
-
     // number of successful requests
     attempted: 0,
-
     // default timeout variable
     timeout: null,
-
     // default settings
     defaults: {
       firstInterval: 500,
@@ -33,7 +27,10 @@
     },
 
     // kicks off the setTimeout
-    init: function(){
+    init: function () {
+      // reset counters
+      this.attempted = 0;
+      this.failed = 0;
       // use smaller interval for first poll
       this.newTimeout(this.settings.firstInterval);
     },
@@ -47,7 +44,7 @@
     },
 
     // get AJAX data + respond to it
-    getData: function(){
+    getData: function () {
       $.ajax({
         url: this.settings.url,
         data: this.settings.data,
@@ -55,16 +52,18 @@
         timeout: this.settings.ajaxTimeout,
         cache: false,
         context: this, // make sure context within callbacks is this obj
-        success: function(response){
+        success: function (response) {
+          // increment attempts
+          this.attempted += 1;
           // if correct response
-          if(response.success === true){
+          if (response.success === true) {
             // clear out setTimeout
             this.timeout = null;
             // if successful, run callback
             if (this.settings.onSuccess && typeof(this.settings.onSuccess) === 'function') {
               this.settings.onSuccess(response);
             }
-          } else if (++this.attempted < this.settings.maxAttempts) {
+          } else if (this.attempted < this.settings.maxAttempts) {
             // recurse if not ready
             this.newTimeout(this.settings.interval);
           } else {
@@ -81,8 +80,11 @@
     },
 
     // handle errors
-    errorHandler: function(){
-      if(++this.failed < this.settings.maxFails){
+    errorHandler: function () {
+      // increment fails
+      this.failed += 1;
+
+      if (this.failed < this.settings.maxFails) {
         // increase interval to give breathing room
         this.settings.interval += 250;
         // recurse

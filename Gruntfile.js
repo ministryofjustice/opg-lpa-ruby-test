@@ -1,6 +1,3 @@
-/*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global require, module */
-
 module.exports = function (grunt) {
   'use strict';
 
@@ -16,24 +13,50 @@ module.exports = function (grunt) {
           namespace: 'lpa.templates',
           prettify: false,
           amdWrapper: false,
-          processName: function(filename) {
+          processName: function (filename) {
             // Shortens the file path for the template and removes file extension.
-            return filename.slice(filename.indexOf('templates')+10, filename.length).replace(/\.[^/.]+$/, '');
+            return filename.slice(filename.indexOf('templates') + 10, filename.length).replace(/\.[^/.]+$/, '');
           }
         },
-        files: {
-          'app/assets/javascripts/lpa.templates.js': ['app/assets/javascripts/templates/**/*.html']
-        }
+        src: ['app/assets/javascripts/templates/**/*.html'],
+        dest: 'app/assets/javascripts/lpa.templates.js'
       }
+    },
+    jshint: {
+      options: {
+        jshintrc : '.jshintrc',
+        ignores: [
+          // ignore templates
+          '<%= handlebars.compile.dest %>',
+          // ignore rails manifest
+          'app/assets/javascripts/application.js',
+          // ignore legacy code for now
+          'app/assets/javascripts/jquery-plugin/**/*',
+          'app/assets/javascripts/date-picker.js',
+          'app/assets/javascripts/application.js',
+          'app/assets/javascripts/form.js',
+          'app/assets/javascripts/help-popup.js',
+          'app/assets/javascripts/pwstrength.js'
+        ]
+      },
+      files: [
+        'Gruntfile.js',
+        'app/assets/javascripts/**/*.js',
+        'app/views/**/*.js.erb'
+      ]
     },
     watch: {
       templates: {
         files: ['app/assets/javascripts/templates/**/*'],
         tasks: ['handlebars'],
+      },
+      jshint: {
+        files: ['app/assets/javascripts/**/*.js', 'app/views/**/*.js.erb'],
+        tasks: ['jshint'],
       }
     }
   });
 
   // task(s).
-  grunt.registerTask('default', ['handlebars']);
+  grunt.registerTask('default', ['handlebars', 'jshint']);
 };

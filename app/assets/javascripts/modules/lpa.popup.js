@@ -1,10 +1,9 @@
-/*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global moj, lpa, $ */
+/*global moj, lpa */
 
 // Popup module for LPA
 // Dependencies: lpa, moj, jQuery
 
-(function (){
+(function () {
   'use strict';
 
   // Define the class
@@ -29,7 +28,7 @@
       onClose: null
     },
 
-    init: function (){
+    init: function () {
       moj.log('lpa.modules.popup#init');
     },
 
@@ -48,7 +47,7 @@
 
       this.$body
         .on('keydown', function (e) {
-          if (e.which == 27) {
+          if (e.which === 27) {
             self.close();
           }
         })
@@ -99,7 +98,7 @@
 
     close: function () {
       // make sure there is a popup to close
-      if($('#popup').length > 0){
+      if ($('#popup').length > 0) {
         var self = this,
             opts = $('#popup').data('settings'),
             scrollPosition = $(window).scrollTop();
@@ -107,7 +106,7 @@
         self.$popup.fadeOut(400, function () {
           self.$mask.fadeOut(200, function () {
             // focus on previous element
-            if(typeof opts.source !== 'undefined' && opts.source){
+            if (typeof opts.source !== 'undefined' && opts.source) {
               opts.source.focus();
             }
             // clear out any hash locations
@@ -140,8 +139,8 @@
         var code = (e.keyCode ? e.keyCode : e.which),
             shift = e.shiftKey,
             self = $(this)[0],
-            down = (self == last[0] && !shift),
-            up = (self == first[0] && shift),
+            down = (self === last[0] && !shift),
+            up = (self === first[0] && shift),
             focusOn = down ? first : (up ? last : null);
 
         if (code === 9 && (down || up)) {

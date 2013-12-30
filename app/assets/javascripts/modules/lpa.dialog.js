@@ -1,10 +1,9 @@
-/*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global lpa, $ */
+/*global lpa */
 
 // Popup module for LPA
 // Dependencies: lpa, jQuery
 
-(function (){
+(function () {
   'use strict';
 
   // Define the class
@@ -27,7 +26,7 @@
     _bindEvents: function () {
       var self = this;
 
-      this.$link.on('click', function(){
+      this.$link.on('click', function () {
         if (self.settings.type === 'confirm') {
           if (!confirm(self.settings.message)) {
             return false;
