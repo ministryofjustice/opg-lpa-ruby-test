@@ -1,11 +1,11 @@
-/*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global alert, Poller, $ */
+/*global Poller, $ */
 
 (function(){
   'use strict';
 
   // get id of LPAs
-  var $link = $('#content').find('.js-preview-pdf'),
+  var poller,
+      $link = $('#content').find('.js-preview-pdf'),
       fallback = function () {
         $link
           .before('<span>Sorry, the preview could not be generated.</span> ')
@@ -26,7 +26,7 @@
     .siblings('span').remove();
 
   // create new polling object
-  var poller = new Poller({
+  poller = new Poller({
     url: '<%=j lpa_get_pdf_path %>',
     onSuccess: function (response) {
       // redirect to PDF
