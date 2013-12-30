@@ -71,5 +71,5 @@ module.exports = function (grunt) {
   });
 
   // task(s).
-  grunt.registerTask('default', ['handlebars', 'jshint']);
+  grunt.registerTask('default', ['handlebars', 'jshint', 'imagemin']);
 };
