@@ -32,7 +32,7 @@
       selector: 'a.js-guidance',
       overlayIdent: 'help-system',
       overlaySource: '#content',
-      loadingContent: '<div id="help-system"><header><p>A guide to making your lasting power of attorney</p></header><div class="help-sections"><article><p><img src="/assets/ajax-loader.gif"> Loading guidance</p></article></div></div>', // TODO: Use JS template rather than markup here...
+      loadingTemplate: lpa.templates['shared.loading-popup'](),
       popupOnClose: function () {
         lpa.Modules.helpSystem.topic = undefined;
       }
@@ -156,7 +156,7 @@
       // otherwise, AJAX it in and then switch the content in the popup
       else {
         // load overlay
-        lpa.Modules.Popup.open(this.settings.loadingContent, {
+        lpa.Modules.Popup.open(this.settings.loadingTemplate, {
           ident: self.settings.overlayIdent,
           source: this.source,
           beforeOpen: function () {
