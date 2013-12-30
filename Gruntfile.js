@@ -45,6 +45,19 @@ module.exports = function (grunt) {
         'app/views/**/*.js.erb'
       ]
     },
+    imagemin: {
+      dynamic: {
+        options: {
+          optimizationLevel: 5
+        },
+        files: [{
+          expand: true,
+          cwd: 'app/assets/images/',
+          dest: 'app/assets/images/',
+          src: ['**/*.{png,jpg,gif}']
+        }]
+      }
+    },
     watch: {
       templates: {
         files: ['app/assets/javascripts/templates/**/*'],
