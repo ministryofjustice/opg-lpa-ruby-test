@@ -48,7 +48,7 @@
 
       this.$body
         .on('keydown', function (e) {
-          if (e.which == 27) {
+          if (e.which === 27) {
             self.close();
           }
         })
@@ -140,8 +140,8 @@
         var code = (e.keyCode ? e.keyCode : e.which),
             shift = e.shiftKey,
             self = $(this)[0],
-            down = (self == last[0] && !shift),
-            up = (self == first[0] && shift),
+            down = (self === last[0] && !shift),
+            up = (self === first[0] && shift),
             focusOn = down ? first : (up ? last : null);
 
         if (code === 9 && (down || up)) {
