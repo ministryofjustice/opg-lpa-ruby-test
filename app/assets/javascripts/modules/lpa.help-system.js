@@ -1,25 +1,25 @@
-/*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global html5_storage, moj, lpa, $ */
+/*global html5_storage, moj, lpa */
 
 // Help System module for LPA
 // Dependencies: popup, lpa, moj, jQuery
 
-(function (){
+(function () {
   'use strict';
 
   // Define the class
   var HelpSystem = function (options) {
     // only load if not on the static page
-    if($('#help-system').length === 0){
+    if ($('#help-system').length === 0) {
       this.settings = $.extend({}, this.defaults, options);
       this._cacheEls();
       this._bindEvents();
 
       // open popup if hash is present in url
-      var hash = window.location.hash;
+      var hash = window.location.hash,
+          topic;
       if (this._isGuidanceHash(hash)) {
         // on page load parse hash
-        var topic = hash.substring(hash.lastIndexOf('/')+1);
+        topic = hash.substring(hash.lastIndexOf('/') + 1);
         // set topic
         this._selectHelpTopic(topic);
       }
@@ -38,7 +38,7 @@
       }
     },
 
-    init: function (){
+    init: function () {
       moj.log('lpa.modules.helpSystem#init');
     },
 
@@ -52,9 +52,9 @@
       var self = this;
 
       // nav click event
-      $('body').on('click', this.settings.selector, function (){
+      $('body').on('click', this.settings.selector, function () {
         var href = $(this).attr('href'),
-            topic = href.substring(href.lastIndexOf('#')+1);
+            topic = href.substring(href.lastIndexOf('#') + 1);
         // set the current click as the source
         self.source = $(this);
         // select topic
@@ -63,12 +63,13 @@
       });
 
       // listen to hash changes in url
-      $(window).on('hashchange', function() {
-        var hash = window.location.hash;
+      $(window).on('hashchange', function () {
+        var hash = window.location.hash,
+            topic;
 
         // if a change has been made, select the topic
         if (self._isGuidanceHash(hash)) {
-          var topic = hash.substring(hash.lastIndexOf('/')+1);
+          topic = hash.substring(hash.lastIndexOf('/') + 1);
           self._selectHelpTopic(topic);
         }
         // if the new hash is empty, clear out the popup
@@ -88,7 +89,7 @@
       // make sure no duplicate calls are fired
       if (topic !== this.topic) {
         // if the overlay is present, set topic immediately
-        if($('#popup.help-system').length > 0){
+        if ($('#popup.help-system').length > 0) {
           self._setTopic(topic);
         } else {
         // otherwise, load in the overlay first and set in callback
@@ -102,7 +103,7 @@
       this.topic = slug;
 
       // make sure we're not resetting the hash and adding to the history if we don't need to
-      if ('#/' + this.settings.guidancePath + '/' + slug !== window.location.hash){
+      if ('#/' + this.settings.guidancePath + '/' + slug !== window.location.hash) {
         window.location.hash = '#/' + this.settings.guidancePath + '/' + slug;
       }
 
@@ -124,11 +125,11 @@
 
     _hasCachedContent: function () {
       // first try to load from html5 storage
-      if(html5_storage() && typeof sessionStorage.guidanceHTML !== 'undefined') {
+      if (html5_storage() && typeof sessionStorage.guidanceHTML !== 'undefined') {
         return sessionStorage.guidanceHTML;
       }
       // then try from this class
-      else if(typeof this.html !== 'undefined') {
+      else if (typeof this.html !== 'undefined') {
         return this.html;
       }
       // otherwise, return false
@@ -142,7 +143,7 @@
           html = this._hasCachedContent();
 
       // if content has been cached, load it straight in
-      if(html !== false){
+      if (html !== false) {
         lpa.Modules.Popup.open(html, {
           ident: this.settings.overlayIdent,
           source: this.source,
@@ -160,7 +161,7 @@
           ident: self.settings.overlayIdent,
           source: this.source,
           beforeOpen: function () {
-            $('#popup-content').load('/' + self.settings.guidancePath, function(html) {
+            $('#popup-content').load('/' + self.settings.guidancePath, function (html) {
               // cache content
               if (html5_storage()) {
                 // save to html5 storage

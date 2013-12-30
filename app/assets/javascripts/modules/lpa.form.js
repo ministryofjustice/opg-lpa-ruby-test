@@ -1,16 +1,15 @@
-/*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global moj, lpa, $ */
+/*global moj, lpa */
 
 // Forms modules for LPA
-// Dependencies: lpa, moj, jQuery
+// Dependencies: lpa, moj
 
-(function (){
-  "use strict";
+(function () {
+  'use strict';
 
   // Add module to LPA namespace
   lpa.Modules.Form = {
     init: function () {
-      moj.log("lpa.modules.form#init");
+      moj.log('lpa.modules.form#init');
     }
   };
 }());
