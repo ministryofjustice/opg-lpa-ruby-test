@@ -1,6 +1,3 @@
-/*jslint browser: true, evil: false, plusplus: true, white: true, indent: 2 */
-/*global require, module */
-
 module.exports = function (grunt) {
   'use strict';
 
@@ -16,9 +13,9 @@ module.exports = function (grunt) {
           namespace: 'lpa.templates',
           prettify: false,
           amdWrapper: false,
-          processName: function(filename) {
+          processName: function (filename) {
             // Shortens the file path for the template and removes file extension.
-            return filename.slice(filename.indexOf('templates')+10, filename.length).replace(/\.[^/.]+$/, '');
+            return filename.slice(filename.indexOf('templates') + 10, filename.length).replace(/\.[^/.]+$/, '');
           }
         },
         src: ['app/assets/javascripts/templates/**/*.html'],
@@ -27,13 +24,12 @@ module.exports = function (grunt) {
     },
     jshint: {
       options: {
-        curly: true,
-        eqeqeq: true,
-        browser: true,
-        devel: true,
+        jshintrc : '.jshintrc',
         ignores: [
           // ignore templates
           '<%= handlebars.compile.dest %>',
+          // ignore rails manifest
+          'app/assets/javascripts/application.js',
           // ignore legacy code for now
           'app/assets/javascripts/jquery-plugin/**/*',
           'app/assets/javascripts/date-picker.js',
@@ -43,7 +39,10 @@ module.exports = function (grunt) {
           'app/assets/javascripts/pwstrength.js'
         ]
       },
-      files: ['app/assets/javascripts/**/*.js']
+      files: [
+        'Gruntfile.js',
+        'app/assets/javascripts/**/*.js'
+      ]
     },
     watch: {
       templates: {
