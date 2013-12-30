@@ -41,7 +41,8 @@ module.exports = function (grunt) {
       },
       files: [
         'Gruntfile.js',
-        'app/assets/javascripts/**/*.js'
+        'app/assets/javascripts/**/*.js',
+        'app/views/**/*.js.erb'
       ]
     },
     watch: {
@@ -50,7 +51,7 @@ module.exports = function (grunt) {
         tasks: ['handlebars'],
       },
       jshint: {
-        files: ['app/assets/javascripts/**/*.js'],
+        files: ['app/assets/javascripts/**/*.js', 'app/views/**/*.js.erb'],
         tasks: ['jshint'],
       }
     }
