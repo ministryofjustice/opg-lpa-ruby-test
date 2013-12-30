@@ -101,12 +101,12 @@ feature 'Filling in an LPA' do
     click_link 'Add a person to be told'
     fill_in_valid_name(:first_name => "Jill", :last_name => "Graham")
     fill_in_valid_address
-    click_button "Save and continue"
+    click_button "Save details"
     expect(page).to have_content('Mr Jill Graham')
-    click_link 'Add a person to be told'
+    click_link 'Add another person to be told'
     fill_in_valid_name(:first_name => "Bob", :last_name => "Graham")
     fill_in_valid_address
-    click_button "Save and continue"
+    click_button "Save details"
     expect(page).to have_content('Mr Bob Graham')
 
     click_link "Save and continue"

@@ -27,10 +27,10 @@
                       = link_to "Delete", lpa_replacement_attorney_path(@lpa, attorney), method: :delete, id: "delete-replacement-attorney-#{index}", data: { confirm: "Do you want to remove this person?" }
               - if @lpa.replacement_attorneys.length > 0
                 %p.add-another
-                  = link_to("Add a replacement attorney?", new_lpa_replacement_attorney_path(@lpa), {:class => "add"})
+                  = link_to("Add a replacement attorney?", new_lpa_replacement_attorney_path(@lpa), {:class => "js-form-popup", "data-form" => "replacement-attorney"})
               - else
                 %p
-                  = link_to("Add a replacement attorney", new_lpa_replacement_attorney_path(@lpa), {:class => "add button"})
+                  = link_to("Add a replacement attorney", new_lpa_replacement_attorney_path(@lpa), {:class => "js-form-popup button", "data-form" => "replacement-attorney"})
               .accordion-actions
                 %p
                   = link_to("Save and continue", next_wizard_path, {:class => "button"})
