@@ -1,5 +1,5 @@
 class Lpas::RegistrationController < ApplicationController
-  # before_filter :check_applicant
+  before_filter :check_applicant
   include Wicked::Wizard
 
   steps :start, :applicant, :correspondent, :signature_dates, :notice_date, :further_info,
@@ -17,5 +17,10 @@ class Lpas::RegistrationController < ApplicationController
       @lpa = Lpa.find(params[:lpa_id])
       render_wizard @lpa
     end
+  end
+
+  private
+  def check_applicant
+    redirect_to new_applicant_path unless Applicant.current_applicant
   end
 end

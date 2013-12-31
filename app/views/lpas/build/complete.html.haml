@@ -5,15 +5,7 @@
 .article-container.group
   %article.group{:role => "article"}
     .inner
-      .LPA-details.right
-        %h3 LPA for Property and financial affairs
-        %ul
-          %li For #{@lpa.donor.full_name}.
-          %li Created on 01/11/2013.
-        .LPA-actions
-          %a{:href => "#"} View or edit this LPA
-          &nbsp;|&nbsp;
-          %a{:href => "#"} Delete this LPA
+      .LPA-details.right= render 'shared/lpa_details_inset'
 
       %p That's all we need for the LPA itself. Now it's ready to print and sign.
       %p After it's signed, you'll need to log back in here to complete a registration form and pay the application fee.
