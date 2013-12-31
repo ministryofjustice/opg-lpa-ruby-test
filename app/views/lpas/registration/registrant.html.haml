@@ -1,0 +1,33 @@
+= render "shared/create_header"
+
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      #accordion.accordion-form
+        = render "shared/completed_sections"
+
+        %section#donor.section.current
+          %h2.accordion-header #{lpa_overview(@lpa).count+1}. Who's applying to register the LPA?
+          .accordion-content
+            .section-intro
+              %p Either the donor, or 1 or more of the attorneys, can apply to register the LPA.
+
+              %p If the attorneys have been appointed jointly, they must <strong>all</strong> apply.
+
+              %p Whoever's applying will have to sign the application to register form.
+
+              %p <a href="#applicant" class="open-help-system" data-journey-click="stageprompt.lpa:help:applicant">Find out more about the role of the applicant</a>
+
+            %h3 This LPA is being registered by 
+            = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+              .emphasised.option.group
+                = lpa_form.label :registrant_donor do
+                  = lpa_form.radio_button :registrant, "donor"
+                  The donor - #{@lpa.donor.full_name}
+                - @lpa.attorneys.each_with_index do |attorney, index|
+                  = lpa_form.label "registrant_attorney-#{index}" do
+                    = lpa_form.radio_button :registrant, "attorney-#{index}"
+                    The attorney - #{attorney.full_name}
+              %p
+                = lpa_form.submit "Save and continue", :class => "button gotonextpart"
+

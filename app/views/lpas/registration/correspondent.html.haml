@@ -1,8 +1,30 @@
-Who should receive correspondence?
+= render "shared/create_header"
 
-%p This LPA is being registered by 
-= form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
-  %p Donor or attorney's address (based on previous step's answer)
-  %p
-    = lpa_form.submit "Save and continue", :class => "button gotonextpart"
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      #accordion.accordion-form
+        = render "shared/completed_sections"
 
+        %section#donor.section.current
+          %h2.accordion-header #{lpa_overview(@lpa).count+1}. Who should receive correspondence?
+          .accordion-content
+            .section-intro
+              %p We’ll normally write to the applicant if we have any questions and send them the LPA once we’ve registered it.
+
+              %p Some people use a legal professional to take care of these things. If you’re using one, enter their details here.
+
+              %p You can enter the details of someone who isn’t a legal professional, but we won’t send them the LPA, just the other correspondence.
+
+              %p <a href="#correspondence-address" class="open-help-system popup-link" data-journey-click="stageprompt.lpa:help:correspondence-address">Find out more about the correspondence address</a>
+
+              %h3 Correspondence address
+              .person-summary.group
+                .person
+                  %h3 Correspondent Name
+                  %p Address
+                  %p= link_to "Change this", ""
+
+              %p
+                = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+                  = lpa_form.submit "Save and continue", :class => "button gotonextpart"

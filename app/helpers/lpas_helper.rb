@@ -121,6 +121,14 @@ module LpasHelper
     nil
   end
 
+  def start_overview(lpa)
+    nil
+  end
+
+  def registrant_overview(lpa)
+    nil
+  end
+
   private
   def step_completed?(step_in_question)
     @wizard_steps.find_index(step_in_question) < @wizard_steps.find_index(step)

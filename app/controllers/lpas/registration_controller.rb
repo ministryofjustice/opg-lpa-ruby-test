@@ -2,12 +2,13 @@ class Lpas::RegistrationController < ApplicationController
   before_filter :check_applicant
   include Wicked::Wizard
 
-  steps :start, :applicant, :correspondent, :signature_dates, :notice_date, :further_info,
+  steps :start, :registrant, :correspondent, :signature_dates, :notice_date, :further_info,
         :payment
 
   def show
     with_secure_token(Lpa) do
       @lpa = Lpa.find(params[:lpa_id])
+      puts @lpa.to_yaml
       render_wizard
     end
   end
