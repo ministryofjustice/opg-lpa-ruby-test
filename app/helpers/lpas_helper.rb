@@ -137,6 +137,10 @@ module LpasHelper
     "The LPA has been signed correctly"
   end
 
+  def notice_date_overview(lpa)
+    "Notification letters have been sent"
+  end
+
   def back_path(controller, id)
     if controller == "lpas/build" 
       lpa_build_path(:id => id)
