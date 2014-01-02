@@ -133,6 +133,14 @@ module LpasHelper
     "The correspondent is Full Name"
   end
 
+  def back_path(controller, id)
+    if controller == "lpas/build" 
+      lpa_build_path(:id => id)
+    elsif controller == "lpas/registration"
+      lpa_registration_path(:id => id)
+    end
+  end
+
   private
   def step_completed?(step_in_question)
     @wizard_steps.find_index(step_in_question) < @wizard_steps.find_index(step)
