@@ -1,9 +1,25 @@
-Notification letters
+= render "shared/create_header"
 
-%p Please give the date on which you sent the notification letters.
-= form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
-  %p Name
-  %p Notification letter sent on <input />
-  %p
-    = lpa_form.submit "Save and continue", :class => "button gotonextpart"
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      #accordion.accordion-form
+        = render "shared/completed_sections"
+        %section#donor.section.current
+          %h2.accordion-header #{lpa_overview(@lpa).count+1}. Notification letters
+          .accordion-content
+            .section-intro
+              %p Before you continue you need to send letters notifying #{@lpa.people_to_be_told.map(&:full_name).to_sentence} of your intention to register this LPA.
 
+              .form-download
+                %p <a class="pdf_dl_lnk" href="" target="_blank">Download the notification letters (PDF)</a>
+
+              = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+                %p Please give the date on which you sent the notification letters.
+                - @lpa.people_to_be_told.each_with_index do |person, index|
+                  .person-summary.group
+                    .person
+                      %h3 #{person.full_name}
+                      %p Notification letter sent on <input class="hasDatepicker" />
+                %p
+                  = lpa_form.submit "Continue to next question", :class => "button gotonextpart"

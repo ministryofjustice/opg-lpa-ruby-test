@@ -133,6 +133,10 @@ module LpasHelper
     "The correspondent is Full Name"
   end
 
+  def signature_dates_overview(lpa)
+    "The LPA has been signed correctly"
+  end
+
   def back_path(controller, id)
     if controller == "lpas/build" 
       lpa_build_path(:id => id)
