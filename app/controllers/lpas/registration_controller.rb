@@ -6,18 +6,22 @@ class Lpas::RegistrationController < ApplicationController
         :payment
 
   def show
-    with_secure_token(Lpa) do
+    begin
       @lpa = Lpa.find(params[:lpa_id])
-      puts @lpa.to_yaml
-      render_wizard
+    rescue ActiveResource::ForbiddenAccess
+      render text: 'Forbidden', status: 403, layout: false
+      return
     end
+    case step
+    when :notice_date
+      skip_step if @lpa.people_to_be_told.empty?
+    end
+    render_wizard
   end
 
   def update
-    with_secure_token(Lpa) do
-      @lpa = Lpa.find(params[:lpa_id])
-      render_wizard @lpa
-    end
+    @lpa = Lpa.find(params[:lpa_id])
+    render_wizard @lpa
   end
 
   private
