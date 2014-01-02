@@ -141,6 +141,11 @@ module LpasHelper
     "Notification letters have been sent"
   end
 
+  def further_info_overview(lpa)
+    #TODO: Change to check if additional_info is nil once the field is added to the LPA model
+    lpa.respond_to?("additional_info") ? "Additional information provided" : "No additional information provided"
+  end
+
   def back_path(controller, id)
     if controller == "lpas/build" 
       lpa_build_path(:id => id)

@@ -3,7 +3,7 @@ class Lpas::RegistrationController < ApplicationController
   include Wicked::Wizard
 
   steps :start, :registrant, :correspondent, :signature_dates, :notice_date, :further_info,
-        :payment
+        :fees
 
   def show
     begin
