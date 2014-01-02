@@ -126,7 +126,11 @@ module LpasHelper
   end
 
   def registrant_overview(lpa)
-    nil
+    "The registrant is Full Name"
+  end
+
+  def correspondent_overview(lpa)
+    "The correspondent is Full Name"
   end
 
   private

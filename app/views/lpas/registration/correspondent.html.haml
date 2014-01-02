@@ -5,7 +5,6 @@
     .inner
       #accordion.accordion-form
         = render "shared/completed_sections"
-
         %section#donor.section.current
           %h2.accordion-header #{lpa_overview(@lpa).count+1}. Who should receive correspondence?
           .accordion-content
