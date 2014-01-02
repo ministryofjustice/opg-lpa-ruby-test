@@ -16,7 +16,7 @@
 
               %p Whoever's applying will have to sign the application to register form.
 
-              %p <a href="#applicant" class="open-help-system" data-journey-click="stageprompt.lpa:help:applicant">Find out more about the role of the applicant</a>
+              %p= guidance_link "Find out more about the role of the applicant", "applicant"
 
             %h3 This LPA is being registered by 
             = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
