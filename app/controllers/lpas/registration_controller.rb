@@ -2,8 +2,7 @@ class Lpas::RegistrationController < ApplicationController
   before_filter :check_applicant
   include Wicked::Wizard
 
-  steps :start, :registrant, :correspondent, :signature_dates, :notice_date, :further_info,
-        :fees
+  steps :start, :applicant, :correspondent, :signature_dates, :notice_date, :further_info, :fees
 
   def show
     begin
