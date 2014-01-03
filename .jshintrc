@@ -6,7 +6,7 @@
   "eqeqeq": true,
   "quotmark": true,
   "latedef": true,
-  "onevar": false,
+  "onevar": true,
   "noarg": true,
   "noempty": true,
   "node": true,

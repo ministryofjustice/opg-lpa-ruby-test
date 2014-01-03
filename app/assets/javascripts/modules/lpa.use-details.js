@@ -45,6 +45,7 @@
       return clean;
     },
 
+    /*jshint onevar: false */
     _populateForm: function (form, data) {
       var proceed = this._isFormClean(form) ? true : confirm(this.settings.message);
       if (proceed) {
