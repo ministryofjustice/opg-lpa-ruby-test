@@ -21,7 +21,7 @@
               = lpa_form.fields_for @lpa.donor do |donor_form|
                 = render "shared/validation_summary", :form_object => donor_form
                 %p.role-select.group.hidden--no-js
-                  = link_to "Use my details", "#", {:class => 'js-populate-my-details'}
+                  = link_to "Use my details", "#", {:class => 'js-use-details', 'data-property' => 'applicant'}
                 = render :partial => '/shared/person_form', :locals => {:person_form => donor_form, :show_other_names => true, :show_dob => true}
                 %fieldset#donor-sign
                   .option.group
@@ -33,3 +33,8 @@
               .accordion-actions
                 %p
                   = lpa_form.submit "Save and continue", :class => "button gotonextpart"
+
+
+- content_for :javascript do
+  :javascript
+    lpa.applicant = #{applicant_details.to_json};

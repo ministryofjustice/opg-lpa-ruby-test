@@ -148,11 +148,20 @@ module LpasHelper
   end
 
   def back_path(controller, id)
-    if controller == "lpas/build" 
+    if controller == "lpas/build"
       lpa_build_path(:id => id)
     elsif controller == "lpas/registration"
       lpa_registration_path(:id => id)
     end
+  end
+
+  def applicant_details
+    applicant = @applicant.attributes.except(:address, :lpas, :id, :uri, :date_of_birth).merge(@applicant.address.attributes)
+    dob = @applicant.date_of_birth.split('-')
+    applicant["date_of_birth(3i)"] = dob[2].to_i
+    applicant["date_of_birth(2i)"] = dob[1].to_i
+    applicant["date_of_birth(1i)"] = dob[0].to_i
+    applicant
   end
 
   private
