@@ -125,7 +125,8 @@ module LpasHelper
     nil
   end
 
-  def registrant_overview(lpa)
+  def applicant_overview(lpa)
+    #Note: this is the registration applicant, who may be different from the LPA applicant.
     "The applicant is Full Name"
   end
 
