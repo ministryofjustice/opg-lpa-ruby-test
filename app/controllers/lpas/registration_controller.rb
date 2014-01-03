@@ -26,6 +26,7 @@ class Lpas::RegistrationController < ApplicationController
 
   private
   def check_applicant
-    redirect_to new_applicant_path unless Applicant.current_applicant
+    @applicant = Applicant.current_applicant
+    redirect_to new_applicant_path unless @applicant
   end
 end
