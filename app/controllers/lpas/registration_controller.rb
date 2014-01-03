@@ -20,6 +20,7 @@ class Lpas::RegistrationController < ApplicationController
 
   def update
     @lpa = Lpa.find(params[:lpa_id])
+    # @lpa.update_attributes( lpa_params )
     render_wizard @lpa
   end
 
@@ -27,5 +28,9 @@ class Lpas::RegistrationController < ApplicationController
   def check_applicant
     @applicant = Applicant.current_applicant
     redirect_to new_applicant_path unless @applicant
+  end
+
+  def lpa_params
+    params[:lpa]
   end
 end

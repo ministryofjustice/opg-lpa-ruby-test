@@ -18,6 +18,7 @@ class Lpa < ActiveResource::Base
     string 'how_replacement_attorneys_act_details'
     string 'status'
     string 'registrant' #should probably add a registrant/registration model which belongs to lpa
+    string 'another_lpa'
   end
 
   class << self

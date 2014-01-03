@@ -17,7 +17,7 @@
 
               = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
                 %p <input type="checkbox" />Tell us about another power of attorney
-                %p <textarea></textarea>
+                %p= lpa_form.text_area :another_lpa, :row => 24, :cols => 40
                 %p <input type="checkbox" />Tell us about a change of address or other important information
                 %p <textarea></textarea>              
                 %p
