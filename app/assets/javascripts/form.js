@@ -305,68 +305,6 @@ $(document).ready(function () {
   });
 
 
-  // Re-use a person's details
-
-  $('body').on('change click', '#reusables', function (e) {
-
-    var type = e.type,
-        target = $(this)[0].tagName;
-
-    // Prevent triggering on click of select box. Fix for Firefox (+ other possibly).
-    if ((type === 'click' && target === 'A') || (type === 'change' && target === 'SELECT')) {
-
-      e.preventDefault(); // for when triggered by a link
-
-      var reusables = $(this),
-          form = reusables.closest('form'),
-          cont = !form.data('dirty'),
-          url = reusables[0].tagName === 'A' ? reusables.data('service') : reusables.val();
-
-      if (url.length) {
-
-        if (!cont) {
-          cont = confirm('This will replace the information which you have already entered, are you sure?');
-        }
-
-        if (cont) {
-
-          $.get(url, function (resp) {
-
-            // Reset all fields
-            form[0].reset();
-            form.data('dirty', true);
-
-            // Populate each input field
-            for (var elmId in resp) {
-              var field = $('#' + elmId),
-                  value = resp[elmId];
-
-              // Insert each returned value into matching fields
-              if (elmId === 'title') {
-                lpa.updateSelectbox(field, value);
-              } else {
-                field.val(value).change();
-              }
-            }
-
-            // Show any fields which were hidden
-            $('.address-hideable').show();
-          });
-
-        } else {
-          // In case the user chose not to overwrite the details, we must select something
-          // neutral to allow re-selecting that option (on change)
-          if (target === 'SELECT') {
-            reusables.val(reusables.find('option:first').val());
-          }
-        }
-
-      }
-
-    }
-  });
-
-
   // Scroll page to currently open section
 
   if($('section.current:not(#lpa-type)').length == 1) {
