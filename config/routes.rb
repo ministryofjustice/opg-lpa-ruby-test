@@ -10,6 +10,7 @@ OpgLpa::Application.routes.draw do
     get '/pdf' => 'lpas#pdf'
 
     resources :build, controller: 'lpas/build'
+    resources :registration, controller: 'lpas/registration'
     collection do
       get :find
     end

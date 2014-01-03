@@ -121,6 +121,39 @@ module LpasHelper
     nil
   end
 
+  def start_overview(lpa)
+    nil
+  end
+
+  def registrant_overview(lpa)
+    "The applicant is Full Name"
+  end
+
+  def correspondent_overview(lpa)
+    "The correspondent is Full Name"
+  end
+
+  def signature_dates_overview(lpa)
+    "The LPA has been signed correctly"
+  end
+
+  def notice_date_overview(lpa)
+    "Notification letters have been sent"
+  end
+
+  def further_info_overview(lpa)
+    #TODO: Change to check if additional_info is nil once the field is added to the LPA model
+    lpa.respond_to?("additional_info") ? "Additional information provided" : "No additional information provided"
+  end
+
+  def back_path(controller, id)
+    if controller == "lpas/build" 
+      lpa_build_path(:id => id)
+    elsif controller == "lpas/registration"
+      lpa_registration_path(:id => id)
+    end
+  end
+
   private
   def step_completed?(step_in_question)
     @wizard_steps.find_index(step_in_question) < @wizard_steps.find_index(step)

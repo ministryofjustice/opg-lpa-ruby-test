@@ -5,15 +5,7 @@
 .article-container.group
   %article.group{:role => "article"}
     .inner
-      .LPA-details.right
-        %h3 LPA for Property and financial affairs
-        %ul
-          %li For #{@lpa.donor.full_name}.
-          %li Created on 01/11/2013.
-        .LPA-actions
-          %a{:href => "#"} View or edit this LPA
-          &nbsp;|&nbsp;
-          %a{:href => "#"} Delete this LPA
+      .LPA-details.right= render 'shared/lpa_details_inset'
 
       %p That's all we need for the LPA itself. Now it's ready to print and sign.
       %p After it's signed, you'll need to log back in here to complete a registration form and pay the application fee.
@@ -33,8 +25,7 @@
         %li
           %h3 Register the LPA
           %p After everyone’s signed the LPA, you have to pay an application fee, then send the signed LPA along with a completed registration form to the Office of the Public Guardian. It’s a good idea to apply to register your LPA straight after making it. An unregistered LPA can't be used.
-          %p
-            %a.button{:href => ""} Apply to register your LPA now
+          %p= link_to "Apply to register your LPA now", lpa_registration_index_path(@lpa), :class => "button"
           %p= guidance_link "Find out more about registering your LPA", "registering-the-lpa"
 
         %hr

@@ -1,0 +1,24 @@
+= render "shared/create_header"
+
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      #accordion.accordion-form
+        = render "shared/completed_sections"
+        %section#donor.section.current
+          %h2.accordion-header #{lpa_overview(@lpa).count+1}. Additional information
+          .accordion-content
+            .section-intro
+              %p If there's anything else you think might help us register this LPA, let us know here. For example, you can tell us if anyone's address has changed.
+
+              %p We specifically need to know if there is another LPA for the donor, or an enduring power of attorney – it doesn't matter if it's unregistered or cancelled.
+
+              %p= guidance_link "Find out more", "previous-powers-of-attorney"
+
+              = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+                %p <input type="checkbox" />Tell us about another power of attorney
+                %p <textarea></textarea>
+                %p <input type="checkbox" />Tell us about a change of address or other important information
+                %p <textarea></textarea>              
+                %p
+                  = lpa_form.submit "Continue to next question", :class => "button gotonextpart"

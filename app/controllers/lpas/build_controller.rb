@@ -2,7 +2,10 @@ class Lpas::BuildController < ApplicationController
   before_filter :check_applicant
   include Wicked::Wizard
 
-  steps :type, :donor, :when_to_use, :life_sustaining, :attorneys, :how_attorneys_act, :replacement_attorneys, :how_replacement_attorneys_act, :certificate_provider, :people_to_be_told, :certificate_provider2, :review, :complete
+  steps :type, :donor, :when_to_use, :life_sustaining, :attorneys, 
+        :how_attorneys_act, :replacement_attorneys, :how_replacement_attorneys_act, 
+        :certificate_provider, :people_to_be_told, :certificate_provider2, 
+        :review, :complete
 
   def show
     begin

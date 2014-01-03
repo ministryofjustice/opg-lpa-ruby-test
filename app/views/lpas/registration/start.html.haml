@@ -1,0 +1,24 @@
+= render 'shared/progress_nav', :active_state => "sign"
+%header.page-header.inner
+  %h1 Register a lasting power of attorney
+
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      .LPA-details.right= render 'shared/lpa_details_inset'
+
+      %h2 How to register this LPA
+      %ol.next.steps
+        %li Over the next few pages, we’ll ask you a few questions about things like the signing dates of the LPA. 
+        %li You then need to pay the £110 application fee. You can do this through our secure online service.
+        %li Finally, print, sign and date the registration form, and send it to us with the signed LPA.
+
+      %p= guidance_link "More about registering an LPA", "registering-the-lpa"
+
+      %h3 Need to change something?
+
+      %p Please don't amend any of the information in the LPA by hand. If the donor wants to change something, they must edit this LPA online and print off another copy. Everyone must sign it again.
+
+      = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+        = lpa_form.submit "Register this LPA", :class => "button gotonextpart"
+

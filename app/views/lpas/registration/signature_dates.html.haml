@@ -1,0 +1,47 @@
+= render "shared/create_header"
+
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      #accordion.accordion-form
+        = render "shared/completed_sections"
+        %section#donor.section.current
+          %h2.accordion-header #{lpa_overview(@lpa).count+1}. When was the LPA signed?
+          .accordion-content
+            .section-intro
+              %p Please give the date each person below signed the LPA.
+
+              %p This is so we can check that the signatures were #{guidance_link("made in the right order", "signing-the-lpa")}.
+
+              .application-notice.info-notice
+                %p After you click ‘continue’, below, you will no longer be able to edit any information in this LPA. If the donor wishes to edit any details, <a href="">they should do so now</a>, then print it again and get it signed again.
+
+              = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+                .person-summary.group
+                  .person
+                    %h3 #{@lpa.donor.full_name} (the donor)
+                    %p This person signed part A of the LPA on <input class="hasDatepicker" />
+                    %p.hint Remember, if any continuation sheets were used they must also
+                    have been signed at the same time as or before the donor signed part A.
+                .person-summary.group
+                  .person
+                    %h3 #{@lpa.certificate_provider.full_name} (certificate provider)
+                    %p This person signed part B of the LPA on <input class="hasDatepicker" />
+                - if @lpa.certificate_provider2
+                  .person-summary.group
+                    .person
+                      %h3 #{@lpa.certificate_provider2.full_name} (certificate provider)
+                      %p This person signed part B of the LPA on <input class="hasDatepicker" />
+                - @lpa.attorneys.each_with_index do |attorney, index|
+                  .person-summary.group
+                    .person
+                      %h3 #{attorney.full_name} (attorney)
+                      %p This person signed part C of the LPA on <input class="hasDatepicker" />
+                - @lpa.replacement_attorneys.each_with_index do |attorney, index|
+                  .person-summary.group
+                    .person
+                      %h3 #{attorney.full_name} (replacement attorney)
+                      %p This person signed part C of the LPA on <input class="hasDatepicker" />
+                %p
+                  = lpa_form.submit "Continue to next question", :class => "button gotonextpart"
+

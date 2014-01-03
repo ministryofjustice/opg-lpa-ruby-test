@@ -1,0 +1,30 @@
+= render "shared/create_header"
+
+.article-container.group
+  %article.group{:role => "article"}
+    .inner
+      #accordion.accordion-form
+        = render "shared/completed_sections"
+        %section#donor.section.current
+          %h2.accordion-header #{lpa_overview(@lpa).count+1}. Payment
+          .accordion-content
+            .section-intro
+              %h2 Application fee: £110
+
+              %p This is a non-refundable application fee that's paid by the donor. If you are an attorney, you should pay the fee now and reclaim it from the donor's funds.
+
+              %p On the next screen you'll be taken to our payment partner, WorldPay, where you can pay by debit or credit card. This is a secure transaction.
+
+              %details
+                %summary Applying for a reduction of the fee
+              %details
+                %summary I want to pay by cheque
+
+              %p By clicking below I certify that the above information is correct and that to the best of my knowledge and belief, I have completed the application in accordance with the provisions of the Mental Capacity Act 2005 and all statutory instruments made under it.
+
+              %p Please enter a contact email for correspondence regarding this payment.
+
+              = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
+                %p Email address <input />
+                %p
+                  = lpa_form.submit "Proceed to payment", :class => "button gotonextpart"
