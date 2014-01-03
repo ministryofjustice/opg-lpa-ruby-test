@@ -19,6 +19,5 @@
 
       %p Please don't amend any of the information in the LPA by hand. If the donor wants to change something, they must edit this LPA online and print off another copy. Everyone must sign it again.
 
-      = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
-        = lpa_form.submit "Register this LPA", :class => "button gotonextpart"
+      = link_to "Register this LPA", next_wizard_path, :class => "button gotonextpart"
 
