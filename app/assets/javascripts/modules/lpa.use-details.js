@@ -1,4 +1,4 @@
-/*global lpa, moj */
+/*global lpa */
 
 // Popup module for LPA
 // Dependencies: lpa, jQuery
@@ -15,7 +15,7 @@
 
   UseDetails.prototype = {
     defaults: {
-      url: '/service/getdetails',
+      property: null,
       message: 'This will replace the information which you have already entered, are you sure?'
     },
 
@@ -26,45 +26,39 @@
 
     _bindEvents: function () {
       var self = this;
-
       this.$link.on('click', function (e) {
         e.preventDefault();
 
-        // $.ajax({
-        //   url: self.settings.url,
-        //   dataType: 'json',
-        //   success: function (response) {
-            var proceed = self._isFormClean(self.$form) ? confirm(self.settings.message) : true;
-
-            if(proceed){
-              self._populateForm(self.$form, {});
-            }
-          // }
-        // });
+        if (self.settings.property !== undefined) {
+          self._populateForm(self.$form, lpa[self.settings.property]);
+        }
       });
     },
 
     _isFormClean: function (form) {
-      moj.log('checking');
       var clean = true;
-
-      $(':input', form).each(function() {
-        if($(this).val() !== '') {
+      $('input[type="text"], select, textarea', form).each(function() {
+        if ($(this).val() !== '') {
           clean = false;
         }
       });
-
       return clean;
     },
 
     _populateForm: function (form, data) {
-      moj.log(form);
-      moj.log(data);
+      var proceed = this._isFormClean(form) ? true : confirm(this.settings.message);
+      if (proceed) {
+        for (var elmId in data) {
+          var $field = $('[name*="' + elmId + '"]'),
+              value = data[elmId];
+          $field.val(value).change();
+        }
+      }
     }
   };
 
   // Add module to LPA namespace
-  lpa.Modules.reuseDetails = {
+  lpa.Modules.UseDetails = {
     init: function () {
       $('.js-use-details').each(function () {
         $(this).data('lpa.use-details', new UseDetails($(this), $(this).data()));
