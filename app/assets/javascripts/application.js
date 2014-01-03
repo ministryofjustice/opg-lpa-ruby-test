@@ -21,6 +21,7 @@
 //= require modules/lpa.popup.js
 //= require modules/lpa.help-system.js
 //= require modules/lpa.form-popup.js
+//= require modules/lpa.use-details.js
 //= require modules/lpa.form.js
 //= require modules/lpa.poller.js
 
