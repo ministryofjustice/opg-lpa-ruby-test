@@ -13,6 +13,11 @@ describe PDFMaker do
       File.exists?(@pdf_filename).should be_true
     end
 
+    it "should contain A3 continuation" do
+      pages = %x[pdftk #{@pdf_filename} dump_data | awk '/NumberOfPages/ {print $2}']
+      pages.to_i.should eq 16
+    end
+
     pending "should add correct data to a PDF file" do
       good_md5 = Digest::MD5.hexdigest(File.read("spec/support/sample_lpa.pdf"))
       Digest::MD5.hexdigest(File.read(@pdf_filename)).should eq good_md5
@@ -25,7 +30,7 @@ describe PDFMaker do
           lpa_id = "52a72c0377696e03df020000"
           pdf = PDFMaker.new(lpa_id, three_attorneys_json).to_pdf
           pages = %x[pdftk #{pdf} dump_data | awk '/NumberOfPages/ {print $2}']
-          pages.to_i.should eq 18
+          pages.to_i.should eq 20
         end
 
         it "should have attorney data"
