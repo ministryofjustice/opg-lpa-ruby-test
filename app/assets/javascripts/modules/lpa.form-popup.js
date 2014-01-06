@@ -1,7 +1,5 @@
-/*global html5_storage, lpa, moj */
-
 // Form Popup module for LPA
-// Dependencies: lpa, jQuery
+// Dependencies: moj, jQuery
 
 (function () {
   'use strict';
@@ -122,7 +120,7 @@
     },
 
     _getCachedForm: function (url) {
-      if (html5_storage() && typeof sessionStorage[url] !== 'undefined') {
+      if (moj.Helpers.hasHtml5Storage() && typeof sessionStorage[url] !== 'undefined') {
         return sessionStorage[url];
       }
       // then try from this class
@@ -161,7 +159,7 @@
           beforeOpen: function () {
             $('#popup-content').load(href, function (html) {
               // cache content
-              if (html5_storage()) {
+              if (moj.Helpers.hasHtml5Storage()) {
                 // save to html5 storage
                 sessionStorage[form] = html;
               } else {

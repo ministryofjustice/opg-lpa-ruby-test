@@ -1,7 +1,5 @@
-/*global lpa */
-
 // Popup module for LPA
-// Dependencies: lpa, jQuery
+// Dependencies: moj, jQuery
 
 (function () {
   'use strict';

@@ -1,16 +1,3 @@
-/*jshint unused: false */
-
-// Test for local storage
-function html5_storage() {
-  'use strict';
-
-  try {
-    return 'sessionStorage' in window && window.sessionStorage !== null;
-  } catch (e) {
-    return false;
-  }
-}
-
 // Update parsley defaults
 window.ParsleyConfig = window.ParsleyConfig || {};
 

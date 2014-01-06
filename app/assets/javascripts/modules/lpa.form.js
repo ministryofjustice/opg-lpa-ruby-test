@@ -1,7 +1,5 @@
-/*global moj, lpa */
-
 // Forms modules for LPA
-// Dependencies: lpa, moj
+// Dependencies: moj
 
 (function () {
   'use strict';

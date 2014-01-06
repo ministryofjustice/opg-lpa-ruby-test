@@ -6,6 +6,9 @@
 //= require parsleyjs/parsley
 //= require handlebars
 
+//===== Configs for Plugins =====\\
+//= require config.parsley
+
 //===== Vendor scripts - /vendor/assets/javascripts/ =====\\
 //= require jquery.details
 // require jquery.tools.min
@@ -14,8 +17,7 @@
 //= require moj
 
 //===== LPA app object and modules - /app/assets/javascripts/ =====\\
-//= require utils
-// require lpa
+//= require lpa.helpers
 //= require lpa.templates
 //= require modules/lpa.dialog.js
 //= require modules/lpa.popup.js

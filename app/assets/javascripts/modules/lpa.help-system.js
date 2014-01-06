@@ -1,7 +1,5 @@
-/*global html5_storage, moj, lpa */
-
 // Help System module for LPA
-// Dependencies: popup, lpa, moj, jQuery
+// Dependencies: popup, moj, jQuery
 
 (function () {
   'use strict';
@@ -125,7 +123,7 @@
 
     _hasCachedContent: function () {
       // first try to load from html5 storage
-      if (html5_storage() && typeof sessionStorage.guidanceHTML !== 'undefined') {
+      if (moj.Helpers.hasHtml5Storage() && typeof sessionStorage.guidanceHTML !== 'undefined') {
         return sessionStorage.guidanceHTML;
       }
       // then try from this class
@@ -163,7 +161,7 @@
           beforeOpen: function () {
             $('#popup-content').load('/' + self.settings.guidancePath, function (html) {
               // cache content
-              if (html5_storage()) {
+              if (moj.Helpers.hasHtml5Storage()) {
                 // save to html5 storage
                 sessionStorage.guidanceHTML = html;
               } else {
