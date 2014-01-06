@@ -141,7 +141,7 @@
 
       // if content has been cached, load it straight in
       if (html !== false) {
-        lpa.Modules.Popup.open(html, {
+        moj.Modules.Popup.open(html, {
           ident: this.settings.overlayIdent,
           source: this.originalSource,
           onOpen: this.settings.popupOnOpen,
@@ -154,7 +154,7 @@
       // otherwise, AJAX it in and then switch the content in the popup
       else {
         // load overlay
-        lpa.Modules.Popup.open(this.settings.loadingTemplate, {
+        moj.Modules.Popup.open(this.settings.loadingTemplate, {
           ident: this.settings.overlayIdent,
           source: this.originalSource,
           onOpen: this.settings.popupOnOpen,
@@ -200,5 +200,5 @@
   };
 
   // Add module to MOJ namespace
-  lpa.Modules.FormPopup = new FormPopup();
+  moj.Modules.FormPopup = new FormPopup();
 }());

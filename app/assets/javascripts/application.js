@@ -15,7 +15,7 @@
 
 //===== LPA app object and modules - /app/assets/javascripts/ =====\\
 //= require utils
-//= require lpa
+// require lpa
 //= require lpa.templates
 //= require modules/lpa.dialog.js
 //= require modules/lpa.popup.js
@@ -30,3 +30,5 @@
 //= require form
 //= require date-picker
 //= require pwstrength
+
+$( moj.init );

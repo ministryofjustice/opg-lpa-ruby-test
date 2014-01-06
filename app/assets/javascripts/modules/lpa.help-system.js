@@ -34,7 +34,7 @@
       overlaySource: '#content',
       loadingTemplate: lpa.templates['shared.loading-popup'](),
       popupOnClose: function () {
-        lpa.Modules.helpSystem.topic = undefined;
+        moj.Modules.helpSystem.topic = undefined;
       }
     },
 
@@ -74,7 +74,7 @@
         }
         // if the new hash is empty, clear out the popup
         else if (hash === '') {
-          lpa.Modules.Popup.close();
+          moj.Modules.Popup.close();
         }
       });
     },
@@ -144,7 +144,7 @@
 
       // if content has been cached, load it straight in
       if (html !== false) {
-        lpa.Modules.Popup.open(html, {
+        moj.Modules.Popup.open(html, {
           ident: this.settings.overlayIdent,
           source: this.source,
           beforeOpen: function () {
@@ -157,7 +157,7 @@
       // otherwise, AJAX it in and then switch the content in the popup
       else {
         // load overlay
-        lpa.Modules.Popup.open(this.settings.loadingTemplate, {
+        moj.Modules.Popup.open(this.settings.loadingTemplate, {
           ident: self.settings.overlayIdent,
           source: this.source,
           beforeOpen: function () {
@@ -181,5 +181,5 @@
   };
 
   // Add module to MOJ namespace
-  lpa.Modules.helpSystem = new HelpSystem();
+  moj.Modules.helpSystem = new HelpSystem();
 }());

@@ -152,5 +152,5 @@
   };
 
   // Add module to MOJ namespace
-  lpa.Modules.Popup = new Popup();
+  moj.Modules.Popup = new Popup();
 }());
