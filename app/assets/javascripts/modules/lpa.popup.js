@@ -45,6 +45,7 @@
 
       this.$body
         .on('keydown', function (e) {
+          moj.log('keydown');
           if (e.which === 27) {
             self.close();
           }
