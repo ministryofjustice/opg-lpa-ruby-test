@@ -21,7 +21,7 @@ gem 'numbers_and_words'
 
 # Front-end Gems
 gem 'govuk_template'
-gem 'govuk_frontend_toolkit'
+gem 'govuk_frontend_toolkit', github: 'ministryofjustice/govuk_frontend_toolkit_gem', branch: 'trial_n_error'
 # gem 'moj_frontend_toolkit_gem', git: 'https://github.com/ministryofjustice/moj_frontend_toolkit_gem.git', tag: 'v0.0.40'
 # local boilerplate
 gem 'moj_boilerplate', git: 'https://github.com/ministryofjustice/moj_boilerplate.git', tag: 'v0.1.0'

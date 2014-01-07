@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/ministryofjustice/govuk_frontend_toolkit_gem.git
+  revision: 8ffccd27ddd6f97c51f22100d122bd89fd9f9483
+  branch: trial_n_error
+  specs:
+    govuk_frontend_toolkit (0.39.0)
+      rails (>= 3.1.0)
+      sass (>= 3.2.0)
+
+GIT
   remote: git://github.com/ministryofjustice/x-moj-auth.git
   revision: 73ebb804d34e0280f99e52abdbe7fff1610dd5a4
   specs:
@@ -95,9 +104,6 @@ GEM
       dotenv (>= 0.7)
       thor (>= 0.13.6)
     formatador (0.2.4)
-    govuk_frontend_toolkit (0.38.0)
-      rails (>= 3.1.0)
-      sass (>= 3.2.0)
     govuk_template (0.3.3)
       rails (>= 3.1)
     guard (2.2.3)
@@ -278,7 +284,7 @@ DEPENDENCIES
   country_select
   coveralls
   foreman
-  govuk_frontend_toolkit
+  govuk_frontend_toolkit!
   govuk_template
   guard-rspec
   haml-rails
