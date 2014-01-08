@@ -26,6 +26,7 @@
 //= require modules/lpa.use-details
 //= require modules/lpa.form
 //= require modules/lpa.poller
+//= require modules/lpa.validation
 
 //===== Existing app plugins and js - /app/assets/javascripts/ =====\\
 //= require_tree ./jquery-plugin/opg

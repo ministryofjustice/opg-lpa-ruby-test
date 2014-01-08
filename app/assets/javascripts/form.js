@@ -46,22 +46,6 @@ $(document).ready(function () {
       "Please note: If you close the browser window or log out while making the new LPA, you won't be able to use this feature when you return. You can still finish making the new LPA, but the drop-down menus won't appear.")
   });
 
-  // ====================================================================================
-  // FORM VALIDATION
-
-  body.on('click', 'form [role="alert"] a', function() {
-    var $target = $($(this).attr('href'));
-    console.log('click');
-    $('html, body')
-      .animate({
-        scrollTop: $target.offset().top
-      }, 300)
-      .promise()
-      .done(function() {
-        $target.closest('.group').find('input,select').first().focus();
-      });
-  });
-
 
   // ====================================================================================
   // TOGGLEABLE FORMS
