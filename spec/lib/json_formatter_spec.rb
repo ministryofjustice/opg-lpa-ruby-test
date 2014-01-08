@@ -101,7 +101,7 @@ def two_attorneys
   "replacement_attorneys": [],
   "type": "Property and financial affairs",
   "uri": "http://localhost/api/lpas.json/52a72c0377696e03df020000.json",
-  "when_to_use": "as soon as it\'s registered (with my consent)"
+  "when_to_use": "only if I don\'t have mental capacity"
 }'
 end
 
@@ -137,6 +137,8 @@ def two_attorneys_hash
     "PartAAttorney2Address2" => "Attorney2 line2",
     "PartAAttorney2Address3" => "Attorney2 line3",
     "PartAAttorney2Postcode" => "SW1",
+
+    "Restrictions" => "I would like my LPA to take effect only when I lose capacity to make decisions about my property and financial affairs"
   }
 end
 
@@ -194,6 +196,14 @@ describe JSONFormatter do
 
     it "should populate the fields for both attorneys" do
       formatter.to_form_data.should eq three_attorneys_hash
+    end
+  end
+
+  context "when the option 'when_to_use' is provided" do
+    let(:formatter) { JSONFormatter.new(two_attorneys) }
+
+    it "should create the correct field" do
+      formatter.to_form_data.keys.should include "Restrictions"
     end
   end
 
