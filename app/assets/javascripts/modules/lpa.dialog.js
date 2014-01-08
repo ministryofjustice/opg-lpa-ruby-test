@@ -24,7 +24,7 @@
     _bindEvents: function () {
       var self = this;
 
-      this.$link.on('click', function () {
+      this.$link.on('click.moj.Modules.Dialog', function () {
         if (self.settings.type === 'confirm') {
           if (!confirm(self.settings.message)) {
             return false;
@@ -42,10 +42,10 @@
   };
 
   // Add module to MOJ namespace
-  moj.Modules.dialog = {
+  moj.Modules.Dialog = {
     init: function () {
       $('.js-dialog').each(function () {
-        $(this).data('moj.dialog', new Dialog($(this), $(this).data()));
+        $(this).data('moj.Dialog', new Dialog($(this), $(this).data()));
       });
     }
   };

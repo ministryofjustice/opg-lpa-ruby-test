@@ -42,20 +42,20 @@
     _bindEvents: function () {
       var self = this;
 
-      this.$body.on('keydown', function (e) {
+      this.$body.on('keydown.moj.Modules.Popup', function (e) {
         if (e.which === 27) {
           self.close();
         }
       });
-      this.$popup.on('click', '.js-popup-close', function (e) {
+      this.$popup.on('click.moj.Modules.Popup', '.js-popup-close', function (e) {
         e.preventDefault();
         self.close();
       });
     },
 
     _unbindEvents: function () {
-      this.$body.off('keydown');
-      this.$popup.off('click');
+      this.$body.off('keydown.moj.Modules.Popup');
+      this.$popup.off('click.moj.Modules.Popup');
     },
 
     open: function (html, opts) {
