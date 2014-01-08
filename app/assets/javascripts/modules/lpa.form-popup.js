@@ -146,6 +146,8 @@
           beforeOpen: function () {
             // set pcode lookup
             $('#popup').opgPostcodeLookup();
+            // trigger title replacement event
+            moj.Events.trigger('TitleSwitch.render', {wrap: '#popup'});
           }
         });
       }
@@ -168,6 +170,8 @@
               }
               // set pcode lookup
               $('#popup').opgPostcodeLookup();
+              // trigger title replacement event
+              moj.Events.trigger('TitleSwitch.render', {wrap: '#popup'});
             });
           }
         });
