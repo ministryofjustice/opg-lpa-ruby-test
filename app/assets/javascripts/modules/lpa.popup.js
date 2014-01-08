@@ -8,7 +8,6 @@
   var Popup = function (options) {
     this.settings = $.extend({}, this.defaults, options);
     this._cacheEls();
-    this._bindEvents();
   };
 
   Popup.prototype = {
@@ -43,17 +42,20 @@
     _bindEvents: function () {
       var self = this;
 
-      this.$body
-        .on('keydown', function (e) {
-          moj.log('keydown');
-          if (e.which === 27) {
-            self.close();
-          }
-        })
-        .on('click', '#popup .js-popup-close', function (e) {
-          e.preventDefault();
+      this.$body.on('keydown', function (e) {
+        if (e.which === 27) {
           self.close();
-        });
+        }
+      });
+      this.$popup.on('click', '.js-popup-close', function (e) {
+        e.preventDefault();
+        self.close();
+      });
+    },
+
+    _unbindEvents: function () {
+      this.$body.off('keydown');
+      this.$popup.off('click');
     },
 
     open: function (html, opts) {
@@ -66,6 +68,9 @@
 
       // Join it all together
       this.$popup.data('settings', opts).attr('class', opts.ident).append(this.$close).append(this.$content.html(html)).appendTo(this.$mask);
+
+      // bind event handlers
+      this._bindEvents();
 
       // Place the mask in the DOM
       // If a placement has been provided, the popup is appended to that element,
@@ -123,6 +128,9 @@
             // re-enable body scroll
             $(window).scrollTop(scrollPosition);
             $('html, body').removeClass('noscroll');
+
+            // unbind event handlers
+            self._unbindEvents();
           });
         });
       }
