@@ -24,7 +24,7 @@
 
     _bindEvents: function () {
       var self = this;
-      this.$link.on('click', function (e) {
+      this.$link.on('click.moj.Modules.UseDetails', function (e) {
         e.preventDefault();
 
         if (self.settings.property !== undefined) {

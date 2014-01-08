@@ -32,7 +32,7 @@
       overlaySource: '#content',
       loadingTemplate: lpa.templates['shared.loading-popup'](),
       popupOnClose: function () {
-        moj.Modules.helpSystem.topic = undefined;
+        moj.Modules.HelpSystem.topic = undefined;
       }
     },
 
@@ -50,7 +50,7 @@
       var self = this;
 
       // nav click event
-      $('body').on('click', this.settings.selector, function () {
+      $('body').on('click.moj.Modules.HelpSystem', this.settings.selector, function () {
         var href = $(this).attr('href'),
             topic = href.substring(href.lastIndexOf('#') + 1);
         // set the current click as the source
@@ -61,7 +61,7 @@
       });
 
       // listen to hash changes in url
-      $(window).on('hashchange', function () {
+      $(window).on('hashchange.moj.Modules.HelpSystem', function () {
         var hash = window.location.hash,
             topic;
 
@@ -179,5 +179,5 @@
   };
 
   // Add module to MOJ namespace
-  moj.Modules.helpSystem = new HelpSystem();
+  moj.Modules.HelpSystem = new HelpSystem();
 }());

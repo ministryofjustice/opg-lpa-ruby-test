@@ -35,9 +35,9 @@
     _bindEvents: function () {
       $('body')
         // form open
-        .on('click', this.settings.selector, $.proxy(this._btnClick, this))
+        .on('click.moj.Modules.FormPopup', this.settings.selector, $.proxy(this._btnClick, this))
         // submit form
-        .on('submit', '#popup.form-popup form', $.proxy(this._submitForm, this));
+        .on('submit.moj.Modules.FormPopup', '#popup.form-popup form', $.proxy(this._submitForm, this));
     },
 
     _btnClick: function (e) {
