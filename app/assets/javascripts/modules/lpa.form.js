@@ -1,13 +1,11 @@
-/*global moj, lpa */
-
 // Forms modules for LPA
-// Dependencies: lpa, moj
+// Dependencies: moj
 
 (function () {
   'use strict';
 
   // Add module to LPA namespace
-  lpa.Modules.Form = {
+  moj.Modules.Form = {
     init: function () {
       moj.log('lpa.modules.form#init');
     }

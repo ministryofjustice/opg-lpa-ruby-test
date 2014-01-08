@@ -1,7 +1,5 @@
-/*global lpa */
-
 // Popup module for LPA
-// Dependencies: lpa, jQuery
+// Dependencies: moj, jQuery
 
 (function () {
   'use strict';
@@ -59,10 +57,10 @@
   };
 
   // Add module to LPA namespace
-  lpa.Modules.UseDetails = {
+  moj.Modules.UseDetails = {
     init: function () {
       $('.js-use-details').each(function () {
-        $(this).data('lpa.use-details', new UseDetails($(this), $(this).data()));
+        $(this).data('moj.use-details', new UseDetails($(this), $(this).data()));
       });
     }
   };

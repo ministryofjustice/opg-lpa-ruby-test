@@ -1,7 +1,5 @@
-/*global lpa */
-
 // Popup module for LPA
-// Dependencies: lpa, jQuery
+// Dependencies: moj, jQuery
 
 (function () {
   'use strict';
@@ -44,10 +42,10 @@
   };
 
   // Add module to MOJ namespace
-  lpa.Modules.dialog = {
+  moj.Modules.dialog = {
     init: function () {
       $('.js-dialog').each(function () {
-        $(this).data('lpa.dialog', new Dialog($(this), $(this).data()));
+        $(this).data('moj.dialog', new Dialog($(this), $(this).data()));
       });
     }
   };

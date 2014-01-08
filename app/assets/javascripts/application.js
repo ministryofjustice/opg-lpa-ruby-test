@@ -6,6 +6,9 @@
 //= require parsleyjs/parsley
 //= require handlebars
 
+//===== Configs for Plugins =====\\
+//= require config.parsley
+
 //===== Vendor scripts - /vendor/assets/javascripts/ =====\\
 //= require jquery.details
 // require jquery.tools.min
@@ -14,19 +17,20 @@
 //= require moj
 
 //===== LPA app object and modules - /app/assets/javascripts/ =====\\
-//= require utils
-//= require lpa
+//= require lpa.helpers
 //= require lpa.templates
-//= require modules/lpa.dialog.js
-//= require modules/lpa.popup.js
-//= require modules/lpa.help-system.js
-//= require modules/lpa.form-popup.js
-//= require modules/lpa.use-details.js
-//= require modules/lpa.form.js
-//= require modules/lpa.poller.js
+//= require modules/lpa.dialog
+//= require modules/lpa.popup
+//= require modules/lpa.help-system
+//= require modules/lpa.form-popup
+//= require modules/lpa.use-details
+//= require modules/lpa.form
+//= require modules/lpa.poller
 
 //===== Existing app plugins and js - /app/assets/javascripts/ =====\\
 //= require_tree ./jquery-plugin/opg
 //= require form
 //= require date-picker
 //= require pwstrength
+
+$( moj.init );

@@ -1,7 +1,5 @@
-/*global html5_storage, moj, lpa */
-
 // Help System module for LPA
-// Dependencies: popup, lpa, moj, jQuery
+// Dependencies: popup, moj, jQuery
 
 (function () {
   'use strict';
@@ -34,7 +32,7 @@
       overlaySource: '#content',
       loadingTemplate: lpa.templates['shared.loading-popup'](),
       popupOnClose: function () {
-        lpa.Modules.helpSystem.topic = undefined;
+        moj.Modules.helpSystem.topic = undefined;
       }
     },
 
@@ -74,7 +72,7 @@
         }
         // if the new hash is empty, clear out the popup
         else if (hash === '') {
-          lpa.Modules.Popup.close();
+          moj.Modules.Popup.close();
         }
       });
     },
@@ -125,7 +123,7 @@
 
     _hasCachedContent: function () {
       // first try to load from html5 storage
-      if (html5_storage() && typeof sessionStorage.guidanceHTML !== 'undefined') {
+      if (moj.Helpers.hasHtml5Storage() && typeof sessionStorage.guidanceHTML !== 'undefined') {
         return sessionStorage.guidanceHTML;
       }
       // then try from this class
@@ -144,7 +142,7 @@
 
       // if content has been cached, load it straight in
       if (html !== false) {
-        lpa.Modules.Popup.open(html, {
+        moj.Modules.Popup.open(html, {
           ident: this.settings.overlayIdent,
           source: this.source,
           beforeOpen: function () {
@@ -157,13 +155,13 @@
       // otherwise, AJAX it in and then switch the content in the popup
       else {
         // load overlay
-        lpa.Modules.Popup.open(this.settings.loadingTemplate, {
+        moj.Modules.Popup.open(this.settings.loadingTemplate, {
           ident: self.settings.overlayIdent,
           source: this.source,
           beforeOpen: function () {
             $('#popup-content').load('/' + self.settings.guidancePath, function (html) {
               // cache content
-              if (html5_storage()) {
+              if (moj.Helpers.hasHtml5Storage()) {
                 // save to html5 storage
                 sessionStorage.guidanceHTML = html;
               } else {
@@ -181,5 +179,5 @@
   };
 
   // Add module to MOJ namespace
-  lpa.Modules.helpSystem = new HelpSystem();
+  moj.Modules.helpSystem = new HelpSystem();
 }());

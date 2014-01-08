@@ -1,7 +1,5 @@
-/*global moj, lpa */
-
 // Popup module for LPA
-// Dependencies: lpa, moj, jQuery
+// Dependencies: moj, jQuery
 
 (function () {
   'use strict';
@@ -47,6 +45,7 @@
 
       this.$body
         .on('keydown', function (e) {
+          moj.log('keydown');
           if (e.which === 27) {
             self.close();
           }
@@ -152,5 +151,5 @@
   };
 
   // Add module to MOJ namespace
-  lpa.Modules.Popup = new Popup();
+  moj.Modules.Popup = new Popup();
 }());
