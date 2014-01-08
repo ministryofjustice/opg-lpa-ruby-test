@@ -127,7 +127,16 @@ module LpasHelper
 
   def applicant_overview(lpa)
     #Note: this is the registration applicant, who may be different from the LPA applicant.
-    "The applicant is Full Name"
+    if lpa.registration_applicants.type == "donor"
+      "The LPA will be registered by the donor #{lpa.donor.full_name}."
+    elsif lpa.registration_applicants.type == "attorneys"
+      registration_attorneys = lpa.attorneys.collect {|a| a.full_name if is_attorney_applicant?(lpa, a.id)}.compact
+      "The LPA will be registered by the #{lpa.registration_applicants.ids.count > 1 ? 'attorneys' : 'attorney'} #{registration_attorneys.to_sentence}."
+    end
+  end
+
+  def is_attorney_applicant?(lpa, attorney_id)
+    lpa.registration_applicants.ids.include?(attorney_id)
   end
 
   def correspondent_overview(lpa)

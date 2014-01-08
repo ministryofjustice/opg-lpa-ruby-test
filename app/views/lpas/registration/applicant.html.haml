@@ -21,13 +21,14 @@
             %h3 This LPA is being registered by 
             = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
               .emphasised.option.group
-                = lpa_form.label :registrant_donor do
-                  = lpa_form.radio_button :registrant, "donor"
+                = lpa_form.label :registration_applicants_donor do
+                  = lpa_form.radio_button :registration_applicants, "donor", checked: @lpa.registration_applicants.type == "donor"
                   The donor - #{@lpa.donor.full_name}
-                - @lpa.attorneys.each_with_index do |attorney, index|
-                  = lpa_form.label "registrant_attorney-#{index}" do
-                    = lpa_form.radio_button :registrant, "attorney-#{index}"
-                    The attorney - #{attorney.full_name}
-              %p
-                = lpa_form.submit "Save and continue", :class => "button gotonextpart"
-
+                = lpa_form.label :registrant_applicants_attorneys do
+                  = lpa_form.radio_button :registration_applicants, "attorneys", checked: @lpa.registration_applicants.type == "attorneys"
+                  The attorneys : 
+                  - @lpa.attorneys.each_with_index do |attorney, index|
+                    = lpa_form.label "registration_applicants_attorney-#{index}" do
+                      = check_box_tag "registration_applicants_attorney-#{index}", attorney.id, is_attorney_applicant?(@lpa, attorney.id)
+                      = attorney.full_name
+              %p= lpa_form.submit "Save and continue", :class => "button gotonextpart"

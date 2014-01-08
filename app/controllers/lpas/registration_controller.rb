@@ -20,7 +20,7 @@ class Lpas::RegistrationController < ApplicationController
 
   def update
     @lpa = Lpa.find(params[:lpa_id])
-    # @lpa.update_attributes( lpa_params )
+    @lpa.update_attributes( lpa_params )
     render_wizard @lpa
   end
 
@@ -31,6 +31,22 @@ class Lpas::RegistrationController < ApplicationController
   end
 
   def lpa_params
+    set_registration_applicants
     params[:lpa]
+  end
+
+  def set_registration_applicants
+    if params[:lpa] && params[:lpa][:registration_applicants]
+      if params[:lpa][:registration_applicants] == "donor"
+        params[:lpa][:registration_applicants] = {type: "donor", ids: []}
+      elsif params[:lpa][:registration_applicants] == "attorneys"
+        params[:lpa][:registration_applicants] = {type: "attorneys", ids: []}
+        @lpa.attorneys.each_with_index do |attorney, index|
+          if params["registration_applicants_attorney-#{index}".to_sym]
+            params[:lpa][:registration_applicants][:ids] << attorney.id
+          end
+        end
+      end
+    end
   end
 end

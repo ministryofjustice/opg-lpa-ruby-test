@@ -17,8 +17,6 @@ class Lpa < ActiveResource::Base
     string 'how_replacement_attorneys_act'
     string 'how_replacement_attorneys_act_details'
     string 'status'
-    string 'registrant' #should probably add a registrant/registration model which belongs to lpa
-    string 'another_lpa'
   end
 
   class << self
@@ -36,7 +34,8 @@ class Lpa < ActiveResource::Base
       :certificate_provider2 => nil,
       :people_to_be_told => [],
       :attorneys => [],
-      :replacement_attorneys => []
+      :replacement_attorneys => [],
+      :registration_applicants => {:type=> "", :ids => []}
     }.merge(args[0])
     super(*args)
   end

@@ -41,7 +41,7 @@ describe Lpa do
   	it "should post the full json" do
   		stub_request(:post, uri_to("api/lpas.json"))
   		@lpa.save
-			a_request(:post, uri_to("api/lpas.json")).with(:body => '{"donor":{"address":{"post_code":"E2 6BH"}},"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[{"address":{},"title":"Mrs"}],"replacement_attorneys":[],"title":"Mr"}').should have_been_made
+			a_request(:post, uri_to("api/lpas.json")).with(:body => '{"donor":{"address":{"post_code":"E2 6BH"}},"certificate_provider":null,"certificate_provider2":null,"people_to_be_told":[],"attorneys":[{"address":{},"title":"Mrs"}],"replacement_attorneys":[],"registration_applicants":{"type":"","ids":[]},"title":"Mr"}').should have_been_made
   	end
   end
 

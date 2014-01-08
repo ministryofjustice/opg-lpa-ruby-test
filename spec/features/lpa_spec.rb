@@ -115,6 +115,10 @@ feature 'Filling in an LPA' do
 
     # Completion
     expect(page).to have_content("LPA created")
+
+    #Next steps
+    click_link "Save and continue"
+    expect(page).to have_content('Next Steps')
   end
 
   scenario 'going backwards', :vcr do
