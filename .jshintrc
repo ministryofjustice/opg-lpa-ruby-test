@@ -19,7 +19,8 @@
   "jquery": true,
   "globals": {
     "moj": true,
-    "lpa": true
+    "lpa": true,
+    "_": true
   },
 
   "maxparams": 4,

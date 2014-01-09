@@ -62,12 +62,6 @@ $(document).ready(function () {
     }
   });
 
-  // Cancel pop-up
-  body.on('click', 'button#form-cancel', function (e) {
-    e.preventDefault();
-    $('#lightboxclose').click();
-  });
-
 
   // RADIOS WITH CONDITIONAL CONTENT
   //
@@ -95,8 +89,6 @@ $(document).ready(function () {
   }
 
   $('[name="certificateProviderStatementType"]').hasConditionalContent();
-  $('[name="lpa[how_attorneys_act]"]').hasConditionalContent();
-  $('[name="lpa[how_replacement_attorneys_act]"]').hasConditionalContent();
 
 
   // Who is applying to register?
