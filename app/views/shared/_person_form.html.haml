@@ -9,7 +9,7 @@
 %fieldset
   - if show_legends
     %legend Name
-  = input_for(person_form, "title")
+  = input_for(person_form, "title", {}, {:class => "js-TitleSwitch"})
   = input_for(person_form, "first_name", {}, {:required => "", "parsley-minlength" => "2"})
   = input_for(person_form, "middle_names", {:label_override => "Middle names (optional)"})
   = input_for(person_form, "last_name", {}, {:required => "", "parsley-minlength" => "2"})
