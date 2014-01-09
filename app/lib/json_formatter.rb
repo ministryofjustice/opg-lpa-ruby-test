@@ -28,7 +28,7 @@ class JSONFormatter
 
   def populate_values()
     hash = {}
-    yml = YAML::load File.open File.join Rails.root, "config", "pdf-form-map.yml"
+    yml = YAML::load File.open File.join Rails.root, "pdf_config", "pdf-form-map.yml"
     yml.keys.each do |k|
       hash[k] = get_yml_value(@json, yml[k])
     end
@@ -77,7 +77,7 @@ class JSONFormatter
     result = {}
     count = 0
     yaml_files.each do |file|
-      yml = YAML::load File.open File.join Rails.root, "config", file
+      yml = YAML::load File.open File.join Rails.root, "pdf_config", file
       yml.keys.each do |k|
         result[k] = get_yml_value(@json[desired_key][count], yml[k])
       end
