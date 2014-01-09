@@ -8,13 +8,14 @@ window.ParsleyConfig = window.ParsleyConfig || {};
     messages: {
       defaultMessage: 'in invalid',
       type: {
-        email:      'must be a valid email address'
+        email:     'must be a valid email address'
       },
-      required:       'can\'t be blank',
-      min:            'is too short (minimum is %s characters)',
-      max:            'is too long (maximum is %s characters)'
+      required:    'can\'t be blank',
+      minlength:   'is too short (minimum is %s characters)',
+      maxlength:   'is too long (maximum is %s characters)'
     },
     trigger: 'change',
+    scrollDuration: 0,
     animate: false,
     errorClass: 'validation',
     errors: {

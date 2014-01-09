@@ -67,13 +67,35 @@
     _submitForm: function (e) {
       var $form = $(e.target),
           $submitBtn = $form.find('input[type="submit"]'),
-          url = $form.attr('action');
+          url = $form.attr('action'),
+          invalidFieldsData = {errors: []},
+          self = this;
 
-      if (!$form.parsley('validate')) {
-        // show error summary
-        this._invalidSummary($form, {});
-      } else {
-        // start spinner
+      $form.parsley('addListener', {
+        onFormValidate: function (isFormValid) {
+          if (!isFormValid) {
+            self._invalidSummary($form, invalidFieldsData);
+          }
+        },
+        // listen to errors to display in summary
+        onFieldError: function (elem, constraints, ParsleyField) {
+          var errorMsg = '',
+              i = 0;
+
+          // loop through constraints
+          $.each(constraints, function (constraint, options) {
+            i += 1;
+            if (_.size(constraints) > 1 && i > 1) {
+              errorMsg += ' and ';
+            }
+            errorMsg += ParsleyField.Validator.formatMesssage(ParsleyField.Validator.messages[constraint], options.requirements);
+          });
+          // push to error array to display in template
+          invalidFieldsData.errors.push({label_id: elem.siblings('label').attr('id'), label: elem.siblings('label').text(), error: errorMsg});
+        }
+      });
+
+      if ($form.parsley('validate')) {
         $submitBtn.spinner();
 
         $.ajax({
@@ -96,7 +118,7 @@
               if (response.errors !== undefined) {
                 data = {errors: []};
                 $.each(response.errors, function (name, errors) {
-                  data.errors.push({name: name, label: $('#' + name + '_label').text(), error: errors[0]});
+                  data.errors.push({label_id: name + '_label', label: $('#' + name + '_label').text(), error: errors[0]});
                   thing._invalidField($form, name, errors);
                 });
                 // show error summary
@@ -148,6 +170,8 @@
             $('#popup').opgPostcodeLookup();
             // trigger title replacement event
             moj.Events.trigger('TitleSwitch.render', {wrap: '#popup'});
+            // apply form validation
+
           }
         });
       }
@@ -185,6 +209,11 @@
       } else {
         form.find('.validation-summary').replaceWith(template);
       }
+      // scroll to summary element - TODO remove ID dependency
+      $('#mask')
+        .animate({
+          scrollTop: $('#error-heading').offset().top - $('#popup').offset().top + 35
+        }, 300);
     },
 
     _invalidField: function (form, name, errors) {

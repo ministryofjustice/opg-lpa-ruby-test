@@ -16,11 +16,13 @@
     },
 
     focusError: function (e) {
-      var $target = $($(e.target).attr('href'));
+      var $target = $($(e.target).attr('href')),
+          $scrollEl = $('#mask').length > 0 ? $('#mask') : $('html, body'),
+          topPos = $('#mask').length > 0 ? $target.offset().top - $('#popup').offset().top + 55 : $target.offset().top;
 
-      $('html, body')
+      $scrollEl
         .animate({
-          scrollTop: $target.offset().top
+          scrollTop: topPos
         }, 300)
         .promise()
         .done(function() {
