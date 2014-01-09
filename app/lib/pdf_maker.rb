@@ -14,6 +14,7 @@ class PDFMaker
     lpa_pdf = File.join Rails.root, "pdfs", "drafts", "#{@lpa_id}.pdf"
     PopulateAttorneys.new(lpa_pdf, @lpa_json).fill_forms
     PFAContinuation.new(@lpa_id, @lpa_json).to_pdf
+    PeopleToBeTold.new(lpa_pdf, @lpa_json).fill_forms
     lpa_pdf
   end
 
