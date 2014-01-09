@@ -35,7 +35,6 @@ module.exports = function (grunt) {
           'app/assets/javascripts/date-picker.js',
           'app/assets/javascripts/application.js',
           'app/assets/javascripts/form.js',
-          'app/assets/javascripts/help-popup.js',
           'app/assets/javascripts/pwstrength.js'
         ]
       },
