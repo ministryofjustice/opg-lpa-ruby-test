@@ -5,6 +5,7 @@
 //= require jquery-ujs
 //= require parsleyjs/parsley
 //= require handlebars
+//= require lodash
 
 //===== Configs for Plugins =====\\
 //= require config.parsley
