@@ -1,4 +1,4 @@
-= render "shared/create_header"
+= render "shared/register_header"
 
 .article-container.group
   %article.group{:role => "article"}
@@ -24,6 +24,4 @@
                   %p Address
                   %p= link_to "Change this", ""
 
-              %p
-                = form_for @lpa, :url => wizard_path, :html => {:class => "form"} do |lpa_form|
-                  = lpa_form.submit "Save and continue", :class => "button gotonextpart"
+              %p= link_to "Save and continue", next_wizard_path, :class => "button gotonextpart"
