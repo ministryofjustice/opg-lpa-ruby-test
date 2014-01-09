@@ -13,6 +13,7 @@ class JSONFormatter
       result.merge!(populate_continuations_count)
     end
     result.merge! restrictions if has_restriction?
+    result.merge! attorney_decisions if mixed_attorney_decisions?
     result
   end
 
@@ -62,11 +63,20 @@ class JSONFormatter
   end
 
   def has_restriction?
-    msg = "only if I don\'t have mental capacity"
-    @json["when_to_use"] == msg ? true : false
+    @json["when_to_use"] == "only if I don\'t have mental capacity"
   end
 
   def restrictions
     { "Restrictions" => "I would like my LPA to take effect only when I lose capacity to make decisions about my property and financial affairs"}
   end
+
+  def mixed_attorney_decisions?
+    msg = "Jointly for some decisions, and jointly and severally for other decisions"
+    @json["how_attorneys_act"] == msg
+  end
+
+  def attorney_decisions
+    { "AttorneyDecisionsInstructions" => @json["how_attorneys_act_details"] }
+  end
+
 end
