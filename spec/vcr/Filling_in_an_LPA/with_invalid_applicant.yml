@@ -5,7 +5,7 @@ http_interactions:
     uri: http://localhost:9292/auth/users
     body:
       encoding: UTF-8
-      string: user[email]=joe.bloggs1386845175.614083751%40example.com&user[password]=s3kr!tpass
+      string: user[email]=joe.bloggs1389283590.030796677%40example.com&user[password]=s3kr!tpass
     headers: {}
   response:
     status:
@@ -25,32 +25,32 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"81f7de3f4d9b3cfd8220ed3d8cf9a838"'
+      - '"4930e3620601742812d0ba00fe323809"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - ac7374b5-1bc2-44f4-885a-3d6b61832b76
+      - 2bbb0626-d5f9-4d10-b07e-73dab208a5cd
       X-Runtime:
-      - '0.066705'
+      - '0.064990'
       Server:
       - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
       Date:
-      - Thu, 12 Dec 2013 10:46:15 GMT
+      - Thu, 09 Jan 2014 16:06:30 GMT
       Connection:
       - close
       Content-Length:
       - '100'
     body:
       encoding: UTF-8
-      string: '{"email":"joe.bloggs1386845175.614083751@example.com","authentication_token":"t6Aa523sCaWkmJDTFN_V"}'
+      string: '{"email":"joe.bloggs1389283590.030796677@example.com","authentication_token":"6bzJiCCigRK58Xfs2teh"}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:46:15 GMT
+  recorded_at: Thu, 09 Jan 2014 16:06:30 GMT
 - request:
     method: post
     uri: http://localhost:9292/auth/sessions
     body:
       encoding: UTF-8
-      string: user[email]=joe.bloggs1386845175.614083751%40example.com&user[password]=s3kr!tpass
+      string: user[email]=joe.bloggs1389283590.030796677%40example.com&user[password]=s3kr!tpass
     headers: {}
   response:
     status:
@@ -70,26 +70,26 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Etag:
-      - '"81f7de3f4d9b3cfd8220ed3d8cf9a838"'
+      - '"4930e3620601742812d0ba00fe323809"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 0f389e82-dc86-4aac-8eb7-6fdb637ca020
+      - 42233603-3abb-4ae8-9c48-89da63eb62f1
       X-Runtime:
-      - '0.066272'
+      - '0.063908'
       Server:
       - WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
       Date:
-      - Thu, 12 Dec 2013 10:46:15 GMT
+      - Thu, 09 Jan 2014 16:06:30 GMT
       Connection:
       - close
       Content-Length:
       - '100'
     body:
       encoding: UTF-8
-      string: '{"email":"joe.bloggs1386845175.614083751@example.com","authentication_token":"t6Aa523sCaWkmJDTFN_V"}'
+      string: '{"email":"joe.bloggs1389283590.030796677@example.com","authentication_token":"6bzJiCCigRK58Xfs2teh"}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:46:15 GMT
+  recorded_at: Thu, 09 Jan 2014 16:06:30 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -100,7 +100,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - t6Aa523sCaWkmJDTFN_V
+      - 6bzJiCCigRK58Xfs2teh
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -122,7 +122,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"error":"Forbidden"}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:46:15 GMT
+  recorded_at: Thu, 09 Jan 2014 16:06:30 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -133,7 +133,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - t6Aa523sCaWkmJDTFN_V
+      - 6bzJiCCigRK58Xfs2teh
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -155,7 +155,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"error":"Forbidden"}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:46:15 GMT
+  recorded_at: Thu, 09 Jan 2014 16:06:30 GMT
 - request:
     method: get
     uri: http://localhost:9292/api/applicants/current.json
@@ -166,7 +166,7 @@ http_interactions:
       Accept:
       - application/json
       Secure-Token:
-      - t6Aa523sCaWkmJDTFN_V
+      - 6bzJiCCigRK58Xfs2teh
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       User-Agent:
@@ -188,7 +188,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"error":"Forbidden"}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:46:15 GMT
+  recorded_at: Thu, 09 Jan 2014 16:06:30 GMT
 - request:
     method: post
     uri: http://localhost:9292/api/applicants.json
@@ -200,7 +200,7 @@ http_interactions:
       Content-Type:
       - application/json
       Secure-Token:
-      - t6Aa523sCaWkmJDTFN_V
+      - 6bzJiCCigRK58Xfs2teh
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -225,5 +225,5 @@ http_interactions:
       string: '{"errors":{"first_name":["can''t be blank","is too short (minimum is
         2 characters)"]}}'
     http_version: 
-  recorded_at: Thu, 12 Dec 2013 10:46:16 GMT
+  recorded_at: Thu, 09 Jan 2014 16:06:30 GMT
 recorded_with: VCR 2.7.0

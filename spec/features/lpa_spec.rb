@@ -63,14 +63,14 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("Bob Man")
 
     click_link 'Add a replacement attorney'
-    fill_in_valid_name(:first_name => "Bobby", :last_name => "Man")
-    fill_in_valid_address
+    fill_in_valid_attorney(:first_name => "Bobby", :last_name => "Man")
+    # fill_in_valid_address
     click_button "Save details"
     expect(page).to have_content("Bobby Man")
 
     click_link 'Add a replacement attorney'
-    fill_in_valid_name(:first_name => "Egbert", :last_name => "Man")
-    fill_in_valid_address
+    fill_in_valid_attorney(:first_name => "Egbert", :last_name => "Man")
+    # fill_in_valid_address
     click_button "Save details"
     expect(page).to have_content("Egbert Man")
 
@@ -152,8 +152,8 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("Who are your attorneys?")
 
     click_link 'Add an attorney'
-    fill_in_valid_name(:first_name => "Dave", :last_name => "Jameson")
-    fill_in_valid_address
+    fill_in_valid_attorney(:first_name => "Dave", :last_name => "Jameson")
+    # fill_in_valid_address
 
     click_button "Save details"
     expect(page).to have_content("Dave Jameson")
@@ -165,8 +165,8 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("Do you want any replacement attorneys?")
 
     click_link 'Add a replacement attorney'
-    fill_in_valid_name(:first_name => "Bob", :last_name => "Man")
-    fill_in_valid_address
+    fill_in_valid_attorney(:first_name => "Bob", :last_name => "Man")
+    # fill_in_valid_address
     click_button "Save details"
     expect(page).to have_content("Bob Man")
 
@@ -200,6 +200,10 @@ feature 'Filling in an LPA' do
     expect(page).to have_content("LPA created")
     click_link "Save and continue"
     expect(page).to have_content("Next Steps")
+
+    #Registration
+    click_link "Apply to register your LPA now"
+    expect(page).to have_content("How to register this LPA")
   end
 
   scenario 'healthcare with all valid details', :vcr do

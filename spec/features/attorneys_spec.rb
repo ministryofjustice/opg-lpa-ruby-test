@@ -46,7 +46,7 @@ feature 'Filling in an LPAs attorneys' do
     fill_in_valid_address
     click_button "Save details"
     expect(page).to have_content("can't be blank")
-    fill_in_valid_name first_name: "Attorney Tulisa"
+    fill_in_valid_attorney(:first_name => "Attorney Tulisa")
     click_button "Save details"
     expect(page).to have_content("Attorney Tulisa")
 
