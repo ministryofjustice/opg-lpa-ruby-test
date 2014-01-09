@@ -9,18 +9,21 @@ class JSONFormatter
     result = {}
     result.merge! populate_values
     if has_attorneys?
-      result.merge!(populate_attorneys)
+      attorney_yaml = ["attorney-1.yml", "attorney-2.yml"]
+      result.merge! get_values(attorney_yaml, "attorneys")
       result.merge!(populate_continuations_count)
     end
     result.merge! restrictions if has_restriction?
     result.merge! attorney_decisions if mixed_attorney_decisions?
+    people_yaml = ["person-1.yml", "person-2.yml"]
+    result.merge! get_values(people_yaml, "people_to_be_told") if people_to_be_told?
     result
   end
 
   private
 
   def has_attorneys?
-    (@json["attorneys"].size > 0) if @json.key? "attorneys"
+    has_value? "attorneys"
   end
 
   def populate_values()
@@ -37,19 +40,6 @@ class JSONFormatter
       string.gsub(' ', '').split(',').inject(hash,:[])
     rescue NoMethodError
     end
-  end
-
-  def populate_attorneys
-    attorney_result = {}
-    count = 0
-    ["attorney-1.yml", "attorney-2.yml"].each do |file|
-      yml = YAML::load File.open File.join Rails.root, "config", file
-      yml.keys.each do |k|
-        attorney_result[k] = get_yml_value(@json["attorneys"][count], yml[k])
-      end
-      count += 1
-    end
-    attorney_result
   end
 
   def populate_continuations_count
@@ -77,6 +67,27 @@ class JSONFormatter
 
   def attorney_decisions
     { "AttorneyDecisionsInstructions" => @json["how_attorneys_act_details"] }
+  end
+
+  def people_to_be_told?
+    has_value? "people_to_be_told"
+  end
+
+  def get_values(yaml_files, desired_key)
+    result = {}
+    count = 0
+    yaml_files.each do |file|
+      yml = YAML::load File.open File.join Rails.root, "config", file
+      yml.keys.each do |k|
+        result[k] = get_yml_value(@json[desired_key][count], yml[k])
+      end
+      count += 1
+    end
+    result
+  end
+
+  def has_value?(val)
+    (@json[val].size > 0) if @json.key? val
   end
 
 end
