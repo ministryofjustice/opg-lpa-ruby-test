@@ -12,7 +12,7 @@
       this.bindEvents();
 
       // init conditional content plugins
-      $('[name="certificateProviderStatementType"], [name="lpa[how_attorneys_act]"], [name="lpa[how_replacement_attorneys_act]"]').conditionalContent();
+      $('.js-conditional-content').conditionalContent();
     },
 
     cacheEls: function () {
@@ -21,18 +21,10 @@
 
     bindEvents: function () {
       this.$body.on('change', '#donor_cannot_sign', this.donorSign);
-      this.$body.on('change', 'js-conditional-toggle', this.toggleConditionalEl);
-      this.$body.on();
-      this.$body.on();
-      this.$body.on();
     },
 
     donorSign: function (e) {
       this.toggleEl($(e.target), $(e.target).is(':checked'));
-    },
-
-    toggleConditionalEl: function (e) {
-
     },
 
     toggleEl: function (el, bool) {

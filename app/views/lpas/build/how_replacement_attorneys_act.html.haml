@@ -30,13 +30,13 @@
                     Attorneys must agree unanimously on every decision, however big or small.
                     %br If one of your attorneys can no longer act the others will no longer be able to act.
                 = lpa_form.label :how_replacement_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions do
-                  = lpa_form.radio_button :how_replacement_attorneys_act, "Jointly for some decisions, and jointly and severally for other decisions"
+                  = lpa_form.radio_button :how_replacement_attorneys_act, "Jointly for some decisions, and jointly and severally for other decisions", {:class => "js-conditional-content", "data-toggle-el" => "#replacement-act-details"}
                   Jointly for some decisions, and jointly and severally for other decisions
                   %span.option-help
                     Attorneys must agree unanimously on some decisions, but can make others on their own.
                     %br You'll need to state which decisions need to be agreed unanimously.
 
-              %div.details-textbox{:id => "toggle-lpa[how_replacement_attorneys_act]-lpa_how_replacement_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions", "data-toggle-by" => "#lpa_how_replacement_attorneys_act_jointly_for_some_decisions_and_jointly_and_severally_for_other_decisions"}
+              #replacement-act-details.details-textbox
                 %p.hint Please give details of the specific decisions that your attorneys must all agree on. #{guidance_link "Not sure what to put", "how-attorneys-make-decisions"}?
                 = lpa_form.text_area :how_replacement_attorneys_act_details, :row => 24, :cols => 80
 

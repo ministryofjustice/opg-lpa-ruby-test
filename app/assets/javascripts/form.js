@@ -53,20 +53,42 @@ $(document).ready(function () {
 
 
   // Donor cannot sign LPA
-  // $(document).delegate('#donor_cannot_sign', 'change', function (evt) {
-  //   var donorCannotSign = $(this).is(':checked');
-  //   if (donorCannotSign) {
-  //     $('#donorsignprompt').show();
-  //   } else {
-  //     $('#donorsignprompt').hide();
-  //   }
-  // });
-
-  // Cancel pop-up
-  body.on('click', 'button#form-cancel', function (e) {
-    e.preventDefault();
-    $('#lightboxclose').click();
+  $(document).delegate('#donor_cannot_sign', 'change', function (evt) {
+    var donorCannotSign = $(this).is(':checked');
+    if (donorCannotSign) {
+      $('#donorsignprompt').show();
+    } else {
+      $('#donorsignprompt').hide();
+    }
   });
+
+
+  // RADIOS WITH CONDITIONAL CONTENT
+  //
+  // A jQuery function for toggling content based on selected radio buttons
+  //
+  // Usage:
+  //
+  // $(radio).hasConditionalContent();
+  //
+  // Where radio is one or more of the radios in the group.
+  // The elements to be toggled must have an ID made from a concatenation of 'toggle', the radio name and value.
+  // For example, a radio with name="radios" and a value of "1" will toggle an element with id="toggle-radios-1".
+
+
+  jQuery.fn.hasConditionalContent = function() {
+      var name = $(this).attr('name');
+      $("[id^='toggle-"+name+"']").hide();
+
+      $('[name="'+name+'"]').change(function(){
+          if($(this).is(':checked')){
+              $('[id^="toggle-'+name+'"]').hide();
+              $('[id="toggle-' + name + '-' + $(this).attr("id") + '"]').show();
+          }
+      }).change();
+  }
+
+  $('[name="certificateProviderStatementType"]').hasConditionalContent();
 
 
   // Who is applying to register?

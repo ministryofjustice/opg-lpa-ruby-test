@@ -1,6 +1,10 @@
 /**
  * Radios with Conditional Content plugin
  *
+ * Usage:
+ *
+ *
+ *
  * @copyright MOJ Digital Services Division
  * @author Dom Smith <dom.smith@digital.justice.gov.uk>
  */
@@ -19,6 +23,7 @@
     // Cache vars
     this.$el = $(element);
     this.elName = this.$el.attr('name');
+    this.$elGroup = $('[name="' + this.elName + '"]');
 
     // kick off plugin
     this.init();
@@ -26,21 +31,19 @@
 
   Plugin.prototype = {
     init: function() {
-      // hide element initially
-      $('[id^="toggle-' + this.elName + '"]').hide();
+      // trigger initial change
+      this.elChanged();
       // attach change event and trigger to see if an option should already be visible
-      this.$el.change($.proxy(this.elChanged, this)).change();
+      this.$elGroup.change($.proxy(this.elChanged, this));
     },
 
-    elChanged: function (e) {
-      var $option = $(e.target);
-      // hide all other elements
-      $('[id^="toggle-' + this.elName + '"]').hide();
-
-      if($option.is(':checked')){
-        // attempt to show only one associated with this option
-        $('[id="toggle-' + this.elName + '-' + $option.attr('id') + '"]').show();
-      }
+    elChanged: function () {
+      // hide all associated content
+      this.$elGroup.each(function () {
+        $($(this).data('toggle-el')).hide();
+      });
+      // show currently selected content pair
+      $(this.$elGroup.filter(':checked').data('toggle-el')).show();
     }
   };
 
