@@ -24,6 +24,7 @@
       moj.log('lpa.Modules.FormPopup#init');
       this._cacheEls();
       this._bindEvents();
+      sessionStorage.clear();
     },
 
     _cacheEls: function () {
@@ -67,35 +68,9 @@
     _submitForm: function (e) {
       var $form = $(e.target),
           $submitBtn = $form.find('input[type="submit"]'),
-          url = $form.attr('action'),
-          invalidFieldsData = {errors: []},
-          self = this;
+          url = $form.attr('action');
 
-      $form.parsley('addListener', {
-        onFormValidate: function (isFormValid) {
-          if (!isFormValid) {
-            self._invalidSummary($form, invalidFieldsData);
-          }
-        },
-        // listen to errors to display in summary
-        onFieldError: function (elem, constraints, ParsleyField) {
-          var errorMsg = '',
-              i = 0;
-
-          // loop through constraints
-          $.each(constraints, function (constraint, options) {
-            i += 1;
-            if (_.size(constraints) > 1 && i > 1) {
-              errorMsg += ' and ';
-            }
-            errorMsg += ParsleyField.Validator.formatMesssage(ParsleyField.Validator.messages[constraint], options.requirements);
-          });
-          // push to error array to display in template
-          invalidFieldsData.errors.push({label_id: elem.siblings('label').attr('id'), label: elem.siblings('label').text(), error: errorMsg});
-        }
-      });
-
-      if ($form.parsley('validate')) {
+      if ($form.parsley('isValid')) {
         $submitBtn.spinner();
 
         $.ajax({
@@ -112,33 +87,31 @@
               // successful, so redirect
               window.location.reload();
             } else {
-              var thing = this,
-                  data;
               // if field errors, display them
               if (response.errors !== undefined) {
-                data = {errors: []};
+                var data = {errors: []};
                 $.each(response.errors, function (name, errors) {
                   data.errors.push({label_id: name + '_label', label: $('#' + name + '_label').text(), error: errors[0]});
-                  thing._invalidField($form, name, errors);
+                  moj.Events.trigger('Validation.renderFieldSummary', {form: $form, name: name, errors: errors});
                 });
+                moj.Events.trigger('Validation.renderSummary', {form: $form, data: data});
                 // show error summary
-                this._invalidSummary($form, data);
               } else {
                 // show error summary
-                this._invalidSummary($form, {});
+                moj.Events.trigger('Validation.renderSummary', {form: $form, data: {}});
               }
               // stop spinner
               $submitBtn.spinner('off');
             }
           },
-          /*jshint unused: false */
-          error: function (jqXHR, textStatus, errorThrown) {
+          error: function () {
             // an error occured, reload the page
             window.location.reload();
           }
         });
+
+        return false;
       }
-      return false;
     },
 
     _getCachedForm: function (url) {
@@ -200,33 +173,6 @@
           }
         });
       }
-    },
-
-    _invalidSummary: function (form, data) {
-      var template = lpa.templates['shared.validation-summary'](data);
-      if (form.find('.validation-summary').length === 0) {
-        form.find('fieldset').filter(':first').prepend(template);
-      } else {
-        form.find('.validation-summary').replaceWith(template);
-      }
-      // scroll to summary element - TODO remove ID dependency
-      $('#mask')
-        .animate({
-          scrollTop: $('#error-heading').offset().top - $('#popup').offset().top + 35
-        }, 300);
-    },
-
-    _invalidField: function (form, name, errors) {
-      var $field = form.find('[name*="' + name + '"]'),
-          $label = $field.siblings('label'),
-          template = lpa.templates['shared.validation-field-message']({error: errors[0]});
-
-      // add validation class to parent
-      $field.parent('.group').addClass('validation');
-      // remove old errors
-      $label.find('.validation-message').remove();
-      // apply new template
-      $label.append(template);
     }
   };
 
