@@ -39,7 +39,7 @@
   moj.Helpers.scrollPos = function(target) {
     /*jshint laxbreak: true */
     return moj.Helpers.isPopupOpen()
-              ? target.offset().top - $('#popup').offset().top + parseInt($('#popup').css('marginTop'))
+              ? target.offset().top - $('#popup').offset().top + parseInt($('#popup').css('marginTop'), 10)
               : target.offset().top;
   };
-}());
+})();

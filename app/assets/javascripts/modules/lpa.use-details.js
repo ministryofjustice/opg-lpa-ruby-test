@@ -43,14 +43,15 @@
       return clean;
     },
 
-    /*jshint onevar: false */
     _populateForm: function (form, data) {
-      var proceed = this._isFormClean(form) ? true : confirm(this.settings.message);
+      var proceed = this._isFormClean(form) ? true : confirm(this.settings.message),
+          elmId;
+
       if (proceed) {
-        for (var elmId in data) {
-          var $field = $('[name*="' + elmId + '"]'),
-              value = data[elmId];
-          $field.val(value).change();
+        for (elmId in data) {
+          if (data.hasOwnProperty(elmId)) {
+            $('[name*="' + elmId + '"]').val(data[elmId]).change();
+          }
         }
       }
     }

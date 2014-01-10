@@ -5,9 +5,11 @@
  * @copyright The Engine Group
  * @author Chris Moreton <chris.moreton@netsensia.com>
  */
-
+/*jshint onevar: false, unused: false, plusplus: false, maxstatements: 20 */
 (function( $ ) {
-  $.fn.opgPostcodeLookup = function() {
+  'use strict';
+
+  $.fn.opgPostcodeLookup = function () {
 
     // cache els
     var $popup = $('#popup'),
@@ -23,20 +25,20 @@
 
     var dxLink = '';
     if ($('#popup').find('input[name*="dx"]').length !== 0) {
-        dxLink = '<li><a href="#" id="enter_dx_address">Enter DX address</a></li>'
+      dxLink = '<li><a href="#" id="enter_dx_address">Enter DX address</a></li>';
     }
 
     // Add the Lookup control above the address fields
     $('.address-fieldset').prepend(
-        '<p class="group">' +
-          '<label for="postcode-lookup">Postcode</label> ' +
-          '<input autocomplete="off" type="text" id="postcode-lookup" class="postcode"><a href="#" id="find_uk_address" class="postcode-lookup button-secondary" role="button">Find UK address</a>' +
-        '</p>' +
-        '<p class="group" id="pick_an_address"><label for="address_list">Pick an address</label><select class="address-list"></select>' +
-        '<ul class="address-fields-link hint">' +
-          '<li><a href="#" id="enter_address_manually">Enter address manually</a></li>' +
-        dxLink +
-        '</ul>'
+      '<p class="group">' +
+        '<label for="postcode-lookup">Postcode</label> ' +
+        '<input autocomplete="off" type="text" id="postcode-lookup" class="postcode"><a href="#" id="find_uk_address" class="postcode-lookup button-secondary" role="button">Find UK address</a>' +
+      '</p>' +
+      '<p class="group" id="pick_an_address"><label for="address_list">Pick an address</label><select class="address-list"></select>' +
+      '<ul class="address-fields-link hint">' +
+        '<li><a href="#" id="enter_address_manually">Enter address manually</a></li>' +
+      dxLink +
+      '</ul>'
     );
 
     // Hide the address fields by default
@@ -46,150 +48,150 @@
     // otherwise, wait for country selection before deciding which address lines to display
     var address1 = $('#address-addr1').val();
     var country = $('#address-country').val();
-    if (address1 == '') {
-        $('.address-hideable').hide();
-        $('.dxaddress-hideable').hide();
+
+    if (address1 === '') {
+      $('.address-hideable').hide();
+      $('.dxaddress-hideable').hide();
     } else {
-        $('.address-hideable').show();
-        $('.dxaddress-hideable').show();
+      $('.address-hideable').show();
+      $('.dxaddress-hideable').show();
     }
 
     $('#postcode-lookup').on('keypress', function (e) {
-        if (e.keyCode == 13) {
-            $('#find_uk_address').click();
-        }
+      if (e.keyCode === 13) {
+        $('#find_uk_address').click();
+      }
     });
 
     $('#enter_address_manually').on('click', function (e) {
-        e.preventDefault();
+      e.preventDefault();
 
-        // show hide relevant fields
-        $addressFields.parent().removeClass('address-hidden');
-        $dxAddressFields.parent().addClass('address-hidden');
+      // show hide relevant fields
+      $addressFields.parent().removeClass('address-hidden');
+      $dxAddressFields.parent().addClass('address-hidden');
 
-        // copy across postcode if entered
-        if($('#postcode-lookup').val() !== '') {
-          $postcode.val($('#postcode-lookup').val());
-        }
+      // copy across postcode if entered
+      if($('#postcode-lookup').val() !== '') {
+        $postcode.val($('#postcode-lookup').val());
+      }
 
-        // add/remove active state
-        $('#enter_dx_address').removeClass('text-style');
-      	$(this).addClass('text-style');
+      // add/remove active state
+      $('#enter_dx_address').removeClass('text-style');
+      $(this).addClass('text-style');
     });
 
     $('#enter_dx_address').on('click', function (e) {
-        e.preventDefault();
+      e.preventDefault();
 
-        // show hide relevant fields
-        $addressFields.parent().addClass('address-hidden');
-        $dxAddressFields.parent().removeClass('address-hidden');
+      // show hide relevant fields
+      $addressFields.parent().addClass('address-hidden');
+      $dxAddressFields.parent().removeClass('address-hidden');
 
-        // add/remove active state
-        $('#enter_address_manually').removeClass('text-style');
-        $(this).addClass('text-style');
+      // add/remove active state
+      $('#enter_address_manually').removeClass('text-style');
+      $(this).addClass('text-style');
     });
 
     // declare the function to be called when the Lookup button is clicked
     $('#find_uk_address').on('click', function (e) {
-        e.preventDefault();
+      e.preventDefault();
 
-    	var lookup = $(this),
-            postcode = $.trim($('#postcode-lookup').val()),
-            errorText = 'There was a problem: ';
+      var lookup = $(this),
+          postcode = $.trim($('#postcode-lookup').val()),
+          errorText = 'There was a problem: ';
 
-        if (!postcode) { return }
+      if (!postcode) { return; }
 
-        lookup.spinner({element:'#find_uk_address'});
+      lookup.spinner({element:'#find_uk_address'});
 
-        // extract the postcode and call the lookup service
-        // postcode validation is carried out on the server
-        $.ajax({
-            url:'/postcode/lookup',
-            data: {postcode:postcode},
-            dataType: "json",
-            timeout: 10000, // in miliseconds
-            cache: true,
-            error: function (jqXHR, textStatus, errorThrown) {
-                lookup.spinner('off');
+      // extract the postcode and call the lookup service
+      // postcode validation is carried out on the server
+      $.ajax({
+        url:'/postcode/lookup',
+        data: {postcode:postcode},
+        dataType: 'json',
+        timeout: 10000, // in miliseconds
+        cache: true,
+        error: function (jqXHR, textStatus, errorThrown) {
+          lookup.spinner('off');
 
-                if (textStatus == 'timeout') {
-                    errorText+= 'the service did not respond in the allotted time';
-                } else {
-                    errorText+= errorThrown;
-                }
+          if (textStatus === 'timeout') {
+            errorText+= 'the service did not respond in the allotted time';
+          } else {
+            errorText+= errorThrown;
+          }
 
-                alert(error.text(errorText));
-            },
-            success:function(data) {
-                lookup.spinner('off');
+          alert(errorText);
+        },
+        success:function(data) {
+          lookup.spinner('off');
 
-            	if (data.success && data.addresses != null) {
-                    // add the SELECT element if necessary, or empty it if it already exists
-                	var list = $('.address-list');
+          if (data.success && data.addresses !== null) {
+                // add the SELECT element if necessary, or empty it if it already exists
+            var list = $('.address-list');
 
-                    $('#pick_an_address').show();
-                    list.empty().append($('<option value="-1">Please select your address...</option>'));
+            $('#pick_an_address').show();
+            list.empty().append($('<option value="-1">Please select your address...</option>'));
 
-                    // add options to the SELECT element, including the full address details as the value
-                    for (var i = 0; i < data.addresses.length; i++) {
-                        var addressID = data.addresses[i].id;
-                        var parts = addressID.split(".");
-                        addressID = parts[0];
-                        var shortAddress = data.addresses[i].description;
+            // add options to the SELECT element, including the full address details as the value
+            for (var i = 0; i < data.addresses.length; i++) {
+              var addressID = data.addresses[i].id;
+              var parts = addressID.split('.');
+              addressID = parts[0];
+              var shortAddress = data.addresses[i].description;
 
-                        list.append($('<option value="' + addressID + '">' + shortAddress + '</option>'));
-                    }
-
-                    list.focus();
-
-                    // declare the function to be called when an address is selected
-                    list.change(function() {
-                    	var list = $(this),
-                            selectedID = list.val();
-
-                        if (selectedID != -1) {
-                            list.spinner();
-
-	                    	$.ajax({
-	                            url:'/address/lookup',
-	                            data: {addressid:selectedID},
-	                            dataType: "json",
-	                            success:function(data) {
-                                    list.spinner('off');
-
-	                                $('#address-addr1').val(data.lineOne);
-	                                $('#address-addr2').val(data.lineTwo);
-	                                $('#address-addr3').val(data.lineThree);
-	                                $('#address-town').val(data.city);
-	                                $('#address-county').val(data.county);
-	                                $('#address-postcode').val(postcode);
-
-	                                $('.address-hideable').show();
-	                                $('.dxaddress-hideable').hide();
-
-	                                $('#enter_dx_address').removeClass('text-style');
-	                                $('#enter_address_manually').addClass('text-style');
-
-	                                $('#pick_an_address').hide();
-
-	                                $('#address-addr1').trigger('change');
-
-	                            }
-	                    	});
-                    	}
-                    });
-                } else {
-                    if (data.isPostcodeValid) {
-                        if (confirm('No addresses were found for the postcode ' + postcode + '.  Would you like to enter the address manually?')) {
-                            $('.address-hideable').show();
-                        }
-                    } else {
-                        alert('Please enter a valid UK postcode');
-                    }
-                }
+              list.append($('<option value="' + addressID + '">' + shortAddress + '</option>'));
             }
-        });
-        return false;
+
+            list.focus();
+
+            // declare the function to be called when an address is selected
+            list.change(function () {
+              var list = $(this),
+                  selectedID = list.val();
+
+              if (selectedID !== -1) {
+                list.spinner();
+
+                $.ajax({
+                  url:'/address/lookup',
+                  data: {addressid:selectedID},
+                  dataType: 'json',
+                  success:function(data) {
+                    list.spinner('off');
+
+                    $('#address-addr1').val(data.lineOne);
+                    $('#address-addr2').val(data.lineTwo);
+                    $('#address-addr3').val(data.lineThree);
+                    $('#address-town').val(data.city);
+                    $('#address-county').val(data.county);
+                    $('#address-postcode').val(postcode);
+
+                    $('.address-hideable').show();
+                    $('.dxaddress-hideable').hide();
+
+                    $('#enter_dx_address').removeClass('text-style');
+                    $('#enter_address_manually').addClass('text-style');
+
+                    $('#pick_an_address').hide();
+
+                    $('#address-addr1').trigger('change');
+                  }
+                });
+              }
+            });
+          } else {
+            if (data.isPostcodeValid) {
+              if (confirm('No addresses were found for the postcode ' + postcode + '.  Would you like to enter the address manually?')) {
+                $('.address-hideable').show();
+              }
+            } else {
+              alert('Please enter a valid UK postcode');
+            }
+          }
+        }
+      });
+      return false;
     });
   };
 })( jQuery );

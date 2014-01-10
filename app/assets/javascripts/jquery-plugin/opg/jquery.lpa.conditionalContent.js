@@ -9,7 +9,8 @@
  * @author Dom Smith <dom.smith@digital.justice.gov.uk>
  */
 
-;(function ($, window, document, undefined) {
+(function ($) {
+  'use strict';
 
   // Create the defaults once
   var pluginName = 'conditionalContent',
@@ -60,4 +61,4 @@
     });
   };
 
-})(jQuery, window, document);
+})(jQuery);
