@@ -5,7 +5,7 @@
     errors: [],
 
     init: function () {
-      _.bindAll(this, 'scrollTo', 'validateForm', 'onFieldError', 'onFormValidate', 'renderSummary');
+      _.bindAll(this, 'validateForm', 'onFieldError', 'onFormValidate');
       this.cacheEls();
       this.bindEvents();
     },
@@ -16,33 +16,11 @@
 
     bindEvents: function () {
       this.$body
-                .on('click.moj.Modules.Validation', '[role="alert"] a', this.scrollTo)
+                .on('click.moj.Modules.Validation', '[role="alert"] a', moj.Helpers.scrollTo)
                 .on('submit.moj.Modules.Validation', '.js-validate-form', this.validateForm);
 
       moj.Events.on('Validation.renderSummary', this.renderSummary);
       moj.Events.on('Validation.renderFieldSummary', this.renderFieldSummary);
-    },
-
-    scrollTo: function (e) {
-      var $target = e.target !== undefined ? $($(e.target).attr('href')) : $(e),
-          $scrollEl = moj.Modules.Popup.isOpen() ? $('#mask') : $('html, body'),
-          topPos = this.calculateScrollPos($target);
-
-      $scrollEl
-        .animate({
-          scrollTop: topPos
-        }, 300)
-        .promise()
-        .done(function() {
-          $target.closest('.group').find('input, select, textarea').first().focus();
-        });
-    },
-
-    calculateScrollPos: function (target) {
-      /*jshint laxbreak: true */
-      return moj.Modules.Popup.isOpen()
-              ? target.offset().top - $('#popup').offset().top + parseInt($('#popup').css('marginTop'))
-              : target.offset().top;
     },
 
     validateForm: function (e) {
@@ -64,19 +42,19 @@
     },
 
     onFieldError: function (elem, constraints, ParsleyField) {
-      var errorMsg = '',
+      var msg = '',
           i = 0;
 
       // loop through constraints
       $.each(constraints, function (constraint, options) {
         i += 1;
         if (_.size(constraints) > 1 && i > 1) {
-          errorMsg += ' and ';
+          msg += ' and ';
         }
-        errorMsg += ParsleyField.Validator.formatMesssage(ParsleyField.Validator.messages[constraint], options.requirements);
+        msg += ParsleyField.Validator.formatMesssage(ParsleyField.Validator.messages[constraint], options.requirements);
       });
       // push to error array to display in template
-      this.errors.push({label_id: elem.siblings('label').attr('id'), label: elem.siblings('label').text(), error: errorMsg});
+      this.errors.push({label_id: elem.siblings('label').attr('id'), label: elem.siblings('label').text(), error: msg});
     },
 
     onFormValidate: function (isFormValid, event, ParsleyForm) {
@@ -94,7 +72,7 @@
         params.form.find('.validation-summary').replaceWith(template);
       }
 
-      this.scrollTo('#error-heading');
+      moj.Helpers.scrollTo('#error-heading');
     },
 
     renderFieldSummary: function (e, params) {
