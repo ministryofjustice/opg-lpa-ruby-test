@@ -15,20 +15,22 @@
     ],
 
     init: function () {
+      // bind 'this' as this in following methods
+      _.bindAll(this, 'render', 'selectChanged', 'switchTitle');
       this.bindEvents();
     },
 
     bindEvents: function () {
-      $('body').on('change.moj.Modules.TitleSwitch', '.js-TitleSwitch-select', $.proxy(this.selectChanged, this));
+      $('body').on('change.moj.Modules.TitleSwitch', '.js-TitleSwitch-select', this.selectChanged);
       // default moj render event
-      moj.Events.on('render', $.proxy(this.render, this));
+      moj.Events.on('render', this.render);
       // custom render event
-      moj.Events.on('TitleSwitch.render', $.proxy(this.render, this));
+      moj.Events.on('TitleSwitch.render', this.render);
     },
 
     render: function (e, params) {
       var wrap = params !== undefined && params.wrap !== undefined ? params.wrap : 'body';
-      $(this.selector, wrap).each($.proxy(this.switchTitle, this));
+      $(this.selector, wrap).each(this.switchTitle);
     },
 
     switchTitle: function (i, el) {

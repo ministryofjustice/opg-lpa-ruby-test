@@ -28,6 +28,7 @@
 
     // kicks off the setTimeout
     init: function () {
+      _.bindAll(this, 'getData');
       // reset counters
       this.attempted = 0;
       this.failed = 0;
@@ -38,7 +39,7 @@
     // use this function with timeout for future polls
     newTimeout: function (interval) {
       this.timeout = setTimeout(
-        $.proxy(this.getData, this), // ensures 'this' is the poller obj inside getData, not the window object
+        this.getData,
         interval
       );
     },

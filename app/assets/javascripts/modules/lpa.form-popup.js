@@ -22,6 +22,8 @@
 
     init: function () {
       moj.log('lpa.Modules.FormPopup#init');
+      // bind 'this' as this in following methods
+      _.bindAll(this, '_btnClick', '_submitForm');
       this._cacheEls();
       this._bindEvents();
     },
@@ -35,9 +37,9 @@
     _bindEvents: function () {
       $('body')
         // form open
-        .on('click.moj.Modules.FormPopup', this.settings.selector, $.proxy(this._btnClick, this))
+        .on('click.moj.Modules.FormPopup', this.settings.selector, this._btnClick)
         // submit form
-        .on('submit.moj.Modules.FormPopup', '#popup.form-popup form', $.proxy(this._submitForm, this));
+        .on('submit.moj.Modules.FormPopup', '#popup.form-popup form', this._submitForm);
     },
 
     _btnClick: function (e) {
