@@ -102,7 +102,7 @@
 
     close: function () {
       // make sure there is a popup to close
-      if ($('#popup').length > 0) {
+      if (this.isOpen()) {
         var self = this,
             opts = $('#popup').data('settings'),
             scrollPosition = $(window).scrollTop();
