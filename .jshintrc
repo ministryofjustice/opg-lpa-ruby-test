@@ -1,21 +1,30 @@
 {
-  "strict": true,
-  "browser": true,
+  "bitwise": true,
   "curly": true,
   "eqeqeq": true,
-  "quotmark": true,
+  "es3": true,
+  "forin": true,
+  "immed": true,
+  "indent": 2,
   "latedef": true,
-  "onevar": true,
+  "newcap": true,
   "noarg": true,
   "noempty": true,
-  "node": true,
-  "trailing": true,
+  "nonew": true,
+  "plusplus": true,
+  "quotmark": true,
   "undef": true,
   "unused": true,
+  "strict": true,
+  "trailing": true,
+  "maxparams": 4,
+  "maxdepth": 4,
+  "maxstatements": 15,
+  "maxcomplexity": 6,
+
+  "browser": true,
   "devel": true,
-  "newcap": true,
-  "plusplus": true,
-  "indent": 2,
+  "node": true,
   "jquery": true,
   "globals": {
     "moj": true,
@@ -23,8 +32,5 @@
     "_": true
   },
 
-  "maxparams": 4,
-  "maxdepth": 4,
-  "maxstatements": 15,
-  "maxcomplexity": 6
+  "onevar": true
 }
