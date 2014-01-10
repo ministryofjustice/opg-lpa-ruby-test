@@ -13,7 +13,8 @@ window.ParsleyConfig = window.ParsleyConfig || {};
       minlength:   'is too short (minimum is %s characters)',
       maxlength:   'is too long (maximum is %s characters)'
     },
-    trigger: 'change',
+    trigger: 'keyupchange', // FIX - put both 'keyup' and 'change' together so that the plugin doesn't bind these events - don't want that functionality
+    validateIfUnchanged: true,
     scrollDuration: 0,
     animate: false,
     errorClass: 'validation',
@@ -24,7 +25,10 @@ window.ParsleyConfig = window.ParsleyConfig || {};
         return $(elem).parent();
       },
       container: function (elem) {
-        return elem.parent().find('label');
+        if ($(elem).parent().find('label').find('.validation-message').length === 0) {
+          return $(elem).parent().find('label');
+        }
+        return false;
       }
     }
   });
@@ -77,22 +81,36 @@ window.ParsleyConfig = window.ParsleyConfig || {};
     onFieldError: function (elem, constraints, ParsleyField) {
       var msg = '',
           i = 0;
-
       // loop through constraints
       $.each(constraints, function (constraint, options) {
-        i += 1;
-        if (_.size(constraints) > 1 && i > 1) {
-          msg += ' and ';
+        // make sure if has failed this constraint
+        if (options.valid === false) {
+          i += 1;
+          if (_.size(constraints) > 1 && i > 1) {
+            msg += ' and ';
+          }
+          msg += ParsleyField.Validator.formatMesssage(ParsleyField.Validator.messages[constraint], options.requirements);
         }
-        msg += ParsleyField.Validator.formatMesssage(ParsleyField.Validator.messages[constraint], options.requirements);
       });
-      // push to error array to display in template
-      this.errors.push({label_id: elem.siblings('label').attr('id'), label: elem.siblings('label').text(), error: msg});
+      // make sure message doesn't already exist for that field
+      if (_.findWhere(this.errors, {label_id: $(elem).siblings('label').attr('id')}) === undefined) {
+        // push to error array to display in template
+        this.errors.push({
+          label_id: $(elem).siblings('label').attr('id'),
+          label: $(elem).siblings('label').clone().children().remove().end().text(), // make sure no child text is pulled in
+          error: msg
+        });
+      }
     },
 
     onFormValidate: function (isFormValid, event, ParsleyForm) {
       if (!isFormValid) {
+        // fix to make sure when multiple elements in a group, validation class is still present
+        ParsleyForm.$element.find('.parsley-error-list').parents('.group').addClass('validation');
+        // render summary
         moj.Events.trigger('Validation.renderSummary', {form: ParsleyForm.$element, data: {errors: this.errors}});
+        // clear old errors
+        this.errors = [];
       }
     },
 
