@@ -155,6 +155,10 @@
           focusOn.focus();
         }
       });
+    },
+
+    isOpen: function () {
+      return $('#' + this.settings.popupId).length > 0;
     }
   };
 

@@ -3,6 +3,7 @@
 
   moj.Modules.Validation = {
     init: function () {
+      _.bindAll(this, 'focusError');
       this.cacheEls();
       this.bindEvents();
     },
@@ -12,13 +13,13 @@
     },
 
     bindEvents: function () {
-      this.$body.on('click', '[role="alert"] a', this.focusError);
+      this.$body.on('click.moj.Modules.Validation', '[role="alert"] a', this.focusError);
     },
 
     focusError: function (e) {
       var $target = $($(e.target).attr('href')),
-          $scrollEl = $('#mask').length > 0 ? $('#mask') : $('html, body'),
-          topPos = $('#mask').length > 0 ? $target.offset().top - $('#popup').offset().top + 55 : $target.offset().top;
+          $scrollEl = moj.Modules.Popup.isOpen() ? $('#mask') : $('html, body'),
+          topPos = this.calculateScrollPos($target);
 
       $scrollEl
         .animate({
@@ -26,8 +27,14 @@
         }, 300)
         .promise()
         .done(function() {
-          $target.closest('.group').find('input,select').first().focus();
+          $target.closest('.group').find('input, select, textarea').first().focus();
         });
+    },
+
+    calculateScrollPos: function (target) {
+      return moj.Modules.Popup.isOpen()
+              ? target.offset().top - $('#popup').offset().top + parseInt($('#popup').css('marginTop'))
+              : target.offset().top;
     }
   };
 
