@@ -31,11 +31,7 @@ module.exports = function (grunt) {
           // ignore rails manifest
           'app/assets/javascripts/application.js',
           // ignore legacy code for now
-          'app/assets/javascripts/jquery-plugin/**/*',
-          'app/assets/javascripts/date-picker.js',
-          'app/assets/javascripts/application.js',
-          'app/assets/javascripts/form.js',
-          'app/assets/javascripts/pwstrength.js'
+          'app/assets/javascripts/form.js'
         ]
       },
       files: [
@@ -60,11 +56,11 @@ module.exports = function (grunt) {
     watch: {
       templates: {
         files: ['app/assets/javascripts/templates/**/*'],
-        tasks: ['handlebars'],
+        tasks: ['handlebars']
       },
       jshint: {
         files: ['app/assets/javascripts/**/*.js', 'app/views/**/*.js.erb'],
-        tasks: ['jshint'],
+        tasks: ['jshint']
       }
     }
   });
