@@ -24,7 +24,6 @@
       moj.log('lpa.Modules.FormPopup#init');
       this._cacheEls();
       this._bindEvents();
-      sessionStorage.clear();
     },
 
     _cacheEls: function () {
@@ -67,51 +66,56 @@
 
     _submitForm: function (e) {
       var $form = $(e.target),
-          $submitBtn = $form.find('input[type="submit"]'),
           url = $form.attr('action');
 
       if ($form.parsley('isValid')) {
-        $submitBtn.spinner();
+        $form.find('input[type="submit"]').spinner();
 
         $.ajax({
           url: url,
           type: 'post',
           dataType: 'json',
           data: $form.serialize(),
-          context: this,
-          success: function (response, textStatus, jqXHR) {
-            if (jqXHR.status !== 200) {
-              // if not a succesful request, reload page
-              window.location.reload();
-            } else if (response.success !== undefined && response.success) {
-              // successful, so redirect
-              window.location.reload();
-            } else {
-              // if field errors, display them
-              if (response.errors !== undefined) {
-                var data = {errors: []};
-                $.each(response.errors, function (name, errors) {
-                  data.errors.push({label_id: name + '_label', label: $('#' + name + '_label').text(), error: errors[0]});
-                  moj.Events.trigger('Validation.renderFieldSummary', {form: $form, name: name, errors: errors});
-                });
-                moj.Events.trigger('Validation.renderSummary', {form: $form, data: data});
-                // show error summary
-              } else {
-                // show error summary
-                moj.Events.trigger('Validation.renderSummary', {form: $form, data: {}});
-              }
-              // stop spinner
-              $submitBtn.spinner('off');
-            }
-          },
-          error: function () {
-            // an error occured, reload the page
-            window.location.reload();
-          }
+          context: $form,
+          success: this.ajaxSuccess,
+          error: this.ajaxError
         });
-
         return false;
       }
+    },
+
+    ajaxSuccess: function (response, textStatus, jqXHR) {
+      var $form = $(this),
+          data;
+
+      if (jqXHR.status !== 200) {
+        // if not a succesful request, reload page
+        window.location.reload();
+      } else if (response.success !== undefined && response.success) {
+        // successful, so redirect
+        window.location.reload();
+      } else {
+        // if field errors, display them
+        if (response.errors !== undefined) {
+          data = {errors: []};
+          $.each(response.errors, function (name, errors) {
+            data.errors.push({label_id: name + '_label', label: $('#' + name + '_label').text(), error: errors[0]});
+            moj.Events.trigger('Validation.renderFieldSummary', {form: $form, name: name, errors: errors});
+          });
+          moj.Events.trigger('Validation.renderSummary', {form: $form, data: data});
+          // show error summary
+        } else {
+          // show error summary
+          moj.Events.trigger('Validation.renderSummary', {form: $form, data: {}});
+        }
+        // stop spinner
+        $form.find('input[type="submit"]').spinner('off');
+      }
+    },
+
+    ajaxError: function () {
+      // an error occured, reload the page
+      window.location.reload();
     },
 
     _getCachedForm: function (url) {
@@ -143,8 +147,6 @@
             $('#popup').opgPostcodeLookup();
             // trigger title replacement event
             moj.Events.trigger('TitleSwitch.render', {wrap: '#popup'});
-            // apply form validation
-
           }
         });
       }
