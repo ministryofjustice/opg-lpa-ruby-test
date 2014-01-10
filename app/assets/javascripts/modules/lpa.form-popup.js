@@ -66,57 +66,56 @@
 
     _submitForm: function (e) {
       var $form = $(e.target),
-          $submitBtn = $form.find('input[type="submit"]'),
           url = $form.attr('action');
 
-      if (!$form.parsley('validate')) {
-        // show error summary
-        this._invalidSummary($form, {});
-      } else {
-        // start spinner
-        $submitBtn.spinner();
+      if ($form.parsley('isValid')) {
+        $form.find('input[type="submit"]').spinner();
 
         $.ajax({
           url: url,
           type: 'post',
           dataType: 'json',
           data: $form.serialize(),
-          context: this,
-          success: function (response, textStatus, jqXHR) {
-            if (jqXHR.status !== 200) {
-              // if not a succesful request, reload page
-              window.location.reload();
-            } else if (response.success !== undefined && response.success) {
-              // successful, so redirect
-              window.location.reload();
-            } else {
-              var thing = this,
-                  data;
-              // if field errors, display them
-              if (response.errors !== undefined) {
-                data = {errors: []};
-                $.each(response.errors, function (name, errors) {
-                  data.errors.push({name: name, label: $('#' + name + '_label').text(), error: errors[0]});
-                  thing._invalidField($form, name, errors);
-                });
-                // show error summary
-                this._invalidSummary($form, data);
-              } else {
-                // show error summary
-                this._invalidSummary($form, {});
-              }
-              // stop spinner
-              $submitBtn.spinner('off');
-            }
-          },
-          /*jshint unused: false */
-          error: function (jqXHR, textStatus, errorThrown) {
-            // an error occured, reload the page
-            window.location.reload();
-          }
+          context: $form,
+          success: this.ajaxSuccess,
+          error: this.ajaxError
         });
+        return false;
       }
-      return false;
+    },
+
+    ajaxSuccess: function (response, textStatus, jqXHR) {
+      var $form = $(this),
+          data;
+
+      if (jqXHR.status !== 200) {
+        // if not a succesful request, reload page
+        window.location.reload();
+      } else if (response.success !== undefined && response.success) {
+        // successful, so redirect
+        window.location.reload();
+      } else {
+        // if field errors, display them
+        if (response.errors !== undefined) {
+          data = {errors: []};
+          $.each(response.errors, function (name, errors) {
+            data.errors.push({label_id: name + '_label', label: $('#' + name + '_label').text(), error: errors[0]});
+            moj.Events.trigger('Validation.renderFieldSummary', {form: $form, name: name, errors: errors});
+          });
+          moj.Events.trigger('Validation.renderSummary', {form: $form, data: data});
+          // show error summary
+        } else {
+          // show error summary
+          moj.Events.trigger('Validation.renderSummary', {form: $form, data: {}});
+        }
+        // stop spinner
+        $form.find('input[type="submit"]').spinner('off');
+      }
+    },
+
+    ajaxError: function () {
+      // an error occured, reload the page
+      window.location.reload();
     },
 
     _getCachedForm: function (url) {
@@ -176,28 +175,6 @@
           }
         });
       }
-    },
-
-    _invalidSummary: function (form, data) {
-      var template = lpa.templates['shared.validation-summary'](data);
-      if (form.find('.validation-summary').length === 0) {
-        form.find('fieldset').filter(':first').prepend(template);
-      } else {
-        form.find('.validation-summary').replaceWith(template);
-      }
-    },
-
-    _invalidField: function (form, name, errors) {
-      var $field = form.find('[name*="' + name + '"]'),
-          $label = $field.siblings('label'),
-          template = lpa.templates['shared.validation-field-message']({error: errors[0]});
-
-      // add validation class to parent
-      $field.parent('.group').addClass('validation');
-      // remove old errors
-      $label.find('.validation-message').remove();
-      // apply new template
-      $label.append(template);
     }
   };
 

@@ -7,9 +7,6 @@
 //= require handlebars
 //= require lodash
 
-//===== Configs for Plugins =====\\
-//= require config.parsley
-
 //===== Vendor scripts - /vendor/assets/javascripts/ =====\\
 //= require jquery.details
 // require jquery.tools.min
