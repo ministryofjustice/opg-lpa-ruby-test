@@ -27,3 +27,6 @@ bin/*
 
 # Ignore grunt node modules
 node_modules/
+
+# Ignore test report folders
+report/
