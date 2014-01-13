@@ -6,9 +6,7 @@ class PeopleToBeTold
   end
 
   def fill_forms
-    # puts @data
     people = get_extra_people
-    # puts people
     total_continuations = people.count
     count = 0
     people.each do |person|
@@ -21,8 +19,6 @@ class PeopleToBeTold
   private
 
   def get_extra_people
-    # puts @data
-    puts @data["people_to_be_told"]
     @data["people_to_be_told"].drop(2)
   end
 
@@ -34,9 +30,7 @@ class PeopleToBeTold
   end
 
   def fill_pdf(data, path, template, result)
-    puts data
     xfdf = XFDFMaker.new(data)
-    puts xfdf
     File.open(path, 'w') {|f| f.write(xfdf.create) }
     system "pdftk #{template} fill_form #{path} output #{result} flatten"
   end
