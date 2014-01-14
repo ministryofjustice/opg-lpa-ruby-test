@@ -16,8 +16,7 @@ class JSONFormatter
     result.merge! replacement_attorneys if has_replacement_attorneys?
     result.merge! restrictions if has_restriction?
     result.merge! attorney_decisions if mixed_attorney_decisions?
-    people_yaml = ["person-1.yml", "person-2.yml"]
-    result.merge! get_values(people_yaml, "people_to_be_told") if people_to_be_told?
+    result.merge! people_to_be_told if people_to_be_told?
     result
   end
 
@@ -81,6 +80,11 @@ class JSONFormatter
 
   def people_to_be_told?
     has_value? "people_to_be_told"
+  end
+
+  def people_to_be_told
+    people_yaml = ["person-1.yml", "person-2.yml"]
+    get_values(people_yaml, "people_to_be_told")
   end
 
   def get_values(yaml_files, desired_key)
