@@ -1,11 +1,18 @@
 language: ruby
 rvm:
-- 2.0.0
+  - 2.0.0
 services:
   - redis-server
 before_install:
   - sudo apt-get install pdftk
-script: VCR=true bundle exec rspec spec
+before_script:
+  - npm install
+  - bower install
+script:
+  - VCR=true bundle exec rspec spec
+  - bundle exec rails s &
+  - sleep 30
+  - grunt test --verbose
 notifications:
   hipchat:
     rooms:
