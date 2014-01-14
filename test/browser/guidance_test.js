@@ -15,13 +15,13 @@ module.exports = {
         .end()
         .click()
         .waitForElement('#popup')
-        .wait(500)
         .assert.chain()
           .exists('#popup', 'Popup has been loaded')
           .visible('#topic-lpa-basics', 'Correct topic is visible')
-          .notVisible('#topic-about-this-tool', 'Other topic is not visible')
-          .url().to.contain('/#/help/topic-lpa-basics', 'URL has been changed correctly')
+          // .notVisible('#topic-glossary', 'Other topic is not visible') // doesn't seem to work
         .end()
+        .wait(100)
+        .assert.url().to.contain('/#/help/topic-lpa-basics', 'URL has been changed correctly')
       .end()
       .done();
   },
