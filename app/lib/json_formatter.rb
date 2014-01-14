@@ -3,20 +3,20 @@ class JSONFormatter
 
   def initialize(json)
     @json = JSON.parse json
+    @result = {}
   end
 
   def to_form_data
-    result = {}
-    result.merge! populate_values
+    populate_values
     if has_attorneys?
-      result.merge! populate_attorneys
-      result.merge! populate_continuations_count
+      populate_attorneys
+      populate_continuations_count
     end
-    result.merge! replacement_attorneys if has_replacement_attorneys?
-    result.merge! restrictions if has_restriction?
-    result.merge! attorney_decisions if mixed_attorney_decisions?
-    result.merge! people_to_be_told if people_to_be_told?
-    result
+    replacement_attorneys if has_replacement_attorneys?
+    restrictions if has_restriction?
+    attorney_decisions if mixed_attorney_decisions?
+    people_to_be_told if people_to_be_told?
+    @result
   end
 
   private
@@ -27,7 +27,7 @@ class JSONFormatter
 
   def replacement_attorneys
     file = ["replacement-attorney.yml"]
-    get_values(file, "replacement_attorneys")
+    @result.merge! get_values(file, "replacement_attorneys")
   end
 
   def has_attorneys?
@@ -36,16 +36,14 @@ class JSONFormatter
 
   def populate_attorneys
     attorney_yaml = ["attorney-1.yml", "attorney-2.yml"]
-    get_values(attorney_yaml, "attorneys")
+    @result.merge! get_values(attorney_yaml, "attorneys")
   end
 
   def populate_values()
-    hash = {}
     yml = YAML::load File.open File.join Rails.root, "pdf_config", "pdf-form-map.yml"
     yml.keys.each do |k|
-      hash[k] = get_yml_value(@json, yml[k])
+      @result[k] = get_yml_value(@json, yml[k])
     end
-    hash
   end
 
   def get_yml_value(hash, string)
@@ -58,11 +56,10 @@ class JSONFormatter
   def populate_continuations_count
     count = @json["attorneys"].size
     size = ( count > 2) ? (count - 2) : 0
-    {
-      "Page1A1SheetCount" => size,
+    @result.merge!({ "Page1A1SheetCount" => size,
       "Page1CSheetCount" => size,
       "Page1TotalContSheetCount" => (size * 2)
-    }
+    })
   end
 
   def has_restriction?
@@ -70,7 +67,7 @@ class JSONFormatter
   end
 
   def restrictions
-    { "Restrictions" => "I would like my LPA to take effect only when I lose capacity to make decisions about my property and financial affairs"}
+    @result.merge!({ "Restrictions" => "I would like my LPA to take effect only when I lose capacity to make decisions about my property and financial affairs"})
   end
 
   def mixed_attorney_decisions?
@@ -79,7 +76,7 @@ class JSONFormatter
   end
 
   def attorney_decisions
-    { "AttorneyDecisionsInstructions" => @json["how_attorneys_act_details"] }
+    @result.merge!({ "AttorneyDecisionsInstructions" => @json["how_attorneys_act_details"] })
   end
 
   def people_to_be_told?
@@ -88,7 +85,7 @@ class JSONFormatter
 
   def people_to_be_told
     people_yaml = ["person-1.yml", "person-2.yml"]
-    get_values(people_yaml, "people_to_be_told")
+    @result.merge! get_values(people_yaml, "people_to_be_told")
   end
 
   def get_values(yaml_files, desired_key)
