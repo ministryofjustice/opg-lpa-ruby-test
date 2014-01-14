@@ -9,9 +9,8 @@ class JSONFormatter
     result = {}
     result.merge! populate_values
     if has_attorneys?
-      attorney_yaml = ["attorney-1.yml", "attorney-2.yml"]
-      result.merge! get_values(attorney_yaml, "attorneys")
-      result.merge!(populate_continuations_count)
+      result.merge! populate_attorneys
+      result.merge! populate_continuations_count
     end
     result.merge! replacement_attorneys if has_replacement_attorneys?
     result.merge! restrictions if has_restriction?
@@ -33,6 +32,11 @@ class JSONFormatter
 
   def has_attorneys?
     has_value? "attorneys"
+  end
+
+  def populate_attorneys
+    attorney_yaml = ["attorney-1.yml", "attorney-2.yml"]
+    get_values(attorney_yaml, "attorneys")
   end
 
   def populate_values()
