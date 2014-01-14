@@ -27,7 +27,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   remote: https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/
-  remote: http://gems.dsd.io/
   specs:
     actionmailer (4.0.0)
       actionpack (= 4.0.0)
@@ -285,7 +284,6 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   country_select
   coveralls
-  erubis
   foreman
   govuk_frontend_toolkit!
   govuk_template (= 0.3.8)
