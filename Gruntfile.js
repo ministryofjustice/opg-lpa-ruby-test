@@ -2,7 +2,7 @@ module.exports = function (grunt) {
   'use strict';
 
   // Load all plugins
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  require('matchdep').filterDev(['grunt-*', '!grunt-cli']).forEach(grunt.loadNpmTasks);
 
   // Project configuration.
   grunt.initConfig({
