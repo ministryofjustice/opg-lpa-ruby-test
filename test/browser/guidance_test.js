@@ -32,10 +32,11 @@ module.exports = {
     test
       .open(helper.url)
       .click('.js-guidance')
-      .wait(100)
-      .assert.visible('#popup', 'Popup is visible')
+      .waitForElement('#popup')
+      .wait(750)
+      .assert.visible('#popup', 'Popup has been opened')
       .click('.js-popup-close')
-      .wait(800)
+      .wait(750)
       .assert.doesntExist('#popup', 'Popup has been removed')
       .done();
   },
@@ -46,33 +47,66 @@ module.exports = {
     test
       .open(helper.url)
       .click('.js-guidance')
-      .wait(100)
-      .assert.visible('#popup', 'Popup is visible')
+      .waitForElement('#popup')
+      .wait(750)
+      .assert.visible('#popup', 'Popup has been opened')
       .sendKeys('body', '\uE00C')
-      .wait(800)
+      .wait(750)
       .assert.doesntExist('#popup', 'Popup has been removed')
       .done();
   },
 
-  'Navigate JS Guidance': function (test) {
+  'Change JS Guidance section with navigation': function (test) {
     'use strict';
 
     test
       .open(helper.url)
-      .query('.page-intro')
-        .assert.visible('Intro exists')
-        .query('.js-guidance')
+      .query('.js-guidance')
+        .assert.chain()
+          .exists('Guidance link exists')
+          .attr('href').to.contain('/help/#topic-lpa-basics', 'Guidance link contains correct url')
+        .end()
+        .click()
+        .waitForElement('#popup')
+        .assert.chain()
+          .exists('#popup', 'Popup has been loaded')
+          .visible('#topic-lpa-basics', 'Correct topic is visible')
+        .end()
+        .wait(100)
+        .assert.url().to.contain('/#/help/topic-lpa-basics', 'URL has been changed correctly')
+        .query('.help-navigation ul li:nth-child(2) a')
           .assert.chain()
-            .visible('First Link exists')
-            .attr('href', helper.url + 'help/#topic-lpa-basics', 'First Link is correct')
+            .visible('Nav link exists')
+            .attr('href', helper.url + 'help/#topic-about-this-tool', 'Second link contains correct URL')
           .end()
           .click()
         .end()
-        .wait(100)
         .assert.chain()
-          .url(helper.url + '#/help/topic-lpa-basics', 'First URL changed correctly')
-          .visible('#topic-lpa-basics', 'First topic is visible')
+          .url(helper.url + '#/help/topic-about-this-tool', 'Second URL changed correctly')
+          .visible('#topic-about-this-tool', 'Second topic is visible')
         .end()
+      .end()
+      .done();
+  },
+
+  'Navigate JS Guidance with back/foward buttons': function (test) {
+    'use strict';
+
+    test
+      .open(helper.url)
+      .query('.js-guidance')
+        .assert.chain()
+          .exists('Guidance link exists')
+          .attr('href').to.contain('/help/#topic-lpa-basics', 'Guidance link contains correct url')
+        .end()
+        .click()
+        .waitForElement('#popup')
+        .assert.chain()
+          .exists('#popup', 'Popup has been loaded')
+          .visible('#topic-lpa-basics', 'Correct topic is visible')
+        .end()
+        .wait(100)
+        .assert.url().to.contain('/#/help/topic-lpa-basics', 'URL has been changed correctly')
         .query('.help-navigation ul li:nth-child(2) a')
           .assert.chain()
             .visible('Nav link exists')
