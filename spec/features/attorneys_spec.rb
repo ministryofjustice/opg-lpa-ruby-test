@@ -44,6 +44,7 @@ feature 'Filling in an LPAs attorneys' do
     click_link 'Add an attorney'
     fill_in_valid_name first_name: ""
     fill_in_valid_address
+    fill_in_valid_attorney_date_of_birth
     click_button "Save details"
     expect(page).to have_content("can't be blank")
     fill_in_valid_name first_name: "Attorney Tulisa"
