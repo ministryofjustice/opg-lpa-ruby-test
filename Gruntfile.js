@@ -48,7 +48,7 @@ module.exports = function (grunt) {
         reporter: ['console']
       },
       dist: {
-        src: ['test/browser/*.js']
+        src: ['test/browser/*_test.js']
       }
     },
     imagemin: {
