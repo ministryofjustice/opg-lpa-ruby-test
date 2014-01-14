@@ -13,6 +13,7 @@ class JSONFormatter
       result.merge! get_values(attorney_yaml, "attorneys")
       result.merge!(populate_continuations_count)
     end
+    result.merge! replacement_attorneys if has_replacement_attorneys?
     result.merge! restrictions if has_restriction?
     result.merge! attorney_decisions if mixed_attorney_decisions?
     people_yaml = ["person-1.yml", "person-2.yml"]
@@ -21,6 +22,15 @@ class JSONFormatter
   end
 
   private
+
+  def has_replacement_attorneys?
+    has_value? "replacement_attorneys"
+  end
+
+  def replacement_attorneys
+    file = ["replacement-attorney.yml"]
+    get_values(file, "replacement_attorneys")
+  end
 
   def has_attorneys?
     has_value? "attorneys"

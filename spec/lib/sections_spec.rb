@@ -151,9 +151,9 @@ def json_data
     "replacement_attorneys": [
         {
             "address": {
-                "address_line1": "",
-                "address_line2": "",
-                "address_line3": "",
+                "address_line1": "RA line1",
+                "address_line2": "RA line2",
+                "address_line3": "RA line3",
                 "town": "",
                 "county": "",
                 "post_code": "",
@@ -239,7 +239,12 @@ def valid_hash
     "Notified2Address1" => "2 Secondy Street",
     "Notified2Address2" => "",
     "Notified2Address3" => "",
-    "Notified2Postcode" => "W2"
+    "Notified2Postcode" => "W2",
+    "ReplacementFirstName" => "Replacement Attorney",
+    "ReplacementLastName" => "RA LastName",
+    "ReplacementAddress1" => "RA line1",
+    "ReplacementAddress2" => "RA line2",
+    "ReplacementAddress3" => "RA line3"
   }
 end
 
