@@ -284,6 +284,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   country_select
   coveralls
+  erubis
   foreman
   govuk_frontend_toolkit!
   govuk_template (= 0.3.8)

@@ -3,6 +3,7 @@ source 'https://BnrJb6FZyzspBboNJzYZ@gem.fury.io/govuk/'
 
 ruby '2.0.0'
 
+gem 'erubis'
 gem 'rails', '4.0.0'
 
 gem 'activeresource', '4.0.0'
