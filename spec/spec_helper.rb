@@ -63,6 +63,9 @@ RSpec.configure do |config|
   config.order = "random"
 
   # VCR config
+  ENV['VCR'] = 'false' if ENV['VCR'].nil?
+
+  puts "VCR: #{ENV['VCR']}"
   # config.configure_rspec_metadata!
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.around(:each, :vcr) do |example|
@@ -77,6 +80,12 @@ def fill_in_valid_name(overrides={})
   fill_in 'Title', with: overrides[:title] || "Mr"
   fill_in 'First name', with: overrides[:first_name] || "Johnny"
   fill_in 'Last name', with: overrides[:last_name] || "Smithson"
+end
+
+def fill_in_valid_attorney_date_of_birth(overrides={})
+   select '1', :from => 'attorney_date_of_birth_3i'
+   select 'February', :from => 'attorney_date_of_birth_2i'
+   select '1975', :from => 'attorney_date_of_birth_1i'
 end
 
 def fill_in_valid_address(overrides={})

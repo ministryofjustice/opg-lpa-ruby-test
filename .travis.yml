@@ -5,7 +5,7 @@ services:
   - redis-server
 before_install:
   - sudo apt-get install pdftk
-script: bundle exec rspec spec
+script: VCR=true bundle exec rspec spec
 notifications:
   hipchat:
     rooms:

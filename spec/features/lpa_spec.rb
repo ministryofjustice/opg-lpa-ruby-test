@@ -65,12 +65,14 @@ feature 'Filling in an LPA' do
     click_link 'Add a replacement attorney'
     fill_in_valid_name(:first_name => "Bobby", :last_name => "Man")
     fill_in_valid_address
+    fill_in_valid_attorney_date_of_birth
     click_button "Save details"
     expect(page).to have_content("Bobby Man")
 
     click_link 'Add a replacement attorney'
     fill_in_valid_name(:first_name => "Egbert", :last_name => "Man")
     fill_in_valid_address
+    fill_in_valid_attorney_date_of_birth
     click_button "Save details"
     expect(page).to have_content("Egbert Man")
 
