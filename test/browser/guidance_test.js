@@ -3,24 +3,24 @@ var helper = require('./helper');
 module.exports = {
   name: 'Check Guidance System',
 
-  'Open JS Guidance System': function (test) {
+  'Open JS Guidance System to correct topic': function (test) {
     'use strict';
 
     test
       .open(helper.url)
-      .query('.page-intro')
-        .assert.visible('Intro exists')
-        .query('.js-guidance')
-          .assert.chain()
-            .visible('Link exists')
-            .attr('href', helper.url + 'help/#topic-lpa-basics', 'Link contains correct URL')
-          .end()
-          .click()
-        .end()
-        .wait(1000)
+      .query('.js-guidance')
         .assert.chain()
-          .url(helper.url + '#/help/topic-lpa-basics', 'URL changed correctly')
+          .exists('Guidance link exists')
+          .attr('href').to.contain('/help/#topic-lpa-basics', 'Guidance link contains correct url')
+        .end()
+        .click()
+        .waitForElement('#popup')
+        .wait(500)
+        .assert.chain()
+          .exists('#popup', 'Popup has been loaded')
           .visible('#topic-lpa-basics', 'Correct topic is visible')
+          .notVisible('#topic-about-this-tool', 'Other topic is not visible')
+          .url().to.contain('/#/help/topic-lpa-basics', 'URL has been changed correctly')
         .end()
       .end()
       .done();
