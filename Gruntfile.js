@@ -1,8 +1,11 @@
 module.exports = function (grunt) {
   'use strict';
 
+  // Show execution time of tasks
+  require('time-grunt')(grunt);
+
   // Load all plugins
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  require('matchdep').filterDev(['grunt-*', '!grunt-cli']).forEach(grunt.loadNpmTasks);
 
   // Project configuration.
   grunt.initConfig({

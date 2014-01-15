@@ -1,15 +1,18 @@
 language: ruby
-rvm:
-- 2.0.0
-services:
-  - redis-server
-before_install:
-  - sudo apt-get install pdftk
-script: VCR=true bundle exec rspec spec
+rvm: 2.0.0
+services: redis-server
+before_install: sudo apt-get install pdftk
+before_script:
+  - npm install
+  - bower install
+script:
+  - VCR=true bundle exec rspec spec
+  - bundle exec rails s &
+  - sleep 30
+  - grunt test --verbose
 notifications:
   hipchat:
     rooms:
       secure: nfwnDUHH5/yEjXW28+WQvcmOvAvAEXuu4dk7o+Wmh9c00Irt76tUp7708IZqkUQlU9GR/7Lp3mEH7cuvHfn96Nwslo63NmklntmPxKy6RcjjvsdYAd72KoeYC2eGTMkT5lGbTIxAjon4b6sATporhal0UyovQBlOjonFtNOkyVw=
     format: html
-    template:
-      - '%{message} (<a href="%{build_url}">details</a>/<a href="%{compare_url}">changes</a>) - build #%{build_number}, branch <a href="https://github.com/%{repository}/tree/%{branch}">%{branch}</a> of %{repository}'
+    template: '%{message} (<a href="%{build_url}">details</a>/<a href="%{compare_url}">changes</a>) - build #%{build_number}, branch <a href="https://github.com/%{repository}/tree/%{branch}">%{branch}</a> of %{repository}'
