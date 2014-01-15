@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/ministryofjustice/author.git
-  revision: 3ef33032ca2cbb80eb9ae600d61403ad932fd70c
+  revision: 7e687befe7665c63353dc284b650e3edbd4f2400
   branch: pass-host-uri-to-client
   specs:
     author (1.0)
