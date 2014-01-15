@@ -37,8 +37,19 @@ module.exports = function (grunt) {
       files: [
         'Gruntfile.js',
         'app/assets/javascripts/**/*.js',
-        'app/views/**/*.js.erb'
+        'app/views/**/*.js.erb',
+        'test/**/*.js',
+        'test/*.js'
       ]
+    },
+    dalek: {
+      options: {
+        browser: ['phantomjs'],
+        reporter: ['console']
+      },
+      dist: {
+        src: ['test/browser/*_test.js']
+      }
     },
     imagemin: {
       dynamic: {
@@ -66,5 +77,7 @@ module.exports = function (grunt) {
   });
 
   // task(s).
-  grunt.registerTask('default', ['handlebars', 'jshint', 'imagemin']);
+  grunt.registerTask('default', ['build']);
+  grunt.registerTask('test', ['jshint', 'dalek']);
+  grunt.registerTask('build', ['handlebars', 'imagemin', 'test']);
 };
