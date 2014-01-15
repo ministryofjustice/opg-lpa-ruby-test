@@ -45,10 +45,19 @@ module.exports = function (grunt) {
     dalek: {
       options: {
         browser: ['phantomjs'],
-        reporter: ['console']
+        reporter: ['console'],
+        files: [
+          'test/browser/*_test.js'
+        ]
       },
-      dist: {
-        src: ['test/browser/*_test.js']
+      headless: {
+        src: ['<%= dalek.options.files %>']
+      },
+      all: {
+        options: {
+          browser: ['chrome', 'firefox', 'phantomjs']
+        },
+        src: ['<%= dalek.options.files %>']
       }
     },
     imagemin: {
@@ -66,18 +75,22 @@ module.exports = function (grunt) {
     },
     watch: {
       templates: {
-        files: ['app/assets/javascripts/templates/**/*'],
+        files: ['<%= handlebars.compile.src %>'],
         tasks: ['handlebars']
       },
       jshint: {
-        files: ['app/assets/javascripts/**/*.js', 'app/views/**/*.js.erb'],
+        files: ['<%= jshint.files %>', '!<%= handlebars.compile.dest %>'],
         tasks: ['jshint']
+      },
+      dalek: {
+        files: ['<%= dalek.options.files %>', 'test/*.js'],
+        tasks: ['dalek:headless']
       }
     }
   });
 
   // task(s).
   grunt.registerTask('default', ['build']);
-  grunt.registerTask('test', ['jshint', 'dalek']);
+  grunt.registerTask('test', ['jshint', 'dalek:headless']);
   grunt.registerTask('build', ['handlebars', 'imagemin', 'test']);
 };
