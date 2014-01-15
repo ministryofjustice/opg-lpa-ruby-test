@@ -13,7 +13,8 @@
     "grunt-contrib-imagemin": "0.4.0",
     "grunt-dalek": "0.2.0",
     "dalek-reporter-html": "0.0.3",
-    "dalek-browser-chrome": "0.0.8"
+    "dalek-browser-chrome": "0.0.8",
+    "time-grunt": "~0.2.8"
   },
   "scripts": {
     "test": "grunt test --verbose"
