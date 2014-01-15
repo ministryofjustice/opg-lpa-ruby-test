@@ -68,13 +68,33 @@ All JS template files currently live in `app/assets/javascripts/templates/`. To 
 
     grunt handlebars
 
-#### Error Checking
+#### JS Linting
 
 [JSHint](http://www.jshint.com/docs/) is being run on JS files to detect errors and problems in JS code.
 
 To manually check JS files run:
 
     grunt jshint
+
+#### Automated Browser Tests
+
+Browser tests are being run using a combination of [DalekJS](http://dalekjs.com/) and either [PhantomJS](http://phantomjs.org/) or a locally installed browser.
+
+These are integration tests that are mainly used to test JavaScript specific functionality like an overlay correctly opening and closing with the right content.
+
+To run tests silently in a PhantomJS:
+
+    grunt dalek:headless
+
+To run tests with local versions of Chrome, Firefox and in PhantomJS:
+
+    grunt dalek:all
+
+#### CI Tests
+
+The CI server will run a grunt command to lint JS files and run the browser tests. To simulate this, run:
+
+    grunt test
 
 #### Image Optimisation
 
@@ -83,3 +103,15 @@ To manually check JS files run:
 To optimise run:
 
     grunt imagemin
+
+#### Watch during Dev
+
+To watch files during development and run associated tasks, run:
+
+    grunt watch
+
+Subtasks of this are also available as:
+
+    grunt watch:templates
+    grunt watch:jshint
+    grunt watch:dalek
