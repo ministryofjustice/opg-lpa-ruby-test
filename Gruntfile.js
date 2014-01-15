@@ -56,6 +56,12 @@ module.exports = function (grunt) {
       headless: {
         src: ['<%= dalek.options.files %>']
       },
+      chrome: {
+        options: {
+          browser: ['chrome']
+        },
+        src: ['<%= dalek.options.files %>']
+      },
       all: {
         options: {
           browser: ['chrome', 'firefox', 'phantomjs']
