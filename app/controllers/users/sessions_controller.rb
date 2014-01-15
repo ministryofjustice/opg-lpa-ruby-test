@@ -1,8 +1,3 @@
-class ApiClient
-  include HTTParty
-  base_uri ENV['API_HOST']
-end
-
 class Users::SessionsController < ApplicationController
 
   def new
@@ -16,7 +11,7 @@ class Users::SessionsController < ApplicationController
   def create
     @session = Session.new(params[:session])
 
-    response = ApiClient.post('/auth/sessions', body: @session.credentials)
+    response = auth_client.login @session.email, @session.password
 
     if response.code == 201
       reset_session
@@ -47,7 +42,7 @@ class Users::SessionsController < ApplicationController
 
   def destroy_secure_token
     if read_secure_token
-      ApiClient.delete("/auth/sessions/#{read_secure_token}")
+      auth_client.logout(read_secure_token)
     end
     Rails.cache.delete(secure_token_cache_key)
   end
@@ -62,6 +57,4 @@ class Users::SessionsController < ApplicationController
       resource.errors.add(:note, message)
     end
   end
-
 end
-

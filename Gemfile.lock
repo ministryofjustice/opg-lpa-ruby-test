@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/ministryofjustice/author.git
+  revision: b6037f2d6ce1eca089cc3067723e980f9fd3d95f
+  branch: pass-host-uri-to-client
+  specs:
+    author (1.0)
+      httparty (>= 0.12.0)
+
+GIT
   remote: git://github.com/ministryofjustice/govuk_frontend_toolkit_gem.git
   revision: 145acb0dbfd64ea08a5d62189deb7fb2365bd41f
   branch: asset-submodule
@@ -278,6 +286,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeresource (= 4.0.0)
+  author!
   byebug
   capybara
   clogger

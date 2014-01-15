@@ -57,4 +57,9 @@ class ApplicationController < ActionController::Base
   def store_applicant_name applicant
     session[:applicant_name] = [applicant.first_name, applicant.last_name].join(' ')
   end
+
+  def auth_client
+    @client ||= Author::Client.new(ENV['API_HOST'])
+  end
+
 end

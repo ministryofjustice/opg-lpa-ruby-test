@@ -1,8 +1,3 @@
-class ApiClient
-  include HTTParty
-  base_uri ENV['API_HOST']
-end
-
 class Users::RegistrationsController < ApplicationController
 
   def new
@@ -16,7 +11,7 @@ class Users::RegistrationsController < ApplicationController
   def create
     @registration = Registration.new(params[:registration])
 
-    response = ApiClient.post('/auth/users', body: @registration.credentials)
+    response = auth_client.register @registration.email, @registration.password
 
     if response.code == 201
       SignUpConfirmer.signup_email(@registration.email).deliver
@@ -40,4 +35,3 @@ class Users::RegistrationsController < ApplicationController
   end
 
 end
-
