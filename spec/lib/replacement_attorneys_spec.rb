@@ -270,7 +270,7 @@ describe ReplacementAttorneys do
         pdfs_dir = "#{Rails.root}/pdfs/drafts/*"
         count = Dir[pdfs_dir].length
         ReplacementAttorneys.new(pdf_file, json).fill_forms
-        Dir[pdfs_dir].length.should eq (count + 1)
+        Dir[pdfs_dir].length.should eq (count + 2)
       end
 
       describe "continuation sheets should be added to the main LPA PDF" do
@@ -279,7 +279,7 @@ describe ReplacementAttorneys do
         let(:pages) { %x[pdftk #{file} dump_data | awk '/NumberOfPages/ {print $2}'] }
 
         it "should have the correct number of pages" do
-          pages.to_i.should eq 18
+          pages.to_i.should eq 22
         end
       end
     end
