@@ -7,7 +7,9 @@ describe Users::RegistrationsController do
     context 'when successful' do
       before do
         @applicant_email_address = 'ex@ample.com'
-        ApiClient.stub(:post).and_return double(code: 201)
+        client = double
+        Author::Client.stub(:new).and_return client
+        client.stub(:register).and_return double(code: 201)
       end
 
       def get_create
