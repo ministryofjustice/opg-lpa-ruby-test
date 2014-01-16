@@ -16,10 +16,10 @@ GIT
 
 GIT
   remote: git://github.com/ministryofjustice/moj_boilerplate.git
-  revision: 0f98161db6f645e4bf67376485722ca980ec387b
-  tag: v0.3.1
+  revision: 52ba3405c9d56771e19c5047a636f3cd4ffe9f77
+  tag: v0.4.0
   specs:
-    moj_boilerplate (0.3.1)
+    moj_boilerplate (0.4.0)
       govuk_frontend_toolkit (= 0.39.0)
       govuk_template (= 0.3.8)
 

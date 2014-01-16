@@ -41,7 +41,7 @@ module OpgLpa
     # known values: information, service
     config.product_type = 'service'
     # feedback link url
-    config.feedback_url = '#'
+    config.feedback_url = 'auto_add_path'
     # Google Analytics tracking ID
     config.ga_id = ''
 
