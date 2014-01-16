@@ -29,7 +29,7 @@ class ReplacementAttorneys
     path = File.open("templates/continuation_A1_#{@lpa_id}.xfdf", 'w+').path
     template =  File.join(Rails.root, "templates", "PFA_continuation_A1.pdf")
     result = File.join("pdfs", "drafts", "continuation_A1_#{@lpa_id}.pdf")
-    fill_pdf data.continuationA1, path, template, result
+    fill_pdf data.continuation_a1, path, template, result
   end
 
   def populate_c(data)

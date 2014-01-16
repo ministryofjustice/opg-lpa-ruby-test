@@ -7,13 +7,12 @@ class ReplacementAttorneyContinuations
   end
 
 
-  def continuationA1
-    @hash["Line1"] = first_line
-    @hash["Line2"] = get_name_with_title
-    @hash["Line3"] = get_address
-    @hash["Line4"] = ""
-    @hash["Line5"] = get_dob
-    @hash
+  def continuation_a1
+    @hash.merge!({ "Line1" => first_line,
+                   "Line2" => get_name_with_title,
+                   "Line3" => get_address,
+                   "Line4" => "",
+                   "Line5" => get_dob })
   end
 
   def continuation_c

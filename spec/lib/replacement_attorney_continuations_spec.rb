@@ -44,7 +44,7 @@ describe ReplacementAttorneyContinuations do
 
     describe "#continuationA1" do
       it "should generate correct fields to fill" do
-        cont.continuationA1.should eq replacement_attorney_parsed
+        cont.continuation_a1.should eq replacement_attorney_parsed
       end
     end
 
