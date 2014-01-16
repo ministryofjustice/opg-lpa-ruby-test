@@ -1,10 +1,17 @@
 .feedback-form.form {
-  padding: 20px;
-  background: lighten($grey-3, 4%);
-
+  .validation-summary {
+    margin-left: 0;
+    margin-right: 0;
+  }
   fieldset {
-    padding: 0 10px;
+    padding: 15px 30px;
     margin-top: 0;
+    background: lighten($grey-3, 4%);
+
+    .field_with_errors {
+      display: inline;
+      display: inline-block;
+    }
 
     input[type="text"],
     input[type="email"],
