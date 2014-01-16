@@ -34,6 +34,10 @@ def replacement_attorney_parsed
   }
 end
 
+def continuation_c
+  { "fullName_auth_sig_1" => "Genghis Khan" }
+end
+
 describe ReplacementAttorneyContinuations do
   context "when a person to be told is shown" do
     let(:cont) { ReplacementAttorneyContinuations.new(1, 1, second_replacement_attorney) }
@@ -41,6 +45,12 @@ describe ReplacementAttorneyContinuations do
     describe "#continuationA1" do
       it "should generate correct fields to fill" do
         cont.continuationA1.should eq replacement_attorney_parsed
+      end
+    end
+
+    describe "#continuation_c" do
+      it "should generate correct fields to fill" do
+        cont.continuation_c.should eq continuation_c
       end
     end
   end

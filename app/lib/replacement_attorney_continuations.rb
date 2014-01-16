@@ -16,6 +16,10 @@ class ReplacementAttorneyContinuations
     @hash
   end
 
+  def continuation_c
+    { "fullName_auth_sig_1" => "#{get_full_name}" }
+  end
+
   private
 
   def first_line
