@@ -68,6 +68,10 @@
         padding: 0;
       }
     }
+
+    .address-type-toggle {
+      margin-left: 10.3em;
+    }
   }
 }
 
@@ -89,73 +93,52 @@
   }
 }
 
-// Select a person for a role
-.form .role-select {
-  overflow: auto;
-  border-bottom: 1px solid $border-colour;
-  margin: 0;
-  padding: 1em 0 1em 1.25em;
-  background: $highlight-colour;
 
-  #popup & {
-    margin-left: -1em;
+.form {
+  // Select a person for a role
+  .role-select {
+    overflow: auto;
+    border-bottom: 1px solid $border-colour;
+    margin: 0;
+    padding: 1em 0 1em 1.25em;
+    background: $highlight-colour;
+
+    #popup & {
+      margin-left: -1em;
+    }
+    a {
+      @include core-16;
+    }
+    select {
+      min-width: 11.5em;
+    }
   }
-  a {
+  // toggle an address type
+  .address-type-toggle {
     @include core-16;
-  }
-  select {
-    min-width: 11.5em;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    list-style: none;
+    li {
+      float: left;
+      line-height: 1em;
+      padding: 0 0 0 0.5em;
+      margin: 0 0 0 0.5em;
+      border-left: 1px solid $border-colour;
+      &:first-child {
+        border-left: 0;
+        margin-left: 0;
+        padding-left: 0;
+      }
+    }
   }
 }
+
 
 // ===========================================================
 // LEGACY CODE
 // ===========================================================
-
-
-// Pre-populate form link (not required for live version)
-#form-populate{
-  float: right;
-  padding: 1em 4em;
-}
-
-
-// Title dropdown (Mr, Mrs etc.)
-.title select{
-  display: none;
-}
-
-// Address and postcode-lookup
-#address-postcode,
-#postcode-lookup,
-#postcode{
-  width: 6.3em;
-}
-.postcode-lookup{
-  vertical-align: top;
-}
-.address-list{
-  width: 16em;
-}
-#popup .address-fields-link {
-  margin-left: 10.3em;
-  overflow: hidden;
-  list-style-type: none;
-  list-style-image: none;
-  li{
-    float: left;
-    line-height: 1em;
-    padding: 0;
-    &:nth-child(2){
-      padding-left: 0.5em;
-      border-left: 1px solid $border-colour;
-      margin-left: 0.5em;
-    }
-  }
-}
-#address-country{
-  width: 15.5em;
-}
 
 // Make hints the same width as text fields
 #popup.form-popup .hint{
