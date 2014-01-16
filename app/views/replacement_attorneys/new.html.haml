@@ -5,7 +5,7 @@
     .inner
       %h2.header Enter replacement attorney details
       = form_for @attorney, :url => lpa_replacement_attorneys_path(@lpa), :html => { :class => 'form js-validate-form', 'novalidate' => '' } do |attorney_form|
-        = render "shared/validation_summary", :form_object => attorney_form
+        = render "shared/validation_summary", :form_object => attorney_form.object
         = render :partial => '/shared/person_form', :locals => {:person_form => attorney_form, :show_dob => true, :show_dx_address => true}
         %p.action.group
           = attorney_form.submit "Save details", class: "button"

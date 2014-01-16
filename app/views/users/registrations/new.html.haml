@@ -8,7 +8,7 @@
         = form_for @registration, url: users_registration_path, :html => { :class => "form", :autocomplete => "off" } do |registration_form|
           %p We need an email address and password from you. This is so you can save and retrieve any LPAs you make.
           %p If you already have an account please #{link_to "sign in", users_new_session_path}.
-          = render "shared/validation_summary", :form_object => registration_form
+          = render "shared/validation_summary", :form_object => registration_form.object
           %fieldset
             %legend Email address
             = input_for(registration_form, "email", {type: "email", label_override: "Enter your email address"})

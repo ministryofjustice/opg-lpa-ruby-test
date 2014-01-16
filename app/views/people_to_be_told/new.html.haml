@@ -5,7 +5,7 @@
     .inner
       %h2.header Enter person to be told details
       = form_for @person_to_be_told, :url => lpa_people_to_be_told_path(@lpa), :html => { :class => 'form js-validate-form', 'novalidate' => '' } do |person_to_be_told_form|
-        = render "shared/validation_summary", :form_object => person_to_be_told_form
+        = render "shared/validation_summary", :form_object => person_to_be_told_form.object
         = render :partial => '/shared/person_form', :locals => {:person_form => person_to_be_told_form, :without_email => true, :without_phone => true}
         %p.action.group
           = person_to_be_told_form.submit "Save details", class: "button"

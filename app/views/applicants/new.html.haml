@@ -8,7 +8,7 @@
       = form_for @applicant, :html => { :class => 'form' } do |applicant_form|
         %p First, please give us some information about you.
         %p You'll be able to use these details in any LPAs you make using this tool.
-        = render "shared/validation_summary", :form_object => applicant_form
+        = render "shared/validation_summary", :form_object => applicant_form.object
         = render :partial => 'shared/person_form', :locals => { person_form: applicant_form, show_dob: true, without_email: true, without_phone: true }
 
         %p.action.group

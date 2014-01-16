@@ -1,12 +1,6 @@
-= form_for @feedback, :url => feedback_path, :html => {:class => 'form feedback-form', :novalidate => 'novalidate'} do |f|
-  - if @feedback.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@feedback.errors.count, "error")
-        prohibited your feedback from being sent:
-      %ul
-        - @feedback.errors.full_messages.each do |msg|
-          %li= msg
+= form_for @feedback, :url => feedback_path, :html => {:class => "form feedback-form", :novalidate => "novalidate"} do |f|
+  = render "shared/validation_summary", :form_object => @feedback
+
   %fieldset
     .group
       %label How would you rate your experience with this service?
