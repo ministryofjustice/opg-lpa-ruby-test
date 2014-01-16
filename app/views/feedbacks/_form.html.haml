@@ -1,0 +1,32 @@
+= form_for @feedback, :url => feedback_path, :html => {:class => 'form feedback-form', :novalidate => 'novalidate'} do |f|
+  - if @feedback.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@feedback.errors.count, "error")
+        prohibited your feedback from being sent:
+      %ul
+        - @feedback.errors.full_messages.each do |msg|
+          %li= msg
+  %fieldset
+    .group
+      %label How would you rate your experience with this service?
+      = f.radio_button :rating, "5"
+      = f.label :rating, "Very good", :value=>"5", :class=>"radio"
+      = f.radio_button :rating, "4"
+      = f.label :rating, "Good", :value=>"4", :class=>"radio"
+      = f.radio_button :rating, "3"
+      = f.label :rating, "Unsure", :value=>"3", :class=>"radio"
+      = f.radio_button :rating, "2"
+      = f.label :rating, "Bad", :value=>"2", :class=>"radio"
+      = f.radio_button :rating, "1"
+      = f.label :rating, "Very bad", :value=>"1", :class=>"radio"
+    .group
+      = f.label :text, "Please take a moment to tell us about your experience, what worked and what didn't."
+      = f.text_area :text, :cols => 50, :rows => 5
+      %p#char-limit 2000 characters max
+    .group
+      = f.label :email, "Your email address (optional)"
+      = f.email_field :email
+    %p.action.group
+      %input{:name => "referrer", :type => "hidden", :value => params[:referrer]}
+      = f.submit "Send", :class => "button"
