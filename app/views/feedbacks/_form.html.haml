@@ -3,7 +3,7 @@
 
   %fieldset
     .group
-      %label How would you rate your experience with this service?
+      %label#rating_label How would you rate your experience with this service?
       = f.radio_button :rating, "5"
       = f.label :rating, "Very good", :value=>"5", :class=>"radio"
       = f.radio_button :rating, "4"
@@ -15,11 +15,11 @@
       = f.radio_button :rating, "1"
       = f.label :rating, "Very bad", :value=>"1", :class=>"radio"
     .group
-      = f.label :text, "Please take a moment to tell us about your experience, what worked and what didn't."
+      = f.label :text, "Please take a moment to tell us about your experience, what worked and what didn't.", :id => "text_label"
       = f.text_area :text, :cols => 50, :rows => 5
       %p#char-limit 2000 characters max
     .group
-      = f.label :email, "Your email address (optional)"
+      = f.label :email, "Your email address (optional)", :id => "email_label"
       = f.email_field :email
     %p.action.group
       %input{:name => "referrer", :type => "hidden", :value => params[:referrer]}
