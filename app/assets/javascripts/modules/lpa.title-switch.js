@@ -4,15 +4,15 @@
   moj.Modules.TitleSwitch = {
     selector: '.js-TitleSwitch',
 
-    options: [
-      '',
-      'Mr',
-      'Mrs',
-      'Miss',
-      'Ms',
-      'Dr',
-      'Other'
-    ],
+    options: {
+      'choose': '',
+      'Mr': 'Mr',
+      'Mrs': 'Mrs',
+      'Miss': 'Miss',
+      'Ms': 'Ms',
+      'Dr': 'Dr',
+      'Other': 'Other'
+    },
 
     init: function () {
       // bind 'this' as this in following methods
@@ -40,10 +40,9 @@
 
       // if the current value is not one of our options
       // or if element has already been replaced
-      if ($.inArray(value, this.options) === -1 || $text.data('moj.TitleSwitch') !== undefined) {
+      if (!_.contains(this.options, value) || $text.data('moj.TitleSwitch') !== undefined) {
         return;
       }
-
       // build select box
       $select = $('<select>', {
         'id': $text.attr('id') + '__select',
@@ -51,11 +50,11 @@
         'class': 'js-TitleSwitch-select'
       });
       // add options
-      $.each(this.options, function (key, value) {
-        $select.append($('<option>', { value: value }).text(value));
+      $.each(this.options, function (name, value) {
+        $select.append($('<option>', { value: value }).text(name));
       });
       // check if current value matches an option
-      if ($.inArray(value, this.options) !== -1) {
+      if (_.contains(this.options, value)) {
         $text.hide();
         $select.val(value);
       }
