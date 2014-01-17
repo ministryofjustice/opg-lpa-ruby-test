@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 ENV['API_HOST'] ||= 'http://localhost:9292'
+ENV['SITE_URL'] ||= 'http://localhost:3000'
 
 # Pick the frameworks you want:
 # require "active_model"

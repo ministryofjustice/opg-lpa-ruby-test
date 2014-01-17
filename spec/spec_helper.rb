@@ -150,6 +150,8 @@ def confirm_registration
     raise 'confirmation_token blank'
   end
   visit "/users/confirmations/#{confirmation_token}"
+  expect(page).to have_content('Thank you. Your account has now been activated.')
+  click_link "sign in"
 end
 
 def sign_up_and_sign_in

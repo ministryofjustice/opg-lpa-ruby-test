@@ -9,10 +9,10 @@ describe SignUpConfirmer do
   describe 'signup_email' do
 
     let(:applicant_email) { 'applicant@example.com' }
-    let(:confirmation_token) { 'xxvFLfedlj' }
+    let(:confirmation_url) { 'http://testhost/users/confirmations/xxvFLfedlj' }
 
     before do
-      @email = SignUpConfirmer.signup_email(applicant_email, confirmation_token).deliver
+      @email = SignUpConfirmer.signup_email(applicant_email, confirmation_url).deliver
     end
 
     it 'should have correct "from" field' do
