@@ -31,8 +31,11 @@ var helper = {
       .type('[name="applicant[first_name]"]', 'John')
       .type('[name="applicant[last_name]"]', 'Smith')
       .type('[name="applicant[date_of_birth(3i)]"]', '10')
+      .click('h1', 'click different element')
       .type('[name="applicant[date_of_birth(2i)]"]', 'January')
+      .click('h1', 'click different element')
       .type('[name="applicant[date_of_birth(1i)]"]', '1980')
+      .click('h1', 'click different element')
       .click('input[value="Save and continue"]')
       .done();
   },

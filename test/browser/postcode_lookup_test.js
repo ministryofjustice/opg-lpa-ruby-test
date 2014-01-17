@@ -5,7 +5,7 @@ module.exports = {
 
   'create account': helper.createAccount,
   'login to account': helper.login,
-  // 'fill in details': helper.fillDetails,
+  'fill in details': helper.fillDetails,
 
   'create LPA': function (test) {
     'use strict';
