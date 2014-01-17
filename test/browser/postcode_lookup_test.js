@@ -19,6 +19,8 @@ module.exports = {
   },
 
   'empty postcode value should return error': function (test) {
+    'use strict';
+
     test
       .click('.js-PostcodeLookup__search-btn', 'click postcode search button')
       // temp disable until bug with phantomjs is fixed
@@ -28,6 +30,8 @@ module.exports = {
   },
 
   'postcode search value should return results in select': function (test) {
+    'use strict';
+
     test
       .type('.js-PostcodeLookup__query', 'SW1', 'enter value into postcode search query')
       .click('.js-PostcodeLookup__search-btn', 'click postcode search button')
@@ -38,6 +42,8 @@ module.exports = {
   },
 
   'changing option in select should populate address': function (test) {
+    'use strict';
+
     test
       .type('.js-PostcodeLookup__search-results', 'Flat', 'select address from results')
       .click('[for="donor_cannot_sign"]', 'click different element to trigger change')
@@ -49,6 +55,8 @@ module.exports = {
   },
 
   'selecting manual address shows address fields': function (test) {
+    'use strict';
+
     test
       .reload()
       .click('.js-PostcodeLookup__toggle-address[data-address-type="postal"]', 'click manual address toggle')
@@ -60,6 +68,8 @@ module.exports = {
   },
 
   'selecting dx address shows dx fields': function (test) {
+    'use strict';
+
     test
       .reload()
       .click('.js-PostcodeLookup__toggle-address[data-address-type="dx"]', 'click manual address toggle')

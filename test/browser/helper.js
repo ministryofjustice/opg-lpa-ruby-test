@@ -4,6 +4,8 @@ var helper = {
   password: 'tardis123',
 
   createAccount: function (test) {
+    'use strict';
+
     test
       .open(helper.url + 'users/sign_up')
       .type('[name="registration[email]"]', helper.username)
