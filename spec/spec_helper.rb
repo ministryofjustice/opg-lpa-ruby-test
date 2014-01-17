@@ -3,7 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 ENV['API_HOST'] ||= 'http://localhost:9292'
 
 ENV['SENDER_EMAIL'] ||= "'Sender' <sender@testhost>"
-ENV['SITE_URL'] ||= "testhost"
+ENV['SITE_URL'] ||= "http://testhost"
 ENV['CONTACT_PHONE'] ||= "0000 000 0000"
 ENV['CONTACT_EMAIL'] ||= "contact@testhost"
 ENV['CONTACT_ADDRESS'] ||= "PO Box 123"

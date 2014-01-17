@@ -15,7 +15,9 @@ class Users::RegistrationsController < ApplicationController
 
     if response.code == 201
       @confirmation_token = response['confirmation_token']
-      SignUpConfirmer.signup_email(@registration.email, @confirmation_token).deliver
+      @confirmation_url = "#{ENV['SITE_URL']}/users/confirmations/#{@confirmation_token}"
+
+      SignUpConfirmer.signup_email(@registration.email, @confirmation_url).deliver
     else
       set_validation_messages response, @registration
       render :template => '/users/registrations/new'
