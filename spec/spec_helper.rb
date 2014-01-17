@@ -143,12 +143,23 @@ def fill_in_sign_in(overrides={})
   fill_in 'Password',      with: overrides[:password] || valid_password
 end
 
+def confirm_registration
+  confirmation_token = page.body[/confirmation_token.*>(.*)</,1] # only present for testing
+  if confirmation_token.blank?
+    save_and_open_page
+    raise 'confirmation_token blank'
+  end
+  visit "/users/confirmations/#{confirmation_token}"
+end
+
 def sign_up_and_sign_in
   visit "/users/sign_up"
   fill_in_sign_up
   click_button "I understand"
   expect(page).to have_content('Please check your email')
-  click_link "sign in now"
+
+  confirm_registration
+
   fill_in_sign_in
   click_button "Sign in"
 end

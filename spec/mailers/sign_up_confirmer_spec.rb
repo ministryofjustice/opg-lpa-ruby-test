@@ -8,9 +8,11 @@ describe SignUpConfirmer do
 
   describe 'signup_email' do
 
+    let(:applicant_email) { 'applicant@example.com' }
+    let(:confirmation_token) { 'xxvFLfedlj' }
+
     before do
-      @applicant_email = 'applicant@example.com'
-      @email = SignUpConfirmer.signup_email(@applicant_email).deliver
+      @email = SignUpConfirmer.signup_email(applicant_email, confirmation_token).deliver
     end
 
     it 'should have correct "from" field' do
@@ -22,7 +24,7 @@ describe SignUpConfirmer do
     end
 
     it 'should have correct "to" field' do
-      @email.to.should == [ @applicant_email ]
+      @email.to.should == [ applicant_email ]
     end
 
     it 'should have correct body' do

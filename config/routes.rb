@@ -25,6 +25,8 @@ OpgLpa::Application.routes.draw do
     get  '/sign_up' => 'registrations#new',    as: :new_registration
     post '/'        => 'registrations#create', as: :registration
 
+    get '/confirmations/:confirmation_token' => 'confirmations#show'
+
     get  '/sign_in' => 'sessions#new',    as: :new_session
     post '/sign_in' => 'sessions#create', as: :session
     delete '/sign_out' => 'sessions#destroy', as: :destroy_session

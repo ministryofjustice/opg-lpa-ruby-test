@@ -6,7 +6,9 @@ feature 'Filling in an LPAs attorneys' do
     visit "/users/sign_up"
     fill_in_sign_up
     click_button "I understand"
-    click_link "sign in now"
+
+    confirm_registration
+
     fill_in_sign_in
     click_button "Sign in"
   end

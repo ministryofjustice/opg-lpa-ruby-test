@@ -9,7 +9,10 @@ describe Users::RegistrationsController do
         @applicant_email_address = 'ex@ample.com'
         client = double
         Author::Client.stub(:new).and_return client
-        client.stub(:register).and_return double(code: 201)
+        response = double(code: 201)
+        @confirmation_token = 'xfFeIndreD'
+        response.stub(:[]).and_return @confirmation_token
+        client.stub(:register).and_return response
       end
 
       def get_create
@@ -17,7 +20,7 @@ describe Users::RegistrationsController do
       end
 
       it 'should create email with applicant email address' do
-        SignUpConfirmer.should_receive(:signup_email).with(@applicant_email_address).and_return double(deliver: nil)
+        SignUpConfirmer.should_receive(:signup_email).with(@applicant_email_address, @confirmation_token).and_return double(deliver: nil)
         get_create
       end
 

@@ -17,7 +17,8 @@ feature 'Sign up and sign in' do
     click_button "I understand"
     expect(page).to have_content('Please check your email')
 
-    click_link "sign in now"
+    confirm_registration
+
     expect(page).to have_content('Sign in')
 
     fill_in_sign_in email: ''

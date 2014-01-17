@@ -7,6 +7,9 @@
       %h2 Please check your email.
       %p We've sent you a link that you need to click to verify your email address and activate your account.
 
+      - if Rails.env.test?
+        %p#confirmation_token= @confirmation_token
+
       %p You'll need to use this link within 24 hours, or enter your details again.
 
       %p If you've already activated your account, you can #{link_to 'sign in now', users_new_session_path}.

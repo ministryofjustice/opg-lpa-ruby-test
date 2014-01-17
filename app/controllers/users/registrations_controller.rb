@@ -14,7 +14,8 @@ class Users::RegistrationsController < ApplicationController
     response = auth_client.register @registration.email, @registration.password
 
     if response.code == 201
-      SignUpConfirmer.signup_email(@registration.email).deliver
+      @confirmation_token = response['confirmation_token']
+      SignUpConfirmer.signup_email(@registration.email, @confirmation_token).deliver
     else
       set_validation_messages response, @registration
       render :template => '/users/registrations/new'
