@@ -1,3 +1,6 @@
+// Title Switch module for LPA
+// Dependencies: moj, _, jQuery
+
 (function () {
   'use strict';
 
