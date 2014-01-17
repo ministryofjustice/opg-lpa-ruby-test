@@ -36,8 +36,8 @@
     cacheEls: function (wrap) {
       this.$wrap = wrap;
       this.$form = this.$wrap.closest('form');
-      this.$postalFields = this.$wrap.find('.js-PostcodeLookup__postal-add');
-      this.$dxFields = this.$wrap.find('.js-PostcodeLookup__dx-add');
+      this.$postalFields = this.$form.find('.js-PostcodeLookup__postal-add');
+      this.$dxFields = this.$form.find('.js-PostcodeLookup__dx-add');
 
       this.searchTpl = lpa.templates['postcodeLookup.search-field'];
       this.toggleTpl = lpa.templates['postcodeLookup.address-toggle'];
@@ -45,9 +45,9 @@
     },
 
     bindEvents: function () {
-      this.$wrap.on('click.moj.Modules.PostcodeLookup', '.js-PostcodeLookup__search-btn', this.searchClicked);
-      this.$wrap.on('click.moj.Modules.PostcodeLookup', '.js-PostcodeLookup__toggle-address', this.toggleClicked);
-      this.$wrap.on('change.moj.Modules.PostcodeLookup', '.js-PostcodeLookup__search-results', this.resultsChanged);
+      this.$form.on('click.moj.Modules.PostcodeLookup', '.js-PostcodeLookup__search-btn', this.searchClicked);
+      this.$form.on('click.moj.Modules.PostcodeLookup', '.js-PostcodeLookup__toggle-address', this.toggleClicked);
+      this.$form.on('change.moj.Modules.PostcodeLookup', '.js-PostcodeLookup__search-results', this.resultsChanged);
     },
 
     init: function () {
@@ -59,7 +59,7 @@
       var $el = $(e.target);
 
       // store the current query
-      this.query = this.$wrap.find('.js-PostcodeLookup__query').val();
+      this.query = this.$form.find('.js-PostcodeLookup__query').val();
 
       if (!$el.hasClass('disabled')) {
         if (this.query !== '') {
@@ -102,7 +102,7 @@
     postcodeError: function (jqXHR, textStatus, errorThrown) {
       var errorText = 'There was a problem: ';
 
-      this.$wrap.find('.js-PostcodeLookup__search-btn').spinner('off');
+      this.$form.find('.js-PostcodeLookup__search-btn').spinner('off');
 
       if (textStatus === 'timeout') {
         errorText+= 'the service did not respond in the allotted time';
@@ -125,14 +125,14 @@
         }
       } else {
       // successful
-        if (this.$wrap.find('.js-PostcodeLookup__search-results').length > 0) {
-          this.$wrap.find('.js-PostcodeLookup__search-results').parent().replaceWith(this.resultTpl({results: response.addresses}));
+        if (this.$form.find('.js-PostcodeLookup__search-results').length > 0) {
+          this.$form.find('.js-PostcodeLookup__search-results').parent().replaceWith(this.resultTpl({results: response.addresses}));
         } else {
-          this.$wrap.find('.js-PostcodeLookup__search').after(this.resultTpl({results: response.addresses}));
+          this.$form.find('.js-PostcodeLookup__search').after(this.resultTpl({results: response.addresses}));
         }
-        this.$wrap.find('.js-PostcodeLookup__search-results').focus();
+        this.$form.find('.js-PostcodeLookup__search-results').focus();
       }
-      this.$wrap.find('.js-PostcodeLookup__search-btn').spinner('off');
+      this.$form.find('.js-PostcodeLookup__search-btn').spinner('off');
     },
 
     findAddress: function (query) {
@@ -147,7 +147,7 @@
     },
 
     addressSuccess: function (response) {
-      this.$wrap.find('.js-PostcodeLookup__search-results').spinner('off');
+      this.$form.find('.js-PostcodeLookup__search-results').spinner('off');
 
       this.populateFields(response);
     },
@@ -155,12 +155,12 @@
     populateFields: function (data) {
       _.each(this.settings.fieldMappings, function (value, key) {
         if (value !== null) {
-          this.$wrap.find('[name*="' + value + '"]').val(data[key]);
+          this.$form.find('[name*="' + value + '"]').val(data[key]);
         }
       }, this);
       this.toggleAddressType('postal');
       // remove result list
-      this.$wrap.find('.js-PostcodeLookup__search-results').parent().remove();
+      this.$form.find('.js-PostcodeLookup__search-results').parent().remove();
     },
 
     toggleAddressType: function (show) {
@@ -168,8 +168,8 @@
         this.$dxFields.removeClass('hidden');
         this.$postalFields.addClass('hidden');
       } else {
-        var $search = this.$wrap.find('.js-PostcodeLookup__query'),
-            $pcode = this.$wrap.find('[name*="' + this.settings.fieldMappings.postcode + '"]');
+        var $search = this.$form.find('.js-PostcodeLookup__query'),
+            $pcode = this.$form.find('[name*="' + this.settings.fieldMappings.postcode + '"]');
         // popuplate postcode field
         if ($search.val() !== '' && $pcode.val() === '') {
           $pcode.val($search.val());
@@ -178,7 +178,7 @@
         this.$dxFields.addClass('hidden');
       }
       // toggle class
-      this.$wrap.find('.js-PostcodeLookup__toggle-address').removeClass('text-style').filter('[data-address-type="' + show + '"]').addClass('text-style');
+      this.$form.find('.js-PostcodeLookup__toggle-address').removeClass('text-style').filter('[data-address-type="' + show + '"]').addClass('text-style');
     }
   };
 
