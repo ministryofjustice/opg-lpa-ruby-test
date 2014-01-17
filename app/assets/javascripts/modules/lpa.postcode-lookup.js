@@ -17,8 +17,11 @@
 
   PostcodeLookup.prototype = {
     settings: {
-      postcodeSearchUrl: '/postcode',
-      addressSearchUrl: '/postcode/result',
+      //=================================
+      // TODO: Replace with correct URLs
+      //=================================
+      postcodeSearchUrl: '/assets/test-data/postcode-data.json',
+      addressSearchUrl: '/assets/test-data/address-data.json',
       // used to populate fields
       // key is the key name sent in response and value is name of app's field
       fieldMappings: {

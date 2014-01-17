@@ -1,0 +1,110 @@
+{
+  "addresses":[
+    {
+      "id":"",
+      "seq":"0",
+      "description":"Flat 2-5 31 Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"1",
+      "description":"Flat 2-5 39 Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"2",
+      "description":"27 Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"3",
+      "description":"29A Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"4",
+      "description":"29B-29E Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"5",
+      "description":"Flat 1 31 Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"6",
+      "description":"33 Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"7",
+      "description":"35A Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"8",
+      "description":"35B-35E Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"9",
+      "description":"37A Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"10",
+      "description":"37B-37C Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"11",
+      "description":"Flat 1 39 Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"12",
+      "description":"41 Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"13",
+      "description":"43 Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"14",
+      "description":"45A Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"15",
+      "description":"45B-45C Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"16",
+      "description":"47A Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"17",
+      "description":"47B Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"18",
+      "description":"Flat 1 49 Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"19",
+      "description":"Flat 2 49 Some Street Name London SW1"
+    },
+    {
+      "id":"",
+      "seq":"20",
+      "description":"Flat 3 49 Some Street Name London SW1"
+    }
+  ],
+  "success":true
+}
