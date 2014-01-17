@@ -107,12 +107,11 @@
       // extract the postcode and call the lookup service
       // postcode validation is carried out on the server
       $.ajax({
-        url:'http://localhost:8100/postcode/lookup',
+        url:'/postcode/lookup',
         data: {postcode:postcode},
         dataType: 'json',
         timeout: 10000, // in miliseconds
         cache: true,
-        jsonp: true,
         error: function (jqXHR, textStatus, errorThrown) {
           lookup.spinner('off');
 
@@ -155,7 +154,7 @@
                 list.spinner();
 
                 $.ajax({
-                  url:'http://localhost:8100/postcode/lookup',
+                  url:'/address/lookup',
                   data: {addressid:selectedID},
                   dataType: 'json',
                   success:function(data) {
