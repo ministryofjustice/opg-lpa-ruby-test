@@ -1,8 +1,5 @@
 require File.expand_path('../boot', __FILE__)
 
-ENV['API_HOST'] ||= 'http://localhost:9292'
-ENV['SITE_URL'] ||= 'http://localhost:3000' if Rails.env.development?
-
 # Pick the frameworks you want:
 # require "active_model"
 require "action_controller/railtie"
@@ -16,6 +13,9 @@ require 'active_resource'
 Bundler.require(:default, Rails.env)
 
 puts "==== RAILS_ENV: #{ENV['RAILS_ENV']}"
+
+ENV['API_HOST'] ||= 'http://localhost:9292'
+ENV['SITE_URL'] ||= 'http://localhost:3000' if Rails.env.development?
 
 module OpgLpa
   class Application < Rails::Application
