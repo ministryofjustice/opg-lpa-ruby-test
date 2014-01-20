@@ -145,10 +145,10 @@
           source: this.originalSource,
           onOpen: this.settings.popupOnOpen,
           beforeOpen: function () {
-            // set pcode lookup
-            $('#popup').opgPostcodeLookup();
             // trigger title replacement event
             moj.Events.trigger('TitleSwitch.render', {wrap: '#popup'});
+            // trigger postcode lookup event
+            moj.Events.trigger('PostcodeLookup.render', {wrap: '#popup'});
           }
         });
       }
@@ -169,10 +169,10 @@
                 // save to obj
                 self.formContent[form] = html;
               }
-              // set pcode lookup
-              $('#popup').opgPostcodeLookup();
               // trigger title replacement event
               moj.Events.trigger('TitleSwitch.render', {wrap: '#popup'});
+              // trigger postcode lookup event
+              moj.Events.trigger('PostcodeLookup.render', {wrap: '#popup'});
             });
           }
         });

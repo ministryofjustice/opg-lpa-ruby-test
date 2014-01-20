@@ -33,24 +33,26 @@
 - unless without_phone
   = input_for(person_form, "phone", {:label_override => "Phone (optional)"})
 
-%fieldset.address-fieldset
-  - if show_legends
-    %legend Address
-  = person_form.fields_for person_form.object.address do |person_address_form|
-    = input_for(person_address_form, "address_line1", {:label_override => "Street"})
-    = input_for(person_address_form, "address_line2", {:label_override => false})
-    = input_for(person_address_form, "address_line3", {:label_override => false})
-    = input_for(person_address_form, "town")
-    = input_for(person_address_form, "county")
-    = input_for(person_address_form, "post_code", {}, {:class => "postcode"})
-    = input_for(person_address_form, "country")
+.js-PostcodeLookup
+  %fieldset.address-fieldset.js-PostcodeLookup__postal-add
+    - if show_legends
+      %legend Address
+    = person_form.fields_for person_form.object.address do |person_address_form|
+      = input_for(person_address_form, "address_line1", {:label_override => "Street"})
+      = input_for(person_address_form, "address_line2", {:label_override => false})
+      = input_for(person_address_form, "address_line3", {:label_override => false})
+      = input_for(person_address_form, "town")
+      = input_for(person_address_form, "county")
+      = input_for(person_address_form, "post_code", {}, {:class => "postcode"})
+      = input_for(person_address_form, "country")
 
-- if show_dx_address
-  .group
-    %label{:for => "dx_number"} DX number
-    %input#dx_number{:name => "dx_number", "type" => "text"}
-  .group
-    %label{:for => "dx_exchange"} DX exchange
-    %input#dx_exchange{:name => "dx_exchange", "type" => "text"}
-  -# = input_for(person_address_form, "dx_number", {:label_override => "DX number"})
-  -# = input_for(person_address_form, "dx_exchange", {:label_override => "DX exchange"})
+  %fieldset.address-fieldset.js-PostcodeLookup__dx-add
+    - if show_dx_address
+      .group
+        %label{:for => "dx_number"} DX number
+        %input#dx_number{:name => "dx_number", "type" => "text"}
+      .group
+        %label{:for => "dx_exchange"} DX exchange
+        %input#dx_exchange{:name => "dx_exchange", "type" => "text"}
+      -# = input_for(person_address_form, "dx_number", {:label_override => "DX number"})
+      -# = input_for(person_address_form, "dx_exchange", {:label_override => "DX exchange"})
