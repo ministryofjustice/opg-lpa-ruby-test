@@ -1,6 +1,6 @@
 class NotificationsMailer < ActionMailer::Base
 
-  default to: ENV['FEEDBACK_EMAIL_RECEIVER'], from: "no-reply@lastingpowerofattorney.service.gov.uk"
+  default to: ENV['FEEDBACK_EMAIL_RECEIVER'], from: ENV['FEEDBACK_EMAIL_SENDER']
 
   def new_message(message)
     @message = message
