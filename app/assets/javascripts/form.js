@@ -34,8 +34,8 @@ $(document).ready(function () {
   // ====================================================================================
   // DETAILS TAG SUPPORT
 
-  // $('html').addClass($.fn.details.support ? 'details' : 'no-details');
-  // $('details').details();
+  $('html').addClass($.fn.details.support ? 'details' : 'no-details');
+  $('details').details();
 
   // ====================================================================================
   // Register - view docs page
