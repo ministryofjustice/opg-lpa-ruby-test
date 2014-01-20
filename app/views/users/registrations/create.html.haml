@@ -9,6 +9,10 @@
 
       - if Rails.env.test?
         %p#confirmation_token= @confirmation_token
+      - elsif Rails.env.development?
+        %p
+          %a#confirmation_url{ href: @confirmation_url }= @confirmation_url
+          for testing in development
 
       %p You'll need to use this link within 24 hours, or enter your details again.
 

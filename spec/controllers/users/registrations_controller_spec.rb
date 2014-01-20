@@ -20,7 +20,8 @@ describe Users::RegistrationsController do
       end
 
       it 'should create email with applicant email address' do
-        SignUpConfirmer.should_receive(:signup_email).with(@applicant_email_address, @confirmation_token).and_return double(deliver: nil)
+        confirm_url = "http://testhost/users/confirmations/#{@confirmation_token}"
+        SignUpConfirmer.should_receive(:signup_email).with(@applicant_email_address, confirm_url).and_return double(deliver: nil)
         get_create
       end
 

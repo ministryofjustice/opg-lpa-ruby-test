@@ -6,9 +6,9 @@ class Users::ConfirmationsController < ApplicationController
     response = auth_client.confirm_registration token
 
     if response.code == 204
-      redirect_to users_new_session_path
+      # show page on success
     else
-      redirect_to users_new_session_path
+      # show page otherwise
     end
   end
 

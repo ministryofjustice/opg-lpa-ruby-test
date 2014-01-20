@@ -24,7 +24,7 @@ gem 'govuk_template', '0.3.8'
 gem 'govuk_frontend_toolkit', github: 'ministryofjustice/govuk_frontend_toolkit_gem', branch: 'asset-submodule'
 gem 'moj_boilerplate', github: 'ministryofjustice/moj_boilerplate', tag: 'v0.3.1'
 
-gem 'author', github: 'ministryofjustice/author', branch: 'signup_confirmation'
+gem 'author', github: 'ministryofjustice/author' #, branch: 'signup_confirmation'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

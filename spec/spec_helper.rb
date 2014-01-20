@@ -3,7 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 ENV['API_HOST'] ||= 'http://localhost:9292'
 
 ENV['SENDER_EMAIL'] ||= "'Sender' <sender@testhost>"
-ENV['SITE_URL'] ||= "testhost"
+ENV['SITE_URL'] ||= "http://testhost"
 ENV['CONTACT_PHONE'] ||= "0000 000 0000"
 ENV['CONTACT_EMAIL'] ||= "contact@testhost"
 ENV['CONTACT_ADDRESS'] ||= "PO Box 123"
@@ -150,6 +150,8 @@ def confirm_registration
     raise 'confirmation_token blank'
   end
   visit "/users/confirmations/#{confirmation_token}"
+  expect(page).to have_content('Thank you. Your account has now been activated.')
+  click_link "sign in"
 end
 
 def sign_up_and_sign_in

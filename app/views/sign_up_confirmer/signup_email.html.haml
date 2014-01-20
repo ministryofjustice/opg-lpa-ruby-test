@@ -37,4 +37,4 @@
 
     %p= ENV['CONTACT_ADDRESS']
     %p
-      %a{ href: "https://#{ENV['SITE_URL']}" }= ENV['SITE_URL']
+      %a{ href: "#{ENV['SITE_URL']}" }= ENV['SITE_URL'].split('://').last
