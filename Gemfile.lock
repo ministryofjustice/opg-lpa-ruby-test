@@ -1,9 +1,8 @@
 GIT
   remote: git://github.com/ministryofjustice/author.git
-  revision: 15030264e4692c46a0058f20061ec90af758664d
-  branch: signup_confirmation
+  revision: 5528a8f60a285bd975a0b01ce492d3ed78afe9dc
   specs:
-    author (1.0)
+    author (1.2)
       httparty (>= 0.12.0)
 
 GIT
