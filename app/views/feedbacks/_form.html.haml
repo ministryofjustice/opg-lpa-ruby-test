@@ -1,0 +1,26 @@
+= form_for @feedback, :url => feedback_path, :html => {:class => "form feedback-form", :novalidate => "novalidate"} do |f|
+  = render "shared/validation_summary", :form_object => @feedback
+
+  %fieldset
+    .group
+      %label#rating_label How would you rate your experience with this service?
+      = f.radio_button :rating, "5"
+      = f.label :rating, "Very good", :value=>"5", :class=>"radio"
+      = f.radio_button :rating, "4"
+      = f.label :rating, "Good", :value=>"4", :class=>"radio"
+      = f.radio_button :rating, "3"
+      = f.label :rating, "Unsure", :value=>"3", :class=>"radio"
+      = f.radio_button :rating, "2"
+      = f.label :rating, "Bad", :value=>"2", :class=>"radio"
+      = f.radio_button :rating, "1"
+      = f.label :rating, "Very bad", :value=>"1", :class=>"radio"
+    .group
+      = f.label :text, "Please take a moment to tell us about your experience, what worked and what didn't.", :id => "text_label"
+      = f.text_area :text, :cols => 50, :rows => 5
+      %p#char-limit 2000 characters max
+    .group
+      = f.label :email, "Your email address (optional)", :id => "email_label"
+      = f.email_field :email
+    %p.action.group
+      %input{:name => "referrer", :type => "hidden", :value => params[:referrer]}
+      = f.submit "Send", :class => "button"

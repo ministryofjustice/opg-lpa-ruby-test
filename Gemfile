@@ -22,7 +22,7 @@ gem 'numbers_and_words'
 # Front-end Gems
 gem 'govuk_template', '0.3.8'
 gem 'govuk_frontend_toolkit', github: 'ministryofjustice/govuk_frontend_toolkit_gem', branch: 'asset-submodule'
-gem 'moj_boilerplate', github: 'ministryofjustice/moj_boilerplate', tag: 'v0.3.1'
+gem 'moj_boilerplate', github: 'ministryofjustice/moj_boilerplate', tag: 'v0.4.0'
 
 gem 'author', github: 'ministryofjustice/author' #, branch: 'signup_confirmation'
 

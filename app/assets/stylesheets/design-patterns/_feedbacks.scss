@@ -1,0 +1,34 @@
+.feedback-form.form {
+  .validation-summary {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  fieldset {
+    padding: 15px 30px;
+    margin-top: 0;
+    background: lighten($grey-3, 4%);
+
+    .field_with_errors {
+      display: inline;
+      display: inline-block;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      background: $white;
+    }
+
+    label.radio {
+      padding-right: 20px;
+      padding-left: 5px;
+      display: inline;
+    }
+  }
+
+  #char-limit {
+    font-size: 11px;
+    margin-top: 0;
+    color: #444444;
+  }
+}

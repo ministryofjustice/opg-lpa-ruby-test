@@ -1,0 +1,11 @@
+-# if ENV['APP_PLATFORM'] == 'production'
+  - content_for :javascript do
+    :javascript
+      sendFeedbackToGA();
+
+%header.page-header.inner
+  %h1 Send feedback
+
+%article
+  .inner.send-feedback
+    = render "feedbacks/form"
