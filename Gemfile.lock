@@ -6,24 +6,6 @@ GIT
       httparty (>= 0.12.0)
 
 GIT
-  remote: git://github.com/ministryofjustice/govuk_frontend_toolkit_gem.git
-  revision: 145acb0dbfd64ea08a5d62189deb7fb2365bd41f
-  branch: asset-submodule
-  specs:
-    govuk_frontend_toolkit (0.39.0)
-      rails (>= 3.1.0)
-      sass (>= 3.2.0)
-
-GIT
-  remote: git://github.com/ministryofjustice/moj_boilerplate.git
-  revision: 0f98161db6f645e4bf67376485722ca980ec387b
-  tag: v0.3.1
-  specs:
-    moj_boilerplate (0.3.1)
-      govuk_frontend_toolkit (= 0.39.0)
-      govuk_template (= 0.3.8)
-
-GIT
   remote: git://github.com/ministryofjustice/x-moj-auth.git
   revision: 46d4cd72a2561e7162132f30524b0352e739c8de
   specs:
@@ -113,8 +95,9 @@ GEM
       dotenv (>= 0.7)
       thor (>= 0.13.6)
     formatador (0.2.4)
-    govuk_template (0.3.8)
-      rails (>= 3.1)
+    govuk_frontend_toolkit (0.43.0)
+      rails (>= 3.1.0)
+      sass (>= 3.2.0)
     guard (2.2.5)
       formatador (>= 0.2.4)
       listen (~> 2.1)
@@ -154,6 +137,8 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
+    moj_template (0.5.8)
+      rails (>= 3.1)
     multi_json (1.8.4)
     multi_xml (0.5.5)
     multiparameter_attributes_handler (0.0.2)
@@ -298,14 +283,13 @@ DEPENDENCIES
   country_select
   coveralls
   foreman
-  govuk_frontend_toolkit!
-  govuk_template (= 0.3.8)
+  govuk_frontend_toolkit (= 0.43.0)
   guard-rspec
   haml-rails
   httparty
   launchy
   letter_opener
-  moj_boilerplate!
+  moj_template
   multiparameter_attributes_handler
   newrelic_rpm
   numbers_and_words

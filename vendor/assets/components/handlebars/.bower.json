@@ -11,7 +11,6 @@
     "commit": "3ea87359ecb42a65a24bffc53e318352d55cb6b4"
   },
   "_source": "git://github.com/components/handlebars.js.git",
-  "_target": "~1.1.2",
-  "_originalSource": "handlebars",
-  "_direct": true
+  "_target": "1.1.2",
+  "_originalSource": "handlebars"
 }

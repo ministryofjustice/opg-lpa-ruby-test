@@ -1,7 +1,6 @@
 // require turbolinks
 
 //===== Bower packages - /vendor/assets/components/ =====\\
-//= require jquery
 //= require jquery-ujs
 //= require parsleyjs/parsley
 //= require handlebars
@@ -12,7 +11,7 @@
 // require jquery.tools.min
 
 //===== MOJ boilerplate object and modules - [moj_boilerplate] Gem =====\\
-//= require moj
+
 
 //===== LPA app object and modules - /app/assets/javascripts/ =====\\
 //= require lpa.helpers
@@ -34,5 +33,3 @@
 //= require form
 //= require date-picker
 //= require pwstrength
-
-$( moj.init );

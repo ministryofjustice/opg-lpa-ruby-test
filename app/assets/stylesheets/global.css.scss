@@ -1,5 +1,13 @@
-// Import the MOJ Boilerplate Base styles
-@import "moj-base";
+// GOV.UK Toolkit
+@import "colours";
+@import "typography";
+@import "conditionals";
+@import "device-pixels";
+@import "measurements";
+@import "css3";
+@import "shims";
+@import "design-patterns/buttons";
+@import "design-patterns/alpha-beta";
 
 // GOV.UK Styleguide design patterns
 @import "design-patterns/accordion-form";
